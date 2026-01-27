@@ -262,43 +262,15 @@ This system generates **REAL V2Ray traffic** using the `v2ray2proxy` library and
 
 ---
 
-## Key Differences: Real vs Simulated
+## How Real V2Ray Traffic is Generated
 
-### ❌ OLD (Simulated/Fake)
-
-```python
-# attack_simulator.py (OLD)
-def generate_high_entropy_payload(self, size=1024):
-    """Generate FAKE high entropy payload"""
-    # Just random bytes - NOT real V2Ray protocol
-    return bytes(random.randint(0, 255) for _ in range(size))
-
-def generate_websocket_handshake_no_ua(self):
-    """Generate FAKE WebSocket without User-Agent"""
-    # Crafted packet - NOT from real V2Ray client
-    handshake = "GET / HTTP/1.1\r\n..."
-    return handshake.encode()
-
-# Sends crafted packets with Scapy
-packet = IP(dst=target) / TCP() / Raw(load=payload)
-send(packet)
-```
-
-**Problems**:
-- ❌ Not using real V2Ray protocols
-- ❌ Not testing actual VMess/VLESS/Shadowsocks/Trojan
-- ❌ Can't validate detection accuracy against real traffic
-- ❌ Patterns are simplified/fake
-
----
-
-### ✅ NEW (Real V2Ray)
+This system generates **authentic V2Ray traffic** using the `v2ray2proxy` library:
 
 ```python
-# attack_simulator.py (NEW)
 from v2ray2proxy import V2RayProxy
+import requests
 
-# Initialize REAL V2Ray proxy
+# Initialize REAL V2Ray proxy connection
 proxy = V2RayProxy("vmess://base64_config")
 
 # Make REAL HTTP request through V2Ray
@@ -309,19 +281,19 @@ proxies = {
 response = requests.get('http://httpbin.org/ip', proxies=proxies)
 
 # v2ray2proxy handles:
-# ✓ VMess encryption (AES-128-GCM)
-# ✓ VLESS protocol negotiation
-# ✓ Shadowsocks cipher
-# ✓ Trojan TLS handshake
-# ✓ WebSocket transport
-# ✓ Real protocol headers and obfuscation
+# - VMess encryption (AES-128-GCM)
+# - VLESS protocol negotiation
+# - Shadowsocks cipher
+# - Trojan TLS handshake
+# - WebSocket transport
+# - Real protocol headers and obfuscation
 ```
 
-**Benefits**:
-- ✅ Uses REAL V2Ray protocols
-- ✅ Tests against actual VMess/VLESS/Shadowsocks/Trojan
-- ✅ Validates detection accuracy
-- ✅ Generates authentic encrypted traffic
+**Why This Matters**:
+- Uses REAL V2Ray protocols (not fake patterns)
+- Tests against actual VMess/VLESS/Shadowsocks/Trojan encryption
+- Validates detection accuracy against authentic traffic
+- Generates the SAME traffic a real V2Ray client would produce
 
 ---
 
@@ -367,7 +339,7 @@ response = requests.get('http://httpbin.org/ip', proxies=proxies)
 
 ## Components Breakdown
 
-### 1. Attacker Container (REAL V2Ray Generator)
+### 1. Traffic Generator Container (Attacker)
 
 **Key Libraries**:
 - `v2ray2proxy==0.3.2` - Converts V2Ray URLs to proxies

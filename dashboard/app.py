@@ -189,13 +189,13 @@ def api_reset():
 
 @app.route('/api/attack/start', methods=['POST'])
 def api_attack_start():
-    """Start attack simulation"""
+    """Start V2Ray traffic generation"""
     try:
         import subprocess
 
         # Start attacker container using docker-compose
         result = subprocess.run(
-            ['docker-compose', 'up', '-d', 'attacker'],
+            ['docker-compose', '--profile', 'attack', 'up', '-d', 'attacker'],
             cwd='/app',
             capture_output=True,
             text=True
@@ -203,8 +203,8 @@ def api_attack_start():
 
         if result.returncode == 0:
             dashboard_state['is_attack_running'] = True
-            logger.info("Attack simulation started via docker-compose")
-            return jsonify({'status': 'success', 'message': 'Attack started'})
+            logger.info("V2Ray traffic generation started via docker-compose")
+            return jsonify({'status': 'success', 'message': 'Traffic generation started'})
         else:
             logger.error(f"Failed to start attacker: {result.stderr}")
             return jsonify({'status': 'error', 'message': 'Failed to start attack container'}), 500
@@ -216,7 +216,7 @@ def api_attack_start():
 
 @app.route('/api/attack/stop', methods=['POST'])
 def api_attack_stop():
-    """Stop attack simulation"""
+    """Stop V2Ray traffic generation"""
     try:
         import subprocess
 
@@ -232,8 +232,8 @@ def api_attack_stop():
             # Remove container
             subprocess.run(['docker-compose', 'rm', '-f', 'attacker'], cwd='/app')
             dashboard_state['is_attack_running'] = False
-            logger.info("Attack simulation stopped via docker-compose")
-            return jsonify({'status': 'success', 'message': 'Attack stopped'})
+            logger.info("V2Ray traffic generation stopped via docker-compose")
+            return jsonify({'status': 'success', 'message': 'Traffic generation stopped'})
         else:
             logger.error(f"Failed to stop attacker: {result.stderr}")
             return jsonify({'status': 'error', 'message': 'Failed to stop attack container'}), 500

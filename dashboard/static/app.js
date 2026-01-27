@@ -222,19 +222,19 @@ socket.on('dashboard_update', (data) => {
 
 // Control button handlers
 document.getElementById('btn-start-attack').addEventListener('click', async () => {
-    if (confirm('Start aggressive V2Ray attack simulation?')) {
+    if (confirm('Start V2Ray traffic generation?')) {
         try {
             const response = await fetch('/api/attack/start', {method: 'POST'});
             const data = await response.json();
 
             if (data.status === 'success') {
-                showAttackStatus('Attack simulation started. Monitoring traffic...');
+                showAttackStatus('V2Ray traffic generation active. Monitoring...');
                 document.getElementById('btn-start-attack').disabled = true;
                 document.getElementById('btn-stop-attack').disabled = false;
             }
         } catch (error) {
-            console.error('Error starting attack:', error);
-            alert('Error starting attack: ' + error.message);
+            console.error('Error starting traffic generator:', error);
+            alert('Error starting traffic generator: ' + error.message);
         }
     }
 });
@@ -304,7 +304,7 @@ function hideAttackStatus() {
 
 function updateAttackStatus(isRunning) {
     if (isRunning) {
-        showAttackStatus('⚠️ Attack simulation is active');
+        showAttackStatus('V2Ray traffic generation is active');
         document.getElementById('btn-start-attack').disabled = true;
         document.getElementById('btn-stop-attack').disabled = false;
     } else {

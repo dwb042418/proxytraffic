@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 LABEL maintainer="V2Ray Detection Team"
-LABEL description="V2Ray Attack Simulator"
+LABEL description="V2Ray Traffic Generator"
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -27,5 +27,5 @@ COPY config.yaml .
 # Set Python path
 ENV PYTHONPATH=/app
 
-# Run attack simulator
+# Run V2Ray traffic generator
 CMD ["python", "-u", "src/attack_simulator.py"]

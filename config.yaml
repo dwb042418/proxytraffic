@@ -45,36 +45,23 @@ attacker:
     - "http://ifconfig.me"
     - "http://api.ipify.org?format=json"
 
-  # Legacy config (kept for compatibility - not used with real V2Ray)
-  # Packets per second
+  # Legacy configuration (deprecated - kept for reference)
+  # The system now uses real V2Ray traffic via v2ray2proxy library
+  # These settings are no longer used:
   pps:
     light: 10
     medium: 50
     aggressive: 200
-
-  # Protocols to simulate (not used with real V2Ray)
   protocols:
     - vmess
     - vless
     - shadowsocks
     - trojan
-    - dns_tunnel
-
-  # Target configuration (not used with real V2Ray)
   target_host: "detector"
   target_ports:
     - 443
     - 8443
     - 10086
-
-  # Traffic patterns (not used with real V2Ray)
-  patterns:
-    missing_user_agent: true
-    high_entropy: true
-    unidirectional: true
-    dns_tunneling: true
-    websocket_abuse: true
-    cdn_proxy: true
 
 dashboard:
   # Web server

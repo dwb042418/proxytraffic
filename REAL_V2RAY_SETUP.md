@@ -1,20 +1,21 @@
 # Setting Up REAL V2Ray Traffic Generation
 
-## What Changed
+## Overview
 
-The system has been upgraded from **SIMULATED** to **REAL** V2Ray traffic generation.
+This system generates **REAL V2Ray traffic** using the `v2ray2proxy` library. All traffic runs inside Docker containers, with a local V2Ray server included for testing.
 
-### Before (Simulated)
-- ❌ Generated fake packets with random bytes
-- ❌ Crafted WebSocket handshakes manually
-- ❌ No real V2Ray protocols
-- ❌ Patterns were simplified/fake
+### How It Works
+- A real V2Ray server runs in Docker (v2fly/v2fly-core)
+- The traffic generator uses `v2ray2proxy` to connect to the V2Ray server
+- HTTP requests are made through the V2Ray tunnel
+- The detector captures and analyzes the encrypted traffic
+- Alerts appear on the dashboard when V2Ray patterns are detected
 
-### After (Real)
-- ✅ Uses `v2ray2proxy` library
-- ✅ Connects to real V2Ray servers
-- ✅ Generates authentic VMess/VLESS/Shadowsocks/Trojan traffic
-- ✅ Real encryption and protocols
+### Key Benefits
+- Uses actual V2Ray protocols (VMess, VLESS, Shadowsocks, Trojan)
+- Generates authentic encrypted traffic
+- Everything runs in isolated Docker containers
+- No external dependencies required for basic testing
 
 ---
 
@@ -231,29 +232,34 @@ docker-compose logs attacker
 
 ---
 
-## Testing Without Real V2Ray Servers
+## Testing with the Included V2Ray Server
 
-If you don't have V2Ray servers but want to test the detector:
+The system includes a local V2Ray server that runs in Docker - no external servers required!
 
-### Option 1: Use Fallback Mode (TODO)
+### Local V2Ray Server (Included)
 
-We can add a fallback to simulated traffic if no servers configured.
+The `v2ray-server` container (172.23.0.40:10086) is automatically configured in `config.yaml`:
 
-### Option 2: Deploy Local V2Ray Server
-
-Run V2Ray server in another Docker container:
-
-```bash
-# Pull V2Ray image
-docker pull v2fly/v2fly-core
-
-# Run with example config
-docker run -d --name v2ray-server \
-  -p 10086:10086 \
-  v2fly/v2fly-core run -c /etc/v2ray/config.json
+```yaml
+v2ray_servers:
+  - "vmess://eyJ2IjoiMiIsInBzIjoibG9jYWwtdjJyYXkiLCJhZGQiOiIxNzIuMjMuMC40MCIsInBvcnQiOiIxMDA4NiIsImlkIjoiMGJhMGQ4MmMtNGFjZS00NTI4LWFhZGMtZTVmOWY4MzM4ODBjIiwiYWlkIjoiMCIsIm5ldCI6IndzIiwidHlwZSI6Im5vbmUiLCJob3N0IjoiIiwicGF0aCI6Ii9yYXkiLCJ0bHMiOiIifQ=="
 ```
 
-Then use `vmess://localhost:10086` in config.
+This creates a complete testing environment:
+- Real V2Ray server running locally
+- Traffic generator connects to it via VMess protocol
+- Detector captures the encrypted traffic
+- Dashboard shows detection alerts
+
+### Using External V2Ray Servers (Optional)
+
+To test with external servers, add more URLs to `config.yaml`:
+
+```yaml
+v2ray_servers:
+  - "vmess://..."    # External VMess server
+  - "vless://..."    # External VLESS server
+```
 
 ---
 

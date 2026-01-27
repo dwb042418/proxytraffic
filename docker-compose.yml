@@ -27,7 +27,7 @@ services:
     command: python src/detector.py
     restart: unless-stopped
 
-  # Attack Simulator Container
+  # V2Ray Traffic Generator Container (generates REAL V2Ray traffic for testing)
   attacker:
     build:
       context: .

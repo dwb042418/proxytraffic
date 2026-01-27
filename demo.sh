@@ -84,8 +84,8 @@ start_system() {
         echo -e "${GREEN}Dashboard URL: http://localhost:3000${NC}"
         echo ""
         echo "Available commands:"
-        echo "  ./demo.sh attack    - Start attack simulation"
-        echo "  ./demo.sh stop      - Stop attack"
+        echo "  ./demo.sh attack    - Start V2Ray traffic generation"
+        echo "  ./demo.sh stop      - Stop traffic generation"
         echo "  ./demo.sh reset     - Reset all data"
         echo "  ./demo.sh logs      - View detector logs"
         echo "  ./demo.sh down      - Shutdown system"
@@ -100,35 +100,35 @@ start_system() {
     fi
 }
 
-# Start attack simulation
+# Start V2Ray traffic generation
 start_attack() {
-    print_info "Starting aggressive attack simulation..."
+    print_info "Starting V2Ray traffic generation..."
 
     if ! docker-compose ps | grep -q "detector.*Up"; then
         print_error "System is not running. Start it first with: ./demo.sh start"
         exit 1
     fi
 
-    # Start attacker container
-    docker-compose up -d attacker
+    # Start attacker container (traffic generator)
+    docker-compose --profile attack up -d attacker
 
-    print_success "Attack simulation started!"
+    print_success "V2Ray traffic generator started!"
     echo ""
     echo "Watch the dashboard for real-time detection: http://localhost:3000"
-    echo "Stop attack with: ./demo.sh stop"
+    echo "Stop with: ./demo.sh stop"
     echo ""
-    print_info "View attack logs:"
+    print_info "View traffic generator logs:"
     echo "  docker-compose logs -f attacker"
 }
 
-# Stop attack
+# Stop traffic generation
 stop_attack() {
-    print_info "Stopping attack simulation..."
+    print_info "Stopping V2Ray traffic generation..."
 
     docker-compose stop attacker
     docker-compose rm -f attacker
 
-    print_success "Attack stopped"
+    print_success "Traffic generation stopped"
 }
 
 # Reset all data
@@ -201,9 +201,9 @@ check_status() {
     fi
 
     if docker-compose ps | grep -q "attacker.*Up"; then
-        print_success "Attack simulation is active"
+        print_success "V2Ray traffic generator is active"
     else
-        print_info "Attack simulation is inactive"
+        print_info "V2Ray traffic generator is inactive"
     fi
 }
 
@@ -214,8 +214,8 @@ show_help() {
     echo ""
     echo "Commands:"
     echo "  start    - Start the detection system and dashboard"
-    echo "  attack   - Launch attack simulation"
-    echo "  stop     - Stop attack simulation"
+    echo "  attack   - Launch V2Ray traffic generation"
+    echo "  stop     - Stop V2Ray traffic generation"
     echo "  reset    - Reset all data and restart"
     echo "  logs     - View detector logs (or specify: logs attacker)"
     echo "  status   - Check system status"

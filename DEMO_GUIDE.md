@@ -90,7 +90,7 @@ You should see the V2Ray Detection Dashboard with:
 - Alert panel
 - Attack controls
 
-### Step 3: Start Attack Simulation
+### Step 3: Start V2Ray Traffic Generation
 
 **Option A: From Dashboard**
 - Click the "Start Attack" button in the web UI
@@ -99,6 +99,9 @@ You should see the V2Ray Detection Dashboard with:
 ```bash
 docker compose --profile attack up -d attacker
 ```
+
+This starts the traffic generator which connects to the local V2Ray server
+and makes real HTTP requests through the V2Ray tunnel.
 
 ### Step 4: Monitor Detection
 
