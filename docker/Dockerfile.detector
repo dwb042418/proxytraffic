@@ -1,0 +1,44 @@
+FROM python:3.11-slim
+
+LABEL maintainer="V2Ray Detection Team"
+LABEL description="Real-time V2Ray/Proxy Detection Engine"
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    tcpdump \
+    tshark \
+    libpcap-dev \
+    gcc \
+    g++ \
+    curl \
+    net-tools \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY src/ ./src/
+COPY config.yaml .
+
+# Create necessary directories
+RUN mkdir -p /app/data /app/logs
+
+# Set Python path
+ENV PYTHONPATH=/app
+
+# Expose ports (if needed for debugging)
+EXPOSE 8080
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD ps aux | grep detector.py || exit 1
+
+# Run detector
+CMD ["python", "-u", "src/detector.py"]

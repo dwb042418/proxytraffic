@@ -1,0 +1,228 @@
+================================================================================
+V2RAY DETECTION SYSTEM - PLAIN ENGLISH EXPLANATION
+================================================================================
+
+WHAT IS THIS PROJECT?
+---------------------
+This is a security tool that detects when someone is using V2Ray (a popular
+proxy/VPN tool often used to bypass internet censorship) on a network.
+
+Think of it like a security camera that can spot people using secret tunnels
+to sneak past your network's firewall.
+
+
+WHAT IS V2RAY?
+--------------
+V2Ray is software that encrypts internet traffic and routes it through
+servers to:
+- Bypass censorship (like China's Great Firewall)
+- Hide what websites you're visiting
+- Access blocked content
+
+It's similar to a VPN but more sophisticated with multiple protocols:
+- VMess (V2Ray's custom encrypted protocol)
+- VLESS (lighter version of VMess)
+- Shadowsocks (another encryption protocol)
+- Trojan (disguises traffic as normal HTTPS)
+
+
+WHY DETECT V2RAY?
+-----------------
+Organizations might want to detect V2Ray for:
+- Corporate security (prevent data exfiltration)
+- Network policy enforcement
+- Research and education
+- Understanding how proxy detection works
+
+This is a DEFENSIVE security tool for network administrators.
+
+
+HOW DOES THIS SYSTEM WORK?
+--------------------------
+
+The system has 3 main parts running in Docker containers:
+
+1. DETECTOR (the brain)
+   - Captures all network packets using Scapy
+   - Analyzes traffic patterns
+   - Looks for signs of V2Ray:
+     * High entropy (encrypted data looks random)
+     * Missing normal HTTP headers
+     * Unusual traffic patterns
+   - Gives each connection a "risk score" from 0-100
+   - Score > 70 = likely V2Ray traffic
+
+2. DASHBOARD (the face)
+   - Web interface at http://localhost:3000
+   - Shows real-time statistics
+   - Displays alerts when V2Ray is detected
+   - Charts and graphs of network activity
+
+3. ATTACKER (the test dummy)
+   - Generates REAL V2Ray traffic for testing
+   - Connects to actual V2Ray servers
+   - Makes HTTP requests through V2Ray proxies
+   - This lets you verify the detector actually works
+
+
+HOW DETECTION WORKS (SIMPLE VERSION)
+------------------------------------
+
+Normal web traffic:
+- Has headers like "User-Agent: Chrome/120"
+- Has readable text mixed with data
+- Entropy (randomness) around 4-5 bits/byte
+
+V2Ray traffic:
+- Highly encrypted = looks like random noise
+- Entropy around 7.8-7.99 bits/byte (almost maximum randomness)
+- Often missing normal HTTP headers
+- Unusual traffic patterns (mostly one-way data flow)
+
+The detector scores traffic based on these factors:
+- High entropy (+25 points)
+- One-way traffic (+40 points)
+- Missing User-Agent (+15 points)
+- WebSocket without headers (+20 points)
+- Suspicious DNS (+30 points)
+
+Total > 70 = ALERT: Likely V2Ray!
+
+
+HOW TO RUN IT
+-------------
+
+1. Start the system:
+   docker compose up -d
+
+2. Open dashboard:
+   http://localhost:3000
+
+3. Start the attacker (optional, for testing):
+   docker compose --profile attack up -d attacker
+
+4. Watch the dashboard for alerts
+
+
+PROJECT FILES EXPLAINED
+-----------------------
+
+docker-compose.yml    - Defines the 3 containers and how they connect
+config.yaml           - All settings (thresholds, V2Ray servers, etc.)
+
+src/detector.py       - Main detection engine (packet capture + analysis)
+src/scoring.py        - Risk scoring logic
+src/database.py       - Stores flow data in SQLite
+src/parsers.py        - Protocol parsing utilities
+src/attack_simulator.py - Generates V2Ray test traffic
+
+dashboard/app.py      - Flask web server for the UI
+dashboard/templates/  - HTML templates
+dashboard/static/     - CSS and JavaScript
+
+docker/Dockerfile.*   - Container build instructions
+
+
+WHAT YOU NEED TO TEST IT PROPERLY
+---------------------------------
+
+The "attacker" container needs working V2Ray server URLs to generate
+real traffic. The servers in config.yaml are public free servers that
+often go offline.
+
+Options:
+1. Find fresh free V2Ray servers online
+2. Set up your own V2Ray server (see below)
+3. Just run detector + dashboard to monitor your own network
+
+
+SETTING UP YOUR OWN V2RAY SERVER
+--------------------------------
+
+See the section below for step-by-step instructions to deploy your own
+V2Ray server on a VPS (Virtual Private Server) like AWS, DigitalOcean,
+or any Linux server you control.
+
+
+LIMITATIONS
+-----------
+
+What this CAN detect:
+- Basic V2Ray with high entropy
+- Traffic patterns (unidirectional flows)
+- Missing standard HTTP headers
+- Suspicious WebSocket usage
+
+What this CANNOT easily detect:
+- V2Ray through Cloudflare CDN (looks like normal HTTPS)
+- Trojan protocol (mimics real HTTPS perfectly)
+- Low-volume, careful V2Ray usage
+- Properly configured TLS with valid certificates
+
+
+LEGAL/ETHICAL NOTES
+-------------------
+
+This tool is for:
+- Testing your OWN networks
+- Security research with proper authorization
+- Educational purposes
+- Understanding network detection techniques
+
+NOT for:
+- Spying on others without consent
+- Bypassing security you're not authorized to test
+- Any illegal surveillance
+
+
+SUMMARY
+-------
+
+This project = "V2Ray detector"
+
+It watches network traffic, looks for signs of encrypted proxy usage,
+and alerts you when it finds suspicious patterns. It's like an intrusion
+detection system (IDS) specifically tuned to find V2Ray/proxy traffic.
+
+The dashboard shows you everything in real-time, and the attacker container
+lets you test that detection actually works by generating real V2Ray traffic.
+
+================================================================================
+END OF EXPLANATION
+================================================================================
+
+
+================================================================================
+TEST RESULTS - Tue Jan 27 15:16:30 IST 2026
+================================================================================
+
+SETUP STATUS:
+- V2Ray Server: Running (172.23.0.40:10086)
+- Detector: Running (shared network with V2Ray server)
+- Attacker: Running (172.23.0.20)
+- Dashboard: Running (http://localhost:3000)
+
+TRAFFIC CAPTURED:
+- Total Packets: 
+- Total Flows: 
+
+V2RAY TRAFFIC CHARACTERISTICS:
+- Encrypted VMess/WebSocket traffic between attacker (172.23.0.20) and V2Ray server (172.23.0.40)
+- Port 10086
+- Entropy measured: 7.74 bits/byte (above detection threshold of 7.5)
+
+DETECTION STATUS:
+The system IS capturing V2Ray traffic and measuring high entropy.
+Alerts haven't triggered yet because individual connections close before 
+reaching the 50-packet threshold for flow analysis.
+
+WHAT THIS PROVES:
+1. Docker setup works correctly
+2. V2Ray server is functional
+3. Traffic generator is working
+4. Detector captures encrypted packets
+5. Entropy calculation shows V2Ray traffic is detectable (7.74 bits/byte)
+
+The detection logic requires tuning for short-lived connections typical
+of HTTP-over-V2Ray traffic patterns.
+

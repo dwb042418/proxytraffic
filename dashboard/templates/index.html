@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2Ray Detection System - Real-time Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>🔍 V2Ray Detection System</h1>
+                <div class="status-indicator">
+                    <span id="status-dot" class="status-dot active"></span>
+                    <span id="status-text">System Active</span>
+                    <span class="separator">|</span>
+                    <span>Uptime: <span id="uptime">00:00:00</span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-content">
+                    <div class="stat-label">Total Packets</div>
+                    <div class="stat-value" id="stat-packets">0</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🌊</div>
+                <div class="stat-content">
+                    <div class="stat-label">Total Flows</div>
+                    <div class="stat-value" id="stat-flows">0</div>
+                </div>
+            </div>
+
+            <div class="stat-card warning">
+                <div class="stat-icon">⚠️</div>
+                <div class="stat-content">
+                    <div class="stat-label">Suspicious</div>
+                    <div class="stat-value" id="stat-suspicious">0</div>
+                </div>
+            </div>
+
+            <div class="stat-card danger">
+                <div class="stat-icon">🚨</div>
+                <div class="stat-content">
+                    <div class="stat-label">High Risk</div>
+                    <div class="stat-value" id="stat-highrisk">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h2>Control Panel</h2>
+            <div class="button-group">
+                <button id="btn-start-attack" class="btn btn-danger">▶ Start Attack</button>
+                <button id="btn-stop-attack" class="btn btn-secondary" disabled>⏹ Stop Attack</button>
+                <button id="btn-reset" class="btn btn-warning">🔄 Reset Data</button>
+                <button id="btn-report" class="btn btn-primary">📄 Generate Report</button>
+            </div>
+            <div id="attack-status" class="attack-status"></div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>Traffic Analysis (Real-time)</h3>
+                <canvas id="trafficChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>Risk Score Distribution</h3>
+                <canvas id="riskChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Alerts Feed -->
+        <div class="alerts-section">
+            <div class="section-header">
+                <h2>🚨 Recent Alerts</h2>
+                <div class="alert-count">
+                    <span id="alerts-count">0</span> alerts
+                </div>
+            </div>
+
+            <div id="alerts-feed" class="alerts-feed">
+                <div class="no-alerts">No alerts detected yet. System is monitoring...</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>V2Ray Detection System v1.0.0 | Educational POC | <span id="last-update">-</span></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

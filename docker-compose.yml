@@ -1,0 +1,114 @@
+version: '3.8'
+
+services:
+  # Detection Engine Container (shares network with V2Ray server to sniff traffic)
+  detector:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.detector
+    container_name: v2ray-detector
+    network_mode: "service:v2ray-server"
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config.yaml:/app/config.yaml
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DETECTOR_MODE=realtime
+      - LOG_LEVEL=INFO
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    privileged: true
+    depends_on:
+      - v2ray-server
+      - dashboard
+    command: python src/detector.py
+    restart: unless-stopped
+
+  # Attack Simulator Container
+  attacker:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.attacker
+      platforms:
+        - linux/amd64
+    platform: linux/amd64
+    container_name: v2ray-attacker
+    hostname: attacker
+    networks:
+      v2ray-net:
+        ipv4_address: 172.23.0.20
+    volumes:
+      - ./src:/app/src
+      - ./config.yaml:/app/config.yaml
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ATTACK_INTENSITY=aggressive
+      - TARGET_HOST=detector
+      - LOG_LEVEL=INFO
+    cap_add:
+      - NET_RAW
+    depends_on:
+      - detector
+    profiles:
+      - attack
+    command: python src/attack_simulator.py
+
+  # V2Ray Server (for testing)
+  v2ray-server:
+    image: v2fly/v2fly-core:latest
+    platform: linux/amd64
+    container_name: v2ray-server
+    hostname: v2ray-server
+    networks:
+      v2ray-net:
+        ipv4_address: 172.23.0.40
+    volumes:
+      - /tmp/v2ray-config.json:/etc/v2ray/config.json:ro
+    command: run -c /etc/v2ray/config.json
+    restart: unless-stopped
+
+  # Dashboard Web UI Container
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dashboard
+    container_name: v2ray-dashboard
+    hostname: dashboard
+    networks:
+      v2ray-net:
+        ipv4_address: 172.23.0.30
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./dashboard:/app/dashboard
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./docker-compose.yml:/app/docker-compose.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - FLASK_APP=dashboard/app.py
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    command: python dashboard/app.py
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  v2ray-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.23.0.0/16
+          gateway: 172.23.0.1
+
+volumes:
+  detector-data:
+  logs:
+  reports:

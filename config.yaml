@@ -1,0 +1,176 @@
+# V2Ray Detection System Configuration
+
+detector:
+  # Network capture settings
+  interface: "eth0"
+  capture_filter: "tcp or udp"
+  buffer_size: 65535
+
+  # Detection thresholds
+  alert_threshold: 70
+  suspicious_threshold: 40
+
+  # Analysis settings
+  flow_timeout: 300  # seconds
+  max_flows: 10000
+
+  # Database
+  db_path: "/app/data/flows.db"
+
+  # Logging
+  log_file: "/app/logs/detector.log"
+  log_level: "INFO"
+
+attacker:
+  # Attack intensity: light | medium | aggressive
+  # light: 2 req/s, medium: 10 req/s, aggressive: 30 req/s
+  intensity: "medium"
+
+  # Duration in seconds (0 = infinite)
+  duration: 300  # 5 minutes
+
+  # REAL V2Ray Server URLs (vmess://, vless://, ss://, trojan://)
+  # LOCAL V2Ray server for testing (inside Docker network)
+  v2ray_servers:
+    # Local VMess server (172.23.0.40 in Docker network)
+    - "vmess://eyJ2IjoiMiIsInBzIjoibG9jYWwtdjJyYXkiLCJhZGQiOiIxNzIuMjMuMC40MCIsInBvcnQiOiIxMDA4NiIsImlkIjoiMGJhMGQ4MmMtNGFjZS00NTI4LWFhZGMtZTVmOWY4MzM4ODBjIiwiYWlkIjoiMCIsIm5ldCI6IndzIiwidHlwZSI6Im5vbmUiLCJob3N0IjoiIiwicGF0aCI6Ii9yYXkiLCJ0bHMiOiIifQ=="
+
+  # Target URLs to access through V2Ray (for generating traffic)
+  target_urls:
+    - "http://httpbin.org/ip"
+    - "http://httpbin.org/user-agent"
+    - "http://httpbin.org/headers"
+    - "http://httpbin.org/get"
+    - "http://example.com"
+    - "http://ifconfig.me"
+    - "http://api.ipify.org?format=json"
+
+  # Legacy config (kept for compatibility - not used with real V2Ray)
+  # Packets per second
+  pps:
+    light: 10
+    medium: 50
+    aggressive: 200
+
+  # Protocols to simulate (not used with real V2Ray)
+  protocols:
+    - vmess
+    - vless
+    - shadowsocks
+    - trojan
+    - dns_tunnel
+
+  # Target configuration (not used with real V2Ray)
+  target_host: "detector"
+  target_ports:
+    - 443
+    - 8443
+    - 10086
+
+  # Traffic patterns (not used with real V2Ray)
+  patterns:
+    missing_user_agent: true
+    high_entropy: true
+    unidirectional: true
+    dns_tunneling: true
+    websocket_abuse: true
+    cdn_proxy: true
+
+dashboard:
+  # Web server
+  host: "0.0.0.0"
+  port: 3000
+
+  # WebSocket update interval (ms)
+  update_interval: 500
+
+  # UI theme
+  theme: "corporate"  # corporate | cyber
+
+  # Dashboard settings
+  max_alerts_display: 100
+  chart_history_seconds: 300
+
+  # Report generation
+  reports_dir: "/app/reports"
+  report_format: "html"  # html | json | pdf
+
+scoring:
+  # Detection rule weights (0-100)
+  weights:
+    missing_user_agent: 15
+    unidirectional_low: 20   # 75-89%
+    unidirectional_high: 40  # 90%+
+    high_entropy: 25
+    dns_tunneling: 30
+    websocket_opcode: 20
+    cdn_abuse: 15
+    gtp_tunnel: 25
+    tcp_anomaly: 5
+    sustained_connection: 5
+
+  # Whitelist
+  whitelist_domains:
+    - "netflix.com"
+    - "youtube.com"
+    - "google.com"
+    - "facebook.com"
+    - "whatsapp.net"
+    - "cloudflare.com"
+
+  whitelist_ips:
+    - "8.8.8.8"
+    - "8.8.4.4"
+    - "1.1.1.1"
+
+ml:
+  # Machine learning settings
+  enabled: true
+  model_path: "/app/data/model.pkl"
+
+  # Training
+  training_samples: 1000
+  test_split: 0.2
+
+  # Features
+  features:
+    - flow_duration
+    - bytes_forward
+    - bytes_reverse
+    - packets_forward
+    - packets_reverse
+    - bidirectional_ratio
+    - entropy_forward
+    - entropy_reverse
+    - tls_version
+    - has_user_agent
+    - dns_avg_size
+    - flow_iat_mean
+
+alerts:
+  # Alert configuration
+  enabled: true
+
+  # Alert levels
+  levels:
+    info: 0
+    suspicious: 40
+    warning: 60
+    critical: 80
+
+  # Notification (future expansion)
+  notifications:
+    console: true
+    websocket: true
+    email: false
+    slack: false
+
+performance:
+  # Performance tuning
+  max_cpu_percent: 80
+  max_memory_mb: 512
+  worker_threads: 4
+
+  # Rate limiting
+  max_packets_per_second: 10000
+  drop_on_overflow: true

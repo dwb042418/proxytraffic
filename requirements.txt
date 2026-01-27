@@ -1,0 +1,40 @@
+# Core dependencies
+scapy==2.5.0
+pyshark==0.6
+pyyaml==6.0.1
+
+# V2Ray integration (for actual V2Ray proxy testing and analysis)
+v2ray2proxy==0.3.2
+
+# Web framework
+flask==3.0.0
+flask-socketio==5.3.5
+flask-cors==4.0.0
+
+# WebSocket
+python-socketio==5.10.0
+python-engineio==4.8.0
+
+# Database
+sqlalchemy==2.0.25
+
+# Data analysis
+numpy==1.26.3
+pandas==2.1.4
+scikit-learn==1.4.0
+
+# Utilities
+requests==2.31.0
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Logging
+coloredlogs==15.0.1
+
+# Performance
+gevent==23.9.1
+gevent-websocket==0.10.1
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
