@@ -13,14 +13,14 @@ This system provides comprehensive detection of V2Ray proxy traffic through mult
 │                    DOCKER ENVIRONMENT                         │
 ├──────────────────────────────────────────────────────────────┤
 │                                                               │
-│  [Traffic Generator] ──► [Detection Engine] ──► [Dashboard]  │
+│  [Attack Simulator] ──► [Detection Engine] ──► [Dashboard]  │
 │   (Attacker Container)   (Detector Container)  (Web UI :3000)│
 │                                                               │
-│  • Generates REAL       • Captures packets    • Real-time    │
-│    V2Ray traffic        • Analyzes protocols    WebSocket    │
+│  • Generates V2Ray      • Captures packets    • Real-time    │
+│    traffic patterns     • Analyzes protocols    WebSocket    │
 │  • VMess/VLESS/SS       • Risk scoring          updates      │
-│  • v2ray2proxy library  • Alert generation    • Control      │
-│                         • SQLite storage        panel        │
+│  • Multiple intensity   • Alert generation    • Control      │
+│    levels               • SQLite storage        panel        │
 │                                                               │
 └──────────────────────────────────────────────────────────────┘
 ```
@@ -50,7 +50,7 @@ This system provides comprehensive detection of V2Ray proxy traffic through mult
 - 🐳 Fully containerized with Docker
 - 🔧 Configuration via YAML
 - 📝 SQLite database for flow storage
-- 🎯 Real V2Ray traffic generation with configurable intensity
+- 🎯 Attack simulation with configurable intensity
 - 📊 Export capabilities for reports
 
 ## 🚀 Quick Start
@@ -78,8 +78,8 @@ cd v2ray-detection-poc
 
 ```bash
 ./demo.sh start     # Start detector and dashboard containers
-./demo.sh attack    # Launch V2Ray traffic generation
-./demo.sh stop      # Stop traffic generation
+./demo.sh attack    # Launch attack simulation
+./demo.sh stop      # Stop attack simulation
 ./demo.sh reset     # Clear all data and restart
 ./demo.sh logs      # View real-time detector logs
 ./demo.sh status    # Check system status
@@ -119,26 +119,29 @@ cd v2ray-detection-poc
 
 ---
 
-#### `/src/attack_simulator.py` - V2Ray Traffic Generator
-**Purpose**: Generates REAL V2Ray traffic using v2ray2proxy library
+#### `/src/attack_simulator.py` - Traffic Generator
+**Purpose**: Simulates V2Ray proxy traffic patterns for testing
 **Key Functions**:
-- Connects to real V2Ray servers (VMess, VLESS, Shadowsocks, Trojan)
-- Makes actual HTTP requests through V2Ray proxies
-- Generates authentic encrypted V2Ray protocol traffic
+- Generates realistic V2Ray traffic (VMess, VLESS, Shadowsocks, Trojan)
+- Creates high-entropy encrypted payloads
+- Simulates WebSocket connections without User-Agent
 - Configurable intensity levels (light/medium/aggressive)
-- Uses v2ray2proxy to create local proxy connections
+- TCP connection to detector container
 
 **Main Classes**:
-- `RealV2RayTrafficGenerator`: Real V2Ray traffic generation engine
-  - `initialize_v2ray_proxies()`: Connect to V2Ray servers via v2ray2proxy
-  - `generate_real_v2ray_traffic()`: Make HTTP requests through V2Ray
-  - `cleanup()`: Stop proxy connections and print statistics
+- `V2RayAttackSimulator`: Traffic generation engine
+  - `generate_vmess_traffic()`: VMess protocol simulation
+  - `generate_vless_traffic()`: VLESS protocol simulation
+  - `generate_shadowsocks_traffic()`: Shadowsocks simulation
+  - `generate_trojan_traffic()`: Trojan protocol simulation
+  - `generate_dns_tunnel_traffic()`: DNS tunneling patterns
+  - `simulate_websocket_connection()`: WebSocket without User-Agent
 
-**Traffic Characteristics**:
-- Real V2Ray encryption (AES-128-GCM for VMess)
-- Authentic protocol negotiation
-- WebSocket transport with V2Ray framing
-- High entropy payloads from real encryption
+**Traffic Patterns**:
+- High entropy payloads (random bytes)
+- Missing HTTP headers
+- Unidirectional data streams
+- Various target ports (443, 8443, 10086)
 
 ---
 
@@ -262,7 +265,7 @@ cd v2ray-detection-poc
 
 ---
 
-#### `/docker/Dockerfile.attacker` - V2Ray Traffic Generator Container
+#### `/docker/Dockerfile.attacker` - Attack Simulator Container
 **Base Image**: `python:3.11-slim`
 **System Packages**:
 - `tcpdump` - Packet monitoring
@@ -270,11 +273,11 @@ cd v2ray-detection-poc
 - `curl` - HTTP testing
 - `net-tools` - Network utilities
 
-**Purpose**: Generates REAL V2Ray traffic using v2ray2proxy library
+**Purpose**: Generates V2Ray traffic patterns for testing detection
 
 **Key Features**:
-- Uses v2ray2proxy library for authentic V2Ray connections
-- Configured via `config.yaml` with V2Ray server URLs
+- No special privileges required
+- Configured via `config.yaml`
 - Uses profile `attack` for optional deployment
 
 ---
@@ -472,8 +475,8 @@ open http://localhost:3000
 - **High Risk Flows**: Risk score 70-100
 
 #### 2. Control Panel
-- **▶ Start Attack**: Launch V2Ray traffic generator
-- **⏹ Stop Attack**: Stop V2Ray traffic generation
+- **▶ Start Attack**: Launch attack simulator
+- **⏹ Stop Attack**: Stop traffic generation
 - **🔄 Reset Data**: Clear all data (requires confirmation)
 - **📄 Generate Report**: Create HTML/JSON report
 
@@ -569,21 +572,23 @@ detector:
   log_level: "INFO"                    # Logging level
 ```
 
-### Traffic Generator Configuration
+### Attack Simulator Configuration
 ```yaml
 attacker:
-  intensity: "medium"                  # light (2/s) | medium (10/s) | aggressive (30/s)
-  duration: 300                        # 0 = infinite, or seconds to run
-
-  # Real V2Ray server URLs (v2ray2proxy connects to these)
-  v2ray_servers:
-    - "vmess://..."                    # VMess server URL
-    - "vless://..."                    # VLESS server URL
-
-  # Target URLs to access through V2Ray proxy
-  target_urls:
-    - "http://httpbin.org/ip"
-    - "http://example.com"
+  intensity: "aggressive"              # light | medium | aggressive
+  duration: 0                          # 0 = infinite
+  pps:
+    light: 10                          # Packets per second
+    medium: 50
+    aggressive: 200
+  protocols:                           # Protocols to simulate
+    - vmess
+    - vless
+    - shadowsocks
+    - trojan
+    - dns_tunnel
+  target_host: "detector"              # Target container
+  target_ports: [443, 8443, 10086]    # Target ports
 ```
 
 ### Scoring Weights
@@ -678,10 +683,10 @@ finally:
 ```
 
 **Integration Possibilities**:
-1. **Real V2Ray Testing**: This system uses v2ray2proxy to generate authentic V2Ray traffic
+1. **Real V2Ray Testing**: Use v2ray2proxy to generate actual V2Ray traffic instead of simulated patterns
 2. **Proxy Pool Testing**: Test detection against multiple V2Ray servers
 3. **Protocol Validation**: Verify detection across VMess, VLESS, Shadowsocks, Trojan
-4. **Benchmark Testing**: Measure detection accuracy against real V2Ray traffic
+4. **Benchmark Testing**: Compare detection rates against real V2Ray traffic
 
 **Key Features**:
 - Automatic V2Ray core download (no external installation)
@@ -850,19 +855,19 @@ docker exec v2ray-detector ip link show
 docker exec v2ray-detector tcpdump -i eth0 -c 10
 ```
 
-### Traffic Generator Not Working
+### Attack Simulator Not Working
 ```bash
-# Check attacker logs for V2Ray connection errors
+# Check attacker logs
 ./demo.sh logs attacker
 
 # Verify attacker container exists
 docker-compose ps -a attacker
 
 # Manually start attacker
-docker-compose --profile attack up -d attacker
+docker-compose up -d attacker
 
-# Check if V2Ray servers are accessible
-docker exec v2ray-attacker python -c "from v2ray2proxy import V2RayProxy; print('v2ray2proxy OK')"
+# Check Python syntax errors
+docker exec v2ray-attacker python -m py_compile src/attack_simulator.py
 ```
 
 ### WebSocket Connection Issues
@@ -1009,7 +1014,7 @@ Contributions are welcome! Please follow these guidelines:
 - ML model improvements
 - UI/UX enhancements
 - Performance optimizations
-- Support for more V2Ray transport types
+- Additional attack scenarios
 - Documentation improvements
 
 ---
@@ -1038,11 +1043,11 @@ Contributions are welcome! Please follow these guidelines:
 - Initial release
 - Real-time detection engine
 - Web dashboard with WebSocket updates
-- Real V2Ray traffic generation using v2ray2proxy
-- Docker containerization (4 containers)
+- Attack simulator with 5 protocols
+- Docker containerization
 - SQLite database storage
 - HTML/JSON report generation
-- Local V2Ray server for testing
+- v2ray2proxy integration
 - Comprehensive documentation
 
 ---
