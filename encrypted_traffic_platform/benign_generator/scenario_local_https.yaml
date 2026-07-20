@@ -1,0 +1,55 @@
+name: benign_local_https
+
+lifecycle:
+  prepare:
+    - type: marker
+      name: prepare_local_https
+
+  deploy:
+    - type: marker
+      name: local_https_ready
+
+  execute:
+    - type: sleep
+      name: pre_capture_settle
+      seconds: 2
+
+    - type: command
+      name: access_https_web
+      command:
+        - bash
+        - -lc
+        - curl --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail --silent --show-error https://etip-server.lab:18443/web/ -o /tmp/proxytraffic_https_web.html
+      timeout: 30
+
+    - type: command
+      name: download_https_10m
+      command:
+        - bash
+        - -lc
+        - curl --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail --silent --show-error --limit-rate 1M https://etip-server.lab:18443/files/file_10m.bin -o /tmp/proxytraffic_https_10m.bin
+      timeout: 60
+
+    - type: command
+      name: download_https_50m
+      command:
+        - bash
+        - -lc
+        - curl --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail --silent --show-error --limit-rate 2M https://etip-server.lab:18443/files/file_50m.bin -o /tmp/proxytraffic_https_50m.bin
+      timeout: 120
+
+    - type: command
+      name: access_https_cloud
+      command:
+        - bash
+        - -lc
+        - curl --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail --silent --show-error https://etip-server.lab:18443/cloud/index.json -o /tmp/proxytraffic_https_cloud.json
+      timeout: 30
+
+    - type: sleep
+      name: post_capture_settle
+      seconds: 3
+
+  finalize:
+    - type: marker
+      name: finalize_local_https

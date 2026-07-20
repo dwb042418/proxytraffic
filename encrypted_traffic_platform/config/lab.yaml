@@ -1,0 +1,118 @@
+environment: lab
+
+environment_metadata:
+  os: unknown
+  client: unknown
+  server_region: local
+  network: lab
+  collector: tcpdump
+
+dataset:
+  root: encrypted_traffic_platform/dataset/output
+
+capture:
+  interface: auto
+  interface_candidates:
+    - eth0
+    - ens33
+    - enp0s3
+    - docker0
+    - lo
+  filter: tcp or udp
+  tcpdump_path: tcpdump
+
+benign_generator:
+  tool: benign_generator
+  protocol: http_https
+  actions:
+    - browser
+    - download
+    - cloud
+  urls:
+    browser:
+      - http://example.com
+      - http://httpbin.org/get
+      - http://httpbin.org/headers
+    download:
+      - http://httpbin.org/bytes/2048
+      - http://httpbin.org/stream-bytes/4096
+    cloud:
+      - http://httpbin.org/json
+      - http://httpbin.org/uuid
+
+c2_generators:
+  cobaltstrike:
+    tool: cobaltstrike
+    protocol: https
+    actions:
+      - beacon_checkin
+      - command_execution
+      - file_upload
+      - file_download
+    command: []
+    timeout: 330
+    env: {}
+  behinder:
+    tool: behinder
+    protocol: https
+    actions:
+      - connect
+      - command_execution
+      - file_upload
+      - file_download
+    command: []
+    timeout: 330
+    env: {}
+  antsword:
+    tool: antsword
+    protocol: http_https
+    actions:
+      - file_manager
+      - command_execution
+      - database_operation
+    command: []
+    timeout: 330
+    env: {}
+  godzilla:
+    tool: godzilla
+    protocol: http_https
+    actions:
+      - connect
+      - command_execution
+      - file_upload
+      - file_download
+    command: []
+    timeout: 330
+    env: {}
+
+proxy_generators:
+  v2ray:
+    tool: v2ray
+    protocol: vless_vmess_tls
+    actions:
+      - web_browsing
+      - file_download
+      - video_streaming
+    command: []
+    timeout: 330
+    env: {}
+  shadowsocks:
+    tool: shadowsocks
+    protocol: aead_encryption
+    actions:
+      - web_browsing
+      - file_download
+      - api_requests
+    command: []
+    timeout: 330
+    env: {}
+  clash:
+    tool: clash
+    protocol: mixed_proxy
+    actions:
+      - web_browsing
+      - file_download
+      - tun_mode
+    command: []
+    timeout: 330
+    env: {}

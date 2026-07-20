@@ -1,0 +1,19 @@
+---
+- name: Prepare proxy lab host
+  hosts: proxy
+  become: true
+  tasks:
+    - name: Install proxy host dependencies
+      ansible.builtin.apt:
+        name:
+          - docker.io
+          - docker-compose-plugin
+          - tcpdump
+        state: present
+        update_cache: true
+
+    - name: Create proxy lab directory
+      ansible.builtin.file:
+        path: /opt/etip/proxy
+        state: directory
+        mode: "0750"

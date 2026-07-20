@@ -1,0 +1,28 @@
+name: benign_default
+label: benign
+category: benign
+tool: benign_generator
+protocol: http_https_dns
+duration: 300
+lifecycle:
+  prepare:
+    - type: dns_query
+      name: normal_dns
+      domains:
+        - example.com
+        - httpbin.org
+  execute:
+    - type: web_browse
+      name: web_browsing
+      repeat: 2
+    - type: file_download
+      name: file_download
+      repeat: 1
+    - type: cloud_access
+      name: cloud_access
+      repeat: 1
+    - type: video_stream
+      name: video_streaming
+      repeat: 1
+  finalize:
+    - benign_finalize

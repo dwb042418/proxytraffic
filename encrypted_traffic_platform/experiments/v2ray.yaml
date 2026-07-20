@@ -1,0 +1,8 @@
+name: v2ray_exp1
+category: proxy
+label: v2ray
+duration: 300
+scenario: encrypted_traffic_platform/proxy_generator/v2ray/scenario.yaml
+capture:
+  interface: auto
+  filter: tcp or udp

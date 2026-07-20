@@ -1,0 +1,17 @@
+name: behinder_default
+label: behinder
+category: c2
+tool: behinder
+protocol: https
+duration: 300
+lifecycle:
+  prepare:
+    - lab_prepare
+  deploy:
+    - connect
+  execute:
+    - command_execution
+    - file_upload
+    - file_download
+  finalize:
+    - lab_finalize

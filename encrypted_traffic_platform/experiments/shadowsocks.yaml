@@ -1,0 +1,8 @@
+name: shadowsocks_exp1
+category: proxy
+label: shadowsocks
+duration: 300
+scenario: encrypted_traffic_platform/proxy_generator/shadowsocks/scenario.yaml
+capture:
+  interface: auto
+  filter: tcp or udp

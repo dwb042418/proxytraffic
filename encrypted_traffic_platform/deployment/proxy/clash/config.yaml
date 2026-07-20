@@ -1,0 +1,16 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+
+proxies: []
+
+proxy-groups:
+  - name: LAB
+    type: select
+    proxies:
+      - DIRECT
+
+rules:
+  - MATCH,DIRECT

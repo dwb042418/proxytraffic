@@ -1,0 +1,17 @@
+name: clash_default
+label: clash
+category: proxy
+tool: clash
+protocol: mixed_proxy
+duration: 300
+lifecycle:
+  prepare:
+    - proxy_prepare
+  deploy:
+    - proxy_connect
+  execute:
+    - web_browsing
+    - file_download
+    - tun_mode
+  finalize:
+    - proxy_finalize

@@ -1,0 +1,51 @@
+name: benign_local_pilot
+
+lifecycle:
+  prepare:
+    - type: marker
+      name: prepare_local_benign
+
+  deploy:
+    - type: marker
+      name: local_http_ready
+
+  execute:
+    - type: command
+      name: access_web_page
+      command:
+        - bash
+        - -lc
+        - curl --fail --silent --show-error http://192.168.100.20:18080/web/ -o /tmp/proxytraffic_web.html
+      timeout: 30
+
+    - type: command
+      name: download_10m_file
+      command:
+        - bash
+        - -lc
+        - curl --fail --silent --show-error --limit-rate 1M http://192.168.100.20:18080/files/file_10m.bin -o /tmp/proxytraffic_file_10m.bin
+      timeout: 60
+
+    - type: command
+      name: download_50m_file
+      command:
+        - bash
+        - -lc
+        - curl --fail --silent --show-error --limit-rate 2M http://192.168.100.20:18080/files/file_50m.bin -o /tmp/proxytraffic_file_50m.bin
+      timeout: 120
+
+    - type: command
+      name: access_cloud_endpoint
+      command:
+        - bash
+        - -lc
+        - curl --fail --silent --show-error http://192.168.100.20:18080/cloud/index.json -o /tmp/proxytraffic_cloud.json
+      timeout: 30
+
+    - type: sleep
+      name: idle_interval
+      seconds: 5
+
+  finalize:
+    - type: marker
+      name: finalize_local_benign

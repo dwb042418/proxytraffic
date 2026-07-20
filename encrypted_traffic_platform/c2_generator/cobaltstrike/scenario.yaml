@@ -1,0 +1,17 @@
+name: cobaltstrike_default
+label: cobaltstrike
+category: c2
+tool: cobaltstrike
+protocol: https
+duration: 300
+lifecycle:
+  prepare:
+    - lab_prepare
+  deploy:
+    - beacon_checkin
+  execute:
+    - command_execution
+    - file_upload
+    - file_download
+  finalize:
+    - lab_finalize

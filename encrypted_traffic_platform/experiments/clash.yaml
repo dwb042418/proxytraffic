@@ -1,0 +1,8 @@
+name: clash_exp1
+category: proxy
+label: clash
+duration: 300
+scenario: encrypted_traffic_platform/proxy_generator/clash/scenario.yaml
+capture:
+  interface: auto
+  filter: tcp or udp

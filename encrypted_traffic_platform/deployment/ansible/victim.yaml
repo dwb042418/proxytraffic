@@ -1,0 +1,11 @@
+---
+- name: Prepare victim lab host
+  hosts: victim
+  become: true
+  tasks:
+    - name: Record required Windows packages
+      ansible.builtin.debug:
+        msg:
+          - Install Java, PHP, Apache or IIS on the Windows victim image.
+          - Keep victim snapshots immutable and reset between traffic sessions.
+          - Run only authorized lab scripts referenced from config/lab.yaml.

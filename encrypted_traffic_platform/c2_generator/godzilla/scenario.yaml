@@ -1,0 +1,17 @@
+name: godzilla_default
+label: godzilla
+category: c2
+tool: godzilla
+protocol: http_https
+duration: 300
+lifecycle:
+  prepare:
+    - lab_prepare
+  deploy:
+    - connect
+  execute:
+    - command_execution
+    - file_upload
+    - file_download
+  finalize:
+    - lab_finalize

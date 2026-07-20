@@ -1,0 +1,8 @@
+name: godzilla_exp1
+category: c2
+label: godzilla
+duration: 300
+scenario: encrypted_traffic_platform/c2_generator/godzilla/scenario.yaml
+capture:
+  interface: auto
+  filter: tcp or udp

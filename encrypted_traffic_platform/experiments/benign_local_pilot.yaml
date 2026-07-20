@@ -1,0 +1,24 @@
+name: benign_local_pilot
+category: benign
+label: benign
+protocol: http
+duration: 90
+scenario: encrypted_traffic_platform/benign_generator/scenario_local_pilot.yaml
+
+capture:
+  interface: ens37
+  filter: host 192.168.100.20 and tcp port 18080
+
+environment_metadata:
+  environment_id: vmware_local_lab_v1
+  host_os: windows
+  virtualization: vmware
+  collector_os: ubuntu22.04
+  collector_hostname: etip-collector
+  collector_address: 192.168.100.10
+  collector_interface: ens37
+  server_os: ubuntu22.04
+  server_hostname: etip-server
+  server_address: 192.168.100.20
+  network_mode: vmware_host_only
+  workload: benign_http_pilot

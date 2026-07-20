@@ -1,0 +1,17 @@
+name: antsword_default
+label: antsword
+category: c2
+tool: antsword
+protocol: http_https
+duration: 300
+lifecycle:
+  prepare:
+    - lab_prepare
+  deploy:
+    - connect
+  execute:
+    - file_manager
+    - command_execution
+    - database_operation
+  finalize:
+    - lab_finalize

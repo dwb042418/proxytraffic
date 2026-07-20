@@ -1,0 +1,17 @@
+name: v2ray_default
+label: v2ray
+category: proxy
+tool: v2ray
+protocol: vless_vmess_tls
+duration: 300
+lifecycle:
+  prepare:
+    - proxy_prepare
+  deploy:
+    - proxy_connect
+  execute:
+    - web_browsing
+    - file_download
+    - video_streaming
+  finalize:
+    - proxy_finalize

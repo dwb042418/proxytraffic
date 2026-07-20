@@ -1,0 +1,21 @@
+---
+- name: Prepare attacker lab host
+  hosts: attacker
+  become: true
+  tasks:
+    - name: Install base packages
+      ansible.builtin.apt:
+        name:
+          - docker.io
+          - docker-compose-plugin
+          - python3
+          - python3-pip
+          - tcpdump
+        state: present
+        update_cache: true
+
+    - name: Create lab directory
+      ansible.builtin.file:
+        path: /opt/etip/attacker
+        state: directory
+        mode: "0750"

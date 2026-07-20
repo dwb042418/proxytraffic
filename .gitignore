@@ -27,3 +27,45 @@ Thumbs.db
 # Temp
 /tmp/
 *.tmp
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Conda environment archives
+conda_env_archives/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Runtime output
+*.log
+*.pid
+*.tmp
+
+# Packet captures and datasets
+*.pcap
+*.pcapng
+datasets/
+data/
+outputs/
+artifacts/
+
+# Local environment and credentials
+.env
+.env.*
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,8 @@
+name: behinder_exp1
+category: c2
+label: behinder
+duration: 300
+scenario: encrypted_traffic_platform/c2_generator/behinder/scenario.yaml
+capture:
+  interface: auto
+  filter: tcp or udp

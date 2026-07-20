@@ -1,0 +1,47 @@
+name: benign_local_https
+category: benign
+label: benign
+protocol: https
+duration: 90
+scenario: encrypted_traffic_platform/benign_generator/scenario_local_https.yaml
+
+capture:
+  interface: ens37
+  filter: host 192.168.100.20 and tcp port 18443
+  mode: scenario_bound
+
+environment_metadata:
+  environment_id: vmware_local_lab_v1
+  host_os: windows
+  virtualization: vmware
+
+  collector_os: ubuntu22.04
+  collector_hostname: etip-collector
+  collector_address: 192.168.100.10
+  collector_interface: ens37
+
+  client: curl
+  client_implementation: curl
+  client_version: 7.81.0
+  client_os: ubuntu22.04
+  os: ubuntu22.04
+
+  server_os: ubuntu22.04
+  server_hostname: etip-server
+  server_address: 192.168.100.20
+  server_port: 18443
+
+  network: lab
+  network_mode: vmware_host_only
+  server_region: local
+
+  workload: benign_https_pilot
+  capture_mode: scenario_bound
+  certificate_type: experimental_ca_signed
+  certificate_hostname: etip-server.lab
+
+  tls_versions:
+    - TLSv1.2
+    - TLSv1.3
+
+  offloading_disabled: true

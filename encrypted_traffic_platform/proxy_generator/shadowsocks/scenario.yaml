@@ -1,0 +1,17 @@
+name: shadowsocks_default
+label: shadowsocks
+category: proxy
+tool: shadowsocks
+protocol: aead_encryption
+duration: 300
+lifecycle:
+  prepare:
+    - proxy_prepare
+  deploy:
+    - proxy_connect
+  execute:
+    - web_browsing
+    - file_download
+    - api_requests
+  finalize:
+    - proxy_finalize
