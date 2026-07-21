@@ -1,0 +1,34 @@
+{
+  "log": { "loglevel": "warning" },
+  "inbounds": [
+    {
+      "tag": "vless-tcp-tls-20001",
+      "listen": "192.168.100.20",
+      "port": 20001,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          { "id": "__VLESS_UUID__", "email": "proxytraffic-v2ray-pilot" }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "etip-server.lab",
+          "certificates": [
+            {
+              "certificateFile": "/etc/proxytraffic/pki/server.crt",
+              "keyFile": "/etc/proxytraffic/pki/server.key"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    { "tag": "direct", "protocol": "freedom", "settings": {} }
+  ]
+}
+

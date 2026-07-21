@@ -1,0 +1,39 @@
+collection_batch: proxy_pilot_001
+collection_date: "2026-07-20"
+data_origin: live_lab
+seed: 42
+categories:
+  v2ray:
+    sessions: 10
+    scenario_version: v2ray_vless_tcp_tls_v1
+    scenario_config: ../v2ray.yaml
+    scenario_overrides:
+      category: proxy
+      proxy_protocol: vless
+      transport: tcp_tls
+      client_implementation: xray
+  shadowsocks:
+    sessions: 10
+    scenario_version: shadowsocks_rust_v1
+    scenario_config: ../shadowsocks.yaml
+    scenario_overrides:
+      category: proxy
+      proxy_protocol: shadowsocks
+      client_implementation: shadowsocks-rust
+  clash:
+    sessions: 10
+    scenario_version: mihomo_trojan_tcp_tls_v1
+    scenario_config: ../clash.yaml
+    scenario_overrides:
+      category: proxy
+      proxy_protocol: trojan
+      transport: tcp_tls
+      client_implementation: mihomo
+      client_mode: global
+randomization:
+  file_size_mb: [1, 5, 10, 20, 50]
+  rate_limit_mbps: [0.5, 1, 2, 5]
+  idle_seconds: [1, 3, 5, 10]
+  request_count: {min: 2, max: 8}
+  action_order: shuffle
+  tls_version: [TLSv1.2, TLSv1.3]

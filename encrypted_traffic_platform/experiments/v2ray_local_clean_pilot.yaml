@@ -1,0 +1,50 @@
+name: v2ray_local_clean_pilot
+category: proxy
+label: v2ray
+protocol: vless_tcp_tls
+duration: 120
+scenario: encrypted_traffic_platform/proxy_generator/v2ray/scenario_local_vless_clean.yaml
+
+capture:
+  interface: ens37
+  filter: host 192.168.100.20 and tcp port 20001
+  mode: scenario_bound
+
+environment_metadata:
+  environment_id: vmware_local_lab_v1
+  host_os: windows
+  virtualization: vmware
+  network: lab
+  network_mode: vmware_host_only
+
+  collector_os: ubuntu22.04
+  collector_hostname: etip-collector
+  collector_address: 192.168.100.10
+  collector_interface: ens37
+
+  server_os: ubuntu22.04
+  server_hostname: etip-server
+  server_address: 192.168.100.20
+  server_port: 20001
+  backend_port: 18443
+
+  client: xray
+  client_implementation: xray
+  client_version: 26.6.1
+  client_os: ubuntu22.04
+  os: ubuntu22.04
+
+  proxy_protocol: vless
+  transport: tcp_tls
+  security: tls
+  tls_server_name: etip-server.lab
+
+  local_proxy_type: socks5
+  local_socks_address: 127.0.0.1
+  local_socks_port: 11080
+
+  workload: v2ray_https_clean_pilot
+  capture_mode: scenario_bound
+  offloading_disabled: true
+  data_origin: live_lab
+  scenario_version: vless_clean_v1

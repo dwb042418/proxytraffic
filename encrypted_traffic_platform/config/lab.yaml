@@ -1,0 +1,11 @@
+capture:
+  interface: ens37
+  interface_candidates: [ens37, ens33, lo]
+  filter: "host 192.168.100.20 and tcp port 18443"
+  tcpdump_path: tcpdump
+dataset:
+  root: /tmp/etip-dataset
+environment:
+  lab: etip-lab
+  collector_address: 192.168.100.10
+  server_address: 192.168.100.20

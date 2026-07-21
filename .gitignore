@@ -30,3 +30,8 @@ Thumbs.db
 .venv/
 conda_env_archives/
 .pytest_cache/
+encrypted_traffic_platform/deployment/xray/.vless_uuid
+encrypted_traffic_platform/deployment/xray/.runtime/
+*.pcap
+*.pcapng
+*.bak

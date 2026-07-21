@@ -1,0 +1,85 @@
+name: v2ray_local_vless_clean
+
+lifecycle:
+  prepare:
+    - type: command
+      name: stop_existing_xray_client
+      command:
+        - bash
+        - -lc
+        - encrypted_traffic_platform/deployment/xray/stop_client.sh || true
+      timeout: 30
+
+    - type: sleep
+      name: pre_client_settle
+      seconds: 2
+
+  deploy:
+    - type: command
+      name: start_xray_client
+      command:
+        - bash
+        - -lc
+        - encrypted_traffic_platform/deployment/xray/start_client.sh
+      timeout: 30
+
+    - type: sleep
+      name: wait_for_socks_listener
+      seconds: 3
+
+    - type: command
+      name: verify_local_socks_listener
+      command:
+        - bash
+        - -lc
+        - ss -lnt | grep -q 127.0.0.1:11080
+      timeout: 10
+
+  execute:
+    - type: command
+      name: proxy_access_web
+      command:
+        - bash
+        - -lc
+        - env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u ALL_PROXY curl --noproxy '' --proxy socks5h://127.0.0.1:11080 --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail --silent --show-error https://etip-server.lab:18443/web/ -o /tmp/v2ray_web.html
+      timeout: 30
+
+    - type: command
+      name: proxy_download_10m
+      command:
+        - bash
+        - -lc
+        - env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u ALL_PROXY curl --noproxy '' --proxy socks5h://127.0.0.1:11080 --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail --silent --show-error --limit-rate 1M https://etip-server.lab:18443/files/file_10m.bin -o /tmp/v2ray_10m.bin
+      timeout: 60
+
+    - type: command
+      name: proxy_download_50m
+      command:
+        - bash
+        - -lc
+        - env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u ALL_PROXY curl --noproxy '' --proxy socks5h://127.0.0.1:11080 --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail --silent --show-error --limit-rate 2M https://etip-server.lab:18443/files/file_50m.bin -o /tmp/v2ray_50m.bin
+      timeout: 120
+
+    - type: command
+      name: proxy_access_cloud
+      command:
+        - bash
+        - -lc
+        - env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u ALL_PROXY curl --noproxy '' --proxy socks5h://127.0.0.1:11080 --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail --silent --show-error https://etip-server.lab:18443/cloud/index.json -o /tmp/v2ray_cloud.json
+      timeout: 30
+
+    - type: sleep
+      name: post_workload_idle
+      seconds: 3
+
+  finalize:
+    - type: command
+      name: stop_xray_client
+      command:
+        - bash
+        - -lc
+        - encrypted_traffic_platform/deployment/xray/stop_client.sh || true
+      timeout: 30
+
+    - type: marker
+      name: finalize_v2ray_clean_pilot

@@ -1,0 +1,16 @@
+name: v2ray_vless_tcp_tls_pilot
+scenario: deployment/xray/v2ray_scenario.yaml
+capture_filter: host 192.168.100.20 and tcp port 20001
+metadata:
+  label: v2ray
+  category: proxy
+  client_implementation: xray
+  xray_version: v26.6.1
+  proxy_protocol: vless
+  transport: tcp_tls
+  server_address: 192.168.100.20
+  server_port: 20001
+  tls_server_name: etip-server.lab
+  local_socks_port: 11080
+  offloading_disabled: true
+

@@ -1,0 +1,15 @@
+name: v2ray_vless_tcp_tls
+description: Xray VLESS over TCP+TLS transfer through the Collector SOCKS5 endpoint
+proxy:
+  type: socks5
+  url: socks5h://127.0.0.1:11080
+request:
+  method: GET
+  url: https://etip-server.lab:18443/files/file_10m.bin
+  output: /dev/null
+capture:
+  filter: host 192.168.100.20 and tcp port 20001
+lifecycle:
+  before: deployment/xray/start_client.sh
+  after: deployment/xray/stop_client.sh
+

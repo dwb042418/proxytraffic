@@ -1,0 +1,20 @@
+collection_batch: benign_pilot_001
+collection_date: "2026-07-20"
+data_origin: live_lab
+seed: 42
+scenario_version: benign_https_v1
+scenario_config: ../benign.yaml
+categories:
+  benign:
+    sessions: 20
+software_versions:
+  collector: 0.1.0
+randomization:
+  file_size_mb: [1, 5, 10, 20, 50]
+  rate_limit_mbps: [0.5, 1, 2, 5]
+  idle_seconds: [1, 3, 5, 10]
+  request_count:
+    min: 2
+    max: 8
+  action_order: shuffle
+  tls_version: [TLSv1.2, TLSv1.3]

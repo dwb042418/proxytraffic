@@ -1,0 +1,15 @@
+name: benign_https_v1
+label: benign
+category: benign
+protocol: https
+duration: 30
+interface: ens37
+capture:
+  protocol: https
+  filter: "host 192.168.100.20 and tcp port 18443"
+actions:
+  - browser
+  - download
+  - cloud
+  - streaming
+  - dns
