@@ -27,3 +27,6 @@ Thumbs.db
 # Temp
 /tmp/
 *.tmp
+.venv/
+conda_env_archives/
+.pytest_cache/
