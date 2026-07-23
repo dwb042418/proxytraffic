@@ -1,0 +1,43 @@
+{
+  "log": { "loglevel": "warning" },
+  "inbounds": [
+    {
+      "tag": "local-socks5",
+      "listen": "127.0.0.1",
+      "port": 11080,
+      "protocol": "socks",
+      "settings": { "auth": "noauth", "udp": false }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "vless-tcp-tls",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "192.168.100.20",
+            "port": 20001,
+            "users": [
+              { "id": "__VLESS_UUID__", "encryption": "none" }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "etip-server.lab",
+          "allowInsecure": false,
+          "certificates": [
+            {
+              "certificateFile": "/etc/proxytraffic/pki/ca.crt",
+              "usage": "verify"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
