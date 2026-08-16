@@ -1,0 +1,10 @@
+freeze_status=PASS
+formal_v1_samples=140
+mist_clean_samples=180
+mist_perturbed_fullpath_samples=180
+mist_total_samples=360
+v2ray_total_samples=500
+metadata_issue_count=0
+sha256_batch_count=500
+sha256_failure_count=0
+freeze_timestamp=20260816T200211+0800
