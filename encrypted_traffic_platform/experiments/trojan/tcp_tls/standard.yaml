@@ -1,0 +1,53 @@
+name: trojan_tcp_tls_standard_formal_v1
+category: proxy
+label: trojan
+protocol: trojan_tcp_tls
+duration: 180
+scenario: encrypted_traffic_platform/proxy_generator/trojan/tcp_tls/standard.yaml
+capture:
+  interface: ens37
+  filter: host 192.168.100.20 and tcp and (port 20003 or port 18443)
+  mode: scenario_bound
+environment_metadata:
+  environment_id: vmware_local_lab_v1
+  host_os: windows
+  virtualization: vmware
+  network: lab
+  network_mode: vmware_host_only
+  collector_os: ubuntu22.04
+  collector_hostname: etip-collector
+  collector_address: 192.168.100.10
+  collector_interface: ens37
+  server_os: ubuntu22.04
+  server_hostname: etip-server
+  server_address: 192.168.100.20
+  server_port: 20003
+  backend_port: 18443
+  client: xray
+  client_implementation: xray
+  client_version: 26.6.1
+  client_os: ubuntu22.04
+  os: ubuntu22.04
+  proxy_protocol: trojan
+  transport: tcp
+  security: tls
+  local_proxy_type: socks5
+  local_socks_address: 127.0.0.1
+  local_socks_port: 11082
+  capture_mode: scenario_bound
+  offloading_disabled: true
+  data_origin: live_lab
+  scenario_profile: trojan_standard
+  scenario_version: formal_v1
+  expected_connection_min: 4
+  expected_connection_max: 4
+  download_rate: 1M_and_2M
+  file_size: 10MB_and_50MB
+  session_target_duration: 35
+  concurrency: 1
+  workload_type: mixed
+  idle_interval: 3
+  expected_connection_count: 4
+  client_restart_mode: per_sample
+  perturbation_profile: none
+  tls_metadata_applicable: true

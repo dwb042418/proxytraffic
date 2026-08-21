@@ -20,7 +20,7 @@ from encrypted_traffic_platform.dataset import build_index
 from encrypted_traffic_platform.proxy_generator import generate_proxy
 
 
-PROXY_LABELS = {"v2ray", "shadowsocks", "clash"}
+PROXY_LABELS = {"v2ray", "shadowsocks", "clash", "trojan"}
 C2_LABELS = {"cobaltstrike", "behinder", "antsword", "godzilla"}
 
 
