@@ -1,0 +1,65 @@
+name: trojan_high_concurrency
+description: Four simultaneous downloads
+lifecycle:
+  prepare:
+  - type: command
+    name: clear_trojan_fullpath_netem
+    command:
+    - bash
+    - -lc
+    - /home/etip/bin/trojan-fullpath-netem clear || true
+    timeout: 30
+  - type: command
+    name: stop_existing_trojan_client
+    command:
+    - bash
+    - -lc
+    - encrypted_traffic_platform/deployment/trojan/stop_client.sh || true
+    timeout: 30
+  - type: sleep
+    name: pre_client_settle
+    seconds: 1
+  deploy:
+  - type: command
+    name: start_trojan_client
+    command:
+    - bash
+    - -lc
+    - encrypted_traffic_platform/deployment/trojan/start_client.sh
+    timeout: 30
+  - type: sleep
+    name: wait_for_socks_listener
+    seconds: 2
+  - type: command
+    name: verify_local_socks_listener
+    command:
+    - bash
+    - -lc
+    - ss -lnt | grep -q '127.0.0.1:11082'
+    timeout: 10
+  execute:
+  - type: command
+    name: high_concurrency_downloads
+    command:
+    - bash
+    - -lc
+    - set -Eeuo pipefail; pids=(); for i in 1 2 3 4; do env -u http_proxy -u https_proxy
+      -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u ALL_PROXY curl --noproxy '' --proxy
+      socks5h://127.0.0.1:11082 --cacert encrypted_traffic_platform/config/certs/etip-ca.crt
+      --http1.1 --fail --silent --show-error --limit-rate 4M https://etip-server.lab:18443/files/file_10m.bin
+      -o /tmp/trojan_high_concurrency_${i}.bin & pids+=($!); done; status=0;
+      for pid in "${pids[@]}"; do wait "${pid}" || status=1; done; exit "${status}"
+    timeout: 90
+  - type: sleep
+    name: high_concurrency_post_idle
+    seconds: 2
+  finalize:
+  - type: command
+    name: stop_trojan_client
+    command:
+    - bash
+    - -lc
+    - encrypted_traffic_platform/deployment/trojan/stop_client.sh || true
+    timeout: 30
+  - type: marker
+    name: finalize_trojan_profile

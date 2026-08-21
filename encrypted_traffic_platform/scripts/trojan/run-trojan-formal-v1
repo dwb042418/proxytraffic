@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT=/home/etip/Tunnel/proxytraffic
+COLLECT=${ROOT}/encrypted_traffic_platform/scripts/trojan/collect-upload-trojan-formal
+
+PROFILES=(
+standard
+low_rate
+high_concurrency
+bursty
+long_session
+perturbed_uplink
+perturbed_fullpath
+)
+
+for R in $(seq 1 20)
+do
+    echo
+    echo ===== FORMAL_ROUND_${R} =====
+
+    START=$(( (R - 1) % 7 ))
+
+    for K in $(seq 0 6)
+    do
+        I=$(( (START + K) % 7 ))
+        P=${PROFILES[$I]}
+
+        ${COLLECT} ${P} ${R}
+
+        sleep 2
+    done
+done
+
+REMOTE=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/trojan/tcp_tls/formal_v1
+
+TOTAL=$(
+  ssh proxydata-server \
+    "find '${REMOTE}' -type f -name BATCH_COMPLETE | wc -l"
+)
+
+echo FORMAL_COMPLETE_BATCHES=${TOTAL}
+
+test ${TOTAL} -eq 140
+
+echo TROJAN_FORMAL_V1_COLLECTION_PASS
