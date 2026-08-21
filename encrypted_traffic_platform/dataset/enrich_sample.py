@@ -207,6 +207,7 @@ def analyse_pcap(
     pcap: Path,
     raw_pcap: Path,
     server_port: int,
+    tls_metadata_applicable: bool,
 ) -> dict[str, Any]:
     if not pcap.exists() or pcap.stat().st_size == 0:
         return {
@@ -284,11 +285,22 @@ def analyse_pcap(
         else 0.0
     )
 
-    tls = analyse_tls(
-        pcap,
-        raw_pcap,
-        server_port,
-    )
+    if tls_metadata_applicable:
+        tls = analyse_tls(
+            pcap,
+            raw_pcap,
+            server_port,
+        )
+        tls['tls_metadata_applicable'] = True
+    else:
+        tls = {
+            'tls_stream_count': 0,
+            'tls_client_hello_count': 0,
+            'tls_server_hello_count': 0,
+            'tls_metadata_source': 'not_applicable',
+            'tls_handshake_complete': False,
+            'tls_metadata_applicable': False,
+        }
 
     return {
         'packet_count': packet_count,
@@ -427,10 +439,60 @@ def main() -> int:
         ),
     })
 
+    explicit_tls_applicability = (
+        merged_environment.get(
+            'tls_metadata_applicable'
+        )
+    )
+
+    if explicit_tls_applicability is None:
+        security_value = str(
+            merged_environment.get(
+                'security',
+                '',
+            )
+        ).strip().lower()
+
+        transport_value = str(
+            merged_environment.get(
+                'transport',
+                '',
+            )
+        ).strip().lower()
+
+        tls_metadata_applicable = (
+            security_value == 'tls'
+            and 'quic' not in transport_value
+        )
+    elif isinstance(
+        explicit_tls_applicability,
+        str,
+    ):
+        tls_metadata_applicable = (
+            explicit_tls_applicability
+            .strip()
+            .lower()
+            in {
+                '1',
+                'true',
+                'yes',
+                'on',
+            }
+        )
+    else:
+        tls_metadata_applicable = bool(
+            explicit_tls_applicability
+        )
+
+    merged_environment[
+        'tls_metadata_applicable'
+    ] = tls_metadata_applicable
+
     stats = analyse_pcap(
         pcap_path,
         raw_pcap_path,
         server_port,
+        tls_metadata_applicable,
     )
 
     label['protocol'] = protocol
@@ -486,6 +548,9 @@ def main() -> int:
         ],
         'tls_handshake_complete': stats[
             'tls_handshake_complete'
+        ],
+        'tls_metadata_applicable': stats[
+            'tls_metadata_applicable'
         ],
         'environment_metadata': (
             merged_environment

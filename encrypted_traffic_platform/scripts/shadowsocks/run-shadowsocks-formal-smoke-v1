@@ -1,0 +1,145 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+COLLECT=/home/etip/bin/collect-upload-shadowsocks-formal
+
+STAGE=validation/formal_smoke_v1
+
+REMOTE_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/shadowsocks/aes_256_gcm/${STAGE}
+
+PROFILES=(
+    standard
+    low_rate
+    high_concurrency
+    bursty
+    long_session
+    perturbed_uplink
+    perturbed_fullpath
+)
+
+remote_snapshot() {
+    local attempt
+    local result
+    local rc
+
+    for attempt in 1 2 3 4 5
+    do
+        echo REMOTE_SNAPSHOT_ATTEMPT=${attempt}/5 >&2
+
+        set +e
+
+        result=$(
+            ssh \
+              -o BatchMode=yes \
+              -o ConnectTimeout=15 \
+              -o ConnectionAttempts=3 \
+              -o ServerAliveInterval=10 \
+              -o ServerAliveCountMax=12 \
+              -o TCPKeepAlive=yes \
+              proxydata-server \
+              "ROOT='${REMOTE_ROOT}'; \
+               for p in \
+                 standard \
+                 low_rate \
+                 high_concurrency \
+                 bursty \
+                 long_session \
+                 perturbed_uplink \
+                 perturbed_fullpath; \
+               do \
+                 c=\$(find \"\${ROOT}/\${p}/batches\" \
+                   -type f \
+                   -name session.json \
+                   2>/dev/null \
+                   | wc -l); \
+                 printf '%s %s\n' \"\${p}\" \"\${c}\"; \
+               done"
+        )
+
+        rc=$?
+
+        set -e
+
+        if [ ${rc} -eq 0 ]; then
+            printf '%s\n' "${result}"
+            return 0
+        fi
+
+        echo REMOTE_SNAPSHOT_RETRY rc=${rc} >&2
+
+        sleep $((attempt * 10))
+    done
+
+    echo ERROR_REMOTE_SNAPSHOT_FAILED >&2
+    return 1
+}
+
+echo '===== REMOTE SNAPSHOT ====='
+
+SNAPSHOT=$(remote_snapshot)
+
+printf '%s\n' "${SNAPSHOT}"
+
+declare -A EXISTING
+
+while read -r PROFILE COUNT
+do
+    if [ -z "${PROFILE}" ]; then
+        continue
+    fi
+
+    if ! [[ ${COUNT} =~ ^[0-9]+$ ]]; then
+        echo ERROR_INVALID_REMOTE_COUNT=${PROFILE}:${COUNT}
+        exit 1
+    fi
+
+    EXISTING[${PROFILE}]=${COUNT}
+
+done <<< "${SNAPSHOT}"
+
+echo '===== SNAPSHOT VALIDATION ====='
+
+for PROFILE in "${PROFILES[@]}"
+do
+    if [ -z "${EXISTING[${PROFILE}]+x}" ]; then
+        echo ERROR_MISSING_PROFILE_COUNT=${PROFILE}
+        exit 1
+    fi
+
+    echo REMOTE_COUNT_${PROFILE}=${EXISTING[${PROFILE}]}
+
+    if [ ${EXISTING[${PROFILE}]} -gt 1 ]; then
+        echo ERROR_TOO_MANY_SMOKE_SAMPLES=${PROFILE}
+        exit 1
+    fi
+done
+
+echo '===== COLLECTION ====='
+
+for PROFILE in "${PROFILES[@]}"
+do
+    echo
+    echo ========================================
+    echo PROFILE=${PROFILE}
+    echo ========================================
+
+    COUNT=${EXISTING[${PROFILE}]}
+
+    if [ ${COUNT} -eq 1 ]; then
+        echo PROFILE_ALREADY_COMPLETE=${PROFILE}
+        continue
+    fi
+
+    echo WAIT_BEFORE_COLLECTION=${PROFILE}
+
+    sleep 15
+
+    SHADOWSOCKS_STAGE=${STAGE} \
+      ${COLLECT} \
+      ${PROFILE} \
+      1
+
+    echo PROFILE_SMOKE_PASS=${PROFILE}
+done
+
+echo SHADOWSOCKS_FORMAL_SMOKE_V1_COMPLETE

@@ -1,0 +1,265 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+REMOTE_HOST=proxydata-server
+REMOTE_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata
+PROJECT_ROOT=/home/etip/Tunnel/proxytraffic
+VALIDATOR=${PROJECT_ROOT}/encrypted_traffic_platform/dataset/validator.py
+PYTHON=${PROJECT_ROOT}/.venv/bin/python
+
+SSH_OPTIONS=(
+  -o BatchMode=yes
+  -o ConnectTimeout=20
+  -o ConnectionAttempts=3
+  -o ServerAliveInterval=15
+  -o ServerAliveCountMax=12
+  -o TCPKeepAlive=yes
+)
+
+usage() {
+    echo 'Usage: proxydata-sync LOCAL_DATASET PROXY_TYPE PROTOCOL STAGE [--delete-local]'
+}
+
+retry_ssh_capture() {
+    local description=$1
+    local command_text=$2
+    local attempt
+    local output
+    local status
+
+    for attempt in 1 2 3 4 5
+    do
+        echo "SSH ${description}: attempt ${attempt}/5" >&2
+
+        set +e
+        output=$(
+            ssh \
+              "${SSH_OPTIONS[@]}" \
+              "${REMOTE_HOST}" \
+              "${command_text}"
+        )
+        status=$?
+        set -e
+
+        if [ "${status}" -eq 0 ]; then
+            printf '%s\n' "${output}"
+            return 0
+        fi
+
+        sleep $((attempt * 5))
+    done
+
+    echo "ERROR: SSH ${description} failed after 5 attempts" >&2
+    return 1
+}
+
+if [ "$#" -lt 4 ] || [ "$#" -gt 5 ]; then
+    usage
+    exit 2
+fi
+
+LOCAL_DATASET=$(readlink -f "$1")
+PROXY_TYPE=$2
+PROTOCOL=$3
+STAGE=$4
+DELETE_LOCAL=${5:-}
+
+if [ -n "${DELETE_LOCAL}" ] \
+   && [ "${DELETE_LOCAL}" != "--delete-local" ]; then
+    usage
+    exit 2
+fi
+
+case "${PROXY_TYPE}" in
+    *[!A-Za-z0-9._-]*|'')
+        echo "ERROR: unsafe proxy type: ${PROXY_TYPE}" >&2
+        exit 2
+        ;;
+esac
+
+case "${PROTOCOL}" in
+    *[!A-Za-z0-9._-]*|'')
+        echo "ERROR: unsafe protocol: ${PROTOCOL}" >&2
+        exit 2
+        ;;
+esac
+
+case "${STAGE}" in
+    /*|*..*|*[!A-Za-z0-9._/-]*|'')
+        echo "ERROR: unsafe stage path: ${STAGE}" >&2
+        exit 2
+        ;;
+esac
+
+REMOTE_DATASET=${REMOTE_ROOT}/${PROXY_TYPE}/${PROTOCOL}/${STAGE}
+
+if [ ! -d "${LOCAL_DATASET}" ]; then
+    echo "ERROR: local dataset does not exist: ${LOCAL_DATASET}" >&2
+    exit 1
+fi
+
+SESSION_COUNT=$(
+    find "${LOCAL_DATASET}" \
+      -type f \
+      -name session.json \
+    | wc -l
+)
+
+if [ "${SESSION_COUNT}" -eq 0 ]; then
+    echo "ERROR: no session.json under ${LOCAL_DATASET}" >&2
+    exit 1
+fi
+
+echo '===== 1. LOCAL DATASET ====='
+echo "local_dataset=${LOCAL_DATASET}"
+echo "session_count=${SESSION_COUNT}"
+du -sh "${LOCAL_DATASET}"
+
+if [ -x "${PYTHON}" ] && [ -f "${VALIDATOR}" ]; then
+    VALIDATOR_OUTPUT=$(
+        "${PYTHON}" "${VALIDATOR}" "${LOCAL_DATASET}"
+    )
+
+    printf '%s\n' "${VALIDATOR_OUTPUT}"
+
+    if ! grep -q '^Invalid: 0$' <<< "${VALIDATOR_OUTPUT}"; then
+        echo 'ERROR: local dataset validation failed' >&2
+        exit 1
+    fi
+fi
+
+echo '===== 2. BUILD SHA256 MANIFEST ====='
+
+(
+    cd "${LOCAL_DATASET}"
+
+    find . \
+      -type f \
+      ! -name SHA256SUMS.txt \
+      -print0 \
+    | sort -z \
+    | xargs -0 -r sha256sum \
+      > SHA256SUMS.txt
+)
+
+MANIFEST=${LOCAL_DATASET}/SHA256SUMS.txt
+MANIFEST_ENTRIES=$(wc -l < "${MANIFEST}")
+
+echo "manifest_entries=${MANIFEST_ENTRIES}"
+test "${MANIFEST_ENTRIES}" -gt 0
+
+echo '===== 3. REMOTE PRECHECK ====='
+
+retry_ssh_capture \
+  precheck \
+  "set -Eeuo pipefail
+   mkdir -p '${REMOTE_DATASET}'
+   test -w '${REMOTE_DATASET}'
+   command -v sha256sum >/dev/null
+   printf 'remote_dataset=%s\n' '${REMOTE_DATASET}'
+   df -h '${REMOTE_ROOT}'"
+
+echo '===== 4. RSYNC ====='
+
+RSYNC_RSH='ssh -o BatchMode=yes -o ConnectTimeout=20 -o ConnectionAttempts=3 -o ServerAliveInterval=10 -o ServerAliveCountMax=12 -o TCPKeepAlive=yes'
+
+RSYNC_OK=0
+
+for RSYNC_ATTEMPT in 1 2 3 4 5
+do
+    echo "RSYNC transfer: attempt ${RSYNC_ATTEMPT}/5"
+
+    set +e
+
+    rsync \
+      -aH \
+      --partial \
+      --append-verify \
+      --bwlimit=8192 \
+      --timeout=300 \
+      --info=progress2 \
+      -e "${RSYNC_RSH}" \
+      "${LOCAL_DATASET}/" \
+      "${REMOTE_HOST}:${REMOTE_DATASET}/"
+
+    RSYNC_STATUS=$?
+
+    set -e
+
+    if [ "${RSYNC_STATUS}" -eq 0 ]; then
+        RSYNC_OK=1
+        echo "RSYNC transfer successful on attempt ${RSYNC_ATTEMPT}"
+        break
+    fi
+
+    echo "WARNING: RSYNC attempt ${RSYNC_ATTEMPT} failed with status ${RSYNC_STATUS}" >&2
+
+    sleep $((RSYNC_ATTEMPT * 10))
+done
+
+if [ "${RSYNC_OK}" -ne 1 ]; then
+    echo 'ERROR: RSYNC transfer failed after 5 attempts' >&2
+    exit 1
+fi
+
+echo '===== 5. REMOTE FINAL VERIFICATION ====='
+
+VERIFY_OUTPUT=$(
+    retry_ssh_capture \
+      final-verification \
+      "set -Eeuo pipefail
+       cd '${REMOTE_DATASET}'
+       sha256sum -c --quiet SHA256SUMS.txt
+       SESSION_COUNT=\$(find . -type f -name session.json | wc -l)
+       printf 'remote_session_count=%s\n' \"\${SESSION_COUNT}\"
+       test \"\${SESSION_COUNT}\" -eq '${SESSION_COUNT}'
+       du -sh .
+       printf 'REMOTE_FINAL_VERIFICATION_OK\n'"
+)
+
+printf '%s\n' "${VERIFY_OUTPUT}"
+
+REMOTE_SESSION_COUNT=$(
+    printf '%s\n' "${VERIFY_OUTPUT}" \
+    | awk -F= '/^remote_session_count=/ {print $2}' \
+    | tail -n 1 \
+    | tr -d '[:space:]'
+)
+
+echo "local_session_count=${SESSION_COUNT}"
+echo "remote_session_count=${REMOTE_SESSION_COUNT}"
+
+if [ "${REMOTE_SESSION_COUNT}" != "${SESSION_COUNT}" ]; then
+    echo 'ERROR: remote session count differs from local count' >&2
+    exit 1
+fi
+
+echo '===== REMOTE_DATASET_SYNC_PASSED ====='
+echo "remote_dataset=${REMOTE_DATASET}"
+
+if [ "${DELETE_LOCAL}" = "--delete-local" ]; then
+    echo '===== 6. PRESERVE LOCAL METADATA ARCHIVE ====='
+
+    ARCHIVE=$(
+        printf '%s_metadata_%s.tar.gz' \
+          "${LOCAL_DATASET%/}" \
+          "$(date -u +%Y%m%dT%H%M%SZ)"
+    )
+
+    tar \
+      -C "${LOCAL_DATASET}" \
+      --exclude='*.pcap' \
+      --exclude='*.pcapng' \
+      -czf "${ARCHIVE}" \
+      .
+
+    test -s "${ARCHIVE}"
+    echo "metadata_archive=${ARCHIVE}"
+
+    echo '===== 7. DELETE VERIFIED LOCAL DATASET ====='
+
+    rm -rf "${LOCAL_DATASET}"
+    test ! -e "${LOCAL_DATASET}"
+
+    echo "local_dataset_deleted=${LOCAL_DATASET}"
+fi

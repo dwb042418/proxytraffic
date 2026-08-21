@@ -1,0 +1,165 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+COLLECT=/home/etip/bin/collect-upload-shadowsocks-formal
+
+STAGE=formal_v1
+TARGET=20
+
+REMOTE_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/shadowsocks/aes_256_gcm/${STAGE}
+
+PROFILES=(
+    standard
+    low_rate
+    high_concurrency
+    bursty
+    long_session
+    perturbed_uplink
+    perturbed_fullpath
+)
+
+remote_snapshot() {
+    local attempt
+    local result
+    local rc
+
+    for attempt in 1 2 3 4 5
+    do
+        echo REMOTE_SNAPSHOT_ATTEMPT=${attempt}/5 >&2
+
+        set +e
+
+        result=$(
+            ssh \
+              -o BatchMode=yes \
+              -o ConnectTimeout=15 \
+              -o ConnectionAttempts=3 \
+              -o ServerAliveInterval=10 \
+              -o ServerAliveCountMax=12 \
+              -o TCPKeepAlive=yes \
+              proxydata-server \
+              "ROOT='${REMOTE_ROOT}'; \
+               for p in \
+                 standard \
+                 low_rate \
+                 high_concurrency \
+                 bursty \
+                 long_session \
+                 perturbed_uplink \
+                 perturbed_fullpath; \
+               do \
+                 c=\$(find \"\${ROOT}/\${p}/batches\" \
+                   -type f \
+                   -name session.json \
+                   2>/dev/null \
+                   | wc -l); \
+                 printf '%s %s\n' \"\${p}\" \"\${c}\"; \
+               done"
+        )
+
+        rc=$?
+
+        set -e
+
+        if [ ${rc} -eq 0 ]; then
+            printf '%s\n' "${result}"
+            return 0
+        fi
+
+        echo REMOTE_SNAPSHOT_RETRY rc=${rc} >&2
+
+        sleep $((attempt * 10))
+    done
+
+    echo ERROR_REMOTE_SNAPSHOT_FAILED >&2
+    return 1
+}
+
+echo '===== REMOTE INITIAL SNAPSHOT ====='
+
+SNAPSHOT=$(remote_snapshot)
+
+printf '%s\n' "${SNAPSHOT}"
+
+declare -A EXISTING
+
+while read -r PROFILE COUNT
+do
+    if [ -z "${PROFILE}" ]; then
+        continue
+    fi
+
+    if ! [[ ${COUNT} =~ ^[0-9]+$ ]]; then
+        echo ERROR_INVALID_REMOTE_COUNT=${PROFILE}:${COUNT}
+        exit 1
+    fi
+
+    EXISTING[${PROFILE}]=${COUNT}
+
+done <<< "${SNAPSHOT}"
+
+echo '===== COLLECTION MATRIX ====='
+
+for PROFILE in "${PROFILES[@]}"
+do
+    if [ -z "${EXISTING[${PROFILE}]+x}" ]; then
+        echo ERROR_MISSING_PROFILE=${PROFILE}
+        exit 1
+    fi
+
+    CURRENT=${EXISTING[${PROFILE}]}
+
+    echo
+    echo PROFILE=${PROFILE}
+    echo REMOTE_EXISTING=${CURRENT}
+    echo TARGET=${TARGET}
+
+    if [ ${CURRENT} -gt ${TARGET} ]; then
+        echo ERROR_REMOTE_COUNT_ABOVE_TARGET=${PROFILE}:${CURRENT}
+        exit 1
+    fi
+
+    if [ ${CURRENT} -eq ${TARGET} ]; then
+        echo PROFILE_ALREADY_COMPLETE=${PROFILE}
+        continue
+    fi
+
+    while [ ${CURRENT} -lt ${TARGET} ]
+    do
+        NEXT=$((CURRENT + 1))
+
+        echo
+        echo ========================================
+        echo PROFILE=${PROFILE}
+        echo SAMPLE_TARGET=${NEXT}/${TARGET}
+        echo ========================================
+
+        set +e
+
+        SHADOWSOCKS_STAGE=${STAGE} \
+          ${COLLECT} \
+          ${PROFILE} \
+          1
+
+        RC=$?
+
+        set -e
+
+        if [ ${RC} -ne 0 ]; then
+            echo COLLECTION_INTERRUPTED=${PROFILE}
+            echo LAST_CONFIRMED_REMOTE_COUNT=${CURRENT}
+            echo RERUN_THIS_SCRIPT_TO_RESUME
+            exit 1
+        fi
+
+        CURRENT=${NEXT}
+
+        echo PROFILE_PROGRESS=${PROFILE}:${CURRENT}/${TARGET}
+
+        sleep 10
+    done
+
+    echo PROFILE_TARGET_REACHED=${PROFILE}
+done
+
+echo SHADOWSOCKS_FORMAL_V1_TARGET_REACHED

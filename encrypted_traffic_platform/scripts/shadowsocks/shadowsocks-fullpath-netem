@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+LOCAL_HELPER=/usr/local/sbin/etip-shadowsocks-netem-uplink-fullpath
+REMOTE_HELPER=/usr/local/sbin/etip-shadowsocks-netem-downlink-fullpath
+SERVER=etip@192.168.100.20
+
+CACHE_DIR=${HOME}/.cache
+WATCHDOG_PID=${CACHE_DIR}/shadowsocks-fullpath-netem-watchdog.pid
+SELF=/home/etip/bin/shadowsocks-fullpath-netem
+
+mkdir -p ${CACHE_DIR}
+
+stop_watchdog() {
+    if [ ${SHADOWSOCKS_NETEM_WATCHDOG:-0} = 1 ]; then
+        return
+    fi
+
+    if [ -f ${WATCHDOG_PID} ]; then
+        PID=$(cat ${WATCHDOG_PID} 2>/dev/null || true)
+
+        if [ -n ${PID} ]; then
+            kill ${PID} 2>/dev/null || true
+        fi
+
+        rm -f ${WATCHDOG_PID}
+    fi
+}
+
+clear_all() {
+    set +e
+
+    sudo -n ${LOCAL_HELPER} clear
+    LOCAL_STATUS=$?
+
+    ssh \
+      -o BatchMode=yes \
+      -o ConnectTimeout=5 \
+      ${SERVER} \
+      sudo -n ${REMOTE_HELPER} clear
+
+    REMOTE_STATUS=$?
+
+    set -e
+
+    if [ ${LOCAL_STATUS} -ne 0 ] \
+       || [ ${REMOTE_STATUS} -ne 0 ]; then
+        return 1
+    fi
+}
+
+case ${1:-} in
+    apply)
+        stop_watchdog
+        clear_all || true
+
+        if ! ssh \
+          -o BatchMode=yes \
+          -o ConnectTimeout=5 \
+          ${SERVER} \
+          sudo -n ${REMOTE_HELPER} apply
+        then
+            clear_all || true
+            exit 1
+        fi
+
+        if ! sudo -n ${LOCAL_HELPER} apply
+        then
+            clear_all || true
+            exit 1
+        fi
+
+        nohup bash -lc \
+          'sleep 900; SHADOWSOCKS_NETEM_WATCHDOG=1 /home/etip/bin/shadowsocks-fullpath-netem clear' \
+          >/tmp/shadowsocks-fullpath-netem-watchdog.log \
+          2>&1 &
+
+        echo $! > ${WATCHDOG_PID}
+
+        echo SHADOWSOCKS_FULLPATH_NETEM_APPLIED
+        ;;
+
+    clear)
+        stop_watchdog
+        clear_all
+        echo SHADOWSOCKS_FULLPATH_NETEM_CLEARED
+        ;;
+
+    status)
+        echo ===== COLLECTOR =====
+
+        sudo -n \
+          ${LOCAL_HELPER} \
+          status
+
+        echo ===== SERVER =====
+
+        ssh \
+          -o BatchMode=yes \
+          -o ConnectTimeout=5 \
+          ${SERVER} \
+          sudo -n ${REMOTE_HELPER} status
+        ;;
+
+    *)
+        echo usage: shadowsocks-fullpath-netem apply\|clear\|status >&2
+        exit 2
+        ;;
+esac

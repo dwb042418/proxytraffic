@@ -1,0 +1,9 @@
+subset	profile	batch_count	sample_count	sha256_pass_count
+formal_v1	standard	20	20	20
+formal_v1	low_rate	20	20	20
+formal_v1	high_concurrency	20	20	20
+formal_v1	bursty	20	20	20
+formal_v1	long_session	20	20	20
+formal_v1	perturbed_uplink	20	20	20
+formal_v1	perturbed_fullpath	20	20	20
+formal_v1	TOTAL	140	140	140

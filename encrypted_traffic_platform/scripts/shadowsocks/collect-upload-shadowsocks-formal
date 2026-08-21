@@ -1,0 +1,234 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT=/home/etip/Tunnel/proxytraffic
+PLATFORM=${ROOT}/encrypted_traffic_platform
+
+RUNNER=${PLATFORM}/scripts/run_enriched_experiment.py
+VALIDATOR=${PLATFORM}/dataset/validator.py
+SS_VALIDATOR=${PLATFORM}/shadowsocks/validate_sample.py
+SYNC_TOOL=/home/etip/bin/proxydata-sync
+
+PROFILE=${1:-}
+COUNT=${2:-1}
+
+STAGE=${SHADOWSOCKS_STAGE:-formal_v1}
+
+usage() {
+    cat <<'USAGE'
+Usage:
+  collect-upload-shadowsocks-formal PROFILE [COUNT]
+
+Profiles:
+  standard
+  low_rate
+  high_concurrency
+  bursty
+  long_session
+  perturbed_uplink
+  perturbed_fullpath
+USAGE
+}
+
+if [ -z ${PROFILE} ]; then
+    usage
+    exit 2
+fi
+
+if ! [[ ${COUNT} =~ ^[1-9][0-9]*$ ]]; then
+    echo ERROR_INVALID_COUNT
+    exit 2
+fi
+
+case ${PROFILE} in
+    standard)
+        CONFIG_NAME=standard
+        ;;
+
+    low_rate)
+        CONFIG_NAME=low_rate
+        ;;
+
+    high_concurrency)
+        CONFIG_NAME=high_concurrency
+        ;;
+
+    bursty)
+        CONFIG_NAME=bursty
+        ;;
+
+    long_session)
+        CONFIG_NAME=long_session
+        ;;
+
+    perturbed_uplink)
+        CONFIG_NAME=perturbed
+        ;;
+
+    perturbed_fullpath)
+        CONFIG_NAME=perturbed_fullpath
+        ;;
+
+    *)
+        echo ERROR_UNSUPPORTED_PROFILE=${PROFILE}
+        usage
+        exit 2
+        ;;
+esac
+
+case ${STAGE} in
+    *..*|/*|'')
+        echo ERROR_INVALID_STAGE=${STAGE}
+        exit 2
+        ;;
+esac
+
+CONFIG=${PLATFORM}/experiments/shadowsocks/aes_256_gcm/${CONFIG_NAME}.yaml
+
+LOCAL_ROOT=/home/etip/datasets/staging/shadowsocks/aes_256_gcm/${STAGE}/${PROFILE}/batches
+
+REMOTE_STAGE_ROOT=${STAGE}/${PROFILE}/batches
+
+cleanup() {
+    set +e
+
+    ${PLATFORM}/deployment/shadowsocks/stop_client.sh \
+      >/dev/null 2>&1
+
+    /home/etip/bin/shadowsocks-fullpath-netem clear \
+      >/dev/null 2>&1
+
+    set -e
+}
+
+trap cleanup EXIT
+
+cd ${ROOT}
+
+source .venv/bin/activate
+
+echo '===== PRECHECK ====='
+
+test -f ${CONFIG}
+test -x ${RUNNER}
+test -f ${VALIDATOR}
+test -x ${SS_VALIDATOR}
+test -x ${SYNC_TOOL}
+
+nc -z -w 3 \
+  192.168.100.20 \
+  20002
+
+ssh \
+  -o BatchMode=yes \
+  -o ConnectTimeout=10 \
+  proxydata-server \
+  'echo REMOTE_STORAGE_OK'
+
+mkdir -p ${LOCAL_ROOT}
+
+echo PROFILE=${PROFILE}
+echo CONFIG=${CONFIG}
+echo COUNT=${COUNT}
+echo STAGE=${STAGE}
+
+for RUN_INDEX in $(seq 1 ${COUNT})
+do
+    BATCH_ID=$(
+        printf '%s_%s_%02d_%04x' \
+          ${PROFILE} \
+          $(date -u +%Y%m%dT%H%M%SZ) \
+          ${RUN_INDEX} \
+          ${RANDOM}
+    )
+
+    LOCAL_BATCH=${LOCAL_ROOT}/${BATCH_ID}
+    REMOTE_STAGE=${REMOTE_STAGE_ROOT}/${BATCH_ID}
+
+    mkdir -p ${LOCAL_BATCH}
+
+    echo
+    echo '===== NEW SAMPLE ====='
+    echo PROFILE=${PROFILE}
+    echo RUN=${RUN_INDEX}/${COUNT}
+    echo BATCH_ID=${BATCH_ID}
+    echo LOCAL_BATCH=${LOCAL_BATCH}
+
+    set +e
+
+    python \
+      ${RUNNER} \
+      --config ${CONFIG} \
+      --dataset-root ${LOCAL_BATCH}
+
+    RUN_RC=$?
+
+    set -e
+
+    if [ ${RUN_RC} -ne 0 ]; then
+        echo SAMPLE_COLLECTION_FAILED
+        echo LOCAL_BATCH_PRESERVED=${LOCAL_BATCH}
+        exit 1
+    fi
+
+    echo '===== GENERIC VALIDATION ====='
+
+    python \
+      ${VALIDATOR} \
+      ${LOCAL_BATCH}
+
+    SAMPLE_COUNT=$(
+        find ${LOCAL_BATCH} \
+          -type f \
+          -name session.json \
+        | wc -l
+    )
+
+    if [ ${SAMPLE_COUNT} -ne 1 ]; then
+        echo ERROR_SAMPLE_COUNT=${SAMPLE_COUNT}
+        exit 1
+    fi
+
+    SAMPLE=$(
+        find ${LOCAL_BATCH} \
+          -type f \
+          -name session.json \
+          -printf '%h\n' \
+        | head -n 1
+    )
+
+    echo SAMPLE=${SAMPLE}
+
+    echo '===== SHADOWSOCKS VALIDATION ====='
+
+    python \
+      ${SS_VALIDATOR} \
+      ${SAMPLE}
+
+    echo '===== BATCH METADATA ====='
+
+    cat > ${LOCAL_BATCH}/batch_metadata.json <<EOF
+{
+  "batch_id": "${BATCH_ID}",
+  "proxy_type": "shadowsocks",
+  "protocol": "aes_256_gcm",
+  "formal_profile": "${PROFILE}",
+  "stage": "${STAGE}",
+  "sample_count": 1,
+  "created_utc": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+}
+EOF
+
+    echo '===== REMOTE SYNC ====='
+
+    ${SYNC_TOOL} \
+      ${LOCAL_BATCH} \
+      shadowsocks \
+      aes_256_gcm \
+      ${REMOTE_STAGE} \
+      --delete-local
+
+    echo FORMAL_SAMPLE_COMPLETE=${PROFILE}
+done
+
+echo PROFILE_COLLECTION_COMPLETE=${PROFILE}

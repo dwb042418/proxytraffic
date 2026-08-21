@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+IFACE=ens37
+SERVER_IP=192.168.100.20
+SERVER_PORT=20002
+
+restore_default() {
+    tc qdisc del dev "${IFACE}" root 2>/dev/null || true
+    tc qdisc replace dev "${IFACE}" root fq_codel
+}
+
+case "${1:-}" in
+    apply)
+        restore_default
+
+        tc qdisc replace \
+          dev "${IFACE}" \
+          root \
+          handle 1: \
+          prio bands 3
+
+        tc qdisc replace \
+          dev "${IFACE}" \
+          parent 1:3 \
+          handle 30: \
+          netem \
+          delay 40ms 10ms distribution normal \
+          loss 0.2% \
+          rate 8mbit
+
+        tc filter replace \
+          dev "${IFACE}" \
+          protocol ip \
+          parent 1: \
+          prio 30 \
+          u32 \
+          match ip protocol 6 0xff \
+          match ip dst "${SERVER_IP}/32" \
+          match ip dport "${SERVER_PORT}" 0xffff \
+          flowid 1:3
+
+        echo SHADOWSOCKS_COLLECTOR_UPLINK_NETEM_APPLIED
+        ;;
+
+    clear)
+        restore_default
+        echo SHADOWSOCKS_COLLECTOR_UPLINK_NETEM_CLEARED
+        ;;
+
+    status)
+        echo '===== COLLECTOR UPLINK QDISC ====='
+        tc -s qdisc show dev "${IFACE}"
+        echo '===== COLLECTOR UPLINK FILTER ====='
+        tc filter show dev "${IFACE}" parent 1: || true
+        ;;
+
+    *)
+        echo 'usage: etip-v2ray-netem-uplink-fullpath apply|clear|status' >&2
+        exit 2
+        ;;
+esac
