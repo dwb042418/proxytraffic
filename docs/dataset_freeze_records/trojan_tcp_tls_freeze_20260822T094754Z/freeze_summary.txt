@@ -1,0 +1,11 @@
+dataset=trojan_tcp_tls_formal_v1
+freeze_timestamp_utc=20260822T094904Z
+formal_v1_batches=140
+formal_v1_samples=140
+profile_count=7
+samples_per_profile=20
+sha256_pass_count=140
+sha256_failure_count=0
+integrity_issue_count=0
+formal_git_head=480dc375484c84d373485171c66a36cbf02b5522
+status=PASS

@@ -1,0 +1,8 @@
+profile	batches	samples
+standard	20	20
+low_rate	20	20
+high_concurrency	20	20
+bursty	20	20
+long_session	20	20
+perturbed_uplink	20	20
+perturbed_fullpath	20	20
