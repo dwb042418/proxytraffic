@@ -1,0 +1,87 @@
+name: direct_perturbed_uplink
+description: Matched Controlled Direct workload for perturbed_uplink
+lifecycle:
+  prepare:
+  - type: command
+    name: clear_direct_fullpath_netem
+    command:
+    - bash
+    - -lc
+    - /home/etip/bin/direct-fullpath-netem clear || true
+    timeout: 30
+  - type: command
+    name: clear_direct_uplink_netem
+    command:
+    - bash
+    - -lc
+    - sudo -n /usr/local/sbin/etip-direct-netem clear || true
+    timeout: 15
+  - type: sleep
+    name: pre_client_settle
+    seconds: 1
+  deploy: []
+  execute:
+  - type: command
+    name: apply_direct_uplink_netem
+    command:
+    - bash
+    - -lc
+    - sudo -n /usr/local/sbin/etip-direct-netem apply
+    timeout: 15
+  - type: command
+    name: perturbed_web
+    command:
+    - bash
+    - -lc
+    - env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u
+      ALL_PROXY curl --noproxy '*' --resolve etip-server.lab:18443:192.168.100.20
+      --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail
+      --silent --show-error https://etip-server.lab:18443/web/ -o /tmp/direct_perturbed_web.html
+    timeout: 40
+  - type: command
+    name: perturbed_download_10m
+    command:
+    - bash
+    - -lc
+    - env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u
+      ALL_PROXY curl --noproxy '*' --resolve etip-server.lab:18443:192.168.100.20
+      --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail
+      --silent --show-error --limit-rate 1M https://etip-server.lab:18443/files/file_10m.bin
+      -o /tmp/direct_perturbed_10m.bin
+    timeout: 90
+  - type: command
+    name: perturbed_download_50m
+    command:
+    - bash
+    - -lc
+    - env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u
+      ALL_PROXY curl --noproxy '*' --resolve etip-server.lab:18443:192.168.100.20
+      --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail
+      --silent --show-error --limit-rate 2M https://etip-server.lab:18443/files/file_50m.bin
+      -o /tmp/direct_perturbed_50m.bin
+    timeout: 150
+  - type: command
+    name: perturbed_api
+    command:
+    - bash
+    - -lc
+    - env -u http_proxy -u https_proxy -u HTTP_PROXY -u HTTPS_PROXY -u all_proxy -u
+      ALL_PROXY curl --noproxy '*' --resolve etip-server.lab:18443:192.168.100.20
+      --cacert encrypted_traffic_platform/config/certs/etip-ca.crt --http1.1 --fail
+      --silent --show-error https://etip-server.lab:18443/cloud/index.json -o /tmp/direct_perturbed_api.json
+    timeout: 40
+  - type: sleep
+    name: perturbed_post_idle
+    seconds: 3
+  finalize:
+  - type: command
+    name: clear_direct_uplink_netem
+    command:
+    - bash
+    - -lc
+    - sudo -n /usr/local/sbin/etip-direct-netem clear
+    timeout: 15
+  - type: marker
+    name: finalize_direct_profile
+protocol: direct_https_tls
+tool: curl
