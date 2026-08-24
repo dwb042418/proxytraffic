@@ -1,0 +1,17 @@
+benchmark=proxytraffic_controlled_v1
+total_samples=420
+vless_samples=140
+shadowsocks_samples=140
+trojan_samples=140
+profile_count=7
+samples_per_class_profile=20
+primary_train=252
+primary_validation=84
+primary_test=84
+robustness_train=240
+robustness_validation=60
+robustness_test=120
+integrity_issue_count=0
+mist_samples_included=0
+older_shadowsocks_freeze_included=0
+status=PASS

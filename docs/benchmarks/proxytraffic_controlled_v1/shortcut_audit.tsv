@@ -1,0 +1,12 @@
+field	policy	usage
+packet_length	allowed	model_input
+packet_direction	allowed	model_input
+inter_arrival_time	allowed	model_input
+flow_boundary	allowed	model_input
+ip_address	forbidden	construction_only
+port_number	forbidden	construction_only
+sni	forbidden	never_model_input
+certificate	forbidden	never_model_input
+protocol_metadata	forbidden	never_model_input
+profile	forbidden	split_and_audit_only
+sample_path	forbidden	data_loading_only

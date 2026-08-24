@@ -1,0 +1,8 @@
+benchmark=proxytraffic_controlled_v1
+manifest_samples=420
+audited_samples=420
+vless_samples=140
+shadowsocks_samples=140
+trojan_samples=140
+remote_integrity_issue_count=0
+status=PASS

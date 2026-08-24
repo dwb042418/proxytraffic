@@ -1,0 +1,4 @@
+class_label	protocol	freeze_record	freeze_tag	freeze_tag_commit	remote_root	included_samples
+vless	vless_tcp_tls	v2ray_vless_tcp_tls_freeze_20260816T200211+0800	v2ray-vless-tcp-tls-data-freeze-v1	d6c79c709c45bea9c93076168f7e1be2a4be17cd	/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/v2ray/vless_tcp_tls	140
+shadowsocks	shadowsocks_aes_256_gcm	shadowsocks_aes_256_gcm_freeze_20260821T132655+0800	shadowsocks-aes-256-gcm-data-freeze-v1	5fa83be25ff9bc2066e308c29d946742c1887214	/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/shadowsocks/aes_256_gcm/formal_v1	140
+trojan	trojan_tcp_tls	trojan_tcp_tls_freeze_20260822T094754Z	trojan-tcp-tls-data-freeze-v1	cec97da1b9f7eb6ba1a51f8409df00c1ea8b08f4	/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/trojan/tcp_tls/formal_v1	140

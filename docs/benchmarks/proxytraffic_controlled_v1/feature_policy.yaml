@@ -1,0 +1,33 @@
+benchmark: proxytraffic_controlled_v1
+model_observation_space:
+  allowed:
+  - packet_length
+  - packet_direction
+  - inter_arrival_time
+  - relative_timestamp
+  - flow_boundary
+  - packet_order
+  - cross_flow_structure
+  forbidden:
+  - source_ip
+  - destination_ip
+  - source_port
+  - destination_port
+  - dns
+  - sni
+  - certificate_identity
+  - tls_cipher
+  - tls_version
+  - protocol_fields
+  - proxy_protocol_metadata
+  - security_metadata
+  - profile_name
+  - sample_path
+  - directory_name
+  - filename
+  construction_only:
+  - five_tuple
+  - server_port
+  - local_socks_port
+  - source_freeze
+  - pcap_path
