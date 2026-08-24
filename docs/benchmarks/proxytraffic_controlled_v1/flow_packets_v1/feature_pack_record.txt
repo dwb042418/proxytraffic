@@ -1,0 +1,14 @@
+benchmark=proxytraffic_controlled_v1
+feature_pack=flow_packets_v1
+source_samples=420
+flow_records=1800
+vless_flow_records=600
+shadowsocks_flow_records=600
+trojan_flow_records=600
+packet_budget=256
+features=signed_ipv4_total_length,log1p_iat_ms
+variants=prefix256,skip5_prefix256,skip10_prefix256
+ip_values_written_to_features=false
+port_values_written_to_features=false
+controlled_v1_commit=6c0dc67e7fb89e73be8d15bb04ef12d652ad7910
+created_from_frozen_sources=true

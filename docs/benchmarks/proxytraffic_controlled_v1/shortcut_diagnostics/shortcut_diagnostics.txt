@@ -1,0 +1,36 @@
+===== FEATURE SET ABLATION =====
+packet_count primary_f1= 0.428 robust_f1= 0.184
+byte_count primary_f1= 0.6054 robust_f1= 0.1854
+duration primary_f1= 0.8311 robust_f1= 0.2495
+pcap_size primary_f1= 0.6246 robust_f1= 0.184
+flow_structure primary_f1= 0.2848 robust_f1= 0.1667
+volume primary_f1= 0.6365 robust_f1= 0.184
+volume_duration primary_f1= 0.9406 robust_f1= 0.4027
+all primary_f1= 0.9404 robust_f1= 0.4027
+
+===== PER PROFILE PRIMARY =====
+bursty train= 36 test= 12 macro_f1= 1.0
+high_concurrency train= 36 test= 12 macro_f1= 1.0
+long_session train= 36 test= 12 macro_f1= 0.9153
+low_rate train= 36 test= 12 macro_f1= 1.0
+perturbed_fullpath train= 36 test= 12 macro_f1= 0.6005
+perturbed_uplink train= 36 test= 12 macro_f1= 0.746
+standard train= 36 test= 12 macro_f1= 1.0
+
+===== LEAVE ONE PROFILE OUT =====
+holdout= bursty test= 60 macro_f1= 0.1667
+holdout= high_concurrency test= 60 macro_f1= 0.1688
+holdout= long_session test= 60 macro_f1= 0.1667
+holdout= low_rate test= 60 macro_f1= 0.1667
+holdout= perturbed_fullpath test= 60 macro_f1= 0.1667
+holdout= perturbed_uplink test= 60 macro_f1= 0.5387
+holdout= standard test= 60 macro_f1= 0.5556
+
+===== PRIMARY PERMUTATION IMPORTANCE =====
+duration importance= 0.4308 std= 0.0572
+byte_count importance= 0.169 std= 0.0316
+packet_count importance= 0.1135 std= 0.0226
+pcap_size_bytes importance= 0.0618 std= 0.0204
+tcp_stream_count importance= 0.0238 std= 0.0092
+flow_count importance= 0.0181 std= 0.0075
+SHORTCUT_DIAGNOSTICS_COMPLETE

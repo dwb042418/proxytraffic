@@ -1,0 +1,10 @@
+extractor=controlled_v1_flow_packets
+manifest_samples=420
+flow_records=1800
+budget=256
+features=signed_ipv4_total_length,log1p_iat_ms
+ip_values_written_to_features=false
+port_values_written_to_features=false
+vless_flow_records=600
+shadowsocks_flow_records=600
+trojan_flow_records=600
