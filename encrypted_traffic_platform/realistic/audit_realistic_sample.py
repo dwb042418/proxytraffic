@@ -57,8 +57,10 @@ def main() -> int:
     for name, count in packet_counts.items():
         if count <= 0:
             issues.append(f"{name}_pcap_empty")
-    if workload.get("failure_count") != 0:
-        issues.append("workload_failure")
+    if workload.get("hard_failure_count") is None:
+        issues.append("workload_hard_failure_count_missing")
+    elif workload["hard_failure_count"] != 0:
+        issues.append("workload_hard_failure")
     if workload.get("workload_plan_sha256") != plan_hash:
         issues.append("workload_plan_hash_mismatch")
     if original_tunnel_count:
