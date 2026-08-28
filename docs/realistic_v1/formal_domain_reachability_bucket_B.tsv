@@ -1,0 +1,360 @@
+rank	domain	rank_bucket	https_url	dns_success	main_commit_success	main_http_status	main_commit_latency_ms	domcontentloaded	domcontentloaded_latency_ms	subresource_failed_count	warning_count	policy_exclusion_reason	hard_failure_reason	reachable	audit_timestamp
+1001	costco.com	rank_1001_100000	https://costco.com/	True	False	403	5739	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:14:00Z
+1002	onesignal.com	rank_1001_100000	https://onesignal.com/	True	True	200	1664	True	5272	0	0			True	2026-08-28T08:14:00Z
+1003	binance.com	rank_1001_100000	https://binance.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:14:00Z
+1004	heytapmobi.com	rank_1001_100000	https://heytapmobi.com/	True	True	200	228	True	231	1	1			True	2026-08-28T08:14:00Z
+1005	tesla.com	rank_1001_100000	https://tesla.com/	True	False	403	3629	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:14:00Z
+1006	app-ads-services.com	rank_1001_100000	https://app-ads-services.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_CLOSED at https://app-ads-services.com/
+Call log:
+  - navigating to ""https://app-ads-services.com/"", waiting until ""commit""
+"	False	2026-08-28T08:14:00Z
+1007	tiktokpangle.us	rank_1001_100000	https://tiktokpangle.us/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:14:00Z
+1008	bol.com	rank_1001_100000	https://bol.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://bol.com/
+Call log:
+  - navigating to ""https://bol.com/"", waiting until ""commit""
+"	False	2026-08-28T08:14:00Z
+1009	flipkart.com	rank_1001_100000	https://flipkart.com/	True	True	200	6309	False	0	0	1			True	2026-08-28T08:14:22Z
+1010	youronlinechoices.com	rank_1001_100000	https://youronlinechoices.com/	True	True	200	2853	True	4069	0	0			True	2026-08-28T08:14:22Z
+1011	statcounter.com	rank_1001_100000	https://statcounter.com/	True	True	200	2067	True	5377	1	1			True	2026-08-28T08:14:22Z
+1012	xerox.com	rank_1001_100000	https://xerox.com/	True	True	200	4348	True	10934	2	1			True	2026-08-28T08:14:22Z
+1013	kwcdn.com	rank_1001_100000	https://kwcdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:14:22Z
+1014	columbia.edu	rank_1001_100000	https://columbia.edu/	True	False	403	1329	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:14:22Z
+1015	letterboxd.com	rank_1001_100000	https://letterboxd.com/	True	False	403	1153	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:14:22Z
+1016	futbin.com	rank_1001_100000	https://futbin.com/	True	False	403	1324	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:14:22Z
+1017	ecosia.org	rank_1001_100000	https://ecosia.org/	True	True	200	1243	True	1327	0	0			True	2026-08-28T08:14:38Z
+1018	amp-endpoint2.com	rank_1001_100000	https://amp-endpoint2.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:14:38Z
+1019	kontur.ru	rank_1001_100000	https://kontur.ru/	True	True	200	1812	False	0	0	1			True	2026-08-28T08:14:38Z
+1020	ltwebstatic.com	rank_1001_100000	https://ltwebstatic.com/	True	False	404	22640	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-28T08:14:38Z
+1021	nextcloud.com	rank_1001_100000	https://nextcloud.com/	True	True	200	1027	False	0	0	1			True	2026-08-28T08:14:38Z
+1022	zhihu.com	rank_1001_100000	https://zhihu.com/	True	True	200	694	True	2078	10	1			True	2026-08-28T08:14:38Z
+1023	docomo.ne.jp	rank_1001_100000	https://docomo.ne.jp/	True	False	404	588	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-28T08:14:38Z
+1024	wbbasket.ru	rank_1001_100000	https://wbbasket.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:14:38Z
+1025	pbs.org	rank_1001_100000	https://pbs.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://pbs.org/
+Call log:
+  - navigating to ""https://pbs.org/"", waiting until ""commit""
+"	False	2026-08-28T08:15:01Z
+1026	xing.com	rank_1001_100000	https://xing.com/	True	True	200	2484	True	5628	2	1			True	2026-08-28T08:15:01Z
+1027	giphy.com	rank_1001_100000	https://giphy.com/	True	True	200	1423	True	2153	0	0			True	2026-08-28T08:15:01Z
+1028	wise.com	rank_1001_100000	https://wise.com/	True	True	200	1002	True	2480	6	1			True	2026-08-28T08:15:01Z
+1029	namecheaphosting.com	rank_1001_100000	https://namecheaphosting.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://namecheaphosting.com/
+Call log:
+  - navigating to ""https://namecheaphosting.com/"", waiting until ""commit""
+"	False	2026-08-28T08:15:01Z
+1030	vk-analytics.ru	rank_1001_100000	https://vk-analytics.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:15:01Z
+1031	garmin.com	rank_1001_100000	https://garmin.com/	True	True	200	4223	True	6755	1	1			True	2026-08-28T08:15:01Z
+1032	interia.pl	rank_1001_100000	https://interia.pl/	True	True	200	1601	True	4925	0	0			True	2026-08-28T08:15:01Z
+1033	archiveofourown.org	rank_1001_100000	https://archiveofourown.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://archiveofourown.org/
+Call log:
+  - navigating to ""https://archiveofourown.org/"", waiting until ""commit""
+"	False	2026-08-28T08:15:16Z
+1034	theconversation.com	rank_1001_100000	https://theconversation.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://theconversation.com/
+Call log:
+  - navigating to ""https://theconversation.com/"", waiting until ""commit""
+"	False	2026-08-28T08:15:16Z
+1035	akahost.net	rank_1001_100000	https://akahost.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:15:16Z
+1036	immedia-semi.com	rank_1001_100000	https://immedia-semi.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:15:16Z
+1037	amazon.com.mx	rank_1001_100000	https://amazon.com.mx/	True	True	202	3042	True	5219	0	0			True	2026-08-28T08:15:16Z
+1038	olx.com.br	rank_1001_100000	https://olx.com.br/	True	False	403	2834	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:15:16Z
+1039	infobae.com	rank_1001_100000	https://infobae.com/	True	True	200	3858	False	0	3	2			True	2026-08-28T08:15:16Z
+1040	huffpost.com	rank_1001_100000	https://huffpost.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://huffpost.com/
+Call log:
+  - navigating to ""https://huffpost.com/"", waiting until ""commit""
+"	False	2026-08-28T08:15:16Z
+1041	moneycontrol.com	rank_1001_100000	https://moneycontrol.com/	True	False	403	3171	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:15:37Z
+1042	singtelchina.cn	rank_1001_100000	https://singtelchina.cn/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:15:37Z
+1043	samsungcloudsolution.net	rank_1001_100000	https://samsungcloudsolution.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:15:37Z
+1044	dnse2.com	rank_1001_100000	https://dnse2.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:15:37Z
+1045	bidmachine.io	rank_1001_100000	https://bidmachine.io/	True	True	200	4966	True	7392	4	1			True	2026-08-28T08:15:37Z
+1046	amemv.com	rank_1001_100000	https://amemv.com/	True	True	200	970	True	1212	0	0	captcha_blocking		False	2026-08-28T08:15:37Z
+1047	verify.hn	rank_1001_100000	https://verify.hn/	True	True	200	21882	True	21883	1	1			True	2026-08-28T08:15:37Z
+1048	bytefcdn-ttpus.com	rank_1001_100000	https://bytefcdn-ttpus.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:15:37Z
+1049	app-analytics-services-att.com	rank_1001_100000	https://app-analytics-services-att.com/	True	False	404	254	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-28T08:16:09Z
+1050	tiktokrow-cdn.com	rank_1001_100000	https://tiktokrow-cdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:16:09Z
+1051	redfin.com	rank_1001_100000	https://redfin.com/	True	False	429	1858	False	0	0	0		RuntimeError:unacceptable_main_http_status:429	False	2026-08-28T08:16:09Z
+1052	poki.com	rank_1001_100000	https://poki.com/	True	True	200	2162	True	2710	5	1			True	2026-08-28T08:16:09Z
+1053	skroutz.gr	rank_1001_100000	https://skroutz.gr/	True	False	403	2371	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:16:09Z
+1054	netcraze.io	rank_1001_100000	https://netcraze.io/	True	True	200	1322	False	0	0	1			True	2026-08-28T08:16:09Z
+1055	trendyol.com	rank_1001_100000	https://trendyol.com/	True	False	403	1803	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:16:09Z
+1056	i18n-pglstatp.com	rank_1001_100000	https://i18n-pglstatp.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:16:09Z
+1057	ouest-france.fr	rank_1001_100000	https://ouest-france.fr/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://ouest-france.fr/
+Call log:
+  - navigating to ""https://ouest-france.fr/"", waiting until ""commit""
+"	False	2026-08-28T08:16:22Z
+1058	n-tv.de	rank_1001_100000	https://n-tv.de/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://n-tv.de/
+Call log:
+  - navigating to ""https://n-tv.de/"", waiting until ""commit""
+"	False	2026-08-28T08:16:22Z
+1059	epicgames.dev	rank_1001_100000	https://epicgames.dev/	True	False	403	3370	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:16:22Z
+1060	marca.com	rank_1001_100000	https://marca.com/	True	True	200	2382	False	0	0	1			True	2026-08-28T08:16:22Z
+1061	amagi.tv	rank_1001_100000	https://amagi.tv/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://amagi.tv/
+Call log:
+  - navigating to ""https://amagi.tv/"", waiting until ""commit""
+"	False	2026-08-28T08:16:22Z
+1062	wskam.com	rank_1001_100000	https://wskam.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:16:22Z
+1063	kslawin.com	rank_1001_100000	https://kslawin.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:16:22Z
+1064	as.com	rank_1001_100000	https://as.com/	True	True	200	442	False	0	3	2			True	2026-08-28T08:16:22Z
+1065	kohls.com	rank_1001_100000	https://kohls.com/	True	False	403	506	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:16:43Z
+1066	goal.com	rank_1001_100000	https://goal.com/	True	True	200	1696	True	3173	2	1			True	2026-08-28T08:16:43Z
+1067	netgear.com	rank_1001_100000	https://netgear.com/	True	True	200	22726	True	22923	12	1			True	2026-08-28T08:16:43Z
+1068	superhosting.bg	rank_1001_100000	https://superhosting.bg/	True	True	200	3170	False	0	0	1			True	2026-08-28T08:16:43Z
+1069	tbank.ru	rank_1001_100000	https://tbank.ru/	True	True	200	4514	False	0	0	1			True	2026-08-28T08:16:43Z
+1070	adblockplus.org	rank_1001_100000	https://adblockplus.org/	True	True	200	1779	True	10659	0	0			True	2026-08-28T08:16:43Z
+1071	expedia.com	rank_1001_100000	https://expedia.com/	True	False	429	4329	False	0	0	0		RuntimeError:unacceptable_main_http_status:429	False	2026-08-28T08:16:43Z
+1072	google.ca	rank_1001_100000	https://google.ca/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://google.ca/
+Call log:
+  - navigating to ""https://google.ca/"", waiting until ""commit""
+"	False	2026-08-28T08:16:43Z
+1073	alphonso.tv	rank_1001_100000	https://alphonso.tv/	True	True	200	901	False	0	0	1			True	2026-08-28T08:17:16Z
+1074	incapdns.net	rank_1001_100000	https://incapdns.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:17:16Z
+1075	oecd.org	rank_1001_100000	https://oecd.org/	True	False	403	3801	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:17:16Z
+1076	flashscore.com	rank_1001_100000	https://flashscore.com/	True	True	200	1681	True	11133	1	1			True	2026-08-28T08:17:16Z
+1077	bfmtv.com	rank_1001_100000	https://bfmtv.com/	True	True	200	1749	True	9164	0	0			True	2026-08-28T08:17:16Z
+1078	kickstarter.com	rank_1001_100000	https://kickstarter.com/	True	False	403	750	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:17:16Z
+1079	auvik.com	rank_1001_100000	https://auvik.com/	True	True	200	2596	False	0	16	2			True	2026-08-28T08:17:16Z
+1080	google.fr	rank_1001_100000	https://google.fr/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://google.fr/
+Call log:
+  - navigating to ""https://google.fr/"", waiting until ""commit""
+"	False	2026-08-28T08:17:16Z
+1081	ultimate-guitar.com	rank_1001_100000	https://ultimate-guitar.com/	True	True	200	1584	True	4055	2	1			True	2026-08-28T08:17:37Z
+1082	buydomains.com	rank_1001_100000	https://buydomains.com/	True	False	403	1205	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:17:37Z
+1083	smaato.net	rank_1001_100000	https://smaato.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:17:37Z
+1084	xhamster.desi	rank_1001_100000	https://xhamster.desi/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://xhamster.desi/
+Call log:
+  - navigating to ""https://xhamster.desi/"", waiting until ""commit""
+"	False	2026-08-28T08:17:37Z
+1085	zijieapi.com	rank_1001_100000	https://zijieapi.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:17:37Z
+1086	ilovepdf.com	rank_1001_100000	https://ilovepdf.com/	True	True	200	896	True	1139	4	1			True	2026-08-28T08:17:37Z
+1087	bund.de	rank_1001_100000	https://bund.de/	True	True	200	5426	True	6724	0	0			True	2026-08-28T08:17:37Z
+1088	ameba.jp	rank_1001_100000	https://ameba.jp/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://ameba.jp/
+Call log:
+  - navigating to ""https://ameba.jp/"", waiting until ""commit""
+"	False	2026-08-28T08:17:37Z
+1089	crazygames.com	rank_1001_100000	https://crazygames.com/	True	True	200	1538	True	5162	3	1			True	2026-08-28T08:17:58Z
+1090	azure.net	rank_1001_100000	https://azure.net/	True	True	200	12223	False	0	0	1			True	2026-08-28T08:17:58Z
+1091	nexthink.cloud	rank_1001_100000	https://nexthink.cloud/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:17:58Z
+1092	cpanel.com	rank_1001_100000	https://cpanel.com/	True	True	200	3252	True	5567	5	1			True	2026-08-28T08:17:58Z
+1093	websitewelcome.com	rank_1001_100000	https://websitewelcome.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://websitewelcome.com/
+Call log:
+  - navigating to ""https://websitewelcome.com/"", waiting until ""commit""
+"	False	2026-08-28T08:17:58Z
+1094	ovscdns.net	rank_1001_100000	https://ovscdns.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:17:58Z
+1095	riotgames.com	rank_1001_100000	https://riotgames.com/	True	True	200	5570	True	10466	0	0			True	2026-08-28T08:17:58Z
+1096	jimdo.com	rank_1001_100000	https://jimdo.com/	True	True	200	3315	True	4339	0	0			True	2026-08-28T08:17:58Z
+1097	tabelog.com	rank_1001_100000	https://tabelog.com/	True	False	403	1322	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:18:20Z
+1098	cloudinary.com	rank_1001_100000	https://cloudinary.com/	True	True	200	872	True	5597	7	1			True	2026-08-28T08:18:20Z
+1099	aparat.com	rank_1001_100000	https://aparat.com/	True	True	200	2863	True	3763	1	1			True	2026-08-28T08:18:20Z
+1100	split.io	rank_1001_100000	https://split.io/	True	True	200	2734	False	0	0	1			True	2026-08-28T08:18:20Z
+1101	h264.io	rank_1001_100000	https://h264.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:18:20Z
+1102	franceinfo.fr	rank_1001_100000	https://franceinfo.fr/	True	True	200	1770	True	2545	2	1			True	2026-08-28T08:18:20Z
+1103	statuspage.io	rank_1001_100000	https://statuspage.io/	True	True	200	2988	True	5615	0	0	captcha_blocking		False	2026-08-28T08:18:20Z
+1104	idnes.cz	rank_1001_100000	https://idnes.cz/	True	True	200	4231	True	10717	24	1			True	2026-08-28T08:18:20Z
+1105	inkuai.com	rank_1001_100000	https://inkuai.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:18:35Z
+1106	lge.com	rank_1001_100000	https://lge.com/	True	True	200	2967	True	6878	1	1			True	2026-08-28T08:18:35Z
+1107	typeform.com	rank_1001_100000	https://typeform.com/	True	True	200	2701	False	0	0	1			True	2026-08-28T08:18:35Z
+1108	craigslist.org	rank_1001_100000	https://craigslist.org/	True	False	403	2974	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:18:35Z
+1109	nypost.com	rank_1001_100000	https://nypost.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_CLOSED at https://nypost.com/
+Call log:
+  - navigating to ""https://nypost.com/"", waiting until ""commit""
+"	False	2026-08-28T08:18:35Z
+1110	cdnhwc2.com	rank_1001_100000	https://cdnhwc2.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:18:35Z
+1111	us.com	rank_1001_100000	https://us.com/	True	True	200	2007	True	9420	1	1			True	2026-08-28T08:18:35Z
+1112	wetteronline.de	rank_1001_100000	https://wetteronline.de/	True	False	403	758	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:18:35Z
+1113	tnaflix.com	rank_1001_100000	https://tnaflix.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://tnaflix.com/
+Call log:
+  - navigating to ""https://tnaflix.com/"", waiting until ""commit""
+"	False	2026-08-28T08:18:48Z
+1114	yale.edu	rank_1001_100000	https://yale.edu/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://yale.edu/
+Call log:
+  - navigating to ""https://yale.edu/"", waiting until ""commit""
+"	False	2026-08-28T08:18:48Z
+1115	gsmarena.com	rank_1001_100000	https://gsmarena.com/	True	True	200	2129	True	2131	1	1			True	2026-08-28T08:18:48Z
+1116	skysports.com	rank_1001_100000	https://skysports.com/	True	True	200	2061	True	4539	0	0			True	2026-08-28T08:18:48Z
+1117	mythad.com	rank_1001_100000	https://mythad.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:18:48Z
+1118	gtm-a2b2.com	rank_1001_100000	https://gtm-a2b2.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://gtm-a2b2.com/"", waiting until ""commit""
+"	False	2026-08-28T08:18:48Z
+1119	cookpad.com	rank_1001_100000	https://cookpad.com/	True	True	200	3277	True	8719	2	1			True	2026-08-28T08:18:48Z
+1120	bitdefender.net	rank_1001_100000	https://bitdefender.net/	True	True	200	3610	True	7107	1	1			True	2026-08-28T08:18:48Z
+1121	plex.direct	rank_1001_100000	https://plex.direct/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://plex.direct/
+Call log:
+  - navigating to ""https://plex.direct/"", waiting until ""commit""
+"	False	2026-08-28T08:19:18Z
+1122	olx.pl	rank_1001_100000	https://olx.pl/	True	False	403	1158	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:19:18Z
+1123	apa.org	rank_1001_100000	https://apa.org/	True	True	200	1986	True	3558	1	1	captcha_blocking		False	2026-08-28T08:19:18Z
+1124	usercentrics.eu	rank_1001_100000	https://usercentrics.eu/	True	True	200	2882	True	3861	2	1			True	2026-08-28T08:19:18Z
+1125	gofundme.com	rank_1001_100000	https://gofundme.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://gofundme.com/
+Call log:
+  - navigating to ""https://gofundme.com/"", waiting until ""commit""
+"	False	2026-08-28T08:19:18Z
+1126	xhaccess.com	rank_1001_100000	https://xhaccess.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://xhaccess.com/
+Call log:
+  - navigating to ""https://xhaccess.com/"", waiting until ""commit""
+"	False	2026-08-28T08:19:18Z
+1127	conviva.com	rank_1001_100000	https://conviva.com/	True	True	200	2038	True	5355	7	1			True	2026-08-28T08:19:18Z
+1128	mercadolibre.com	rank_1001_100000	https://mercadolibre.com/	True	False	403	896	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:19:18Z
+1129	fortune.com	rank_1001_100000	https://fortune.com/	True	True	200	1125	True	1625	0	0			True	2026-08-28T08:19:39Z
+1130	finn.no	rank_1001_100000	https://finn.no/	True	True	200	2401	False	0	0	1			True	2026-08-28T08:19:39Z
+1131	rutube.ru	rank_1001_100000	https://rutube.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://rutube.ru/
+Call log:
+  - navigating to ""https://rutube.ru/"", waiting until ""commit""
+"	False	2026-08-28T08:19:39Z
+1132	usps.com	rank_1001_100000	https://usps.com/	True	True	200	3144	True	7419	1	1			True	2026-08-28T08:19:39Z
+1133	yximgs.com	rank_1001_100000	https://yximgs.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:19:39Z
+1134	mercadolibre.com.mx	rank_1001_100000	https://mercadolibre.com.mx/	True	False	403	924	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:19:39Z
+1135	amd.com	rank_1001_100000	https://amd.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://amd.com/
+Call log:
+  - navigating to ""https://amd.com/"", waiting until ""commit""
+"	False	2026-08-28T08:19:39Z
+1136	hltv.org	rank_1001_100000	https://hltv.org/	True	False	403	2366	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:19:39Z
+1137	msauth.net	rank_1001_100000	https://msauth.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:20:00Z
+1138	he.net	rank_1001_100000	https://he.net/	True	True	200	1053	True	1219	1	1			True	2026-08-28T08:20:00Z
+1139	byteoversea.com	rank_1001_100000	https://byteoversea.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:20:00Z
+1140	lanacion.com.ar	rank_1001_100000	https://lanacion.com.ar/	True	True	200	3195	False	0	5	2			True	2026-08-28T08:20:00Z
+1141	moe.video	rank_1001_100000	https://moe.video/	True	True	200	1400	True	2712	3	1			True	2026-08-28T08:20:00Z
+1142	vivo.com	rank_1001_100000	https://vivo.com/	True	True	200	228	True	3292	0	0			True	2026-08-28T08:20:00Z
+1143	alipay.com	rank_1001_100000	https://alipay.com/	True	True	200	479	True	1591	0	0			True	2026-08-28T08:20:00Z
+1144	samsungcloud.tv	rank_1001_100000	https://samsungcloud.tv/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:20:00Z
+1145	mps.gov.cn	rank_1001_100000	https://mps.gov.cn/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:20:14Z
+1146	yastatic.net	rank_1001_100000	https://yastatic.net/	True	True	200	4243	True	10021	1	1	captcha_blocking		False	2026-08-28T08:20:14Z
+1147	clarin.com	rank_1001_100000	https://clarin.com/	True	False	403	1590	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:20:14Z
+1148	rbc.ru	rank_1001_100000	https://rbc.ru/	True	False	401	5010	False	0	0	0		RuntimeError:unacceptable_main_http_status:401	False	2026-08-28T08:20:14Z
+1149	meethue.com	rank_1001_100000	https://meethue.com/	True	True	200	4947	True	9169	1	1			True	2026-08-28T08:20:14Z
+1150	safety.google	rank_1001_100000	https://safety.google/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_CLOSED at https://safety.google/
+Call log:
+  - navigating to ""https://safety.google/"", waiting until ""commit""
+"	False	2026-08-28T08:20:14Z
+1151	privacy-mgmt.com	rank_1001_100000	https://privacy-mgmt.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:20:14Z
+1152	contentsquare.net	rank_1001_100000	https://contentsquare.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:20:14Z
+1153	nsone.net	rank_1001_100000	https://nsone.net/	True	True	200	5778	False	0	0	1			True	2026-08-28T08:20:35Z
+1154	cbc.ca	rank_1001_100000	https://cbc.ca/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://cbc.ca/
+Call log:
+  - navigating to ""https://cbc.ca/"", waiting until ""commit""
+"	False	2026-08-28T08:20:35Z
+1155	company-target.com	rank_1001_100000	https://company-target.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://company-target.com/
+Call log:
+  - navigating to ""https://company-target.com/"", waiting until ""commit""
+"	False	2026-08-28T08:20:35Z
+1156	cspserver.net	rank_1001_100000	https://cspserver.net/	True	False	404	1295	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-28T08:20:35Z
+1157	letsencrypt.org	rank_1001_100000	https://letsencrypt.org/	True	True	200	1169	True	4513	0	0			True	2026-08-28T08:20:35Z
+1158	xhname.com	rank_1001_100000	https://xhname.com/	True	True	200	1564	True	7430	0	0			True	2026-08-28T08:20:35Z
+1159	coursera.org	rank_1001_100000	https://coursera.org/	True	True	200	1997	True	5088	0	0			True	2026-08-28T08:20:35Z
+1160	susercontent.com	rank_1001_100000	https://susercontent.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:20:35Z
+1161	spamhaus.org	rank_1001_100000	https://spamhaus.org/	True	True	200	1962	False	0	0	1			True	2026-08-28T08:20:56Z
+1162	economist.com	rank_1001_100000	https://economist.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://economist.com/
+Call log:
+  - navigating to ""https://economist.com/"", waiting until ""commit""
+"	False	2026-08-28T08:20:56Z
+1163	dafont.com	rank_1001_100000	https://dafont.com/	True	True	200	2803	True	4957	6	1			True	2026-08-28T08:20:56Z
+1164	pimpbunny.com	rank_1001_100000	https://pimpbunny.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://pimpbunny.com/
+Call log:
+  - navigating to ""https://pimpbunny.com/"", waiting until ""commit""
+"	False	2026-08-28T08:20:56Z
+1165	xiaohongshu.com	rank_1001_100000	https://xiaohongshu.com/	True	True	200	496	True	1300	0	0			True	2026-08-28T08:20:56Z
+1166	sahibinden.com	rank_1001_100000	https://sahibinden.com/	True	False	403	2781	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:20:56Z
+1167	wetter.com	rank_1001_100000	https://wetter.com/	True	True	200	2224	True	4657	0	0			True	2026-08-28T08:20:56Z
+1168	dribbble.com	rank_1001_100000	https://dribbble.com/	True	True	202	1347	True	4237	0	0			True	2026-08-28T08:20:56Z
+1169	gismeteo.ru	rank_1001_100000	https://gismeteo.ru/	True	True	200	1436	True	7004	13	1			True	2026-08-28T08:21:17Z
+1170	upenn.edu	rank_1001_100000	https://upenn.edu/	True	True	200	570	False	0	2	2			True	2026-08-28T08:21:17Z
+1171	sectigo.com	rank_1001_100000	https://sectigo.com/	True	True	200	3476	False	0	0	1			True	2026-08-28T08:21:17Z
+1172	google.co.jp	rank_1001_100000	https://google.co.jp/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://google.co.jp/
+Call log:
+  - navigating to ""https://google.co.jp/"", waiting until ""commit""
+"	False	2026-08-28T08:21:17Z
+1173	xhamster2.com	rank_1001_100000	https://xhamster2.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://xhamster2.com/
+Call log:
+  - navigating to ""https://xhamster2.com/"", waiting until ""commit""
+"	False	2026-08-28T08:21:17Z
+1174	cam.ac.uk	rank_1001_100000	https://cam.ac.uk/	True	True	200	2057	False	0	0	1			True	2026-08-28T08:21:17Z
+1175	psychologytoday.com	rank_1001_100000	https://psychologytoday.com/	True	True	200	3684	True	10050	0	0			True	2026-08-28T08:21:17Z
+1176	t-bank-app.ru	rank_1001_100000	https://t-bank-app.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://t-bank-app.ru/
+Call log:
+  - navigating to ""https://t-bank-app.ru/"", waiting until ""commit""
+"	False	2026-08-28T08:21:17Z
+1177	waze.com	rank_1001_100000	https://waze.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://waze.com/
+Call log:
+  - navigating to ""https://waze.com/"", waiting until ""commit""
+"	False	2026-08-28T08:21:38Z
+1178	hotpepper.jp	rank_1001_100000	https://hotpepper.jp/	True	True	200	2518	True	10831	1	1			True	2026-08-28T08:21:38Z
+1179	megafon.ru	rank_1001_100000	https://megafon.ru/	True	True	200	5345	False	0	0	1			True	2026-08-28T08:21:38Z
+1180	tabor.ru	rank_1001_100000	https://tabor.ru/	True	True	200	2519	True	10486	0	0			True	2026-08-28T08:21:38Z
+1181	jw.org	rank_1001_100000	https://jw.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://jw.org/
+Call log:
+  - navigating to ""https://jw.org/"", waiting until ""commit""
+"	False	2026-08-28T08:21:38Z
+1182	admin.ch	rank_1001_100000	https://admin.ch/	True	True	200	3185	True	3774	0	0			True	2026-08-28T08:21:38Z
+1183	tbs.co.jp	rank_1001_100000	https://tbs.co.jp/	True	False	404	486	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-28T08:21:38Z
+1184	fb.me	rank_1001_100000	https://fb.me/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://fb.me/
+Call log:
+  - navigating to ""https://fb.me/"", waiting until ""commit""
+"	False	2026-08-28T08:21:38Z
+1185	itmedia.co.jp	rank_1001_100000	https://itmedia.co.jp/	True	True	200	2219	False	0	0	1			True	2026-08-28T08:22:00Z
+1186	spankbang.com	rank_1001_100000	https://spankbang.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://spankbang.com/
+Call log:
+  - navigating to ""https://spankbang.com/"", waiting until ""commit""
+"	False	2026-08-28T08:22:00Z
+1187	namu.wiki	rank_1001_100000	https://namu.wiki/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://namu.wiki/
+Call log:
+  - navigating to ""https://namu.wiki/"", waiting until ""commit""
+"	False	2026-08-28T08:22:00Z
+1188	dmm.co.jp	rank_1001_100000	https://dmm.co.jp/	True	True	200	4333	True	4334	2	1			True	2026-08-28T08:22:00Z
+1189	leboncoin.fr	rank_1001_100000	https://leboncoin.fr/	True	False	403	2656	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:22:00Z
+1190	inven.co.kr	rank_1001_100000	https://inven.co.kr/	True	True	200	3253	False	0	0	1			True	2026-08-28T08:22:00Z
+1191	elconfidencial.com	rank_1001_100000	https://elconfidencial.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://elconfidencial.com/
+Call log:
+  - navigating to ""https://elconfidencial.com/"", waiting until ""commit""
+"	False	2026-08-28T08:22:00Z
+1192	huggingface.co	rank_1001_100000	https://huggingface.co/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://huggingface.co/
+Call log:
+  - navigating to ""https://huggingface.co/"", waiting until ""commit""
+"	False	2026-08-28T08:22:00Z
+1193	aftonbladet.se	rank_1001_100000	https://aftonbladet.se/	True	True	200	2917	True	5282	0	0			True	2026-08-28T08:22:21Z
+1194	nu.nl	rank_1001_100000	https://nu.nl/	True	True	200	2598	True	5540	0	0			True	2026-08-28T08:22:21Z
+1195	ad.nl	rank_1001_100000	https://ad.nl/	True	True	200	4552	True	9958	1	1			True	2026-08-28T08:22:21Z
+1196	vnexpress.net	rank_1001_100000	https://vnexpress.net/	True	True	200	2212	True	12005	5	1			True	2026-08-28T08:22:21Z
+1197	indiamart.com	rank_1001_100000	https://indiamart.com/	True	False	429	1632	False	0	0	0		RuntimeError:unacceptable_main_http_status:429	False	2026-08-28T08:22:21Z
+1198	rule34.xxx	rank_1001_100000	https://rule34.xxx/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://rule34.xxx/
+Call log:
+  - navigating to ""https://rule34.xxx/"", waiting until ""commit""
+"	False	2026-08-28T08:22:21Z
+1199	phncdn.com	rank_1001_100000	https://phncdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:22:21Z
+1200	sf-cloud.ru	rank_1001_100000	https://sf-cloud.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:22:21Z
+1201	service-now.com	rank_1001_100000	https://service-now.com/	True	False	403	3888	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:22:42Z
+1202	bmj.com	rank_1001_100000	https://bmj.com/	True	False	403	1751	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:22:42Z
+1203	pornpics.com	rank_1001_100000	https://pornpics.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://pornpics.com/
+Call log:
+  - navigating to ""https://pornpics.com/"", waiting until ""commit""
+"	False	2026-08-28T08:22:42Z
+1204	rightmove.co.uk	rank_1001_100000	https://rightmove.co.uk/	True	True	200	2675	True	4707	0	0			True	2026-08-28T08:22:42Z
+1205	dns.cn	rank_1001_100000	https://dns.cn/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://dns.cn/
+Call log:
+  - navigating to ""https://dns.cn/"", waiting until ""commit""
+"	False	2026-08-28T08:22:42Z
+1206	tinkoff.ru	rank_1001_100000	https://tinkoff.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://tinkoff.ru/
+Call log:
+  - navigating to ""https://tinkoff.ru/"", waiting until ""commit""
+"	False	2026-08-28T08:22:42Z
+1207	donga.com	rank_1001_100000	https://donga.com/	True	True	200	711	False	0	0	1			True	2026-08-28T08:22:42Z
+1208	janitorai.com	rank_1001_100000	https://janitorai.com/	True	False	403	480	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:22:42Z
+1209	supabase.co	rank_1001_100000	https://supabase.co/	True	True	200	971	True	1898	26	1			True	2026-08-28T08:23:03Z
+1210	biomedcentral.com	rank_1001_100000	https://biomedcentral.com/	True	True	200	5995	True	6154	0	0			True	2026-08-28T08:23:03Z
+1211	dcinside.com	rank_1001_100000	https://dcinside.com/	True	True	200	2215	False	0	0	1			True	2026-08-28T08:23:03Z
+1212	lequipe.fr	rank_1001_100000	https://lequipe.fr/	True	True	200	4086	True	6768	0	0			True	2026-08-28T08:23:03Z
+1213	vg.no	rank_1001_100000	https://vg.no/	True	True	200	2363	True	5271	0	0			True	2026-08-28T08:23:03Z
+1214	xhopen.com	rank_1001_100000	https://xhopen.com/	True	True	200	2426	True	6655	2	1			True	2026-08-28T08:23:03Z
+1215	boyfriendtv.com	rank_1001_100000	https://boyfriendtv.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://boyfriendtv.com/
+Call log:
+  - navigating to ""https://boyfriendtv.com/"", waiting until ""commit""
+"	False	2026-08-28T08:23:03Z
+1216	marktplaats.nl	rank_1001_100000	https://marktplaats.nl/	True	True	200	3109	True	8079	1	1			True	2026-08-28T08:23:03Z
+1217	acesso.gov.br	rank_1001_100000	https://acesso.gov.br/	True	True	200	3587	False	0	0	1			True	2026-08-28T08:23:24Z
+1218	siemens.com	rank_1001_100000	https://siemens.com/	True	False	405	919	False	0	0	0		RuntimeError:unacceptable_main_http_status:405	False	2026-08-28T08:23:24Z
+1219	icanhazip.com	rank_1001_100000	https://icanhazip.com/	True	True	200	1077	True	1082	0	0			True	2026-08-28T08:23:24Z
+1220	lichess.org	rank_1001_100000	https://lichess.org/	True	True	200	1993	True	5586	0	0			True	2026-08-28T08:23:24Z
+1221	remove.bg	rank_1001_100000	https://remove.bg/	True	True	200	1590	False	0	0	1			True	2026-08-28T08:23:24Z
+1222	meesho.com	rank_1001_100000	https://meesho.com/	True	False	403	3779	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:23:24Z
+1223	technorail.com	rank_1001_100000	https://technorail.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://technorail.com/
+Call log:
+  - navigating to ""https://technorail.com/"", waiting until ""commit""
+"	False	2026-08-28T08:23:24Z
+1224	xhamster1.desi	rank_1001_100000	https://xhamster1.desi/	True	True	200	1050	True	7984	0	0			True	2026-08-28T08:23:24Z

@@ -1,0 +1,141 @@
+rank	domain	rank_bucket	https_url	dns_success	main_commit_success	main_http_status	main_commit_latency_ms	domcontentloaded	domcontentloaded_latency_ms	subresource_failed_count	warning_count	policy_exclusion_reason	hard_failure_reason	reachable	audit_timestamp
+100001	budapestopenaccessinitiative.org	rank_100001_1000000	https://budapestopenaccessinitiative.org/	True	True	200	3286	False	0	0	1			True	2026-08-28T08:49:31Z
+100002	vipservice.ru	rank_100001_1000000	https://vipservice.ru/	True	True	200	2996	False	0	0	1			True	2026-08-28T08:49:31Z
+100003	spokojenypes.cz	rank_100001_1000000	https://spokojenypes.cz/	True	False	403	767	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:49:31Z
+100004	mcdemon.ru	rank_100001_1000000	https://mcdemon.ru/	True	True	200	1903	True	1927	0	0			True	2026-08-28T08:49:31Z
+100005	gekso.info	rank_100001_1000000	https://gekso.info/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://gekso.info/
+Call log:
+  - navigating to ""https://gekso.info/"", waiting until ""commit""
+"	False	2026-08-28T08:49:31Z
+100006	pay-gate.io	rank_100001_1000000	https://pay-gate.io/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://pay-gate.io/"", waiting until ""commit""
+"	False	2026-08-28T08:49:31Z
+100007	plantbasednews.org	rank_100001_1000000	https://plantbasednews.org/	True	True	200	2031	True	4703	3	1			True	2026-08-28T08:49:31Z
+100008	comprerural.com	rank_100001_1000000	https://comprerural.com/	True	False	403	1121	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:49:31Z
+100009	androidinsider.ru	rank_100001_1000000	https://androidinsider.ru/	True	True	200	1856	True	3283	4	1			True	2026-08-28T08:50:02Z
+100010	qm989.com	rank_100001_1000000	https://qm989.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:50:02Z
+100011	xaas.jp	rank_100001_1000000	https://xaas.jp/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://xaas.jp/
+Call log:
+  - navigating to ""https://xaas.jp/"", waiting until ""commit""
+"	False	2026-08-28T08:50:02Z
+100012	cupidityconnect.com	rank_100001_1000000	https://cupidityconnect.com/	True	False	403	2513	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:50:02Z
+100013	otxb.io	rank_100001_1000000	https://otxb.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:50:02Z
+100014	national-preservation.com	rank_100001_1000000	https://national-preservation.com/	True	True	200	1505	True	4675	3	1			True	2026-08-28T08:50:02Z
+100015	nkreeger.com	rank_100001_1000000	https://nkreeger.com/	True	False	403	1256	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:50:02Z
+100016	peoplestrong.com	rank_100001_1000000	https://peoplestrong.com/	True	True	200	4269	False	0	1	2			True	2026-08-28T08:50:02Z
+100017	redmob.io	rank_100001_1000000	https://redmob.io/	True	True	200	1774	False	0	0	1			True	2026-08-28T08:50:23Z
+100018	ivao.aero	rank_100001_1000000	https://ivao.aero/	True	True	200	816	False	0	0	1			True	2026-08-28T08:50:23Z
+100019	nims.go.jp	rank_100001_1000000	https://nims.go.jp/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:50:23Z
+100020	bolt.host	rank_100001_1000000	https://bolt.host/	True	True	200	23528	False	0	0	1			True	2026-08-28T08:50:23Z
+100021	w3hub.biz	rank_100001_1000000	https://w3hub.biz/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://w3hub.biz/
+Call log:
+  - navigating to ""https://w3hub.biz/"", waiting until ""commit""
+"	False	2026-08-28T08:50:23Z
+100022	tacomadc.com	rank_100001_1000000	https://tacomadc.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:50:23Z
+100023	trulyengaging.com	rank_100001_1000000	https://trulyengaging.com/	True	False	403	1313	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:50:23Z
+100024	asia-beta.com	rank_100001_1000000	https://asia-beta.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://asia-beta.com/
+Call log:
+  - navigating to ""https://asia-beta.com/"", waiting until ""commit""
+"	False	2026-08-28T08:50:23Z
+100025	fitnessonlineapp.com	rank_100001_1000000	https://fitnessonlineapp.com/	True	False	403	830	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:50:57Z
+100026	snack-media.com	rank_100001_1000000	https://snack-media.com/	True	True	200	4149	False	0	3	2			True	2026-08-28T08:50:57Z
+100027	adsimple.de	rank_100001_1000000	https://adsimple.de/	True	True	200	2263	False	0	3	2			True	2026-08-28T08:50:57Z
+100028	wggos.com	rank_100001_1000000	https://wggos.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:50:57Z
+100029	inovalon.com	rank_100001_1000000	https://inovalon.com/	True	False	403	1287	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:50:57Z
+100030	footlocker.it	rank_100001_1000000	https://footlocker.it/	True	False	403	3074	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:50:57Z
+100031	acs-cis.ru	rank_100001_1000000	https://acs-cis.ru/	True	True	200	2934	False	0	0	1			True	2026-08-28T08:50:57Z
+100032	penteres.it	rank_100001_1000000	https://penteres.it/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:50:57Z
+100033	alditalk.de	rank_100001_1000000	https://alditalk.de/	True	True	200	3981	True	9135	1	1			True	2026-08-28T08:51:11Z
+100034	packet-pushers.com	rank_100001_1000000	https://packet-pushers.com/	True	True	200	1010	True	1013	0	0			True	2026-08-28T08:51:11Z
+100035	metrolist.com	rank_100001_1000000	https://metrolist.com/	True	False	403	2744	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:51:11Z
+100036	zacdn.com	rank_100001_1000000	https://zacdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:51:11Z
+100037	infinity-message.com	rank_100001_1000000	https://infinity-message.com/	True	False	403	815	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:51:11Z
+100038	everydayfeminism.com	rank_100001_1000000	https://everydayfeminism.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://everydayfeminism.com/
+Call log:
+  - navigating to ""https://everydayfeminism.com/"", waiting until ""commit""
+"	False	2026-08-28T08:51:11Z
+100039	mall.hr	rank_100001_1000000	https://mall.hr/	True	False	403	848	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:51:11Z
+100040	ivyiot.io	rank_100001_1000000	https://ivyiot.io/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://ivyiot.io/
+Call log:
+  - navigating to ""https://ivyiot.io/"", waiting until ""commit""
+"	False	2026-08-28T08:51:11Z
+100041	hyperledger.org	rank_100001_1000000	https://hyperledger.org/	True	True	200	4495	False	0	0	1			True	2026-08-28T08:51:33Z
+100042	memo.ru	rank_100001_1000000	https://memo.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:51:33Z
+100043	vmcpool.io	rank_100001_1000000	https://vmcpool.io/	True	True	200	1301	False	0	0	1			True	2026-08-28T08:51:33Z
+100044	realityrift.co	rank_100001_1000000	https://realityrift.co/	True	True	200	1828	True	2382	0	0			True	2026-08-28T08:51:33Z
+100045	savingforcollege.com	rank_100001_1000000	https://savingforcollege.com/	True	True	200	1812	True	9053	4	1			True	2026-08-28T08:51:33Z
+100046	foropuros.com	rank_100001_1000000	https://foropuros.com/	True	True	200	4388	True	12873	0	0			True	2026-08-28T08:51:33Z
+100047	macrolibrarsi.it	rank_100001_1000000	https://macrolibrarsi.it/	True	True	200	2626	True	9415	0	0			True	2026-08-28T08:51:33Z
+100048	fastputon.com	rank_100001_1000000	https://fastputon.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:51:33Z
+100049	hqu.edu.cn	rank_100001_1000000	https://hqu.edu.cn/	True	True	200	284	True	795	0	0			True	2026-08-28T08:51:48Z
+100050	projectzomboid.com	rank_100001_1000000	https://projectzomboid.com/	True	True	200	1265	True	5300	0	0			True	2026-08-28T08:51:48Z
+100051	hro.nl	rank_100001_1000000	https://hro.nl/	True	True	200	2079	False	0	0	1			True	2026-08-28T08:51:48Z
+100052	tredz.co.uk	rank_100001_1000000	https://tredz.co.uk/	True	False	403	3107	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:51:48Z
+100053	justthegays.com	rank_100001_1000000	https://justthegays.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://justthegays.com/
+Call log:
+  - navigating to ""https://justthegays.com/"", waiting until ""commit""
+"	False	2026-08-28T08:51:48Z
+100054	ion-as.net	rank_100001_1000000	https://ion-as.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:51:48Z
+100055	hoobly.com	rank_100001_1000000	https://hoobly.com/	True	False	403	1683	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:51:48Z
+100056	meeshogcp.in	rank_100001_1000000	https://meeshogcp.in/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:51:48Z
+100057	xinpianchang.com	rank_100001_1000000	https://xinpianchang.com/	True	False	403	288	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:52:01Z
+100058	frankwatching.com	rank_100001_1000000	https://frankwatching.com/	True	False	403	1255	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:52:01Z
+100059	synonyms.com	rank_100001_1000000	https://synonyms.com/	True	True	202	1344	True	4246	0	0			True	2026-08-28T08:52:01Z
+100060	longwood.edu	rank_100001_1000000	https://longwood.edu/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_DATE_INVALID at https://longwood.edu/
+Call log:
+  - navigating to ""https://longwood.edu/"", waiting until ""commit""
+"	False	2026-08-28T08:52:01Z
+100061	visionspecialists.org	rank_100001_1000000	https://visionspecialists.org/	True	True	200	2142	False	0	0	1			True	2026-08-28T08:52:01Z
+100062	connexus.com	rank_100001_1000000	https://connexus.com/	True	True	200	3286	False	0	0	1			True	2026-08-28T08:52:01Z
+100063	american-webmasters.net	rank_100001_1000000	https://american-webmasters.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://american-webmasters.net/
+Call log:
+  - navigating to ""https://american-webmasters.net/"", waiting until ""commit""
+"	False	2026-08-28T08:52:01Z
+100064	ss-iptv.com	rank_100001_1000000	https://ss-iptv.com/	True	True	200	1471	False	0	0	1			True	2026-08-28T08:52:01Z
+100065	credify.tech	rank_100001_1000000	https://credify.tech/	True	True	200	4297	True	6397	0	0			True	2026-08-28T08:52:23Z
+100066	citicbank.com	rank_100001_1000000	https://citicbank.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:52:23Z
+100067	safaribookings.com	rank_100001_1000000	https://safaribookings.com/	True	True	200	4911	True	6476	4	1			True	2026-08-28T08:52:23Z
+100068	uksh.de	rank_100001_1000000	https://uksh.de/	True	True	200	3688	True	11925	0	0			True	2026-08-28T08:52:23Z
+100069	spunmidia.tech	rank_100001_1000000	https://spunmidia.tech/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:52:23Z
+100070	cccbr.org.uk	rank_100001_1000000	https://cccbr.org.uk/	True	True	200	3839	False	0	0	1			True	2026-08-28T08:52:23Z
+100071	clip.mx	rank_100001_1000000	https://clip.mx/	True	True	200	2615	False	0	0	1			True	2026-08-28T08:52:23Z
+100072	ojtlnsa.com	rank_100001_1000000	https://ojtlnsa.com/	True	False	404	2427	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-28T08:52:23Z
+100073	tooltigers.com	rank_100001_1000000	https://tooltigers.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:52:39Z
+100074	paze.com	rank_100001_1000000	https://paze.com/	True	False	403	917	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:52:39Z
+100075	bad.org.uk	rank_100001_1000000	https://bad.org.uk/	True	True	200	1150	True	6449	1	1			True	2026-08-28T08:52:39Z
+100076	salzburgerland.com	rank_100001_1000000	https://salzburgerland.com/	True	True	200	1832	True	6776	1	1			True	2026-08-28T08:52:39Z
+100077	firat.edu.tr	rank_100001_1000000	https://firat.edu.tr/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://firat.edu.tr/
+Call log:
+  - navigating to ""https://firat.edu.tr/"", waiting until ""commit""
+"	False	2026-08-28T08:52:39Z
+100078	fotohosting.su	rank_100001_1000000	https://fotohosting.su/	True	True	200	1757	True	3990	1	1			True	2026-08-28T08:52:39Z
+100079	aegir.sexy	rank_100001_1000000	https://aegir.sexy/	True	True	200	1081	True	2878	0	0			True	2026-08-28T08:52:39Z
+100080	doudou520.online	rank_100001_1000000	https://doudou520.online/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:52:39Z
+100081	letsbeef.com	rank_100001_1000000	https://letsbeef.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_EMPTY_RESPONSE at https://letsbeef.com/
+Call log:
+  - navigating to ""https://letsbeef.com/"", waiting until ""commit""
+"	False	2026-08-28T08:53:00Z
+100082	yonote.ru	rank_100001_1000000	https://yonote.ru/	True	True	200	1397	True	4950	1	1			True	2026-08-28T08:53:00Z
+100083	okprint.kz	rank_100001_1000000	https://okprint.kz/	True	True	200	10448	False	0	0	1			True	2026-08-28T08:53:00Z
+100084	weather.us	rank_100001_1000000	https://weather.us/	True	False	403	1509	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:53:00Z
+100085	imagepond.net	rank_100001_1000000	https://imagepond.net/	True	True	200	4403	True	7216	5	1			True	2026-08-28T08:53:00Z
+100086	u4gm.com	rank_100001_1000000	https://u4gm.com/	True	False	403	867	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:53:00Z
+100087	sfs-network.biz	rank_100001_1000000	https://sfs-network.biz/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:53:00Z
+100088	vat-search.com	rank_100001_1000000	https://vat-search.com/	True	True	200	1777	True	3936	0	0			True	2026-08-28T08:53:00Z
+100089	frantech.ca	rank_100001_1000000	https://frantech.ca/	True	True	200	1067	True	1070	0	0			True	2026-08-28T08:53:22Z
+100090	flirservices.com	rank_100001_1000000	https://flirservices.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:53:22Z
+100091	linux-magazin.de	rank_100001_1000000	https://linux-magazin.de/	True	False	403	2816	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:53:22Z
+100092	mofo.com	rank_100001_1000000	https://mofo.com/	True	True	200	1077	False	0	0	1			True	2026-08-28T08:53:22Z
+100093	4netplayers.com	rank_100001_1000000	https://4netplayers.com/	True	True	200	2659	True	3146	2	1			True	2026-08-28T08:53:22Z
+100094	101cookbooks.com	rank_100001_1000000	https://101cookbooks.com/	True	True	200	2135	True	4212	0	0			True	2026-08-28T08:53:22Z
+100095	cdnhwcedi10.com	rank_100001_1000000	https://cdnhwcedi10.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:53:22Z
+100096	amberstudent.com	rank_100001_1000000	https://amberstudent.com/	True	True	200	1292	True	1730	2	1			True	2026-08-28T08:53:22Z
+100097	auserver.com.au	rank_100001_1000000	https://auserver.com.au/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:53:35Z
+100098	wradio.com.co	rank_100001_1000000	https://wradio.com.co/	True	True	200	3443	True	8634	2	1			True	2026-08-28T08:53:35Z
+100099	manifold.markets	rank_100001_1000000	https://manifold.markets/	True	True	200	721	True	1750	3	1			True	2026-08-28T08:53:35Z
+100100	ifam.edu.br	rank_100001_1000000	https://ifam.edu.br/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-28T08:53:35Z
+100101	ecoledirecte.com	rank_100001_1000000	https://ecoledirecte.com/	True	False	403	5761	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-28T08:53:35Z
+100102	msoms-anime.net	rank_100001_1000000	https://msoms-anime.net/	True	True	200	2471	False	0	1	2			True	2026-08-28T08:53:35Z
+100103	rcbcy.com	rank_100001_1000000	https://rcbcy.com/	True	True	200	2446	False	0	0	1			True	2026-08-28T08:53:35Z
+100104	agfeo.de	rank_100001_1000000	https://agfeo.de/	True	True	200	2682	False	0	0	1			True	2026-08-28T08:53:35Z

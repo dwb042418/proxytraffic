@@ -1,0 +1,1640 @@
+rank	domain	rank_bucket	https_url	dns_success	main_commit_success	main_http_status	main_commit_latency_ms	domcontentloaded	domcontentloaded_latency_ms	subresource_failed_count	warning_count	policy_exclusion_reason	hard_failure_reason	reachable	audit_timestamp
+1	google.com	top_1_1000	https://google.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://google.com/"", waiting until ""commit""
+"	False	2026-08-27T07:42:41Z
+2	cloudflare.com	top_1_1000	https://cloudflare.com/	True	True	200	2326	True	5101	0	0			True	2026-08-27T07:42:41Z
+3	gstatic.com	top_1_1000	https://gstatic.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://gstatic.com/"", waiting until ""commit""
+"	False	2026-08-27T07:42:41Z
+4	facebook.com	top_1_1000	https://facebook.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://facebook.com/
+Call log:
+  - navigating to ""https://facebook.com/"", waiting until ""commit""
+"	False	2026-08-27T07:42:41Z
+5	microsoft.com	top_1_1000	https://microsoft.com/	True	True	200	4161	False	0	2	2			True	2026-08-27T07:42:41Z
+6	googleapis.com	top_1_1000	https://googleapis.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://googleapis.com/"", waiting until ""commit""
+"	False	2026-08-27T07:42:41Z
+7	amazonaws.com	top_1_1000	https://amazonaws.com/	True	True	200	1954	False	0	5	2			True	2026-08-27T07:42:41Z
+8	youtube.com	top_1_1000	https://youtube.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://youtube.com/"", waiting until ""commit""
+"	False	2026-08-27T07:42:41Z
+9	apple.com	top_1_1000	https://apple.com/	True	True	200	459	True	1013	6	1			True	2026-08-27T07:43:11Z
+10	gtld-servers.net	top_1_1000	https://gtld-servers.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:43:11Z
+11	akamai.net	top_1_1000	https://akamai.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:43:11Z
+12	instagram.com	top_1_1000	https://instagram.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://instagram.com/
+Call log:
+  - navigating to ""https://instagram.com/"", waiting until ""commit""
+"	False	2026-08-27T07:43:11Z
+13	mail.ru	top_1_1000	https://mail.ru/	True	True	200	4383	True	11062	2	1			True	2026-08-27T07:43:11Z
+14	ezviz7.com	top_1_1000	https://ezviz7.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:43:11Z
+15	fbcdn.net	top_1_1000	https://fbcdn.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://fbcdn.net/
+Call log:
+  - navigating to ""https://fbcdn.net/"", waiting until ""commit""
+"	False	2026-08-27T07:43:11Z
+16	twitter.com	top_1_1000	https://twitter.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://twitter.com/"", waiting until ""commit""
+"	False	2026-08-27T07:43:11Z
+17	dzen.ru	top_1_1000	https://dzen.ru/	True	True	200	2660	False	0	0	1			True	2026-08-27T07:43:41Z
+18	linkedin.com	top_1_1000	https://linkedin.com/	True	True	200	4288	True	6745	1	1			True	2026-08-27T07:43:41Z
+19	domaincontrol.com	top_1_1000	https://domaincontrol.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://domaincontrol.com/
+Call log:
+  - navigating to ""https://domaincontrol.com/"", waiting until ""commit""
+"	False	2026-08-27T07:43:41Z
+20	googlevideo.com	top_1_1000	https://googlevideo.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://googlevideo.com/"", waiting until ""commit""
+"	False	2026-08-27T07:43:41Z
+21	office.com	top_1_1000	https://office.com/	True	True	200	3136	False	0	0	1			True	2026-08-27T07:43:41Z
+22	googletagmanager.com	top_1_1000	https://googletagmanager.com/	True	False	404	571	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:43:41Z
+23	hicloudcam.com	top_1_1000	https://hicloudcam.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:43:41Z
+24	live.com	top_1_1000	https://live.com/	True	True	200	2291	False	0	0	1			True	2026-08-27T07:43:41Z
+25	akamaiedge.net	top_1_1000	https://akamaiedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:44:11Z
+26	amazon.com	top_1_1000	https://amazon.com/	True	True	202	4405	True	9450	0	0			True	2026-08-27T07:44:11Z
+27	akadns.net	top_1_1000	https://akadns.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:44:11Z
+28	azure.com	top_1_1000	https://azure.com/	True	True	200	3555	False	0	0	1			True	2026-08-27T07:44:11Z
+29	bing.com	top_1_1000	https://bing.com/	True	True	200	1148	True	1239	0	0			True	2026-08-27T07:44:11Z
+30	github.com	top_1_1000	https://github.com/	True	True	200	833	False	0	0	1			True	2026-08-27T07:44:11Z
+31	wikipedia.org	top_1_1000	https://wikipedia.org/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://wikipedia.org/"", waiting until ""commit""
+"	False	2026-08-27T07:44:11Z
+32	whatsapp.net	top_1_1000	https://whatsapp.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://whatsapp.net/
+Call log:
+  - navigating to ""https://whatsapp.net/"", waiting until ""commit""
+"	False	2026-08-27T07:44:11Z
+33	apple-dns.net	top_1_1000	https://apple-dns.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:44:42Z
+34	fastly.net	top_1_1000	https://fastly.net/	True	True	200	6553	True	7889	0	0			True	2026-08-27T07:44:42Z
+35	googleusercontent.com	top_1_1000	https://googleusercontent.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://googleusercontent.com/
+Call log:
+  - navigating to ""https://googleusercontent.com/"", waiting until ""commit""
+"	False	2026-08-27T07:44:42Z
+36	appsflyersdk.com	top_1_1000	https://appsflyersdk.com/	True	False	403	861	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:44:42Z
+37	doubleclick.net	top_1_1000	https://doubleclick.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://doubleclick.net/
+Call log:
+  - navigating to ""https://doubleclick.net/"", waiting until ""commit""
+"	False	2026-08-27T07:44:42Z
+38	aaplimg.com	top_1_1000	https://aaplimg.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:44:42Z
+39	microsoftonline.com	top_1_1000	https://microsoftonline.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:44:42Z
+40	netflix.com	top_1_1000	https://netflix.com/	True	False	403	1294	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:44:42Z
+41	office.net	top_1_1000	https://office.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:45:03Z
+42	trafficmanager.net	top_1_1000	https://trafficmanager.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:45:03Z
+43	gandi.net	top_1_1000	https://gandi.net/	True	True	200	4942	True	11399	0	0			True	2026-08-27T07:45:03Z
+44	sharepoint.com	top_1_1000	https://sharepoint.com/	True	True	200	9256	False	0	0	1			True	2026-08-27T07:45:03Z
+45	digicert.com	top_1_1000	https://digicert.com/	True	False	403	1702	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:45:03Z
+46	youtu.be	top_1_1000	https://youtu.be/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://youtu.be/
+Call log:
+  - navigating to ""https://youtu.be/"", waiting until ""commit""
+"	False	2026-08-27T07:45:03Z
+47	wordpress.org	top_1_1000	https://wordpress.org/	True	True	200	1592	True	10217	2	1			True	2026-08-27T07:45:03Z
+48	skype.com	top_1_1000	https://skype.com/	True	True	200	2875	True	2883	0	0			True	2026-08-27T07:45:03Z
+49	cloud.microsoft	top_1_1000	https://cloud.microsoft/	True	True	200	3625	False	0	0	1			True	2026-08-27T07:45:24Z
+50	goo.gl	top_1_1000	https://goo.gl/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://goo.gl/
+Call log:
+  - navigating to ""https://goo.gl/"", waiting until ""commit""
+"	False	2026-08-27T07:45:24Z
+51	cloudfront.net	top_1_1000	https://cloudfront.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:45:24Z
+52	googledomains.com	top_1_1000	https://googledomains.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_CLOSED at https://googledomains.com/
+Call log:
+  - navigating to ""https://googledomains.com/"", waiting until ""commit""
+"	False	2026-08-27T07:45:24Z
+53	x.com	top_1_1000	https://x.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://x.com/"", waiting until ""commit""
+"	False	2026-08-27T07:45:24Z
+54	tiktok.com	top_1_1000	https://tiktok.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://tiktok.com/
+Call log:
+  - navigating to ""https://tiktok.com/"", waiting until ""commit""
+"	False	2026-08-27T07:45:24Z
+55	pinterest.com	top_1_1000	https://pinterest.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://pinterest.com/
+Call log:
+  - navigating to ""https://pinterest.com/"", waiting until ""commit""
+"	False	2026-08-27T07:45:24Z
+56	icloud.com	top_1_1000	https://icloud.com/	True	True	200	527	True	1304	2	1			True	2026-08-27T07:45:24Z
+57	whatsapp.com	top_1_1000	https://whatsapp.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://whatsapp.com/
+Call log:
+  - navigating to ""https://whatsapp.com/"", waiting until ""commit""
+"	False	2026-08-27T07:45:54Z
+58	roblox.com	top_1_1000	https://roblox.com/	True	False	404	3465	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:45:54Z
+59	yahoo.com	top_1_1000	https://yahoo.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://yahoo.com/"", waiting until ""commit""
+"	False	2026-08-27T07:45:54Z
+60	windowsupdate.com	top_1_1000	https://windowsupdate.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:45:54Z
+61	cloudflare.net	top_1_1000	https://cloudflare.net/	True	False	403	1270	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:45:54Z
+62	gvt1.com	top_1_1000	https://gvt1.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:45:54Z
+63	googlesyndication.com	top_1_1000	https://googlesyndication.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://googlesyndication.com/
+Call log:
+  - navigating to ""https://googlesyndication.com/"", waiting until ""commit""
+"	False	2026-08-27T07:45:54Z
+64	msn.com	top_1_1000	https://msn.com/	True	True	200	1758	True	2225	1	1			True	2026-08-27T07:45:54Z
+65	spotify.com	top_1_1000	https://spotify.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://spotify.com/
+Call log:
+  - navigating to ""https://spotify.com/"", waiting until ""commit""
+"	False	2026-08-27T07:46:24Z
+66	windows.net	top_1_1000	https://windows.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://windows.net/
+Call log:
+  - navigating to ""https://windows.net/"", waiting until ""commit""
+"	False	2026-08-27T07:46:24Z
+67	ntp.org	top_1_1000	https://ntp.org/	True	True	200	3497	True	4415	2	1			True	2026-08-27T07:46:24Z
+68	adobe.com	top_1_1000	https://adobe.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://adobe.com/
+Call log:
+  - navigating to ""https://adobe.com/"", waiting until ""commit""
+"	False	2026-08-27T07:46:24Z
+69	myfritz.net	top_1_1000	https://myfritz.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://myfritz.net/
+Call log:
+  - navigating to ""https://myfritz.net/"", waiting until ""commit""
+"	False	2026-08-27T07:46:24Z
+70	pv-cdn.net	top_1_1000	https://pv-cdn.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:46:24Z
+71	wa.me	top_1_1000	https://wa.me/	True	True	200	1164	False	0	0	1			True	2026-08-27T07:46:24Z
+72	cdninstagram.com	top_1_1000	https://cdninstagram.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://cdninstagram.com/
+Call log:
+  - navigating to ""https://cdninstagram.com/"", waiting until ""commit""
+"	False	2026-08-27T07:46:24Z
+73	nginx.org	top_1_1000	https://nginx.org/	True	True	200	820	True	828	0	0			True	2026-08-27T07:46:48Z
+74	akam.net	top_1_1000	https://akam.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:46:48Z
+75	tiktokcdn.com	top_1_1000	https://tiktokcdn.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://tiktokcdn.com/
+Call log:
+  - navigating to ""https://tiktokcdn.com/"", waiting until ""commit""
+"	False	2026-08-27T07:46:48Z
+76	chatgpt.com	top_1_1000	https://chatgpt.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://chatgpt.com/
+Call log:
+  - navigating to ""https://chatgpt.com/"", waiting until ""commit""
+"	False	2026-08-27T07:46:48Z
+77	zoom.us	top_1_1000	https://zoom.us/	True	True	200	4826	True	13933	3	1			True	2026-08-27T07:46:48Z
+78	tiktokv.com	top_1_1000	https://tiktokv.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://tiktokv.com/
+Call log:
+  - navigating to ""https://tiktokv.com/"", waiting until ""commit""
+"	False	2026-08-27T07:46:48Z
+79	vimeo.com	top_1_1000	https://vimeo.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://vimeo.com/
+Call log:
+  - navigating to ""https://vimeo.com/"", waiting until ""commit""
+"	False	2026-08-27T07:46:48Z
+80	edgekey.net	top_1_1000	https://edgekey.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:46:48Z
+81	baidu.com	top_1_1000	https://baidu.com/	True	True	200	369	True	1142	1	1			True	2026-08-27T07:47:09Z
+82	cloudflare-dns.com	top_1_1000	https://cloudflare-dns.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://cloudflare-dns.com/
+Call log:
+  - navigating to ""https://cloudflare-dns.com/"", waiting until ""commit""
+"	False	2026-08-27T07:47:09Z
+83	gvt2.com	top_1_1000	https://gvt2.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:47:09Z
+84	yandex.net	top_1_1000	https://yandex.net/	True	False	403	1810	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:47:09Z
+85	windows.com	top_1_1000	https://windows.com/	True	True	200	6466	True	8523	0	0			True	2026-08-27T07:47:09Z
+86	root-servers.net	top_1_1000	https://root-servers.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:47:09Z
+87	openai.com	top_1_1000	https://openai.com/	True	False	403	649	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:47:09Z
+88	gwfb.net	top_1_1000	https://gwfb.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:47:09Z
+89	ytimg.com	top_1_1000	https://ytimg.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:47:31Z
+90	workers.dev	top_1_1000	https://workers.dev/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://workers.dev/
+Call log:
+  - navigating to ""https://workers.dev/"", waiting until ""commit""
+"	False	2026-08-27T07:47:31Z
+91	qq.com	top_1_1000	https://qq.com/	True	True	200	411	True	1153	1	1			True	2026-08-27T07:47:31Z
+92	opera.com	top_1_1000	https://opera.com/	True	False	451	3683	False	0	0	0		RuntimeError:unacceptable_main_http_status:451	False	2026-08-27T07:47:31Z
+93	samsung.com	top_1_1000	https://samsung.com/	True	True	200	3022	True	4295	1	1			True	2026-08-27T07:47:31Z
+94	blogspot.com	top_1_1000	https://blogspot.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://blogspot.com/
+Call log:
+  - navigating to ""https://blogspot.com/"", waiting until ""commit""
+"	False	2026-08-27T07:47:31Z
+95	mozilla.org	top_1_1000	https://mozilla.org/	True	True	200	3086	True	4893	1	1			True	2026-08-27T07:47:31Z
+96	nginx.com	top_1_1000	https://nginx.com/	True	True	200	5256	True	15059	0	0			True	2026-08-27T07:47:31Z
+97	wordpress.com	top_1_1000	https://wordpress.com/	True	True	200	2531	True	5555	2	1			True	2026-08-27T07:47:54Z
+98	edgesuite.net	top_1_1000	https://edgesuite.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:47:54Z
+99	workbox.dk	top_1_1000	https://workbox.dk/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:47:54Z
+100	yandex.ru	top_1_1000	https://yandex.ru/	True	True	200	4560	False	0	2	2			True	2026-08-27T07:47:54Z
+101	capgemini.com	top_1_1000	https://capgemini.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://capgemini.com/"", waiting until ""commit""
+"	False	2026-08-27T07:47:54Z
+102	nic.ru	top_1_1000	https://nic.ru/	True	True	200	1267	True	1696	1	1			True	2026-08-27T07:47:54Z
+103	sentry.io	top_1_1000	https://sentry.io/	True	True	200	2085	True	5089	0	0			True	2026-08-27T07:47:54Z
+104	achmea.nl	top_1_1000	https://achmea.nl/	True	True	200	4149	False	0	0	1			True	2026-08-27T07:47:54Z
+105	reddit.com	top_1_1000	https://reddit.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://reddit.com/"", waiting until ""commit""
+"	False	2026-08-27T07:48:24Z
+106	ui.com	top_1_1000	https://ui.com/	True	True	200	1163	True	6435	4	1			True	2026-08-27T07:48:24Z
+107	t.me	top_1_1000	https://t.me/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://t.me/
+Call log:
+  - navigating to ""https://t.me/"", waiting until ""commit""
+"	False	2026-08-27T07:48:24Z
+108	a2z.com	top_1_1000	https://a2z.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:48:24Z
+109	office365.com	top_1_1000	https://office365.com/	True	False	403	1957	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:48:24Z
+110	b-cdn.net	top_1_1000	https://b-cdn.net/	True	True	200	2701	True	5956	0	0			True	2026-08-27T07:48:24Z
+111	outlook.com	top_1_1000	https://outlook.com/	True	True	200	3792	True	7093	0	0			True	2026-08-27T07:48:24Z
+112	bit.ly	top_1_1000	https://bit.ly/	True	True	200	996	True	7005	0	0			True	2026-08-27T07:48:24Z
+113	ripn.net	top_1_1000	https://ripn.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:48:55Z
+114	europa.eu	top_1_1000	https://europa.eu/	True	True	200	2246	True	6016	0	0			True	2026-08-27T07:48:55Z
+115	okcdn.ru	top_1_1000	https://okcdn.ru/	True	False	403	2327	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:48:55Z
+116	google-analytics.com	top_1_1000	https://google-analytics.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://google-analytics.com/
+Call log:
+  - navigating to ""https://google-analytics.com/"", waiting until ""commit""
+"	False	2026-08-27T07:48:55Z
+117	registrar-servers.com	top_1_1000	https://registrar-servers.com/	True	True	200	985	True	1685	0	0			True	2026-08-27T07:48:55Z
+118	vk.com	top_1_1000	https://vk.com/	True	True	200	3221	False	0	0	1			True	2026-08-27T07:48:55Z
+119	aws.dev	top_1_1000	https://aws.dev/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:48:55Z
+120	yccdn.ru	top_1_1000	https://yccdn.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:48:55Z
+121	afternic.com	top_1_1000	https://afternic.com/	True	True	200	2647	True	4107	0	0			True	2026-08-27T07:49:16Z
+122	github.io	top_1_1000	https://github.io/	True	True	200	3168	False	0	0	1			True	2026-08-27T07:49:16Z
+123	criteo.com	top_1_1000	https://criteo.com/	True	True	200	1090	True	4556	1	1			True	2026-08-27T07:49:16Z
+124	f5.com	top_1_1000	https://f5.com/	True	True	200	3278	False	0	0	1			True	2026-08-27T07:49:16Z
+125	amazonvideo.com	top_1_1000	https://amazonvideo.com/	True	True	200	3871	False	0	0	1			True	2026-08-27T07:49:16Z
+126	vkuserphoto.ru	top_1_1000	https://vkuserphoto.ru/	True	False	418	2496	False	0	0	0		RuntimeError:unacceptable_main_http_status:418	False	2026-08-27T07:49:16Z
+127	apache.org	top_1_1000	https://apache.org/	True	True	200	890	False	0	0	1			True	2026-08-27T07:49:16Z
+128	snapchat.com	top_1_1000	https://snapchat.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://snapchat.com/
+Call log:
+  - navigating to ""https://snapchat.com/"", waiting until ""commit""
+"	False	2026-08-27T07:49:16Z
+129	cdn77.org	top_1_1000	https://cdn77.org/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:49:31Z
+130	app-measurement.com	top_1_1000	https://app-measurement.com/	True	False	404	207	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:49:31Z
+131	app-analytics-services.com	top_1_1000	https://app-analytics-services.com/	True	False	404	350	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:49:31Z
+132	dnsowl.com	top_1_1000	https://dnsowl.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:49:31Z
+133	discord.gg	top_1_1000	https://discord.gg/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://discord.gg/
+Call log:
+  - navigating to ""https://discord.gg/"", waiting until ""commit""
+"	False	2026-08-27T07:49:31Z
+134	unity3d.com	top_1_1000	https://unity3d.com/	True	False	504	1198	False	0	0	0		RuntimeError:unacceptable_main_http_status:504	False	2026-08-27T07:49:31Z
+135	amazon-adsystem.com	top_1_1000	https://amazon-adsystem.com/	True	False	404	1567	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:49:31Z
+136	nih.gov	top_1_1000	https://nih.gov/	True	False	403	3761	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:49:31Z
+137	amazon.dev	top_1_1000	https://amazon.dev/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:49:52Z
+138	dns.google	top_1_1000	https://dns.google/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://dns.google/"", waiting until ""commit""
+"	False	2026-08-27T07:49:52Z
+139	msftncsi.com	top_1_1000	https://msftncsi.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:49:52Z
+140	trbcdn.net	top_1_1000	https://trbcdn.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://trbcdn.net/
+Call log:
+  - navigating to ""https://trbcdn.net/"", waiting until ""commit""
+"	False	2026-08-27T07:49:52Z
+141	dropbox.com	top_1_1000	https://dropbox.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://dropbox.com/
+Call log:
+  - navigating to ""https://dropbox.com/"", waiting until ""commit""
+"	False	2026-08-27T07:49:52Z
+142	kaspersky.com	top_1_1000	https://kaspersky.com/	True	True	200	8283	True	8505	16	1			True	2026-08-27T07:49:52Z
+143	iiko.it	top_1_1000	https://iiko.it/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:49:52Z
+144	miit.gov.cn	top_1_1000	https://miit.gov.cn/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:49:52Z
+145	intuit.com	top_1_1000	https://intuit.com/	True	True	200	4155	True	11395	1	1			True	2026-08-27T07:50:22Z
+146	netflix.net	top_1_1000	https://netflix.net/	True	False	403	2981	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:50:22Z
+147	forms.gle	top_1_1000	https://forms.gle/	True	False	400	1855	False	0	0	0		RuntimeError:unacceptable_main_http_status:400	False	2026-08-27T07:50:22Z
+148	dns-parking.com	top_1_1000	https://dns-parking.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:50:22Z
+149	archive.org	top_1_1000	https://archive.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://archive.org/
+Call log:
+  - navigating to ""https://archive.org/"", waiting until ""commit""
+"	False	2026-08-27T07:50:22Z
+150	static.microsoft	top_1_1000	https://static.microsoft/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:50:22Z
+151	reg.ru	top_1_1000	https://reg.ru/	True	True	200	987	True	992	0	0			True	2026-08-27T07:50:22Z
+152	godaddy.com	top_1_1000	https://godaddy.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://godaddy.com/
+Call log:
+  - navigating to ""https://godaddy.com/"", waiting until ""commit""
+"	False	2026-08-27T07:50:22Z
+153	epicgames.com	top_1_1000	https://epicgames.com/	True	False	403	3459	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:50:43Z
+154	azurefd.net	top_1_1000	https://azurefd.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:50:43Z
+155	xiaomi.com	top_1_1000	https://xiaomi.com/	True	True	200	605	True	875	0	0			True	2026-08-27T07:50:43Z
+156	gravatar.com	top_1_1000	https://gravatar.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://gravatar.com/
+Call log:
+  - navigating to ""https://gravatar.com/"", waiting until ""commit""
+"	False	2026-08-27T07:50:43Z
+157	steamserver.net	top_1_1000	https://steamserver.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:50:43Z
+158	nytimes.com	top_1_1000	https://nytimes.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://nytimes.com/"", waiting until ""commit""
+"	False	2026-08-27T07:50:43Z
+159	vedcdnlb.com	top_1_1000	https://vedcdnlb.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:50:43Z
+160	tumblr.com	top_1_1000	https://tumblr.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://tumblr.com/
+Call log:
+  - navigating to ""https://tumblr.com/"", waiting until ""commit""
+"	False	2026-08-27T07:50:43Z
+161	prodregistryv2.org	top_1_1000	https://prodregistryv2.org/	True	False	404	1415	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:51:14Z
+162	one.one	top_1_1000	https://one.one/	True	True	200	3121	True	3128	0	0			True	2026-08-27T07:51:14Z
+163	paypal.com	top_1_1000	https://paypal.com/	True	True	200	9327	True	12134	1	1	captcha_blocking		False	2026-08-27T07:51:14Z
+164	msftconnecttest.com	top_1_1000	https://msftconnecttest.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:51:14Z
+165	discord.com	top_1_1000	https://discord.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://discord.com/
+Call log:
+  - navigating to ""https://discord.com/"", waiting until ""commit""
+"	False	2026-08-27T07:51:14Z
+166	aliyuncs.com	top_1_1000	https://aliyuncs.com/	True	False	404	157	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:51:14Z
+167	applovin.com	top_1_1000	https://applovin.com/	True	True	200	2306	True	4111	0	0			True	2026-08-27T07:51:14Z
+168	adtrafficquality.google	top_1_1000	https://adtrafficquality.google/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://adtrafficquality.google/
+Call log:
+  - navigating to ""https://adtrafficquality.google/"", waiting until ""commit""
+"	False	2026-08-27T07:51:14Z
+169	3gppnetwork.org	top_1_1000	https://3gppnetwork.org/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:51:35Z
+170	tm-azurefd.net	top_1_1000	https://tm-azurefd.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:51:35Z
+171	ax-msedge.net	top_1_1000	https://ax-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:51:35Z
+172	soundcloud.com	top_1_1000	https://soundcloud.com/	True	False	403	1075	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:51:35Z
+173	vk.ru	top_1_1000	https://vk.ru/	True	True	200	2366	False	0	0	1			True	2026-08-27T07:51:35Z
+174	shopify.com	top_1_1000	https://shopify.com/	True	True	200	1899	True	2015	0	0			True	2026-08-27T07:51:35Z
+175	ggpht.com	top_1_1000	https://ggpht.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:51:35Z
+176	mts.ru	top_1_1000	https://mts.ru/	True	True	200	13655	False	0	0	1			True	2026-08-27T07:51:35Z
+177	jomodns.com	top_1_1000	https://jomodns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:51:59Z
+178	adobe.io	top_1_1000	https://adobe.io/	True	True	200	3762	True	6133	2	1			True	2026-08-27T07:51:59Z
+179	googleadservices.com	top_1_1000	https://googleadservices.com/	True	False	404	294	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:51:59Z
+180	flickr.com	top_1_1000	https://flickr.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://flickr.com/
+Call log:
+  - navigating to ""https://flickr.com/"", waiting until ""commit""
+"	False	2026-08-27T07:51:59Z
+181	macromedia.com	top_1_1000	https://macromedia.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://macromedia.com/
+Call log:
+  - navigating to ""https://macromedia.com/"", waiting until ""commit""
+"	False	2026-08-27T07:51:59Z
+182	webex.com	top_1_1000	https://webex.com/	True	False	403	1904	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:51:59Z
+183	example.com	top_1_1000	https://example.com/	True	True	200	1036	True	1195	0	0			True	2026-08-27T07:51:59Z
+184	namebrightdns.com	top_1_1000	https://namebrightdns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:51:59Z
+185	azurewebsites.net	top_1_1000	https://azurewebsites.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:20Z
+186	w3.org	top_1_1000	https://w3.org/	True	True	200	1078	True	1412	0	0			True	2026-08-27T07:52:20Z
+187	hichina.com	top_1_1000	https://hichina.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:20Z
+188	nflxso.net	top_1_1000	https://nflxso.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:20Z
+189	cdn-apple.com	top_1_1000	https://cdn-apple.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:20Z
+190	medium.com	top_1_1000	https://medium.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://medium.com/
+Call log:
+  - navigating to ""https://medium.com/"", waiting until ""commit""
+"	False	2026-08-27T07:52:20Z
+191	cnn.com	top_1_1000	https://cnn.com/	True	True	200	4461	True	4462	0	0			True	2026-08-27T07:52:20Z
+192	rubiconproject.com	top_1_1000	https://rubiconproject.com/	True	True	200	5068	False	0	0	1			True	2026-08-27T07:52:20Z
+193	ack.de	top_1_1000	https://ack.de/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:35Z
+194	bytefcdn-oversea.com	top_1_1000	https://bytefcdn-oversea.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:35Z
+195	theguardian.com	top_1_1000	https://theguardian.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://theguardian.com/
+Call log:
+  - navigating to ""https://theguardian.com/"", waiting until ""commit""
+"	False	2026-08-27T07:52:35Z
+196	vungle.com	top_1_1000	https://vungle.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://vungle.com/
+Call log:
+  - navigating to ""https://vungle.com/"", waiting until ""commit""
+"	False	2026-08-27T07:52:35Z
+197	creativecommons.org	top_1_1000	https://creativecommons.org/	True	True	200	1365	True	4523	2	1			True	2026-08-27T07:52:35Z
+198	lencr.org	top_1_1000	https://lencr.org/	True	True	200	3448	True	3949	0	0			True	2026-08-27T07:52:35Z
+199	playstation.net	top_1_1000	https://playstation.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:35Z
+200	oracle.com	top_1_1000	https://oracle.com/	True	False	403	4297	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:52:35Z
+201	taboola.com	top_1_1000	https://taboola.com/	True	True	200	5241	False	0	0	1			True	2026-08-27T07:52:58Z
+202	lsrelayaccess.com	top_1_1000	https://lsrelayaccess.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://lsrelayaccess.com/"", waiting until ""commit""
+"	False	2026-08-27T07:52:58Z
+203	shifen.com	top_1_1000	https://shifen.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://shifen.com/
+Call log:
+  - navigating to ""https://shifen.com/"", waiting until ""commit""
+"	False	2026-08-27T07:52:58Z
+204	sfx.ms	top_1_1000	https://sfx.ms/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:58Z
+205	forbes.com	top_1_1000	https://forbes.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://forbes.com/
+Call log:
+  - navigating to ""https://forbes.com/"", waiting until ""commit""
+"	False	2026-08-27T07:52:58Z
+206	doi.org	top_1_1000	https://doi.org/	True	True	200	2120	False	0	0	1			True	2026-08-27T07:52:58Z
+207	miui.com	top_1_1000	https://miui.com/	True	True	200	295	True	1033	0	0			True	2026-08-27T07:52:58Z
+208	ttdns2.com	top_1_1000	https://ttdns2.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:52:58Z
+209	comcast.net	top_1_1000	https://comcast.net/	True	False	403	4745	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:53:28Z
+210	bbc.com	top_1_1000	https://bbc.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://bbc.com/"", waiting until ""commit""
+"	False	2026-08-27T07:53:28Z
+211	t-online.de	top_1_1000	https://t-online.de/	True	True	200	2919	True	8506	0	0			True	2026-08-27T07:53:28Z
+212	pki.goog	top_1_1000	https://pki.goog/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://pki.goog/"", waiting until ""commit""
+"	False	2026-08-27T07:53:28Z
+213	adsafeprotected.com	top_1_1000	https://adsafeprotected.com/	True	True	200	4088	True	4088	0	0			True	2026-08-27T07:53:28Z
+214	youtube-nocookie.com	top_1_1000	https://youtube-nocookie.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://youtube-nocookie.com/"", waiting until ""commit""
+"	False	2026-08-27T07:53:28Z
+215	sciencedirect.com	top_1_1000	https://sciencedirect.com/	True	False	403	832	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:53:28Z
+216	pages.dev	top_1_1000	https://pages.dev/	True	True	200	3344	True	4910	0	0			True	2026-08-27T07:53:28Z
+217	mit.edu	top_1_1000	https://mit.edu/	True	True	200	3113	True	7224	0	0			True	2026-08-27T07:53:58Z
+218	cpanel.net	top_1_1000	https://cpanel.net/	True	True	200	3383	True	4919	5	1			True	2026-08-27T07:53:58Z
+219	researchgate.net	top_1_1000	https://researchgate.net/	True	False	403	2156	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:53:58Z
+220	gmail.com	top_1_1000	https://gmail.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://gmail.com/
+Call log:
+  - navigating to ""https://gmail.com/"", waiting until ""commit""
+"	False	2026-08-27T07:53:58Z
+221	twitch.tv	top_1_1000	https://twitch.tv/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://twitch.tv/
+Call log:
+  - navigating to ""https://twitch.tv/"", waiting until ""commit""
+"	False	2026-08-27T07:53:58Z
+222	fastly-edge.com	top_1_1000	https://fastly-edge.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:53:58Z
+223	cdngslb.com	top_1_1000	https://cdngslb.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://cdngslb.com/
+Call log:
+  - navigating to ""https://cdngslb.com/"", waiting until ""commit""
+"	False	2026-08-27T07:53:58Z
+224	ozon.ru	top_1_1000	https://ozon.ru/	True	False	403	3783	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:53:58Z
+225	bbc.co.uk	top_1_1000	https://bbc.co.uk/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://bbc.co.uk/"", waiting until ""commit""
+"	False	2026-08-27T07:54:20Z
+226	t.co	top_1_1000	https://t.co/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://t.co/"", waiting until ""commit""
+"	False	2026-08-27T07:54:20Z
+227	nist.gov	top_1_1000	https://nist.gov/	True	True	200	1979	True	4031	2	1			True	2026-08-27T07:54:20Z
+228	ksyuncdn.com	top_1_1000	https://ksyuncdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:54:20Z
+229	akamaized.net	top_1_1000	https://akamaized.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:54:20Z
+230	ebay.com	top_1_1000	https://ebay.com/	True	False	403	7256	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:54:20Z
+231	etsy.com	top_1_1000	https://etsy.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://etsy.com/
+Call log:
+  - navigating to ""https://etsy.com/"", waiting until ""commit""
+"	False	2026-08-27T07:54:20Z
+232	nr-data.net	top_1_1000	https://nr-data.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:54:20Z
+233	ubuntu.com	top_1_1000	https://ubuntu.com/	True	True	200	1548	True	5865	4	1			True	2026-08-27T07:54:50Z
+234	userapi.com	top_1_1000	https://userapi.com/	True	True	200	4237	True	13451	3	1			True	2026-08-27T07:54:50Z
+235	sourceforge.net	top_1_1000	https://sourceforge.net/	True	False	403	1432	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:54:50Z
+236	azureedge.net	top_1_1000	https://azureedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:54:50Z
+237	telekom.net	top_1_1000	https://telekom.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://telekom.net/
+Call log:
+  - navigating to ""https://telekom.net/"", waiting until ""commit""
+"	False	2026-08-27T07:54:50Z
+238	stripe.com	top_1_1000	https://stripe.com/	True	True	200	901	False	0	0	1			True	2026-08-27T07:54:50Z
+239	canva.com	top_1_1000	https://canva.com/	True	False	403	4332	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:54:50Z
+240	pubmatic.com	top_1_1000	https://pubmatic.com/	True	True	202	1196	True	9840	0	0			True	2026-08-27T07:54:50Z
+241	telecid.ru	top_1_1000	https://telecid.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://telecid.ru/
+Call log:
+  - navigating to ""https://telecid.ru/"", waiting until ""commit""
+"	False	2026-08-27T07:55:11Z
+242	android.com	top_1_1000	https://android.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://android.com/
+Call log:
+  - navigating to ""https://android.com/"", waiting until ""commit""
+"	False	2026-08-27T07:55:11Z
+243	edgcdn.net	top_1_1000	https://edgcdn.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:55:11Z
+244	telegram.org	top_1_1000	https://telegram.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://telegram.org/
+Call log:
+  - navigating to ""https://telegram.org/"", waiting until ""commit""
+"	False	2026-08-27T07:55:11Z
+245	name-services.com	top_1_1000	https://name-services.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:55:11Z
+246	cisco.com	top_1_1000	https://cisco.com/	True	True	200	3437	True	7133	1	1			True	2026-08-27T07:55:11Z
+247	wikimedia.org	top_1_1000	https://wikimedia.org/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://wikimedia.org/"", waiting until ""commit""
+"	False	2026-08-27T07:55:11Z
+248	rbxcdn.com	top_1_1000	https://rbxcdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:55:11Z
+249	wsdvs.com	top_1_1000	https://wsdvs.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:55:41Z
+250	hubspot.com	top_1_1000	https://hubspot.com/	True	True	200	2675	True	9327	1	1			True	2026-08-27T07:55:41Z
+251	adsrvr.org	top_1_1000	https://adsrvr.org/	True	True	200	6222	False	0	0	1			True	2026-08-27T07:55:41Z
+252	who.int	top_1_1000	https://who.int/	True	True	200	2632	False	0	0	1			True	2026-08-27T07:55:41Z
+253	imdb.com	top_1_1000	https://imdb.com/	True	False	403	3414	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:55:41Z
+254	booking.com	top_1_1000	https://booking.com/	True	True	202	2156	True	4029	0	0			True	2026-08-27T07:55:41Z
+255	spo-msedge.net	top_1_1000	https://spo-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:55:41Z
+256	adnxs.com	top_1_1000	https://adnxs.com/	True	False	404	1404	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:55:41Z
+257	wixsite.com	top_1_1000	https://wixsite.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://wixsite.com/
+Call log:
+  - navigating to ""https://wixsite.com/"", waiting until ""commit""
+"	False	2026-08-27T07:55:58Z
+258	omtrdc.net	top_1_1000	https://omtrdc.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:55:58Z
+259	scorecardresearch.com	top_1_1000	https://scorecardresearch.com/	True	True	200	2576	True	4815	1	1			True	2026-08-27T07:55:58Z
+260	launchpad.net	top_1_1000	https://launchpad.net/	True	True	200	1426	True	3357	0	0			True	2026-08-27T07:55:58Z
+261	linktr.ee	top_1_1000	https://linktr.ee/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://linktr.ee/
+Call log:
+  - navigating to ""https://linktr.ee/"", waiting until ""commit""
+"	False	2026-08-27T07:55:58Z
+262	meraki.com	top_1_1000	https://meraki.com/	True	True	200	4946	True	10635	2	1			True	2026-08-27T07:55:58Z
+263	roku.com	top_1_1000	https://roku.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://roku.com/
+Call log:
+  - navigating to ""https://roku.com/"", waiting until ""commit""
+"	False	2026-08-27T07:55:58Z
+264	alibabadns.com	top_1_1000	https://alibabadns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:55:58Z
+265	hcaptcha.com	top_1_1000	https://hcaptcha.com/	True	True	200	2057	True	3539	1	1	captcha_blocking		False	2026-08-27T07:56:21Z
+266	ibm.com	top_1_1000	https://ibm.com/	True	True	200	5709	False	0	0	1			True	2026-08-27T07:56:21Z
+267	duckdns.org	top_1_1000	https://duckdns.org/	True	True	200	4253	False	0	0	1			True	2026-08-27T07:56:21Z
+268	arubanetworks.com	top_1_1000	https://arubanetworks.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_DATE_INVALID at https://arubanetworks.com/
+Call log:
+  - navigating to ""https://arubanetworks.com/"", waiting until ""commit""
+"	False	2026-08-27T07:56:21Z
+269	alidns.com	top_1_1000	https://alidns.com/	True	True	200	84	True	2007	3	1			True	2026-08-27T07:56:21Z
+270	facebook.net	top_1_1000	https://facebook.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:56:21Z
+271	imcmdb.net	top_1_1000	https://imcmdb.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://imcmdb.net/
+Call log:
+  - navigating to ""https://imcmdb.net/"", waiting until ""commit""
+"	False	2026-08-27T07:56:21Z
+272	ttvnw.net	top_1_1000	https://ttvnw.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:56:21Z
+273	springer.com	top_1_1000	https://springer.com/	True	True	200	4768	True	4918	0	0			True	2026-08-27T07:56:42Z
+274	reuters.com	top_1_1000	https://reuters.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://reuters.com/
+Call log:
+  - navigating to ""https://reuters.com/"", waiting until ""commit""
+"	False	2026-08-27T07:56:42Z
+275	msedge.net	top_1_1000	https://msedge.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://msedge.net/
+Call log:
+  - navigating to ""https://msedge.net/"", waiting until ""commit""
+"	False	2026-08-27T07:56:42Z
+276	forter.com	top_1_1000	https://forter.com/	True	True	200	1917	True	4349	3	1			True	2026-08-27T07:56:42Z
+277	vecdnlb.com	top_1_1000	https://vecdnlb.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:56:42Z
+278	tinyurl.com	top_1_1000	https://tinyurl.com/	True	True	200	1358	False	0	0	1			True	2026-08-27T07:56:42Z
+279	amplitude.com	top_1_1000	https://amplitude.com/	True	True	200	985	True	1868	4	1			True	2026-08-27T07:56:42Z
+280	nature.com	top_1_1000	https://nature.com/	True	True	200	4927	True	5452	5	1			True	2026-08-27T07:56:42Z
+281	oxylabs.io	top_1_1000	https://oxylabs.io/	True	True	200	884	True	8812	2	1			True	2026-08-27T07:57:04Z
+282	mangosip.ru	top_1_1000	https://mangosip.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://mangosip.ru/
+Call log:
+  - navigating to ""https://mangosip.ru/"", waiting until ""commit""
+"	False	2026-08-27T07:57:04Z
+283	weibo.com	top_1_1000	https://weibo.com/	True	True	200	292	True	368	1	1			True	2026-08-27T07:57:04Z
+284	wac-msedge.net	top_1_1000	https://wac-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:57:04Z
+285	tiktokcdn-us.com	top_1_1000	https://tiktokcdn-us.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://tiktokcdn-us.com/
+Call log:
+  - navigating to ""https://tiktokcdn-us.com/"", waiting until ""commit""
+"	False	2026-08-27T07:57:04Z
+286	mozilla.com	top_1_1000	https://mozilla.com/	True	True	200	5969	False	0	1	2			True	2026-08-27T07:57:04Z
+287	hp.com	top_1_1000	https://hp.com/	True	True	200	5447	True	7214	0	0			True	2026-08-27T07:57:04Z
+288	byteoversea.net	top_1_1000	https://byteoversea.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:57:04Z
+289	wildberries.ru	top_1_1000	https://wildberries.ru/	True	False	498	2782	False	0	0	0		RuntimeError:unacceptable_main_http_status:498	False	2026-08-27T07:57:26Z
+290	www.gov.uk	top_1_1000	https://www.gov.uk/	True	True	200	1491	False	0	0	1			True	2026-08-27T07:57:26Z
+291	harvard.edu	top_1_1000	https://harvard.edu/	True	True	200	1397	True	3473	1	1			True	2026-08-27T07:57:26Z
+292	debian.org	top_1_1000	https://debian.org/	True	True	200	2202	True	2207	0	0			True	2026-08-27T07:57:26Z
+293	clarity.ms	top_1_1000	https://clarity.ms/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://clarity.ms/
+Call log:
+  - navigating to ""https://clarity.ms/"", waiting until ""commit""
+"	False	2026-08-27T07:57:26Z
+294	inmobi.com	top_1_1000	https://inmobi.com/	True	True	200	1636	True	6424	5	1			True	2026-08-27T07:57:26Z
+295	steampowered.com	top_1_1000	https://steampowered.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_EMPTY_RESPONSE at https://steampowered.com/
+Call log:
+  - navigating to ""https://steampowered.com/"", waiting until ""commit""
+"	False	2026-08-27T07:57:26Z
+296	jsdelivr.net	top_1_1000	https://jsdelivr.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://jsdelivr.net/
+Call log:
+  - navigating to ""https://jsdelivr.net/"", waiting until ""commit""
+"	False	2026-08-27T07:57:26Z
+297	hostgator.com	top_1_1000	https://hostgator.com/	True	False	403	1784	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:57:49Z
+298	media-amazon.com	top_1_1000	https://media-amazon.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:57:49Z
+299	virginm.net	top_1_1000	https://virginm.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:57:49Z
+300	weather.com	top_1_1000	https://weather.com/	True	True	200	1144	True	2563	5	1			True	2026-08-27T07:57:49Z
+301	alibaba.com	top_1_1000	https://alibaba.com/	True	True	200	193	True	609	4	1			True	2026-08-27T07:57:49Z
+302	dnsmadeeasy.com	top_1_1000	https://dnsmadeeasy.com/	True	True	200	898	False	0	0	1			True	2026-08-27T07:57:49Z
+303	mzstatic.com	top_1_1000	https://mzstatic.com/	True	True	200	1472	True	2581	5	1			True	2026-08-27T07:57:49Z
+304	spov-msedge.net	top_1_1000	https://spov-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:57:49Z
+305	avast.com	top_1_1000	https://avast.com/	True	True	200	4650	True	10060	7	1			True	2026-08-27T07:58:01Z
+306	php.net	top_1_1000	https://php.net/	True	True	200	4439	True	6335	0	0			True	2026-08-27T07:58:01Z
+307	aliyuncsslbintl.com	top_1_1000	https://aliyuncsslbintl.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:58:01Z
+308	wiley.com	top_1_1000	https://wiley.com/	True	False	403	1439	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:58:01Z
+309	autodesk.com	top_1_1000	https://autodesk.com/	True	False	403	3282	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:58:01Z
+310	samsungcloud.com	top_1_1000	https://samsungcloud.com/	True	True	200	3520	True	8752	1	1			True	2026-08-27T07:58:01Z
+311	ok.ru	top_1_1000	https://ok.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://ok.ru/
+Call log:
+  - navigating to ""https://ok.ru/"", waiting until ""commit""
+"	False	2026-08-27T07:58:01Z
+312	appsflyer.com	top_1_1000	https://appsflyer.com/	True	True	200	3671	False	0	0	1			True	2026-08-27T07:58:01Z
+313	2mdn.net	top_1_1000	https://2mdn.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:58:16Z
+314	triplinkintl.com	top_1_1000	https://triplinkintl.com/	True	True	200	3327	True	3684	0	0			True	2026-08-27T07:58:16Z
+315	mtgglobals.com	top_1_1000	https://mtgglobals.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:58:16Z
+316	shalltry.com	top_1_1000	https://shalltry.com/	True	False	403	1494	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:58:16Z
+317	telegram.me	top_1_1000	https://telegram.me/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://telegram.me/
+Call log:
+  - navigating to ""https://telegram.me/"", waiting until ""commit""
+"	False	2026-08-27T07:58:16Z
+318	heytapmobile.com	top_1_1000	https://heytapmobile.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:58:16Z
+319	drom.ru	top_1_1000	https://drom.ru/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://drom.ru/"", waiting until ""commit""
+"	False	2026-08-27T07:58:16Z
+320	googleblog.com	top_1_1000	https://googleblog.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://googleblog.com/
+Call log:
+  - navigating to ""https://googleblog.com/"", waiting until ""commit""
+"	False	2026-08-27T07:58:16Z
+321	datadoghq.com	top_1_1000	https://datadoghq.com/	True	True	200	2281	False	0	0	1			True	2026-08-27T07:58:46Z
+322	crpt.ru	top_1_1000	https://crpt.ru/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://crpt.ru/"", waiting until ""commit""
+"	False	2026-08-27T07:58:46Z
+323	salesforce.com	top_1_1000	https://salesforce.com/	True	False	403	2587	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:58:46Z
+324	samsungqbe.com	top_1_1000	https://samsungqbe.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:58:46Z
+325	amazon.co.uk	top_1_1000	https://amazon.co.uk/	True	True	202	3337	True	6441	0	0			True	2026-08-27T07:58:46Z
+326	myshopify.com	top_1_1000	https://myshopify.com/	True	False	404	1058	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T07:58:46Z
+327	launchdarkly.com	top_1_1000	https://launchdarkly.com/	True	True	200	690	True	1089	18	1			True	2026-08-27T07:58:46Z
+328	gnu.org	top_1_1000	https://gnu.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://gnu.org/
+Call log:
+  - navigating to ""https://gnu.org/"", waiting until ""commit""
+"	False	2026-08-27T07:58:46Z
+329	name.com	top_1_1000	https://name.com/	True	True	200	2135	True	6983	101	1			True	2026-08-27T07:59:17Z
+330	aliyun.com	top_1_1000	https://aliyun.com/	True	True	200	301	True	953	2	1			True	2026-08-27T07:59:17Z
+331	douyincdn.com	top_1_1000	https://douyincdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:59:17Z
+332	ea.com	top_1_1000	https://ea.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://ea.com/
+Call log:
+  - navigating to ""https://ea.com/"", waiting until ""commit""
+"	False	2026-08-27T07:59:17Z
+333	smartadserver.com	top_1_1000	https://smartadserver.com/	True	True	200	4225	True	13268	13	1			True	2026-08-27T07:59:17Z
+334	un.org	top_1_1000	https://un.org/	True	False	403	2861	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:59:17Z
+335	capcutapi.com	top_1_1000	https://capcutapi.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:59:17Z
+336	worldnic.com	top_1_1000	https://worldnic.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://worldnic.com/
+Call log:
+  - navigating to ""https://worldnic.com/"", waiting until ""commit""
+"	False	2026-08-27T07:59:17Z
+337	crashlytics.com	top_1_1000	https://crashlytics.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://crashlytics.com/"", waiting until ""commit""
+"	False	2026-08-27T07:59:38Z
+338	bilibili.com	top_1_1000	https://bilibili.com/	True	True	200	422	True	783	0	0			True	2026-08-27T07:59:38Z
+339	cdc.gov	top_1_1000	https://cdc.gov/	True	True	200	899	True	2360	2	1			True	2026-08-27T07:59:38Z
+340	geobasket.ru	top_1_1000	https://geobasket.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:59:38Z
+341	doubleverify.com	top_1_1000	https://doubleverify.com/	True	True	200	1156	True	6322	4	1			True	2026-08-27T07:59:38Z
+342	weebly.com	top_1_1000	https://weebly.com/	True	False	403	1214	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T07:59:38Z
+343	inner-active.mobi	top_1_1000	https://inner-active.mobi/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://inner-active.mobi/"", waiting until ""commit""
+"	False	2026-08-27T07:59:38Z
+344	yandexcloud.net	top_1_1000	https://yandexcloud.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T07:59:38Z
+345	naver.com	top_1_1000	https://naver.com/	True	True	200	3405	False	0	0	1			True	2026-08-27T08:00:08Z
+346	trustpilot.com	top_1_1000	https://trustpilot.com/	True	False	403	2019	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:00:08Z
+347	checkpoint.com	top_1_1000	https://checkpoint.com/	True	False	403	1437	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:00:08Z
+348	akamaihd.net	top_1_1000	https://akamaihd.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:00:08Z
+349	issuu.com	top_1_1000	https://issuu.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://issuu.com/
+Call log:
+  - navigating to ""https://issuu.com/"", waiting until ""commit""
+"	False	2026-08-27T08:00:08Z
+350	tbcache.com	top_1_1000	https://tbcache.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://tbcache.com/"", waiting until ""commit""
+"	False	2026-08-27T08:00:08Z
+351	att.com	top_1_1000	https://att.com/	True	True	200	3501	True	13450	1	1			True	2026-08-27T08:00:08Z
+352	slack.com	top_1_1000	https://slack.com/	True	True	200	1489	True	6443	1	1			True	2026-08-27T08:00:08Z
+353	trueconf.net	top_1_1000	https://trueconf.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://trueconf.net/
+Call log:
+  - navigating to ""https://trueconf.net/"", waiting until ""commit""
+"	False	2026-08-27T08:00:38Z
+354	wsj.com	top_1_1000	https://wsj.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://wsj.com/
+Call log:
+  - navigating to ""https://wsj.com/"", waiting until ""commit""
+"	False	2026-08-27T08:00:38Z
+355	allawnos.com	top_1_1000	https://allawnos.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:00:38Z
+356	washingtonpost.com	top_1_1000	https://washingtonpost.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://washingtonpost.com/
+Call log:
+  - navigating to ""https://washingtonpost.com/"", waiting until ""commit""
+"	False	2026-08-27T08:00:38Z
+357	opendns.com	top_1_1000	https://opendns.com/	True	True	200	2343	False	0	0	1			True	2026-08-27T08:00:38Z
+358	ioref.io	top_1_1000	https://ioref.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:00:38Z
+359	media.net	top_1_1000	https://media.net/	True	True	200	4826	False	0	0	1			True	2026-08-27T08:00:38Z
+360	tradingview.com	top_1_1000	https://tradingview.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://tradingview.com/
+Call log:
+  - navigating to ""https://tradingview.com/"", waiting until ""commit""
+"	False	2026-08-27T08:00:38Z
+361	bloomberg.com	top_1_1000	https://bloomberg.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://bloomberg.com/
+Call log:
+  - navigating to ""https://bloomberg.com/"", waiting until ""commit""
+"	False	2026-08-27T08:01:00Z
+362	google.cn	top_1_1000	https://google.cn/	True	True	200	680	True	684	0	0			True	2026-08-27T08:01:00Z
+363	stanford.edu	top_1_1000	https://stanford.edu/	True	True	200	1768	True	1952	4	1			True	2026-08-27T08:01:00Z
+364	indeed.com	top_1_1000	https://indeed.com/	True	False	403	1183	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:01:00Z
+365	onelink.me	top_1_1000	https://onelink.me/	True	True	200	4945	False	0	0	1			True	2026-08-27T08:01:00Z
+366	walmart.com	top_1_1000	https://walmart.com/	True	True	200	2434	False	0	0	1			True	2026-08-27T08:01:00Z
+367	calendly.com	top_1_1000	https://calendly.com/	True	True	200	2064	True	2870	0	0			True	2026-08-27T08:01:00Z
+368	nvidia.com	top_1_1000	https://nvidia.com/	True	True	200	3206	True	3885	0	0			True	2026-08-27T08:01:00Z
+369	quickconnect.to	top_1_1000	https://quickconnect.to/	True	True	200	1237	True	9894	0	0			True	2026-08-27T08:01:15Z
+370	mi.com	top_1_1000	https://mi.com/	True	True	200	698	True	1000	0	0			True	2026-08-27T08:01:15Z
+371	cookiedatabase.org	top_1_1000	https://cookiedatabase.org/	True	False	403	1173	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:01:15Z
+372	bluehost.com	top_1_1000	https://bluehost.com/	True	False	403	3109	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:01:15Z
+373	zendesk.com	top_1_1000	https://zendesk.com/	True	True	200	2276	True	3309	6	1			True	2026-08-27T08:01:15Z
+374	dotaplabs.net	top_1_1000	https://dotaplabs.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:01:15Z
+375	samsungcloudsolution.com	top_1_1000	https://samsungcloudsolution.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:01:15Z
+376	ip-api.com	top_1_1000	https://ip-api.com/	True	True	200	5845	True	8476	0	0			True	2026-08-27T08:01:15Z
+377	plesk.com	top_1_1000	https://plesk.com/	True	True	200	2539	True	2953	3	1			True	2026-08-27T08:01:31Z
+378	awswaf.com	top_1_1000	https://awswaf.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:01:31Z
+379	amazon.de	top_1_1000	https://amazon.de/	True	True	202	1845	True	8026	0	0			True	2026-08-27T08:01:31Z
+380	gitlab.com	top_1_1000	https://gitlab.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://gitlab.com/
+Call log:
+  - navigating to ""https://gitlab.com/"", waiting until ""commit""
+"	False	2026-08-27T08:01:31Z
+381	libp2p.direct	top_1_1000	https://libp2p.direct/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:01:31Z
+382	selectel.ru	top_1_1000	https://selectel.ru/	True	True	200	1445	True	6595	0	0			True	2026-08-27T08:01:31Z
+383	newrelic.com	top_1_1000	https://newrelic.com/	True	True	200	1059	False	0	0	1			True	2026-08-27T08:01:31Z
+384	ezvizlife.com	top_1_1000	https://ezvizlife.com/	True	True	200	4144	True	5229	1	1			True	2026-08-27T08:01:31Z
+385	tiktokv.us	top_1_1000	https://tiktokv.us/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://tiktokv.us/
+Call log:
+  - navigating to ""https://tiktokv.us/"", waiting until ""commit""
+"	False	2026-08-27T08:01:53Z
+386	live-video.net	top_1_1000	https://live-video.net/	True	True	200	1081	True	1084	0	0			True	2026-08-27T08:01:53Z
+387	amazontrust.com	top_1_1000	https://amazontrust.com/	True	True	200	3380	True	7115	0	0			True	2026-08-27T08:01:53Z
+388	cdnbuild.net	top_1_1000	https://cdnbuild.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:01:53Z
+389	tp-link.com	top_1_1000	https://tp-link.com/	True	True	200	3058	True	7554	0	0			True	2026-08-27T08:01:53Z
+390	bsky.app	top_1_1000	https://bsky.app/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://bsky.app/
+Call log:
+  - navigating to ""https://bsky.app/"", waiting until ""commit""
+"	False	2026-08-27T08:01:53Z
+391	nasa.gov	top_1_1000	https://nasa.gov/	True	True	200	1198	True	7253	3	1			True	2026-08-27T08:01:53Z
+392	yandex.com	top_1_1000	https://yandex.com/	True	True	200	2546	True	4214	1	1			True	2026-08-27T08:01:53Z
+393	demdex.net	top_1_1000	https://demdex.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:02:15Z
+394	mynetname.net	top_1_1000	https://mynetname.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:02:15Z
+395	enacdn.net	top_1_1000	https://enacdn.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:02:15Z
+396	ibyteimg.com	top_1_1000	https://ibyteimg.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:02:15Z
+397	kwai-pro.com	top_1_1000	https://kwai-pro.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:02:15Z
+398	rocket-cdn.com	top_1_1000	https://rocket-cdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:02:15Z
+399	163.com	top_1_1000	https://163.com/	True	True	200	298	True	958	4	1			True	2026-08-27T08:02:15Z
+400	dropcatch.com	top_1_1000	https://dropcatch.com/	True	True	200	1116	True	3877	1	1			True	2026-08-27T08:02:15Z
+401	vivoglobal.com	top_1_1000	https://vivoglobal.com/	True	True	200	2563	True	2563	0	0			True	2026-08-27T08:02:27Z
+402	aliexpress.com	top_1_1000	https://aliexpress.com/	True	True	200	71	True	664	0	0			True	2026-08-27T08:02:27Z
+403	unsplash.com	top_1_1000	https://unsplash.com/	True	False	403	1037	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:02:27Z
+404	ipify.org	top_1_1000	https://ipify.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://ipify.org/
+Call log:
+  - navigating to ""https://ipify.org/"", waiting until ""commit""
+"	False	2026-08-27T08:02:27Z
+405	volcfcdndvs.com	top_1_1000	https://volcfcdndvs.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:02:27Z
+406	heytapdl.com	top_1_1000	https://heytapdl.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:02:27Z
+407	netangels.ru	top_1_1000	https://netangels.ru/	True	True	200	3443	False	0	0	1			True	2026-08-27T08:02:27Z
+408	xboxlive.com	top_1_1000	https://xboxlive.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://xboxlive.com/
+Call log:
+  - navigating to ""https://xboxlive.com/"", waiting until ""commit""
+"	False	2026-08-27T08:02:27Z
+409	casalemedia.com	top_1_1000	https://casalemedia.com/	True	True	200	7107	True	12844	1	1			True	2026-08-27T08:02:41Z
+410	dailymotion.com	top_1_1000	https://dailymotion.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://dailymotion.com/
+Call log:
+  - navigating to ""https://dailymotion.com/"", waiting until ""commit""
+"	False	2026-08-27T08:02:41Z
+411	line.me	top_1_1000	https://line.me/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://line.me/
+Call log:
+  - navigating to ""https://line.me/"", waiting until ""commit""
+"	False	2026-08-27T08:02:41Z
+412	openx.net	top_1_1000	https://openx.net/	True	False	404	1228	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:02:41Z
+413	globo.com	top_1_1000	https://globo.com/	True	False	403	4738	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:02:41Z
+414	dell.com	top_1_1000	https://dell.com/	True	False	403	3261	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:02:41Z
+415	tiktokv.eu	top_1_1000	https://tiktokv.eu/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://tiktokv.eu/
+Call log:
+  - navigating to ""https://tiktokv.eu/"", waiting until ""commit""
+"	False	2026-08-27T08:02:41Z
+416	spaceweb.pro	top_1_1000	https://spaceweb.pro/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://spaceweb.pro/
+Call log:
+  - navigating to ""https://spaceweb.pro/"", waiting until ""commit""
+"	False	2026-08-27T08:02:41Z
+417	namecheap.com	top_1_1000	https://namecheap.com/	True	False	403	3072	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:03:02Z
+418	huawei.com	top_1_1000	https://huawei.com/	True	True	200	695	True	1240	2	1			True	2026-08-27T08:03:02Z
+419	kaspersky-labs.com	top_1_1000	https://kaspersky-labs.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://kaspersky-labs.com/
+Call log:
+  - navigating to ""https://kaspersky-labs.com/"", waiting until ""commit""
+"	False	2026-08-27T08:03:02Z
+420	dnspod.net	top_1_1000	https://dnspod.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://dnspod.net/
+Call log:
+  - navigating to ""https://dnspod.net/"", waiting until ""commit""
+"	False	2026-08-27T08:03:02Z
+421	beian.gov.cn	top_1_1000	https://beian.gov.cn/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:03:02Z
+422	amazonalexa.com	top_1_1000	https://amazonalexa.com/	True	True	200	2391	True	4856	0	0			True	2026-08-27T08:03:02Z
+423	tiktokcdn-eu.com	top_1_1000	https://tiktokcdn-eu.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:03:02Z
+424	brave.com	top_1_1000	https://brave.com/	True	True	200	1490	True	3713	2	1			True	2026-08-27T08:03:02Z
+425	temu.com	top_1_1000	https://temu.com/	True	True	200	1883	True	1886	0	0			True	2026-08-27T08:03:24Z
+426	steamcommunity.com	top_1_1000	https://steamcommunity.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://steamcommunity.com/
+Call log:
+  - navigating to ""https://steamcommunity.com/"", waiting until ""commit""
+"	False	2026-08-27T08:03:24Z
+427	pangle.io	top_1_1000	https://pangle.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:03:24Z
+428	avcdn.net	top_1_1000	https://avcdn.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:03:24Z
+429	taobao.com	top_1_1000	https://taobao.com/	True	True	200	358	True	977	0	0	captcha_blocking		False	2026-08-27T08:03:24Z
+430	expireddomains.com	top_1_1000	https://expireddomains.com/	True	True	200	980	True	3211	1	1			True	2026-08-27T08:03:24Z
+431	gandi-ns.fr	top_1_1000	https://gandi-ns.fr/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:03:24Z
+432	online-metrix.net	top_1_1000	https://online-metrix.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:03:24Z
+433	espn.com	top_1_1000	https://espn.com/	True	True	200	2381	True	8517	4	1			True	2026-08-27T08:03:45Z
+434	kwaipros.com	top_1_1000	https://kwaipros.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:03:45Z
+435	businessinsider.com	top_1_1000	https://businessinsider.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://businessinsider.com/
+Call log:
+  - navigating to ""https://businessinsider.com/"", waiting until ""commit""
+"	False	2026-08-27T08:03:45Z
+436	nflxvideo.net	top_1_1000	https://nflxvideo.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://nflxvideo.net/
+Call log:
+  - navigating to ""https://nflxvideo.net/"", waiting until ""commit""
+"	False	2026-08-27T08:03:45Z
+437	claude.ai	top_1_1000	https://claude.ai/	True	True	200	6014	True	11419	0	0			True	2026-08-27T08:03:45Z
+438	shiabank.com	top_1_1000	https://shiabank.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://shiabank.com/
+Call log:
+  - navigating to ""https://shiabank.com/"", waiting until ""commit""
+"	False	2026-08-27T08:03:45Z
+439	substack.com	top_1_1000	https://substack.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://substack.com/
+Call log:
+  - navigating to ""https://substack.com/"", waiting until ""commit""
+"	False	2026-08-27T08:03:45Z
+440	avsxappcaptiveportal.com	top_1_1000	https://avsxappcaptiveportal.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://avsxappcaptiveportal.com/"", waiting until ""commit""
+"	False	2026-08-27T08:03:45Z
+441	wp.com	top_1_1000	https://wp.com/	True	True	200	2402	True	5404	2	1			True	2026-08-27T08:04:15Z
+442	intel.com	top_1_1000	https://intel.com/	True	True	200	4761	True	10573	4	1			True	2026-08-27T08:04:15Z
+443	goodreads.com	top_1_1000	https://goodreads.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://goodreads.com/
+Call log:
+  - navigating to ""https://goodreads.com/"", waiting until ""commit""
+"	False	2026-08-27T08:04:15Z
+444	ipinfo.io	top_1_1000	https://ipinfo.io/	True	True	200	1317	True	3408	9	1			True	2026-08-27T08:04:15Z
+445	g.page	top_1_1000	https://g.page/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://g.page/
+Call log:
+  - navigating to ""https://g.page/"", waiting until ""commit""
+"	False	2026-08-27T08:04:15Z
+446	sohu.com	top_1_1000	https://sohu.com/	True	True	200	342	True	999	0	0			True	2026-08-27T08:04:15Z
+447	paloaltonetworks.com	top_1_1000	https://paloaltonetworks.com/	True	True	200	3559	True	7231	1	1			True	2026-08-27T08:04:15Z
+448	pixabay.com	top_1_1000	https://pixabay.com/	True	False	403	1391	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:04:15Z
+449	wbx2.com	top_1_1000	https://wbx2.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://wbx2.com/"", waiting until ""commit""
+"	False	2026-08-27T08:04:37Z
+450	yahoo.co.jp	top_1_1000	https://yahoo.co.jp/	True	True	200	1823	False	0	0	1			True	2026-08-27T08:04:37Z
+451	vkuser.net	top_1_1000	https://vkuser.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://vkuser.net/
+Call log:
+  - navigating to ""https://vkuser.net/"", waiting until ""commit""
+"	False	2026-08-27T08:04:37Z
+452	go.com	top_1_1000	https://go.com/	True	True	200	4276	True	11459	1	1			True	2026-08-27T08:04:37Z
+453	cloudns.net	top_1_1000	https://cloudns.net/	True	True	200	4471	False	0	0	1			True	2026-08-27T08:04:37Z
+454	netease.com	top_1_1000	https://netease.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://netease.com/
+Call log:
+  - navigating to ""https://netease.com/"", waiting until ""commit""
+"	False	2026-08-27T08:04:37Z
+455	sina.com.cn	top_1_1000	https://sina.com.cn/	True	True	200	153	True	3232	2	1			True	2026-08-27T08:04:37Z
+456	speedtest.net	top_1_1000	https://speedtest.net/	True	True	200	2620	False	0	0	1			True	2026-08-27T08:04:37Z
+457	chinamobile.com	top_1_1000	https://chinamobile.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://chinamobile.com/
+Call log:
+  - navigating to ""https://chinamobile.com/"", waiting until ""commit""
+"	False	2026-08-27T08:05:07Z
+458	list-manage.com	top_1_1000	https://list-manage.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://list-manage.com/
+Call log:
+  - navigating to ""https://list-manage.com/"", waiting until ""commit""
+"	False	2026-08-27T08:05:07Z
+459	cnbc.com	top_1_1000	https://cnbc.com/	True	True	200	6883	False	0	0	1			True	2026-08-27T08:05:07Z
+460	awsglobalaccelerator.com	top_1_1000	https://awsglobalaccelerator.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:05:07Z
+461	skyhigh.cloud	top_1_1000	https://skyhigh.cloud/	True	True	200	3629	False	0	1	2			True	2026-08-27T08:05:07Z
+462	mikrotik.com	top_1_1000	https://mikrotik.com/	True	True	200	1404	True	5822	0	0			True	2026-08-27T08:05:07Z
+463	featureassets.org	top_1_1000	https://featureassets.org/	True	False	403	1203	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:05:07Z
+464	statista.com	top_1_1000	https://statista.com/	True	True	200	4312	True	7810	1	1			True	2026-08-27T08:05:07Z
+465	squarespacedns.com	top_1_1000	https://squarespacedns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:05:28Z
+466	gamepass.com	top_1_1000	https://gamepass.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://gamepass.com/
+Call log:
+  - navigating to ""https://gamepass.com/"", waiting until ""commit""
+"	False	2026-08-27T08:05:28Z
+467	eye4.cn	top_1_1000	https://eye4.cn/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_DATE_INVALID at https://eye4.cn/
+Call log:
+  - navigating to ""https://eye4.cn/"", waiting until ""commit""
+"	False	2026-08-27T08:05:28Z
+468	byteglb.com	top_1_1000	https://byteglb.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:05:28Z
+469	nflximg.com	top_1_1000	https://nflximg.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://nflximg.com/
+Call log:
+  - navigating to ""https://nflximg.com/"", waiting until ""commit""
+"	False	2026-08-27T08:05:28Z
+470	ietf.org	top_1_1000	https://ietf.org/	True	True	200	2655	True	3769	0	0			True	2026-08-27T08:05:28Z
+471	xcal.tv	top_1_1000	https://xcal.tv/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:05:28Z
+472	firetvcaptiveportal.com	top_1_1000	https://firetvcaptiveportal.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://firetvcaptiveportal.com/"", waiting until ""commit""
+"	False	2026-08-27T08:05:28Z
+473	kwai.net	top_1_1000	https://kwai.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://kwai.net/
+Call log:
+  - navigating to ""https://kwai.net/"", waiting until ""commit""
+"	False	2026-08-27T08:05:58Z
+474	arxiv.org	top_1_1000	https://arxiv.org/	True	True	200	1260	True	3735	0	0			True	2026-08-27T08:05:58Z
+475	dual-s-msedge.net	top_1_1000	https://dual-s-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:05:58Z
+476	timeweb.ru	top_1_1000	https://timeweb.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://timeweb.ru/
+Call log:
+  - navigating to ""https://timeweb.ru/"", waiting until ""commit""
+"	False	2026-08-27T08:05:58Z
+477	ui-dns.com	top_1_1000	https://ui-dns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:05:58Z
+478	addtoany.com	top_1_1000	https://addtoany.com/	True	True	200	3267	True	4200	0	0			True	2026-08-27T08:05:58Z
+479	ivi.ru	top_1_1000	https://ivi.ru/	True	True	200	14949	False	0	2	2			True	2026-08-27T08:05:58Z
+480	edgecdn.ru	top_1_1000	https://edgecdn.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://edgecdn.ru/
+Call log:
+  - navigating to ""https://edgecdn.ru/"", waiting until ""commit""
+"	False	2026-08-27T08:05:58Z
+481	adobe.net	top_1_1000	https://adobe.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://adobe.net/
+Call log:
+  - navigating to ""https://adobe.net/"", waiting until ""commit""
+"	False	2026-08-27T08:06:24Z
+482	myqcloud.com	top_1_1000	https://myqcloud.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://myqcloud.com/"", waiting until ""commit""
+"	False	2026-08-27T08:06:24Z
+483	docker.com	top_1_1000	https://docker.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://docker.com/
+Call log:
+  - navigating to ""https://docker.com/"", waiting until ""commit""
+"	False	2026-08-27T08:06:24Z
+484	quora.com	top_1_1000	https://quora.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://quora.com/
+Call log:
+  - navigating to ""https://quora.com/"", waiting until ""commit""
+"	False	2026-08-27T08:06:24Z
+485	adriver.ru	top_1_1000	https://adriver.ru/	True	True	200	2830	False	0	1	2			True	2026-08-27T08:06:24Z
+486	duolingo.com	top_1_1000	https://duolingo.com/	True	True	200	1563	True	8949	0	0	captcha_blocking		False	2026-08-27T08:06:24Z
+487	npr.org	top_1_1000	https://npr.org/	True	True	200	4395	True	9660	14	1			True	2026-08-27T08:06:24Z
+488	sc-gw.com	top_1_1000	https://sc-gw.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:06:24Z
+489	nease.net	top_1_1000	https://nease.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://nease.net/
+Call log:
+  - navigating to ""https://nease.net/"", waiting until ""commit""
+"	False	2026-08-27T08:06:54Z
+490	mysql.com	top_1_1000	https://mysql.com/	True	True	200	3655	True	7311	1	1			True	2026-08-27T08:06:54Z
+491	eventbrite.com	top_1_1000	https://eventbrite.com/	True	True	200	3649	True	13411	0	0			True	2026-08-27T08:06:54Z
+492	scribd.com	top_1_1000	https://scribd.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://scribd.com/
+Call log:
+  - navigating to ""https://scribd.com/"", waiting until ""commit""
+"	False	2026-08-27T08:06:54Z
+493	amazon.co.jp	top_1_1000	https://amazon.co.jp/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://amazon.co.jp/
+Call log:
+  - navigating to ""https://amazon.co.jp/"", waiting until ""commit""
+"	False	2026-08-27T08:06:54Z
+494	markmonitor.com	top_1_1000	https://markmonitor.com/	True	False	403	1645	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:06:54Z
+495	myhuaweicloud.com	top_1_1000	https://myhuaweicloud.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:06:54Z
+496	stackoverflow.com	top_1_1000	https://stackoverflow.com/	True	False	403	1648	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:06:54Z
+497	tencent-cloud.net	top_1_1000	https://tencent-cloud.net/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://tencent-cloud.net/"", waiting until ""commit""
+"	False	2026-08-27T08:07:18Z
+498	aol.com	top_1_1000	https://aol.com/	True	True	200	3355	True	5852	24	1			True	2026-08-27T08:07:18Z
+499	ampproject.org	top_1_1000	https://ampproject.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://ampproject.org/
+Call log:
+  - navigating to ""https://ampproject.org/"", waiting until ""commit""
+"	False	2026-08-27T08:07:18Z
+500	gcdn.co	top_1_1000	https://gcdn.co/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://gcdn.co/
+Call log:
+  - navigating to ""https://gcdn.co/"", waiting until ""commit""
+"	False	2026-08-27T08:07:18Z
+501	behance.net	top_1_1000	https://behance.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://behance.net/
+Call log:
+  - navigating to ""https://behance.net/"", waiting until ""commit""
+"	False	2026-08-27T08:07:18Z
+502	ailawandorder.com	top_1_1000	https://ailawandorder.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://ailawandorder.com/
+Call log:
+  - navigating to ""https://ailawandorder.com/"", waiting until ""commit""
+"	False	2026-08-27T08:07:18Z
+503	shein.com	top_1_1000	https://shein.com/	True	False	403	2822	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:07:18Z
+504	exp-tas.com	top_1_1000	https://exp-tas.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:07:18Z
+505	atlassian.net	top_1_1000	https://atlassian.net/	True	True	200	1125	False	0	0	1			True	2026-08-27T08:07:48Z
+506	amzn.to	top_1_1000	https://amzn.to/	True	True	202	1421	True	5348	0	0			True	2026-08-27T08:07:48Z
+507	mediatek.com	top_1_1000	https://mediatek.com/	True	True	200	3172	False	0	1	2			True	2026-08-27T08:07:48Z
+508	mcafee.com	top_1_1000	https://mcafee.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://mcafee.com/
+Call log:
+  - navigating to ""https://mcafee.com/"", waiting until ""commit""
+"	False	2026-08-27T08:07:48Z
+509	foxnews.com	top_1_1000	https://foxnews.com/	True	False	403	2811	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:07:48Z
+510	google.de	top_1_1000	https://google.de/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://google.de/
+Call log:
+  - navigating to ""https://google.de/"", waiting until ""commit""
+"	False	2026-08-27T08:07:48Z
+511	bdydns.com	top_1_1000	https://bdydns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:07:48Z
+512	supercell.com	top_1_1000	https://supercell.com/	True	True	200	872	True	5530	1	1			True	2026-08-27T08:07:48Z
+513	indiatimes.com	top_1_1000	https://indiatimes.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://indiatimes.com/
+Call log:
+  - navigating to ""https://indiatimes.com/"", waiting until ""commit""
+"	False	2026-08-27T08:08:09Z
+514	ft.com	top_1_1000	https://ft.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://ft.com/
+Call log:
+  - navigating to ""https://ft.com/"", waiting until ""commit""
+"	False	2026-08-27T08:08:09Z
+515	blogger.com	top_1_1000	https://blogger.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://blogger.com/
+Call log:
+  - navigating to ""https://blogger.com/"", waiting until ""commit""
+"	False	2026-08-27T08:08:09Z
+516	google.com.hk	top_1_1000	https://google.com.hk/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://google.com.hk/
+Call log:
+  - navigating to ""https://google.com.hk/"", waiting until ""commit""
+"	False	2026-08-27T08:08:09Z
+517	gosuslugi.ru	top_1_1000	https://gosuslugi.ru/	True	True	200	1492	True	2384	0	0			True	2026-08-27T08:08:09Z
+518	impervadns.net	top_1_1000	https://impervadns.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:08:09Z
+519	fandom.com	top_1_1000	https://fandom.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://fandom.com/
+Call log:
+  - navigating to ""https://fandom.com/"", waiting until ""commit""
+"	False	2026-08-27T08:08:09Z
+520	licdn.com	top_1_1000	https://licdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:08:09Z
+521	vkontakte.ru	top_1_1000	https://vkontakte.ru/	True	True	200	2178	False	0	0	1			True	2026-08-27T08:08:30Z
+522	run.app	top_1_1000	https://run.app/	True	False	404	965	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:08:30Z
+523	adobedtm.com	top_1_1000	https://adobedtm.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:08:30Z
+524	ipv4only.arpa	top_1_1000	https://ipv4only.arpa/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://ipv4only.arpa/"", waiting until ""commit""
+"	False	2026-08-27T08:08:30Z
+525	dynatrace.com	top_1_1000	https://dynatrace.com/	True	True	200	3322	False	0	0	1			True	2026-08-27T08:08:30Z
+526	firefox.com	top_1_1000	https://firefox.com/	True	True	200	5994	False	0	0	1			True	2026-08-27T08:08:30Z
+527	slideshare.net	top_1_1000	https://slideshare.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://slideshare.net/
+Call log:
+  - navigating to ""https://slideshare.net/"", waiting until ""commit""
+"	False	2026-08-27T08:08:30Z
+528	beyondwickedmapping.org	top_1_1000	https://beyondwickedmapping.org/	True	False	404	1419	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:08:30Z
+529	ngenix.net	top_1_1000	https://ngenix.net/	True	False	503	1476	False	0	0	0		RuntimeError:unacceptable_main_http_status:503	False	2026-08-27T08:09:01Z
+530	visualstudio.com	top_1_1000	https://visualstudio.com/	True	True	200	4566	True	10207	0	0			True	2026-08-27T08:09:01Z
+531	vercel-dns-016.com	top_1_1000	https://vercel-dns-016.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:09:01Z
+532	duckduckgo.com	top_1_1000	https://duckduckgo.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://duckduckgo.com/
+Call log:
+  - navigating to ""https://duckduckgo.com/"", waiting until ""commit""
+"	False	2026-08-27T08:09:01Z
+533	shopifysvc.com	top_1_1000	https://shopifysvc.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:09:01Z
+534	discord.media	top_1_1000	https://discord.media/	True	False	520	3074	False	0	0	0		RuntimeError:unacceptable_main_http_status:520	False	2026-08-27T08:09:01Z
+535	wired.com	top_1_1000	https://wired.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://wired.com/
+Call log:
+  - navigating to ""https://wired.com/"", waiting until ""commit""
+"	False	2026-08-27T08:09:01Z
+536	amazon.co.za	top_1_1000	https://amazon.co.za/	True	True	202	2923	True	5531	0	0			True	2026-08-27T08:09:01Z
+537	okta.com	top_1_1000	https://okta.com/	True	True	200	2604	False	0	1	2			True	2026-08-27T08:09:22Z
+538	trendmicro.com	top_1_1000	https://trendmicro.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://trendmicro.com/
+Call log:
+  - navigating to ""https://trendmicro.com/"", waiting until ""commit""
+"	False	2026-08-27T08:09:22Z
+539	sberbank.ru	top_1_1000	https://sberbank.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_AUTHORITY_INVALID at https://sberbank.ru/
+Call log:
+  - navigating to ""https://sberbank.ru/"", waiting until ""commit""
+"	False	2026-08-27T08:09:22Z
+540	jquery.com	top_1_1000	https://jquery.com/	True	True	200	844	True	2613	0	0			True	2026-08-27T08:09:22Z
+541	capcut.com	top_1_1000	https://capcut.com/	True	True	200	902	True	1500	1	1			True	2026-08-27T08:09:22Z
+542	oup.com	top_1_1000	https://oup.com/	True	False	403	821	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:09:22Z
+543	svc.ms	top_1_1000	https://svc.ms/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:09:22Z
+544	patreon.com	top_1_1000	https://patreon.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://patreon.com/
+Call log:
+  - navigating to ""https://patreon.com/"", waiting until ""commit""
+"	False	2026-08-27T08:09:22Z
+545	squarespace.com	top_1_1000	https://squarespace.com/	True	True	200	2944	False	0	0	1			True	2026-08-27T08:09:43Z
+546	cloudflareinsights.com	top_1_1000	https://cloudflareinsights.com/	True	True	200	1370	True	1372	0	0			True	2026-08-27T08:09:43Z
+547	elasticbeanstalk.com	top_1_1000	https://elasticbeanstalk.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://elasticbeanstalk.com/
+Call log:
+  - navigating to ""https://elasticbeanstalk.com/"", waiting until ""commit""
+"	False	2026-08-27T08:09:43Z
+548	supertms.com	top_1_1000	https://supertms.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:09:43Z
+549	t-mobile.com	top_1_1000	https://t-mobile.com/	True	False	403	1463	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:09:43Z
+550	hicloud.com	top_1_1000	https://hicloud.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:09:43Z
+551	live.net	top_1_1000	https://live.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:09:43Z
+552	time.com	top_1_1000	https://time.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://time.com/
+Call log:
+  - navigating to ""https://time.com/"", waiting until ""commit""
+"	False	2026-08-27T08:09:43Z
+553	tandfonline.com	top_1_1000	https://tandfonline.com/	True	False	403	1716	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:09:56Z
+554	fast.com	top_1_1000	https://fast.com/	True	True	200	1793	True	2659	12	1			True	2026-08-27T08:09:56Z
+555	vidaahub.com	top_1_1000	https://vidaahub.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:09:56Z
+556	tplinkcloud.com	top_1_1000	https://tplinkcloud.com/	True	True	200	1491	True	4202	0	0			True	2026-08-27T08:09:56Z
+557	noaa.gov	top_1_1000	https://noaa.gov/	True	True	200	4573	False	0	0	1			True	2026-08-27T08:09:56Z
+558	cookielaw.org	top_1_1000	https://cookielaw.org/	True	True	200	4560	True	8718	0	0			True	2026-08-27T08:09:56Z
+559	usatoday.com	top_1_1000	https://usatoday.com/	True	False	403	3570	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:09:56Z
+560	palmplaystore.com	top_1_1000	https://palmplaystore.com/	True	True	200	1437	True	3530	0	0			True	2026-08-27T08:09:56Z
+561	cornell.edu	top_1_1000	https://cornell.edu/	True	True	200	2991	False	0	0	1			True	2026-08-27T08:10:11Z
+562	deviantart.com	top_1_1000	https://deviantart.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://deviantart.com/
+Call log:
+  - navigating to ""https://deviantart.com/"", waiting until ""commit""
+"	False	2026-08-27T08:10:11Z
+563	2gis.com	top_1_1000	https://2gis.com/	True	True	200	10538	False	0	0	1	captcha_blocking		False	2026-08-27T08:10:11Z
+564	e2ro.com	top_1_1000	https://e2ro.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:10:11Z
+565	share.google	top_1_1000	https://share.google/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://share.google/
+Call log:
+  - navigating to ""https://share.google/"", waiting until ""commit""
+"	False	2026-08-27T08:10:11Z
+566	360yield.com	top_1_1000	https://360yield.com/	True	True	200	2382	False	0	0	1			True	2026-08-27T08:10:11Z
+567	on.aws	top_1_1000	https://on.aws/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:10:11Z
+568	tripadvisor.com	top_1_1000	https://tripadvisor.com/	True	False	403	2623	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:10:11Z
+569	nstld.com	top_1_1000	https://nstld.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:10:32Z
+570	eset.com	top_1_1000	https://eset.com/	True	True	200	2394	False	0	0	1			True	2026-08-27T08:10:32Z
+571	icloud-content.com	top_1_1000	https://icloud-content.com/	True	True	200	2156	True	2737	0	0			True	2026-08-27T08:10:32Z
+572	tld-servers.ru	top_1_1000	https://tld-servers.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:10:32Z
+573	aboutads.info	top_1_1000	https://aboutads.info/	True	True	200	3456	False	0	0	1			True	2026-08-27T08:10:32Z
+574	rakuten.co.jp	top_1_1000	https://rakuten.co.jp/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://rakuten.co.jp/
+Call log:
+  - navigating to ""https://rakuten.co.jp/"", waiting until ""commit""
+"	False	2026-08-27T08:10:32Z
+575	uol.com.br	top_1_1000	https://uol.com.br/	True	True	200	4178	True	5576	1	1			True	2026-08-27T08:10:32Z
+576	teamviewer.com	top_1_1000	https://teamviewer.com/	True	True	200	2346	False	0	0	1			True	2026-08-27T08:10:32Z
+577	berkeley.edu	top_1_1000	https://berkeley.edu/	True	False	403	1199	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:10:54Z
+578	grammarly.com	top_1_1000	https://grammarly.com/	True	True	200	1958	False	0	0	1			True	2026-08-27T08:10:54Z
+579	dreamhost.com	top_1_1000	https://dreamhost.com/	True	True	200	2061	True	6392	0	0			True	2026-08-27T08:10:54Z
+580	shopee.com.br	top_1_1000	https://shopee.com.br/	True	True	200	1799	True	2313	0	0			True	2026-08-27T08:10:54Z
+581	azure-dns.com	top_1_1000	https://azure-dns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:10:54Z
+582	target.com	top_1_1000	https://target.com/	True	True	200	3215	False	0	0	1			True	2026-08-27T08:10:54Z
+583	qlivecdn.com	top_1_1000	https://qlivecdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:10:54Z
+584	oraclecloud.com	top_1_1000	https://oraclecloud.com/	True	False	403	3133	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:10:54Z
+585	yahoodns.net	top_1_1000	https://yahoodns.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:11:07Z
+586	adobedc.net	top_1_1000	https://adobedc.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:11:07Z
+587	3lift.com	top_1_1000	https://3lift.com/	True	True	200	1229	True	7641	0	0			True	2026-08-27T08:11:07Z
+588	rlcdn.com	top_1_1000	https://rlcdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:11:07Z
+589	ca.gov	top_1_1000	https://ca.gov/	True	True	200	2315	True	4984	2	1			True	2026-08-27T08:11:07Z
+590	ieee.org	top_1_1000	https://ieee.org/	True	True	202	2647	True	4746	0	0			True	2026-08-27T08:11:07Z
+591	hotjar.com	top_1_1000	https://hotjar.com/	True	True	200	3826	True	6129	3	1			True	2026-08-27T08:11:07Z
+592	telegraph.co.uk	top_1_1000	https://telegraph.co.uk/	True	False	403	3201	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:11:07Z
+593	my.com	top_1_1000	https://my.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:11:21Z
+594	playstation.com	top_1_1000	https://playstation.com/	True	True	200	5033	False	0	1	2			True	2026-08-27T08:11:21Z
+595	xiaomi.net	top_1_1000	https://xiaomi.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://xiaomi.net/
+Call log:
+  - navigating to ""https://xiaomi.net/"", waiting until ""commit""
+"	False	2026-08-27T08:11:21Z
+596	pushy.io	top_1_1000	https://pushy.io/	True	True	200	4093	False	0	0	1			True	2026-08-27T08:11:21Z
+597	avito.ru	top_1_1000	https://avito.ru/	True	False	429	3617	False	0	0	0		RuntimeError:unacceptable_main_http_status:429	False	2026-08-27T08:11:21Z
+598	digitalocean.com	top_1_1000	https://digitalocean.com/	True	True	200	1270	True	2207	0	0			True	2026-08-27T08:11:21Z
+599	easebar.com	top_1_1000	https://easebar.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:11:21Z
+600	samsungapps.com	top_1_1000	https://samsungapps.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://samsungapps.com/
+Call log:
+  - navigating to ""https://samsungapps.com/"", waiting until ""commit""
+"	False	2026-08-27T08:11:21Z
+601	wix.com	top_1_1000	https://wix.com/	True	True	200	2176	True	11524	0	0			True	2026-08-27T08:11:42Z
+602	mdpi.com	top_1_1000	https://mdpi.com/	True	False	403	5433	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:11:42Z
+603	imgsmail.ru	top_1_1000	https://imgsmail.ru/	True	True	200	5248	False	0	3	2			True	2026-08-27T08:11:42Z
+604	t-msedge.net	top_1_1000	https://t-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:11:42Z
+605	twc.com	top_1_1000	https://twc.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://twc.com/"", waiting until ""commit""
+"	False	2026-08-27T08:11:42Z
+606	klaviyo.com	top_1_1000	https://klaviyo.com/	True	True	200	2618	False	0	0	1			True	2026-08-27T08:11:42Z
+607	threads.com	top_1_1000	https://threads.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://threads.com/
+Call log:
+  - navigating to ""https://threads.com/"", waiting until ""commit""
+"	False	2026-08-27T08:11:42Z
+608	cdn20.com	top_1_1000	https://cdn20.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:11:42Z
+609	amazon.fr	top_1_1000	https://amazon.fr/	True	True	202	3773	True	6654	0	0			True	2026-08-27T08:12:14Z
+610	accuweather.com	top_1_1000	https://accuweather.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://accuweather.com/
+Call log:
+  - navigating to ""https://accuweather.com/"", waiting until ""commit""
+"	False	2026-08-27T08:12:14Z
+611	loc.gov	top_1_1000	https://loc.gov/	True	False	403	1660	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:12:14Z
+612	surveymonkey.com	top_1_1000	https://surveymonkey.com/	True	True	200	3382	True	5584	0	0			True	2026-08-27T08:12:14Z
+613	onetrust.com	top_1_1000	https://onetrust.com/	True	True	200	1622	True	3910	2	1			True	2026-08-27T08:12:14Z
+614	unesco.org	top_1_1000	https://unesco.org/	True	True	200	4773	False	0	0	1			True	2026-08-27T08:12:14Z
+615	anthropic.com	top_1_1000	https://anthropic.com/	True	True	200	3167	True	6925	1	1			True	2026-08-27T08:12:14Z
+616	webempresa.eu	top_1_1000	https://webempresa.eu/	True	True	200	7492	False	0	0	1			True	2026-08-27T08:12:14Z
+617	nintendo.com	top_1_1000	https://nintendo.com/	True	True	200	3305	False	0	2	2			True	2026-08-27T08:12:32Z
+618	atlassian.com	top_1_1000	https://atlassian.com/	True	True	200	3510	False	0	0	1			True	2026-08-27T08:12:32Z
+619	uk.com	top_1_1000	https://uk.com/	True	True	200	1237	True	9808	1	1			True	2026-08-27T08:12:32Z
+620	force.com	top_1_1000	https://force.com/	True	False	404	2030	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:12:32Z
+621	jotform.com	top_1_1000	https://jotform.com/	True	True	200	3079	True	5877	0	0			True	2026-08-27T08:12:32Z
+622	msidentity.com	top_1_1000	https://msidentity.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:12:32Z
+623	ikea.com	top_1_1000	https://ikea.com/	True	True	200	2413	True	6283	2	1			True	2026-08-27T08:12:32Z
+624	sagepub.com	top_1_1000	https://sagepub.com/	True	True	200	3408	False	0	0	1			True	2026-08-27T08:12:32Z
+625	free.fr	top_1_1000	https://free.fr/	True	True	200	1522	False	0	0	1			True	2026-08-27T08:12:45Z
+626	alicdn.com	top_1_1000	https://alicdn.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://alicdn.com/"", waiting until ""commit""
+"	False	2026-08-27T08:12:45Z
+627	sharethrough.com	top_1_1000	https://sharethrough.com/	True	True	200	2540	False	0	0	1			True	2026-08-27T08:12:45Z
+628	360.cn	top_1_1000	https://360.cn/	True	True	200	269	True	542	1	1			True	2026-08-27T08:12:45Z
+629	cdnvideo.ru	top_1_1000	https://cdnvideo.ru/	True	True	200	9024	False	0	0	1			True	2026-08-27T08:12:45Z
+630	googlezip.net	top_1_1000	https://googlezip.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:12:45Z
+631	braze.com	top_1_1000	https://braze.com/	True	True	200	2901	True	4413	3	1			True	2026-08-27T08:12:45Z
+632	techcrunch.com	top_1_1000	https://techcrunch.com/	True	True	200	1805	False	0	7	2			True	2026-08-27T08:12:45Z
+633	bidswitch.net	top_1_1000	https://bidswitch.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:13:15Z
+634	dyndns.org	top_1_1000	https://dyndns.org/	True	True	200	2734	True	4434	0	0			True	2026-08-27T08:13:15Z
+635	withgoogle.com	top_1_1000	https://withgoogle.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://withgoogle.com/
+Call log:
+  - navigating to ""https://withgoogle.com/"", waiting until ""commit""
+"	False	2026-08-27T08:13:15Z
+636	tencent.com	top_1_1000	https://tencent.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://tencent.com/
+Call log:
+  - navigating to ""https://tencent.com/"", waiting until ""commit""
+"	False	2026-08-27T08:13:15Z
+637	dailymail.co.uk	top_1_1000	https://dailymail.co.uk/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://dailymail.co.uk/
+Call log:
+  - navigating to ""https://dailymail.co.uk/"", waiting until ""commit""
+"	False	2026-08-27T08:13:15Z
+638	amazon.ca	top_1_1000	https://amazon.ca/	True	True	202	2481	True	5804	0	0			True	2026-08-27T08:13:15Z
+639	britannica.com	top_1_1000	https://britannica.com/	True	False	403	3858	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:13:15Z
+640	branch.io	top_1_1000	https://branch.io/	True	True	200	2936	True	3628	3	1			True	2026-08-27T08:13:15Z
+641	ovh.net	top_1_1000	https://ovh.net/	True	True	200	3506	True	7145	0	0			True	2026-08-27T08:13:37Z
+642	googletagservices.com	top_1_1000	https://googletagservices.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:13:37Z
+643	bx-msedge.net	top_1_1000	https://bx-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:13:37Z
+644	yelp.com	top_1_1000	https://yelp.com/	True	False	403	4205	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:13:37Z
+645	hostgator.com.br	top_1_1000	https://hostgator.com.br/	True	False	403	2067	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:13:37Z
+646	vedsalb.com	top_1_1000	https://vedsalb.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:13:37Z
+647	ups.com	top_1_1000	https://ups.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://ups.com/
+Call log:
+  - navigating to ""https://ups.com/"", waiting until ""commit""
+"	False	2026-08-27T08:13:37Z
+648	redhat.com	top_1_1000	https://redhat.com/	True	True	200	3311	True	5243	0	0			True	2026-08-27T08:13:37Z
+649	nominetdns.uk	top_1_1000	https://nominetdns.uk/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:13:51Z
+650	mhverifier.ru	top_1_1000	https://mhverifier.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://mhverifier.ru/
+Call log:
+  - navigating to ""https://mhverifier.ru/"", waiting until ""commit""
+"	False	2026-08-27T08:13:51Z
+651	elpais.com	top_1_1000	https://elpais.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://elpais.com/
+Call log:
+  - navigating to ""https://elpais.com/"", waiting until ""commit""
+"	False	2026-08-27T08:13:51Z
+652	service.gov.uk	top_1_1000	https://service.gov.uk/	True	True	200	3082	True	5843	0	0			True	2026-08-27T08:13:51Z
+653	imgur.com	top_1_1000	https://imgur.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://imgur.com/
+Call log:
+  - navigating to ""https://imgur.com/"", waiting until ""commit""
+"	False	2026-08-27T08:13:51Z
+654	cambridge.org	top_1_1000	https://cambridge.org/	True	False	403	1330	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:13:51Z
+655	nike.com	top_1_1000	https://nike.com/	True	True	200	5826	True	8599	0	0			True	2026-08-27T08:13:51Z
+656	stackadapt.com	top_1_1000	https://stackadapt.com/	True	True	200	3990	True	6891	4	1			True	2026-08-27T08:13:51Z
+657	amazon.in	top_1_1000	https://amazon.in/	True	True	200	3486	True	8664	2	1			True	2026-08-27T08:14:12Z
+658	hstgr.net	top_1_1000	https://hstgr.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://hstgr.net/
+Call log:
+  - navigating to ""https://hstgr.net/"", waiting until ""commit""
+"	False	2026-08-27T08:14:12Z
+659	vercel-dns-3.com	top_1_1000	https://vercel-dns-3.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:14:12Z
+660	pvp.net	top_1_1000	https://pvp.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:14:12Z
+661	viber.com	top_1_1000	https://viber.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://viber.com/
+Call log:
+  - navigating to ""https://viber.com/"", waiting until ""commit""
+"	False	2026-08-27T08:14:12Z
+662	translate.goog	top_1_1000	https://translate.goog/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://translate.goog/
+Call log:
+  - navigating to ""https://translate.goog/"", waiting until ""commit""
+"	False	2026-08-27T08:14:12Z
+663	wswebcdn.com	top_1_1000	https://wswebcdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:14:12Z
+664	intercom.io	top_1_1000	https://intercom.io/	True	True	200	6221	True	9770	0	0			True	2026-08-27T08:14:12Z
+665	cbsnews.com	top_1_1000	https://cbsnews.com/	True	True	200	2488	False	0	0	1			True	2026-08-27T08:14:34Z
+666	shop.app	top_1_1000	https://shop.app/	True	False	403	1925	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:14:34Z
+667	anydesk.com	top_1_1000	https://anydesk.com/	True	True	200	1216	True	1537	2	1	captcha_blocking		False	2026-08-27T08:14:34Z
+668	outbrain.com	top_1_1000	https://outbrain.com/	True	True	200	2659	False	0	0	1			True	2026-08-27T08:14:34Z
+669	fontawesome.com	top_1_1000	https://fontawesome.com/	True	True	200	918	False	0	1	2			True	2026-08-27T08:14:34Z
+670	vercel.app	top_1_1000	https://vercel.app/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://vercel.app/
+Call log:
+  - navigating to ""https://vercel.app/"", waiting until ""commit""
+"	False	2026-08-27T08:14:34Z
+671	primevideo.com	top_1_1000	https://primevideo.com/	True	True	200	3787	False	0	0	1			True	2026-08-27T08:14:34Z
+672	bytedns1.com	top_1_1000	https://bytedns1.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:14:34Z
+673	twimg.com	top_1_1000	https://twimg.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:14:55Z
+674	meta.com	top_1_1000	https://meta.com/	True	True	200	2509	True	7890	0	0			True	2026-08-27T08:14:55Z
+675	cmediahub.ru	top_1_1000	https://cmediahub.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:14:55Z
+676	cnet.com	top_1_1000	https://cnet.com/	True	True	200	3166	False	0	0	1			True	2026-08-27T08:14:55Z
+677	typekit.net	top_1_1000	https://typekit.net/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://typekit.net/"", waiting until ""commit""
+"	False	2026-08-27T08:14:55Z
+678	optimizely.com	top_1_1000	https://optimizely.com/	True	True	200	1202	True	4921	2	1			True	2026-08-27T08:14:55Z
+679	fb.com	top_1_1000	https://fb.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://fb.com/
+Call log:
+  - navigating to ""https://fb.com/"", waiting until ""commit""
+"	False	2026-08-27T08:14:55Z
+680	xhamster.com	top_1_1000	https://xhamster.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://xhamster.com/
+Call log:
+  - navigating to ""https://xhamster.com/"", waiting until ""commit""
+"	False	2026-08-27T08:14:55Z
+681	perplexity.ai	top_1_1000	https://perplexity.ai/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://perplexity.ai/
+Call log:
+  - navigating to ""https://perplexity.ai/"", waiting until ""commit""
+"	False	2026-08-27T08:15:25Z
+682	lemonde.fr	top_1_1000	https://lemonde.fr/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://lemonde.fr/
+Call log:
+  - navigating to ""https://lemonde.fr/"", waiting until ""commit""
+"	False	2026-08-27T08:15:25Z
+683	dotomi.com	top_1_1000	https://dotomi.com/	True	True	200	2394	True	3839	0	0			True	2026-08-27T08:15:25Z
+684	bitrix24.ru	top_1_1000	https://bitrix24.ru/	True	True	200	10223	False	0	0	1			True	2026-08-27T08:15:25Z
+685	mega.co.nz	top_1_1000	https://mega.co.nz/	True	True	200	1555	False	0	0	1			True	2026-08-27T08:15:25Z
+686	footprintdns.com	top_1_1000	https://footprintdns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:15:25Z
+687	independent.co.uk	top_1_1000	https://independent.co.uk/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://independent.co.uk/
+Call log:
+  - navigating to ""https://independent.co.uk/"", waiting until ""commit""
+"	False	2026-08-27T08:15:25Z
+688	hihonorcloud.com	top_1_1000	https://hihonorcloud.com/	True	True	200	58	True	1726	0	0			True	2026-08-27T08:15:25Z
+689	mobolize.com	top_1_1000	https://mobolize.com/	True	True	200	3201	False	0	0	1			True	2026-08-27T08:15:48Z
+690	dailymail.com	top_1_1000	https://dailymail.com/	True	False	403	2571	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:15:48Z
+691	wattpad.com	top_1_1000	https://wattpad.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://wattpad.com/
+Call log:
+  - navigating to ""https://wattpad.com/"", waiting until ""commit""
+"	False	2026-08-27T08:15:48Z
+692	linode.com	top_1_1000	https://linode.com/	True	True	200	6513	False	0	1	2			True	2026-08-27T08:15:48Z
+693	pinimg.com	top_1_1000	https://pinimg.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://pinimg.com/
+Call log:
+  - navigating to ""https://pinimg.com/"", waiting until ""commit""
+"	False	2026-08-27T08:15:48Z
+694	telephony.goog	top_1_1000	https://telephony.goog/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_EMPTY_RESPONSE at https://telephony.goog/
+Call log:
+  - navigating to ""https://telephony.goog/"", waiting until ""commit""
+"	False	2026-08-27T08:15:48Z
+695	g.co	top_1_1000	https://g.co/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://g.co/
+Call log:
+  - navigating to ""https://g.co/"", waiting until ""commit""
+"	False	2026-08-27T08:15:48Z
+696	id5-sync.com	top_1_1000	https://id5-sync.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_ABORTED at https://id5-sync.com/
+Call log:
+  - navigating to ""https://id5-sync.com/"", waiting until ""commit""
+"	False	2026-08-27T08:15:48Z
+697	ks-cdn.com	top_1_1000	https://ks-cdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:16:09Z
+698	mailchimp.com	top_1_1000	https://mailchimp.com/	True	True	200	1448	True	5926	1	1			True	2026-08-27T08:16:09Z
+699	nel.goog	top_1_1000	https://nel.goog/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:16:09Z
+700	quantserve.com	top_1_1000	https://quantserve.com/	True	False	503	896	False	0	0	0		RuntimeError:unacceptable_main_http_status:503	False	2026-08-27T08:16:09Z
+701	globalsign.com	top_1_1000	https://globalsign.com/	True	True	200	1507	False	0	0	1			True	2026-08-27T08:16:09Z
+702	kick.com	top_1_1000	https://kick.com/	True	True	200	941	True	3991	1	1			True	2026-08-27T08:16:09Z
+703	fifa.com	top_1_1000	https://fifa.com/	True	True	200	2307	True	7754	2	1			True	2026-08-27T08:16:09Z
+704	consultant.ru	top_1_1000	https://consultant.ru/	True	True	200	4352	True	7876	0	0			True	2026-08-27T08:16:09Z
+705	dbankcloud.com	top_1_1000	https://dbankcloud.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:16:24Z
+706	mobile.de	top_1_1000	https://mobile.de/	True	False	403	2548	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:16:24Z
+707	ya.ru	top_1_1000	https://ya.ru/	True	True	200	3282	True	9416	1	1			True	2026-08-27T08:16:24Z
+708	iso.org	top_1_1000	https://iso.org/	True	False	403	1127	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:16:24Z
+709	vercel-dns-017.com	top_1_1000	https://vercel-dns-017.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:16:24Z
+710	amazon.it	top_1_1000	https://amazon.it/	True	True	202	2707	True	8593	0	0			True	2026-08-27T08:16:24Z
+711	wps.com	top_1_1000	https://wps.com/	True	True	200	1627	True	2090	0	0			True	2026-08-27T08:16:24Z
+712	resolver.arpa	top_1_1000	https://resolver.arpa/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:16:24Z
+713	marriott.com	top_1_1000	https://marriott.com/	True	False	403	1513	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:16:38Z
+714	comcast.com	top_1_1000	https://comcast.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://comcast.com/
+Call log:
+  - navigating to ""https://comcast.com/"", waiting until ""commit""
+"	False	2026-08-27T08:16:38Z
+715	blackhub.team	top_1_1000	https://blackhub.team/	True	False	403	1251	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:16:38Z
+716	parklogic.com	top_1_1000	https://parklogic.com/	True	True	200	1545	False	0	0	1			True	2026-08-27T08:16:38Z
+717	allegro.pl	top_1_1000	https://allegro.pl/	True	False	403	2273	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:16:38Z
+718	1rx.io	top_1_1000	https://1rx.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:16:38Z
+719	itch.io	top_1_1000	https://itch.io/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://itch.io/
+Call log:
+  - navigating to ""https://itch.io/"", waiting until ""commit""
+"	False	2026-08-27T08:16:38Z
+720	alrosa.ru	top_1_1000	https://alrosa.ru/	True	True	200	1882	False	0	0	1			True	2026-08-27T08:16:38Z
+721	crwdcntrl.net	top_1_1000	https://crwdcntrl.net/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://crwdcntrl.net/"", waiting until ""commit""
+"	False	2026-08-27T08:16:59Z
+722	uber.com	top_1_1000	https://uber.com/	True	False	429	3415	False	0	0	0		RuntimeError:unacceptable_main_http_status:429	False	2026-08-27T08:16:59Z
+723	magnit.ru	top_1_1000	https://magnit.ru/	True	True	200	3252	False	0	3	2			True	2026-08-27T08:16:59Z
+724	seznam.cz	top_1_1000	https://seznam.cz/	True	True	200	6922	False	0	0	1			True	2026-08-27T08:16:59Z
+725	openstreetmap.org	top_1_1000	https://openstreetmap.org/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://openstreetmap.org/
+Call log:
+  - navigating to ""https://openstreetmap.org/"", waiting until ""commit""
+"	False	2026-08-27T08:16:59Z
+726	amazon.es	top_1_1000	https://amazon.es/	True	True	202	3924	True	7688	0	0			True	2026-08-27T08:16:59Z
+727	samsungacr.com	top_1_1000	https://samsungacr.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:16:59Z
+728	bandcamp.com	top_1_1000	https://bandcamp.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://bandcamp.com/
+Call log:
+  - navigating to ""https://bandcamp.com/"", waiting until ""commit""
+"	False	2026-08-27T08:16:59Z
+729	agkn.com	top_1_1000	https://agkn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:17:29Z
+730	creativecdn.com	top_1_1000	https://creativecdn.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_ABORTED at https://creativecdn.com/
+Call log:
+  - navigating to ""https://creativecdn.com/"", waiting until ""commit""
+"	False	2026-08-27T08:17:29Z
+731	sophos.com	top_1_1000	https://sophos.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://sophos.com/
+Call log:
+  - navigating to ""https://sophos.com/"", waiting until ""commit""
+"	False	2026-08-27T08:17:29Z
+732	google.co.uk	top_1_1000	https://google.co.uk/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://google.co.uk/
+Call log:
+  - navigating to ""https://google.co.uk/"", waiting until ""commit""
+"	False	2026-08-27T08:17:29Z
+733	abovedomains.com	top_1_1000	https://abovedomains.com/	True	True	200	1115	True	1120	0	0			True	2026-08-27T08:17:29Z
+734	stripchat.com	top_1_1000	https://stripchat.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://stripchat.com/
+Call log:
+  - navigating to ""https://stripchat.com/"", waiting until ""commit""
+"	False	2026-08-27T08:17:29Z
+735	githubusercontent.com	top_1_1000	https://githubusercontent.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:17:29Z
+736	cursor.sh	top_1_1000	https://cursor.sh/	True	True	200	1006	True	1581	1	1			True	2026-08-27T08:17:29Z
+737	ring.com	top_1_1000	https://ring.com/	True	True	200	2131	True	3788	0	0			True	2026-08-27T08:17:50Z
+738	browser-intake-datadoghq.com	top_1_1000	https://browser-intake-datadoghq.com/	True	False	403	1097	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:17:50Z
+739	wpguardian.com	top_1_1000	https://wpguardian.com/	True	True	200	1612	True	7914	2	1			True	2026-08-27T08:17:50Z
+740	asus.com	top_1_1000	https://asus.com/	True	True	200	3011	True	8772	2	1			True	2026-08-27T08:17:50Z
+741	shopee.co.id	top_1_1000	https://shopee.co.id/	True	True	200	1415	True	2390	3	1			True	2026-08-27T08:17:50Z
+742	mediafire.com	top_1_1000	https://mediafire.com/	True	False	403	1156	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:17:50Z
+743	python.org	top_1_1000	https://python.org/	True	True	200	4224	False	0	0	1			True	2026-08-27T08:17:50Z
+744	ted.com	top_1_1000	https://ted.com/	True	True	200	3117	False	0	0	1			True	2026-08-27T08:17:50Z
+745	wpguardian.io	top_1_1000	https://wpguardian.io/	True	True	200	3781	True	10999	1	1			True	2026-08-27T08:18:05Z
+746	lijit.com	top_1_1000	https://lijit.com/	True	True	200	1933	True	3165	0	0			True	2026-08-27T08:18:05Z
+747	mlb.com	top_1_1000	https://mlb.com/	True	True	200	3294	False	0	1	2			True	2026-08-27T08:18:05Z
+748	queniuaa.com	top_1_1000	https://queniuaa.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:18:05Z
+749	bidr.io	top_1_1000	https://bidr.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:18:05Z
+750	sedo.com	top_1_1000	https://sedo.com/	True	False	403	1706	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:18:05Z
+751	eeroup.com	top_1_1000	https://eeroup.com/	True	False	404	1340	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:18:05Z
+752	criteo.net	top_1_1000	https://criteo.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:18:05Z
+753	mercadolivre.com.br	top_1_1000	https://mercadolivre.com.br/	True	False	403	927	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:18:18Z
+754	allaboutcookies.org	top_1_1000	https://allaboutcookies.org/	True	False	403	816	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:18:18Z
+755	homedepot.com	top_1_1000	https://homedepot.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://homedepot.com/
+Call log:
+  - navigating to ""https://homedepot.com/"", waiting until ""commit""
+"	False	2026-08-27T08:18:18Z
+756	cdnhwc1.com	top_1_1000	https://cdnhwc1.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:18:18Z
+757	wb.ru	top_1_1000	https://wb.ru/	True	False	498	5902	False	0	0	0		RuntimeError:unacceptable_main_http_status:498	False	2026-08-27T08:18:18Z
+758	imrworldwide.com	top_1_1000	https://imrworldwide.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:18:18Z
+759	box.com	top_1_1000	https://box.com/	True	True	200	1689	True	6014	10	1			True	2026-08-27T08:18:18Z
+760	wp.pl	top_1_1000	https://wp.pl/	True	True	200	1381	True	4588	2	1			True	2026-08-27T08:18:18Z
+761	airbnb.com	top_1_1000	https://airbnb.com/	True	True	200	1682	True	2305	0	0			True	2026-08-27T08:18:39Z
+762	curseforge.com	top_1_1000	https://curseforge.com/	True	False	403	2643	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:18:39Z
+763	mckinsey.com	top_1_1000	https://mckinsey.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://mckinsey.com/
+Call log:
+  - navigating to ""https://mckinsey.com/"", waiting until ""commit""
+"	False	2026-08-27T08:18:39Z
+764	fda.gov	top_1_1000	https://fda.gov/	True	False	404	738	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:18:39Z
+765	bamgrid.com	top_1_1000	https://bamgrid.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:18:39Z
+766	bestbuy.com	top_1_1000	https://bestbuy.com/	True	True	200	11906	False	0	0	1			True	2026-08-27T08:18:39Z
+767	ubi.com	top_1_1000	https://ubi.com/	True	True	200	4307	True	4538	2	1			True	2026-08-27T08:18:39Z
+768	zillow.com	top_1_1000	https://zillow.com/	True	False	403	2795	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:18:39Z
+769	appcenter.ms	top_1_1000	https://appcenter.ms/	True	True	200	1634	True	3656	0	0			True	2026-08-27T08:19:02Z
+770	bild.de	top_1_1000	https://bild.de/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://bild.de/
+Call log:
+  - navigating to ""https://bild.de/"", waiting until ""commit""
+"	False	2026-08-27T08:19:02Z
+771	nikkei.com	top_1_1000	https://nikkei.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://nikkei.com/
+Call log:
+  - navigating to ""https://nikkei.com/"", waiting until ""commit""
+"	False	2026-08-27T08:19:02Z
+772	bugsnag.com	top_1_1000	https://bugsnag.com/	True	True	200	4262	False	0	0	1			True	2026-08-27T08:19:02Z
+773	steamstatic.com	top_1_1000	https://steamstatic.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:02Z
+774	safebrowsing.apple	top_1_1000	https://safebrowsing.apple/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:02Z
+775	ddnss.de	top_1_1000	https://ddnss.de/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://ddnss.de/
+Call log:
+  - navigating to ""https://ddnss.de/"", waiting until ""commit""
+"	False	2026-08-27T08:19:02Z
+776	google.com.br	top_1_1000	https://google.com.br/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://google.com.br/
+Call log:
+  - navigating to ""https://google.com.br/"", waiting until ""commit""
+"	False	2026-08-27T08:19:02Z
+777	orderbox-dns.com	top_1_1000	https://orderbox-dns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:24Z
+778	gumgum.com	top_1_1000	https://gumgum.com/	True	True	200	1219	False	0	0	1			True	2026-08-27T08:19:24Z
+779	adjust.com	top_1_1000	https://adjust.com/	True	True	200	1024	True	2540	1	1			True	2026-08-27T08:19:24Z
+780	whecloud.com	top_1_1000	https://whecloud.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:24Z
+781	networkadvertising.org	top_1_1000	https://networkadvertising.org/	True	True	200	2828	True	5249	1	1			True	2026-08-27T08:19:24Z
+782	alipaydns.com	top_1_1000	https://alipaydns.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://alipaydns.com/
+Call log:
+  - navigating to ""https://alipaydns.com/"", waiting until ""commit""
+"	False	2026-08-27T08:19:24Z
+783	att.net	top_1_1000	https://att.net/	True	False	403	8674	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:19:24Z
+784	singular.net	top_1_1000	https://singular.net/	True	True	200	1072	True	1419	1	1			True	2026-08-27T08:19:24Z
+785	share-dns.com	top_1_1000	https://share-dns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:37Z
+786	ozone.ru	top_1_1000	https://ozone.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://ozone.ru/
+Call log:
+  - navigating to ""https://ozone.ru/"", waiting until ""commit""
+"	False	2026-08-27T08:19:37Z
+787	lenovo.com	top_1_1000	https://lenovo.com/	True	True	200	2594	True	3418	0	0			True	2026-08-27T08:19:37Z
+788	adform.net	top_1_1000	https://adform.net/	True	False	403	1624	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:19:37Z
+789	fiverr.com	top_1_1000	https://fiverr.com/	True	False	403	2865	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:19:37Z
+790	visma.com	top_1_1000	https://visma.com/	True	True	200	1227	True	6870	0	0			True	2026-08-27T08:19:37Z
+791	apnews.com	top_1_1000	https://apnews.com/	True	True	200	1452	False	0	3	2			True	2026-08-27T08:19:37Z
+792	verisign.com	top_1_1000	https://verisign.com/	True	True	200	1911	True	2572	0	0			True	2026-08-27T08:19:37Z
+793	liadm.com	top_1_1000	https://liadm.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:50Z
+794	nmrodam.com	top_1_1000	https://nmrodam.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:50Z
+795	grammarly.io	top_1_1000	https://grammarly.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:50Z
+796	hilton.com	top_1_1000	https://hilton.com/	True	False	403	13701	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:19:50Z
+797	ovscdns.com	top_1_1000	https://ovscdns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:19:50Z
+798	ameblo.jp	top_1_1000	https://ameblo.jp/	True	True	200	1354	False	0	3	2			True	2026-08-27T08:19:50Z
+799	teads.tv	top_1_1000	https://teads.tv/	True	True	200	1838	True	1841	0	0			True	2026-08-27T08:19:50Z
+800	welt.de	top_1_1000	https://welt.de/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://welt.de/
+Call log:
+  - navigating to ""https://welt.de/"", waiting until ""commit""
+"	False	2026-08-27T08:19:50Z
+801	academia.edu	top_1_1000	https://academia.edu/	True	False	403	3296	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:20:11Z
+802	prnewswire.com	top_1_1000	https://prnewswire.com/	True	True	200	1306	False	0	1	2			True	2026-08-27T08:20:11Z
+803	a-msedge.net	top_1_1000	https://a-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:20:11Z
+804	people.com	top_1_1000	https://people.com/	True	False	403	3216	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:20:11Z
+805	rakuten.com	top_1_1000	https://rakuten.com/	True	True	200	2968	True	10623	1	1			True	2026-08-27T08:20:11Z
+806	disneyplus.com	top_1_1000	https://disneyplus.com/	True	True	200	3544	True	10591	7	1			True	2026-08-27T08:20:11Z
+807	shopeemobile.com	top_1_1000	https://shopeemobile.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://shopeemobile.com/
+Call log:
+  - navigating to ""https://shopeemobile.com/"", waiting until ""commit""
+"	False	2026-08-27T08:20:11Z
+808	washington.edu	top_1_1000	https://washington.edu/	True	True	200	3478	False	0	0	1			True	2026-08-27T08:20:11Z
+809	a-mo.net	top_1_1000	https://a-mo.net/	True	True	200	1693	True	1697	0	0			True	2026-08-27T08:20:33Z
+810	rt.ru	top_1_1000	https://rt.ru/	True	True	200	4080	True	5562	1	1			True	2026-08-27T08:20:33Z
+811	mixpanel.com	top_1_1000	https://mixpanel.com/	True	True	200	1989	True	4365	0	0			True	2026-08-27T08:20:33Z
+812	daum.net	top_1_1000	https://daum.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://daum.net/
+Call log:
+  - navigating to ""https://daum.net/"", waiting until ""commit""
+"	False	2026-08-27T08:20:33Z
+813	bunnyinfra.net	top_1_1000	https://bunnyinfra.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:20:33Z
+814	amazon.com.au	top_1_1000	https://amazon.com.au/	True	True	202	3374	True	7250	0	0			True	2026-08-27T08:20:33Z
+815	moloco.com	top_1_1000	https://moloco.com/	True	True	200	2554	True	8830	1	1			True	2026-08-27T08:20:33Z
+816	livejournal.com	top_1_1000	https://livejournal.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://livejournal.com/"", waiting until ""commit""
+"	False	2026-08-27T08:20:33Z
+817	xbox.com	top_1_1000	https://xbox.com/	True	True	200	6475	False	0	0	1			True	2026-08-27T08:21:03Z
+818	it.com	top_1_1000	https://it.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://it.com/
+Call log:
+  - navigating to ""https://it.com/"", waiting until ""commit""
+"	False	2026-08-27T08:21:03Z
+819	zoho.com	top_1_1000	https://zoho.com/	True	True	200	2929	True	9481	0	0			True	2026-08-27T08:21:03Z
+820	erome.com	top_1_1000	https://erome.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://erome.com/
+Call log:
+  - navigating to ""https://erome.com/"", waiting until ""commit""
+"	False	2026-08-27T08:21:03Z
+821	ad-tech.ru	top_1_1000	https://ad-tech.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://ad-tech.ru/
+Call log:
+  - navigating to ""https://ad-tech.ru/"", waiting until ""commit""
+"	False	2026-08-27T08:21:03Z
+822	unpkg.com	top_1_1000	https://unpkg.com/	True	True	200	815	True	1592	1	1			True	2026-08-27T08:21:03Z
+823	theverge.com	top_1_1000	https://theverge.com/	True	True	200	3115	False	0	0	1			True	2026-08-27T08:21:03Z
+824	sc-cdn.net	top_1_1000	https://sc-cdn.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:21:03Z
+825	33across.com	top_1_1000	https://33across.com/	True	False	403	5200	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:21:24Z
+826	recaptcha.net	top_1_1000	https://recaptcha.net/	True	False	404	379	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:21:24Z
+827	discordapp.com	top_1_1000	https://discordapp.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://discordapp.com/
+Call log:
+  - navigating to ""https://discordapp.com/"", waiting until ""commit""
+"	False	2026-08-27T08:21:24Z
+828	zpath.net	top_1_1000	https://zpath.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:21:24Z
+829	hbr.org	top_1_1000	https://hbr.org/	True	True	200	1047	True	5936	1	1	captcha_blocking		False	2026-08-27T08:21:24Z
+830	turn.com	top_1_1000	https://turn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:21:24Z
+831	blackberry.com	top_1_1000	https://blackberry.com/	True	True	200	5312	True	10645	0	0			True	2026-08-27T08:21:24Z
+832	nbcnews.com	top_1_1000	https://nbcnews.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://nbcnews.com/
+Call log:
+  - navigating to ""https://nbcnews.com/"", waiting until ""commit""
+"	False	2026-08-27T08:21:24Z
+833	liftoff.io	top_1_1000	https://liftoff.io/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://liftoff.io/
+Call log:
+  - navigating to ""https://liftoff.io/"", waiting until ""commit""
+"	False	2026-08-27T08:21:45Z
+834	no-ip.com	top_1_1000	https://no-ip.com/	True	True	200	2467	False	0	1	2			True	2026-08-27T08:21:45Z
+835	lefigaro.fr	top_1_1000	https://lefigaro.fr/	True	False	403	1376	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:21:45Z
+836	focus.de	top_1_1000	https://focus.de/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://focus.de/
+Call log:
+  - navigating to ""https://focus.de/"", waiting until ""commit""
+"	False	2026-08-27T08:21:45Z
+837	porkbun.com	top_1_1000	https://porkbun.com/	True	False	403	1127	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:21:45Z
+838	msftauth.net	top_1_1000	https://msftauth.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:21:45Z
+839	me.com	top_1_1000	https://me.com/	True	True	200	1255	True	1907	1	1			True	2026-08-27T08:21:45Z
+840	amazon.com.br	top_1_1000	https://amazon.com.br/	True	True	200	3396	True	10305	1	1			True	2026-08-27T08:21:45Z
+841	zoom.com	top_1_1000	https://zoom.com/	True	True	200	2869	False	0	2	2			True	2026-08-27T08:22:07Z
+842	usda.gov	top_1_1000	https://usda.gov/	True	False	403	3140	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:22:07Z
+843	deepl.com	top_1_1000	https://deepl.com/	True	True	200	1519	True	1805	1	1			True	2026-08-27T08:22:07Z
+844	myspace.com	top_1_1000	https://myspace.com/	True	True	200	1639	False	0	0	1			True	2026-08-27T08:22:07Z
+845	webhostbox.net	top_1_1000	https://webhostbox.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:22:07Z
+846	vivo.com.cn	top_1_1000	https://vivo.com.cn/	True	False	404	76	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:22:07Z
+847	discogs.com	top_1_1000	https://discogs.com/	True	False	403	2591	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:22:07Z
+848	t-s1-msedge.net	top_1_1000	https://t-s1-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:22:07Z
+849	cloudsink.net	top_1_1000	https://cloudsink.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:22:20Z
+850	dbankcloud.ru	top_1_1000	https://dbankcloud.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:22:20Z
+851	lgtvcommon.com	top_1_1000	https://lgtvcommon.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:22:20Z
+852	onlyfans.com	top_1_1000	https://onlyfans.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://onlyfans.com/
+Call log:
+  - navigating to ""https://onlyfans.com/"", waiting until ""commit""
+"	False	2026-08-27T08:22:20Z
+853	xvideos.com	top_1_1000	https://xvideos.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://xvideos.com/
+Call log:
+  - navigating to ""https://xvideos.com/"", waiting until ""commit""
+"	False	2026-08-27T08:22:20Z
+854	agoda.com	top_1_1000	https://agoda.com/	True	True	200	4079	True	5905	1	1			True	2026-08-27T08:22:20Z
+855	mayoclinic.org	top_1_1000	https://mayoclinic.org/	True	False	403	4941	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:22:20Z
+856	appspot.com	top_1_1000	https://appspot.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://appspot.com/
+Call log:
+  - navigating to ""https://appspot.com/"", waiting until ""commit""
+"	False	2026-08-27T08:22:20Z
+857	onetag-sys.com	top_1_1000	https://onetag-sys.com/	True	True	200	2029	True	2033	0	0			True	2026-08-27T08:22:41Z
+858	ebay.co.uk	top_1_1000	https://ebay.co.uk/	True	False	403	2716	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:22:41Z
+859	frontiersin.org	top_1_1000	https://frontiersin.org/	True	True	200	5344	True	11329	1	1			True	2026-08-27T08:22:41Z
+860	arcgis.com	top_1_1000	https://arcgis.com/	True	True	200	5255	True	9576	0	0			True	2026-08-27T08:22:41Z
+861	pexels.com	top_1_1000	https://pexels.com/	True	False	403	3008	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:22:41Z
+862	ebay.de	top_1_1000	https://ebay.de/	True	False	403	3310	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:22:41Z
+863	princeton.edu	top_1_1000	https://princeton.edu/	True	False	403	5140	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:22:41Z
+864	disqus.com	top_1_1000	https://disqus.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://disqus.com/
+Call log:
+  - navigating to ""https://disqus.com/"", waiting until ""commit""
+"	False	2026-08-27T08:22:41Z
+865	herokuapp.com	top_1_1000	https://herokuapp.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://herokuapp.com/
+Call log:
+  - navigating to ""https://herokuapp.com/"", waiting until ""commit""
+"	False	2026-08-27T08:23:02Z
+866	360safe.com	top_1_1000	https://360safe.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://360safe.com/
+Call log:
+  - navigating to ""https://360safe.com/"", waiting until ""commit""
+"	False	2026-08-27T08:23:02Z
+867	goskope.com	top_1_1000	https://goskope.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:23:02Z
+868	yellowblue.io	top_1_1000	https://yellowblue.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:23:02Z
+869	mybluehost.me	top_1_1000	https://mybluehost.me/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://mybluehost.me/
+Call log:
+  - navigating to ""https://mybluehost.me/"", waiting until ""commit""
+"	False	2026-08-27T08:23:02Z
+870	lwsdns.com	top_1_1000	https://lwsdns.com/	True	True	200	1413	False	0	15	2			True	2026-08-27T08:23:02Z
+871	figma.com	top_1_1000	https://figma.com/	True	True	200	2204	True	3413	0	0			True	2026-08-27T08:23:02Z
+872	akamaitech.net	top_1_1000	https://akamaitech.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:23:02Z
+873	ssl-images-amazon.com	top_1_1000	https://ssl-images-amazon.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:23:23Z
+874	usgovcloudapi.net	top_1_1000	https://usgovcloudapi.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:23:23Z
+875	lg.com	top_1_1000	https://lg.com/	True	True	200	5413	True	11489	1	1			True	2026-08-27T08:23:23Z
+876	adgrx.com	top_1_1000	https://adgrx.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:23:23Z
+877	chess.com	top_1_1000	https://chess.com/	True	True	200	1932	True	9236	0	0			True	2026-08-27T08:23:23Z
+878	fbsbx.com	top_1_1000	https://fbsbx.com/	True	False	404	880	False	0	0	0		RuntimeError:unacceptable_main_http_status:404	False	2026-08-27T08:23:23Z
+879	azure-devices.net	top_1_1000	https://azure-devices.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:23:23Z
+880	herokudns.com	top_1_1000	https://herokudns.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:23:23Z
+881	pornhub.com	top_1_1000	https://pornhub.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://pornhub.com/
+Call log:
+  - navigating to ""https://pornhub.com/"", waiting until ""commit""
+"	False	2026-08-27T08:23:39Z
+882	synology.com	top_1_1000	https://synology.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://synology.com/"", waiting until ""commit""
+"	False	2026-08-27T08:23:39Z
+883	pikabu.ru	top_1_1000	https://pikabu.ru/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_RESET at https://pikabu.ru/
+Call log:
+  - navigating to ""https://pikabu.ru/"", waiting until ""commit""
+"	False	2026-08-27T08:23:39Z
+884	biblegateway.com	top_1_1000	https://biblegateway.com/	True	True	200	2989	True	4535	0	0			True	2026-08-27T08:23:39Z
+885	worldbank.org	top_1_1000	https://worldbank.org/	True	True	200	1416	True	3067	0	0			True	2026-08-27T08:23:39Z
+886	bankofamerica.com	top_1_1000	https://bankofamerica.com/	True	True	200	836	True	2325	0	0			True	2026-08-27T08:23:39Z
+887	www.gov.br	top_1_1000	https://www.gov.br/	True	True	200	2824	False	0	0	1			True	2026-08-27T08:23:39Z
+888	qualtrics.com	top_1_1000	https://qualtrics.com/	True	True	200	3828	False	0	4	2			True	2026-08-27T08:23:39Z
+889	dyingbirds.com	top_1_1000	https://dyingbirds.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:24:09Z
+890	spotifycdn.com	top_1_1000	https://spotifycdn.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:24:09Z
+891	latimes.com	top_1_1000	https://latimes.com/	True	False	403	1699	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:24:09Z
+892	jetbrains.com	top_1_1000	https://jetbrains.com/	True	True	200	2725	True	7602	0	0			True	2026-08-27T08:24:09Z
+893	fwmrm.net	top_1_1000	https://fwmrm.net/	True	True	200	25832	True	29524	4	1			True	2026-08-27T08:24:09Z
+894	wyzecam.com	top_1_1000	https://wyzecam.com/	True	True	200	2179	False	0	2	2			True	2026-08-27T08:24:09Z
+895	scdn.co	top_1_1000	https://scdn.co/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:24:09Z
+896	keenetic.io	top_1_1000	https://keenetic.io/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:24:09Z
+897	kleinanzeigen.de	top_1_1000	https://kleinanzeigen.de/	True	True	200	2299	True	5342	4	1			True	2026-08-27T08:24:45Z
+898	readthedocs.io	top_1_1000	https://readthedocs.io/	True	False	429	3538	False	0	0	0		RuntimeError:unacceptable_main_http_status:429	False	2026-08-27T08:24:45Z
+899	eu-1-id5-sync.com	top_1_1000	https://eu-1-id5-sync.com/	True	False	522	20323	False	0	0	0		RuntimeError:unacceptable_main_http_status:522	False	2026-08-27T08:24:45Z
+900	sentinelone.net	top_1_1000	https://sentinelone.net/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://sentinelone.net/
+Call log:
+  - navigating to ""https://sentinelone.net/"", waiting until ""commit""
+"	False	2026-08-27T08:24:45Z
+901	tiktokw.us	top_1_1000	https://tiktokw.us/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:24:45Z
+902	go-mpulse.net	top_1_1000	https://go-mpulse.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:24:45Z
+903	dv.tech	top_1_1000	https://dv.tech/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_CLOSED at https://dv.tech/
+Call log:
+  - navigating to ""https://dv.tech/"", waiting until ""commit""
+"	False	2026-08-27T08:24:45Z
+904	ys7.com	top_1_1000	https://ys7.com/	True	True	200	685	True	1899	0	0			True	2026-08-27T08:24:45Z
+905	starlink.com	top_1_1000	https://starlink.com/	True	True	200	1262	True	2556	0	0			True	2026-08-27T08:25:06Z
+906	coupang.com	top_1_1000	https://coupang.com/	True	False	403	2360	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:25:06Z
+907	life360.com	top_1_1000	https://life360.com/	True	False	403	2604	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:25:06Z
+908	youku.com	top_1_1000	https://youku.com/	True	True	200	532	True	1758	0	0			True	2026-08-27T08:25:06Z
+909	samsungosp.com	top_1_1000	https://samsungosp.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:25:06Z
+910	thenai.org	top_1_1000	https://thenai.org/	True	True	200	953	True	10384	1	1			True	2026-08-27T08:25:06Z
+911	ln-msedge.net	top_1_1000	https://ln-msedge.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:25:06Z
+912	deloitte.com	top_1_1000	https://deloitte.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://deloitte.com/"", waiting until ""commit""
+"	False	2026-08-27T08:25:06Z
+913	miwifi.com	top_1_1000	https://miwifi.com/	True	False	0	0	False	0	0	0		"TimeoutError:Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://miwifi.com/"", waiting until ""commit""
+"	False	2026-08-27T08:25:37Z
+914	nic.direct	top_1_1000	https://nic.direct/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://nic.direct/
+Call log:
+  - navigating to ""https://nic.direct/"", waiting until ""commit""
+"	False	2026-08-27T08:25:37Z
+915	cdn-vk.ru	top_1_1000	https://cdn-vk.ru/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:25:37Z
+916	paramountplus.com	top_1_1000	https://paramountplus.com/	True	False	406	3210	False	0	0	0		RuntimeError:unacceptable_main_http_status:406	False	2026-08-27T08:25:37Z
+917	epa.gov	top_1_1000	https://epa.gov/	True	True	200	2900	True	5585	4	1			True	2026-08-27T08:25:37Z
+918	rocketmoney.dev	top_1_1000	https://rocketmoney.dev/	True	True	200	2903	False	0	1	2			True	2026-08-27T08:25:37Z
+919	seedtag.com	top_1_1000	https://seedtag.com/	True	True	200	2551	False	0	0	1			True	2026-08-27T08:25:37Z
+920	flashtalking.com	top_1_1000	https://flashtalking.com/	True	True	200	2675	False	0	0	1			True	2026-08-27T08:25:37Z
+921	samsungiotcloud.com	top_1_1000	https://samsungiotcloud.com/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:26:07Z
+922	spiegel.de	top_1_1000	https://spiegel.de/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://spiegel.de/
+Call log:
+  - navigating to ""https://spiegel.de/"", waiting until ""commit""
+"	False	2026-08-27T08:26:07Z
+923	state.gov	top_1_1000	https://state.gov/	True	True	200	4357	True	7070	0	0			True	2026-08-27T08:26:07Z
+924	investopedia.com	top_1_1000	https://investopedia.com/	True	False	403	2409	False	0	0	0		RuntimeError:unacceptable_main_http_status:403	False	2026-08-27T08:26:07Z
+925	internetwarriors.net	top_1_1000	https://internetwarriors.net/	True	True	200	3043	True	4440	0	0			True	2026-08-27T08:26:07Z
+926	nintendo.net	top_1_1000	https://nintendo.net/	False	False	0	0	False	0	0	0		dns_failure:gaierror	False	2026-08-27T08:26:07Z
+927	genius.com	top_1_1000	https://genius.com/	True	False	0	0	False	0	0	0		"Error:Page.goto: net::ERR_CONNECTION_REFUSED at https://genius.com/
+Call log:
+  - navigating to ""https://genius.com/"", waiting until ""commit""
+"	False	2026-08-27T08:26:07Z
+928	smartthings.com	top_1_1000	https://smartthings.com/	True	True	200	4093	True	9092	1	1			True	2026-08-27T08:26:07Z
