@@ -1,0 +1,15 @@
+audit_scope=Formal T0 v2 domain replay stability
+source_candidate_pool=v1 formal 500-domain pool
+audit_rule=fresh context per attempt; 4 attempts; 5-second fixed inter-attempt interval; main commit timeout 30000ms; acceptable status 200-399
+audit_completion_utc=2026-08-29T06:22:15Z
+cooling_window_seconds=1800
+earliest_formal_collection_utc=2026-08-29T06:52:15Z
+TOTAL_AUDITED=500
+REPLAY_STABLE_COUNT=486
+REPLAY_UNSTABLE_COUNT=14
+HTTP_429_DOMAIN_COUNT=1
+INTUIT_ATTEMPT_STATUSES=429,429,429,429
+REPLACEMENT_COUNT=14
+FINAL_FORMAL_DOMAIN_COUNT=500
+FINAL_REPLAY_UNSTABLE_COUNT=0
+FINAL_HTTP_429_DOMAIN_COUNT=0
