@@ -1,0 +1,83 @@
+FORMAL_T0_V3_R2_PRODUCTION_ORCHESTRATOR_AMENDMENT_V1
+
+status=PREREGISTRATION_AMENDMENT_BEFORE_PRODUCTION
+reason=FROZEN_FORMAL_PRODUCTION_RUNNER_NOT_AVAILABLE
+formal_samples_started=0
+
+production_orchestrator_path=encrypted_traffic_platform/realistic/run_formal_t0_v3_r2_production.py
+production_orchestrator_version=formal-t0-v3-r2-production-v1
+production_orchestrator_sha256=f1fced63ce1d0600228ff62c1f87c4bd681a3ee119099079b82d56a2907dd0a9
+synthetic_test_path=encrypted_traffic_platform/realistic/test_formal_t0_v3_r2_production.py
+synthetic_test_sha256=ce79ad6eb56565786f8a3f12dd1241419fae2290babe0eb5f25b03da3d6faa82
+validation_summary_path=docs/realistic_v1/formal_t0_v3/formal_t0_v3_r2_production_orchestrator_validation_v1.txt
+validation_summary_sha256=42991515b035ba907f101eee229674c28039861815e1be3bb9c28eebcebe6d85
+
+RUNNER_BEHAVIOR
+dataset_track=realistic_t0_v3_r2
+artifact_class=FORMAL_PRODUCTION
+formal_manifest_eligible=true
+schedule_source=frozen R2 schedule only
+schedule_order=sequence_id ascending
+workers=1
+pair_group_atomicity=required
+per_sample_git_and_frozen_sha_guard=required
+per_proxy_sample_actual_conn_max_256_preflight=required
+browser_capture_component=reuse frozen validated v3 capture runner
+retry_component=reuse frozen transient retry component
+browser_executor=reuse frozen bounded v3 browser executor
+
+RETRY_SEMANTICS
+max_attempts_per_sample=2
+retry_unit=whole immutable sample
+attempt2=fresh browser lifecycle; same sample identity, mode, plan and plan SHA
+attempt3=prohibited
+individual_navigation_event_action_retry=prohibited
+non_retryable_failure=hard stop
+attempt2_failure=hard stop
+retry_ledger=formal_t0_v3_r2_retry_ledger.tsv
+retry_ledger_update=atomic replace
+
+HEALTH_AND_CAPTURE
+pre_sample_health=required PASS before capture/workload
+active_health_probe_during_capture=0
+capture_window_monitoring=passive only
+captures=original,observed,egress
+model_visible_capture=observed.pcap only
+capture_finalization=bounded PID-owned SIGINT,TERM,KILL fallback plus stable-size verification
+post_sample_health=required PASS after capture finalization
+
+SAMPLE_COMPLETION
+sample_complete_requires=browser PASS; capture PASS; purity PASS; PRE/POST health PASS; conn_max=256 for proxy; conn_max hits=0; bypass=0; OOM=0; unexpected exit=0; Git and plan SHA PASS; local SHA PASS; remote upload/SHA/completeness/metadata PASS; residual=0
+sample_complete_before_remote_verification=prohibited
+remote_outage_state=REMOTE_ARCHIVE_PENDING
+remote_outage_browser_retry_consumed=false
+
+RESUME_AND_STORAGE
+resume_option=--resume
+valid_local_and_remote_complete=SKIP_VALID_COMPLETE
+valid_remote_only_after_eviction=SKIP_VALID_COMPLETE_REMOTE_ONLY
+incomplete_unknown_state=REVIEW_REQUIRED
+retryable_failed_attempt1=RUN_ATTEMPT2
+failed_attempt2=HARD_STOP_ATTEMPT2_FAILED
+progress_state=formal_t0_v3_r2_progress.json; atomic replace
+failed_artifacts_namespace=failed_artifacts/<sample_id>/attempt_<n>_<timestamp>_<failure_class>
+free_space_guard=20 GiB before new pair group
+eviction=explicit only; requires remote SAMPLE_COMPLETE and SHA PASS plus atomic eviction ledger before deletion
+
+VALIDATION
+static_compile=PASS
+synthetic_resume_tests=7/7 PASS
+dry_run=PASS
+dry_run_started_proxy=NO
+dry_run_started_tcpdump=NO
+dry_run_started_browser=NO
+dry_run_wrote_formal_sample=NO
+dry_run_next_sequence_id=1
+local_root_sample_count=0
+remote_root_sample_count=0
+integrity_issues=0
+
+GOVERNANCE
+production_execution_before_final_commit_push=PROHIBITED
+production_execution_requires_explicit_run_or_resume_and_final_frozen_git_head
+sequence_id_1_start=REQUIRES_SEPARATE_HUMAN_AUTHORIZATION_AFTER_THIS_AMENDMENT_IS_FROZEN

@@ -1,0 +1,41 @@
+FORMAL_T0_V3_R2_PRODUCTION_ORCHESTRATOR_VALIDATION_V1
+
+status=PASS
+classification=NON_FORMAL_PREREGISTRATION_VALIDATION
+formal_samples_started=0
+formal_production_root_writes=0
+
+orchestrator_path=encrypted_traffic_platform/realistic/run_formal_t0_v3_r2_production.py
+orchestrator_version=formal-t0-v3-r2-production-v1
+orchestrator_sha256=f1fced63ce1d0600228ff62c1f87c4bd681a3ee119099079b82d56a2907dd0a9
+validation_baseline_git_head=931a62d6ce8d08520f2280145cd32143216ac61f
+
+static_compile=PASS
+synthetic_resume_tests=7/7 PASS
+synthetic_empty_state_next_sequence_1=PASS
+synthetic_local_valid_complete_skip=PASS
+synthetic_remote_only_evicted_complete_skip=PASS
+synthetic_completed_ledger_without_remote_proof_never_resamples=PASS
+synthetic_incomplete_review_required=PASS
+synthetic_retryable_attempt1_attempt2_eligible=PASS
+synthetic_failed_attempt2_hard_stop=PASS
+
+dry_run=PASS
+dry_run_formal_sample_started=false
+dry_run_next_sequence_id=1
+dry_run_valid_samples=0
+dry_run_complete_pair_groups=0
+dry_run_schedule_rows=1200
+dry_run_pair_groups=300
+dry_run_plan_sha=300/300 PASS
+dry_run_plan_permissions=300/300 0444
+dry_run_schedule_integrity=PASS
+dry_run_integrity_issues=0
+dry_run_remote_connectivity=PASS
+dry_run_redsocks_unit_definitions=3/3 PASS
+dry_run_free_disk_guard=PASS
+
+local_production_root=/home/etip/datasets/staging/realistic_v1/t0_v3_r2
+remote_production_root=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/t0_v3_r2
+local_root_sample_count_after_validation=0
+remote_root_sample_count_after_validation=0
