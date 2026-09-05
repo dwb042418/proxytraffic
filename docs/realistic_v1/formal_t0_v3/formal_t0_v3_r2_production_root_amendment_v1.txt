@@ -1,0 +1,15 @@
+status=PREREGISTRATION_AMENDMENT_BEFORE_PRODUCTION
+formal_samples_started=0
+
+LOCAL_PRODUCTION_ROOT=/home/etip/datasets/staging/realistic_v1/t0_v3_r2
+REMOTE_PRODUCTION_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/t0_v3_r2
+
+scope=FORMAL_T0_V3_R2_PRODUCTION_ONLY
+local_root_purpose=Formal T0 v3 R2 production only
+remote_root_purpose=Formal T0 v3 R2 authoritative archive root
+sample_sequence_source=frozen R2 schedule
+
+validation_smoke_v1_v2_roots_reuse=PROHIBITED
+production_root_change_during_production=PROHIBITED
+
+provenance_preregistration_git_head=a20811426fad4dafd4d41bf2786785a41295ee17
