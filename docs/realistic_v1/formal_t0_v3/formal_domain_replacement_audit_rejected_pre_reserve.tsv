@@ -1,0 +1,206 @@
+rank	domain	rank_bucket	single_status	single_commit_success	single_commit_latency_ms	single_warning_count	single_error	single_reachable	attempt1_status	attempt1_commit_success	attempt1_commit_latency_ms	attempt1_warning_count	attempt1_error	attempt2_status	attempt2_commit_success	attempt2_commit_latency_ms	attempt2_warning_count	attempt2_error	attempt3_status	attempt3_commit_success	attempt3_commit_latency_ms	attempt3_warning_count	attempt3_error	attempt4_status	attempt4_commit_success	attempt4_commit_latency_ms	attempt4_warning_count	attempt4_error	rate_limit_429_count	hard_failure_count	warning_count	replay_stable	audit_timestamp	all_gates_pass
+1	google.com	top_1_1000	0	false	31385	0	"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://google.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:43Z	false
+3	gstatic.com	top_1_1000	0	false	31239	0	"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://gstatic.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:43Z	false
+4	facebook.com	top_1_1000	0	false	1653	1	"Error: Page.goto: net::ERR_CONNECTION_RESET at https://facebook.com/
+Call log:
+  - navigating to ""https://facebook.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:13Z	false
+6	googleapis.com	top_1_1000	0	false	31437	0	"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://googleapis.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:43Z	false
+8	youtube.com	top_1_1000	0	false	31317	0	"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://youtube.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:43Z	false
+10	gtld-servers.net	top_1_1000	0	false	2168	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://gtld-servers.net/
+Call log:
+  - navigating to ""https://gtld-servers.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:14Z	false
+11	akamai.net	top_1_1000	0	false	1653	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://akamai.net/
+Call log:
+  - navigating to ""https://akamai.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:13Z	false
+12	instagram.com	top_1_1000	0	false	1783	1	"Error: Page.goto: net::ERR_CONNECTION_RESET at https://instagram.com/
+Call log:
+  - navigating to ""https://instagram.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:13Z	false
+14	ezviz7.com	top_1_1000	0	false	763	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://ezviz7.com/
+Call log:
+  - navigating to ""https://ezviz7.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:14Z	false
+15	fbcdn.net	top_1_1000	0	false	1842	1	"Error: Page.goto: net::ERR_CONNECTION_RESET at https://fbcdn.net/
+Call log:
+  - navigating to ""https://fbcdn.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:15Z	false
+16	twitter.com	top_1_1000	0	false	30494	0	"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://twitter.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:44Z	false
+19	domaincontrol.com	top_1_1000	0	false	900	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://domaincontrol.com/
+Call log:
+  - navigating to ""https://domaincontrol.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:15Z	false
+20	googlevideo.com	top_1_1000	0	false	30367	0	"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://googlevideo.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:44Z	false
+22	googletagmanager.com	top_1_1000	404	true	1273	0	RuntimeError: unacceptable main HTTP status: 404	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:16Z	false
+23	hicloudcam.com	top_1_1000	0	false	624	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://hicloudcam.com/
+Call log:
+  - navigating to ""https://hicloudcam.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:16Z	false
+25	akamaiedge.net	top_1_1000	0	false	611	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://akamaiedge.net/
+Call log:
+  - navigating to ""https://akamaiedge.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:16Z	false
+27	akadns.net	top_1_1000	0	false	674	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://akadns.net/
+Call log:
+  - navigating to ""https://akadns.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:17Z	false
+31	wikipedia.org	top_1_1000	0	false	30311	0	"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://wikipedia.org/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:47Z	false
+32	whatsapp.net	top_1_1000	0	false	21434	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://whatsapp.net/
+Call log:
+  - navigating to ""https://whatsapp.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:38Z	false
+33	apple-dns.net	top_1_1000	0	false	486	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://apple-dns.net/
+Call log:
+  - navigating to ""https://apple-dns.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:38Z	false
+35	googleusercontent.com	top_1_1000	0	false	21403	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://googleusercontent.com/
+Call log:
+  - navigating to ""https://googleusercontent.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:00Z	false
+36	appsflyersdk.com	top_1_1000	403	true	1942	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:45Z	false
+37	doubleclick.net	top_1_1000	0	false	21749	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://doubleclick.net/
+Call log:
+  - navigating to ""https://doubleclick.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:05Z	false
+38	aaplimg.com	top_1_1000	0	false	799	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://aaplimg.com/
+Call log:
+  - navigating to ""https://aaplimg.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:44Z	false
+39	microsoftonline.com	top_1_1000	0	false	578	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://microsoftonline.com/
+Call log:
+  - navigating to ""https://microsoftonline.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:44Z	false
+40	netflix.com	top_1_1000	403	true	1423	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:45Z	false
+41	office.net	top_1_1000	0	false	524	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://office.net/
+Call log:
+  - navigating to ""https://office.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:44Z	false
+42	trafficmanager.net	top_1_1000	0	false	534	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://trafficmanager.net/
+Call log:
+  - navigating to ""https://trafficmanager.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:44Z	false
+45	digicert.com	top_1_1000	403	true	3050	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:47Z	false
+46	youtu.be	top_1_1000	0	false	21622	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://youtu.be/
+Call log:
+  - navigating to ""https://youtu.be/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:06Z	false
+50	goo.gl	top_1_1000	0	false	21680	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://goo.gl/
+Call log:
+  - navigating to ""https://goo.gl/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:06Z	false
+51	cloudfront.net	top_1_1000	0	false	600	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://cloudfront.net/
+Call log:
+  - navigating to ""https://cloudfront.net/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:45Z	false
+52	googledomains.com	top_1_1000	0	false	21428	1	"Error: Page.goto: net::ERR_CONNECTION_CLOSED at https://googledomains.com/
+Call log:
+  - navigating to ""https://googledomains.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:06Z	false
+53	x.com	top_1_1000	0	false	30328	0	"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to ""https://x.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:16Z	false
+54	tiktok.com	top_1_1000	0	false	21394	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://tiktok.com/
+Call log:
+  - navigating to ""https://tiktok.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:08Z	false
+55	pinterest.com	top_1_1000	0	false	799	1	"Error: Page.goto: net::ERR_CONNECTION_RESET at https://pinterest.com/
+Call log:
+  - navigating to ""https://pinterest.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:48Z	false
+57	whatsapp.com	top_1_1000	0	false	744	1	"Error: Page.goto: net::ERR_CONNECTION_RESET at https://whatsapp.com/
+Call log:
+  - navigating to ""https://whatsapp.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:49Z	false
+58	roblox.com	top_1_1000	404	true	2961	0	RuntimeError: unacceptable main HTTP status: 404	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:52Z	false
+59	yahoo.com	top_1_1000	403	true	2764	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:55Z	false
+60	windowsupdate.com	top_1_1000	0	false	352	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://windowsupdate.com/
+Call log:
+  - navigating to ""https://windowsupdate.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:55Z	false
+1001	costco.com	rank_1001_100000	403	true	3980	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:15:59Z	false
+1003	binance.com	rank_1001_100000	0	false	20323	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://binance.com/
+Call log:
+  - navigating to ""https://binance.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:19Z	false
+1005	tesla.com	rank_1001_100000	403	true	2248	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:02Z	false
+1006	app-ads-services.com	rank_1001_100000	0	false	21360	1	"Error: Page.goto: net::ERR_CONNECTION_CLOSED at https://app-ads-services.com/
+Call log:
+  - navigating to ""https://app-ads-services.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:23Z	false
+1007	tiktokpangle.us	rank_1001_100000	0	false	435	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://tiktokpangle.us/
+Call log:
+  - navigating to ""https://tiktokpangle.us/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:05Z	false
+1008	bol.com	rank_1001_100000	0	false	21386	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://bol.com/
+Call log:
+  - navigating to ""https://bol.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:26Z	false
+1013	kwcdn.com	rank_1001_100000	0	false	477	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://kwcdn.com/
+Call log:
+  - navigating to ""https://kwcdn.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:06Z	false
+1014	columbia.edu	rank_1001_100000	403	true	1935	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:08Z	false
+1015	letterboxd.com	rank_1001_100000	403	true	1816	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:08Z	false
+1016	futbin.com	rank_1001_100000	403	true	3048	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:09Z	false
+1018	amp-endpoint2.com	rank_1001_100000	0	false	732	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://amp-endpoint2.com/
+Call log:
+  - navigating to ""https://amp-endpoint2.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:09Z	false
+1020	ltwebstatic.com	rank_1001_100000	404	true	3074	0	RuntimeError: unacceptable main HTTP status: 404	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:11Z	false
+1023	docomo.ne.jp	rank_1001_100000	404	true	1233	0	RuntimeError: unacceptable main HTTP status: 404	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:09Z	false
+1024	wbbasket.ru	rank_1001_100000	0	false	672	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://wbbasket.ru/
+Call log:
+  - navigating to ""https://wbbasket.ru/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:09Z	false
+1025	pbs.org	rank_1001_100000	0	false	1408	1	"Error: Page.goto: net::ERR_CONNECTION_RESET at https://pbs.org/
+Call log:
+  - navigating to ""https://pbs.org/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:11Z	false
+1029	namecheaphosting.com	rank_1001_100000	0	false	4069	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://namecheaphosting.com/
+Call log:
+  - navigating to ""https://namecheaphosting.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:13Z	false
+100003	spokojenypes.cz	rank_100001_1000000	403	true	1870	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:11Z	false
+100005	gekso.info	rank_100001_1000000	0	false	21387	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://gekso.info/
+Call log:
+  - navigating to ""https://gekso.info/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:32Z	false
+100006	pay-gate.io	rank_100001_1000000	522	true	20961	0	RuntimeError: unacceptable main HTTP status: 522	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:32Z	false
+100008	comprerural.com	rank_100001_1000000	403	true	1979	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:13Z	false
+100010	qm989.com	rank_100001_1000000	0	false	525	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://qm989.com/
+Call log:
+  - navigating to ""https://qm989.com/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:14Z	false
+100011	xaas.jp	rank_100001_1000000	0	false	21694	1	"Error: Page.goto: net::ERR_CONNECTION_REFUSED at https://xaas.jp/
+Call log:
+  - navigating to ""https://xaas.jp/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:35Z	false
+100012	cupidityconnect.com	rank_100001_1000000	403	true	2916	0	RuntimeError: unacceptable main HTTP status: 403	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:17Z	false
+100013	otxb.io	rank_100001_1000000	0	false	698	1	"Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://otxb.io/
+Call log:
+  - navigating to ""https://otxb.io/"", waiting until ""commit""
+"	false	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	false	0	0	SKIPPED_SINGLE_GATE_FAILED	0	4	0	false	2026-08-29T06:16:16Z	false

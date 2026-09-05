@@ -1,0 +1,96 @@
+FORMAL_T0_V3_R2_METHODOLOGY_AMENDMENT
+
+STATUS
+revision=R2
+scope=FORMAL_T0_V3_PREREGISTRATION
+formal_sample_started=NO
+
+HISTORICAL_ABORTS
+v1_status=ABORTED
+v1_reason=persistent HTTP429 and replay instability
+v1_samples_reusable_in_R2=NO
+v2_status=ABORTED
+v2_reason=recurrent browser executor hang and incomplete whole-executor lifecycle boundedness
+v2_samples_reusable_in_R2=NO
+
+V3_QUALIFICATION
+actionability_stability_gate=REQUIRED
+health_probe_redesign=controlled tunnel canary plus qualified public controls
+controlled_tunnel_canary=REQUIRED
+public_control_qualification=REQUIRED
+capture_window_active_health_probe=0
+capture_window_monitoring=PASSIVE_ONLY
+redsocks_capacity_issue=CONFIRMED_AND_RESOLVED
+redsocks_conn_max_transition=128_to_256
+redsocks_soft_nofile=2048
+redsocks_hard_nofile=524288
+redsocks_actual_conn_max=256
+proxy_instance_capacity_preflight=REQUIRED_FOR_VLESS_SHADOWSOCKS_TROJAN
+
+WORKERS_AND_CURRENT500_GOVERNANCE
+current500_workers=2
+current500_trials=1500/1500
+current500_domains=500/500
+current500_result=VALID
+current500_stable=476
+current500_unstable=24
+current500_conn_max_hits=0
+current500_infrastructure_health_loss=0
+formal_production_workers=1
+formal_production_orchestration=sequence_id ascending; exactly one active sample attempt; whole-sample retry only
+
+DOMAIN_REPLACEMENT_R1
+old_domain=ivi.ru
+new_domain=deloitte.com
+reason=CROSS_MODE_DOMAIN_ACTIONABILITY_INSTABILITY
+selection=same bucket and rank ascending
+actionability=3/3 PASS
+cross_mode_sanity=8/8 PASS
+
+DOMAIN_REPLACEMENT_R2
+old_domain=mobolize.com
+new_domain=internetwarriors.net
+reason=PERSISTENT_DOMAIN_HTTP_5XX_FAILURE
+diagnostic=DIRECT 0/3; VLESS 0/3; SHADOWSOCKS 0/3; TROJAN 0/3
+diagnostic_http500=12/12
+selection=same bucket and rank ascending
+actionability=3/3 PASS
+cross_mode_sanity=8/8 PASS
+
+FINAL_INPUT
+domain_pool=Final500 R2
+domain_pool_sha256=ead6f94c28ec666880ac1a16154b8faebef78e44e76d40001092b10f4040c14a
+split_sha256=8d1be7a6fa51eed941fe62a4b7e79d57435bdb87af081b791662763480dabe38
+plan_registry_sha256=27e608fcf55cbea1bbedc4660c85715d0dab196049e72209e7a7704ebcaf029c
+schedule_sha256=50bd40d4386c606fef70abf013d119b926c3508a0bccaa879550691c28ae3076
+
+VALIDATION_PROVENANCE
+r2_single_quartet=PASS
+r2_single_quartet_attempts=4
+r2_single_quartet_retries=0
+r2_smoke=PASS
+r2_smoke_samples=24
+r2_smoke_attempts=25
+r2_smoke_retries=1
+retry_pair_group=seed001_medium
+retry_mode=shadowsocks
+retry_event=event0
+retry_domain=grammarly.com
+retry_attempt1=MAIN_NAVIGATION_TIMEOUT
+retry_attempt2=PASS
+final_failed_samples=0
+mode_purity_failures=0
+capture_failures=0
+health_failures=0
+conn_max_hits=0
+bypass_failures=0
+oom_failures=0
+remote_sha_failures=0
+residual=0
+
+GOVERNANCE
+domain_specific_retry_rule=PROHIBITED
+HTTP_STATUS_500=NON_RETRYABLE
+MAX_ATTEMPTS_PER_SAMPLE=2
+input_regeneration_after_preregistration=PROHIBITED
+sequence_id_1_start=REQUIRES_SEPARATE_HUMAN_AUTHORIZATION

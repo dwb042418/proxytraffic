@@ -1,0 +1,29 @@
+REALISTIC_V3_MOBOLIZE_CROSS_MODE_REPLACEMENT_AMENDMENT_V1
+
+old_domain=mobolize.com
+old_rank=689
+old_bucket=top_1_1000
+reason=PERSISTENT_DOMAIN_HTTP_5XX_FAILURE
+
+diagnostic_classification=NON_FORMAL_DIAGNOSTIC
+diagnostic_result=MOBOLIZE_ACTIONABILITY_INSTABILITY_CONFIRMED
+DIRECT=0/3
+VLESS=0/3
+SHADOWSOCKS=0/3
+TROJAN=0/3
+HTTP500=12/12
+TOTAL_TRIALS=12
+
+diagnostic_evidence=/home/etip/datasets/staging/realistic_v1/non_formal_diagnostics/mobolize_cross_mode_diagnostic_20260904T175157Z
+failed_smoke_evidence=/home/etip/datasets/staging/realistic_v1/r1_non_formal_smoke_v3/realistic_v3_24_sample_smoke_20260904T173008Z
+
+failure_attribution=PERSISTENT_DOMAIN_HTTP_5XX_FAILURE
+transient_navigation_failure=false
+mode_specific_failure=false
+infrastructure_failure=false
+
+replacement_rule=same bucket; rank ascending; begin with next eligible candidate after rank 689; exclude current R1 Final500 domains, previously tested candidates, and known replay/actionability-unstable domains
+candidate_actionability=3 independent lifecycles; require 3/3 PASS; no retry-until-pass
+candidate_cross_mode_sanity=direct,vless,shadowsocks,trojan; 2 independent navigation-only lifecycles per mode; require 8/8 PASS
+site_specific_workaround=PROHIBITED
+HTTP_STATUS_500_retry_policy=NON_RETRYABLE_UNCHANGED

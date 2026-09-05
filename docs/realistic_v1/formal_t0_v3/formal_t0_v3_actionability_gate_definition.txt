@@ -1,0 +1,71 @@
+FORMAL_T0_V3_ACTIONABILITY_STABILITY_GATE_DEFINITION
+
+status=FROZEN_BEFORE_CURRENT500_AUDIT
+formal_sample_collection_authorized=NO
+scope=NON_FORMAL_PREREGISTRATION_DOMAIN_QUALIFICATION
+
+TIMING_SOURCE
+source_plan_namespace=/home/etip/datasets/plans/realistic_v1/t0_v2
+source_plan_count=300
+event_count=1200
+scroll_action_count=3699
+timing_basis=nominal time from successful main-document commit to action start
+first_action_formula=10000ms DOMContentLoaded observation window + post_navigation_idle_ms
+subsequent_action_formula=first action delay + cumulative preceding scroll idle_ms
+
+FIRST_ACTION_DELAY_MIN_SECONDS=10.251
+FIRST_ACTION_DELAY_MEDIAN_SECONDS=10.6235
+FIRST_ACTION_DELAY_P95_SECONDS=11.3824
+FIRST_ACTION_DELAY_MAX_SECONDS=11.599
+LAST_ACTION_DELAY_MAX_SECONDS=13.266
+
+ALL_ACTION_DELAY_MIN_SECONDS=10.251
+ALL_ACTION_DELAY_MEDIAN_SECONDS=11.255
+ALL_ACTION_DELAY_P95_SECONDS=12.5047
+ALL_ACTION_DELAY_MAX_SECONDS=13.266
+
+FROZEN_PROBE_DELAYS_SECONDS=10.251,11.255,13.266
+replay1_probe_delay_seconds=10.251
+replay2_probe_delay_seconds=11.255
+replay3_probe_delay_seconds=13.266
+probe_delay_rationale=cover the start, median, and end of the nominal action window in three independent browser lifecycles
+
+RUNTIME
+playwright_version=1.62.0
+chromium_version=151.0.7922.34
+browser_args=--disable-quic,--disable-background-networking
+headless=true
+service_workers=block
+viewport=1365x768
+proxy_path=trojan transparent route through Collector
+main_navigation_url=https://<domain>/
+main_navigation_wait_until=commit
+main_navigation_timeout_seconds=30
+acceptable_main_http_status=200-399 excluding 429
+
+PROBES
+minimal_evaluate=() => ({readyState: document.readyState, href: location.href})
+minimal_evaluate_timeout_seconds=2
+action=window.scrollBy({top: 960, left: 0, behavior: "instant"})
+action_timeout_seconds=5
+scroll_movement_required=false
+
+INDEPENDENCE_AND_PASS_RULE
+independent_browser_lifecycles_per_domain=3
+automatic_retry_count=0
+navigation_required=3/3
+minimal_evaluate_required=3/3
+action_execution_required=3/3
+http429_required=0
+renderer_timeout_required=0
+executor_residual_required=0
+browser_residual_required=0
+passing_label=ACTIONABILITY_STABLE
+failing_label=ACTIONABILITY_UNSTABLE
+
+GOVERNANCE
+domain_specific_rules=PROHIBITED
+site_specific_waits=PROHIBITED
+gate_changes_after_current500_audit_start=PROHIBITED
+formal_artifacts=PROHIBITED
+sample_complete=PROHIBITED

@@ -1,0 +1,206 @@
+#!/usr/bin/env python3
+"""User-side process-tree supervisor for non-Formal executor lifecycle control."""
+import argparse
+import ctypes
+import json
+import os
+import signal
+import subprocess
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+def utc_now():
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
+def atomic_json(path, value):
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n")
+    os.replace(tmp, path)
+
+
+def proc_rows():
+    rows = {}
+    for entry in Path("/proc").iterdir():
+        if not entry.name.isdigit():
+            continue
+        try:
+            fields = (entry / "stat").read_text().split()
+            rows[int(entry.name)] = int(fields[3])
+        except (OSError, ValueError, IndexError):
+            pass
+    return rows
+
+
+def descendants(root):
+    parents = proc_rows()
+    found, frontier = set(), {root}
+    while frontier:
+        children = {pid for pid, ppid in parents.items() if ppid in frontier and pid not in found}
+        found.update(children)
+        frontier = children
+    return found
+
+
+def alive(pids):
+    current = set(proc_rows())
+    return set(pids) & current
+
+
+def reap_adopted(pids):
+    for pid in pids:
+        try:
+            os.waitpid(pid, os.WNOHANG)
+        except ChildProcessError:
+            pass
+
+
+def snapshot(root, evidence, label):
+    stamp = utc_now()
+    pids = {root} | descendants(root)
+    ps = subprocess.run(
+        ["ps", "-o", "pid=,ppid=,pgid=,sid=,stat=,etime=,wchan=,cmd=", "-p", ",".join(map(str, sorted(pids)))],
+        text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    ).stdout
+    (evidence / f"{label}_{stamp}_ps.txt").write_text(
+        "PID PPID PGID SID STAT ELAPSED WCHAN CMD\n" + ps
+    )
+    ss = subprocess.run(["ss", "-tpn"], text=True, stdout=subprocess.PIPE,
+                        stderr=subprocess.STDOUT).stdout
+    (evidence / f"{label}_{stamp}_ss.txt").write_text(ss)
+    proc_dir = evidence / f"{label}_{stamp}_proc"
+    proc_dir.mkdir()
+    for pid in sorted(pids):
+        for name in ("status", "wchan", "cmdline"):
+            try:
+                data = (Path("/proc") / str(pid) / name).read_bytes()
+                if name == "cmdline":
+                    data = data.replace(b"\0", b" ") + b"\n"
+                (proc_dir / f"{pid}_{name}.txt").write_bytes(data)
+            except OSError as exc:
+                (proc_dir / f"{pid}_{name}.error.txt").write_text(str(exc) + "\n")
+        stack = Path("/proc") / str(pid) / "stack"
+        try:
+            (proc_dir / f"{pid}_stack.txt").write_bytes(stack.read_bytes())
+        except OSError as exc:
+            (proc_dir / f"{pid}_stack.error.txt").write_text(str(exc) + "\n")
+    return sorted(pids)
+
+
+def signal_tree(root, sig, known):
+    targets = alive(known | descendants(root) | {root})
+    for pid in sorted(targets, reverse=True):
+        try:
+            os.kill(pid, sig)
+        except ProcessLookupError:
+            pass
+    return targets
+
+
+def wait_tree(process, root, known, seconds):
+    deadline = time.monotonic() + seconds
+    while time.monotonic() < deadline:
+        process.poll()
+        reap_adopted(known - {root})
+        known |= descendants(root)
+        if not alive(known):
+            return True, known
+        time.sleep(0.05)
+    return not alive(known), known
+
+
+def supervise(args):
+    evidence = Path(args.evidence).resolve()
+    evidence.mkdir(parents=True, exist_ok=False)
+    os.chmod(evidence, 0o700)
+    out = (evidence / "stdout.log").open("wb", buffering=0)
+    err = (evidence / "stderr.log").open("wb", buffering=0)
+    started_mono = time.monotonic()
+    started_utc = utc_now()
+    process = subprocess.Popen(args.command, stdout=out, stderr=err,
+                               start_new_session=True, env={**os.environ, "PYTHONUNBUFFERED": "1"})
+    state = {
+        "label": args.label, "supervisor_pid": os.getpid(), "executor_pid": process.pid,
+        "executor_pgid": os.getpgid(process.pid), "executor_sid": os.getsid(process.pid),
+        "start_utc": started_utc, "timeout_seconds": args.timeout,
+        "command": args.command, "timed_out": False, "signals": [], "status": "RUNNING",
+    }
+    atomic_json(evidence / "state.json", state)
+    deadline = started_mono + args.timeout
+    while process.poll() is None and time.monotonic() < deadline:
+        time.sleep(0.05)
+    known = {process.pid} | descendants(process.pid)
+    if process.poll() is None:
+        state["timed_out"] = True
+        state["watchdog_trigger_utc"] = utc_now()
+        state["pre_timeout_pids"] = snapshot(process.pid, evidence, "pre_timeout")
+        atomic_json(evidence / "state.json", state)
+        for sig, grace in ((signal.SIGINT, args.int_grace),
+                           (signal.SIGTERM, args.term_grace),
+                           (signal.SIGKILL, args.kill_grace)):
+            targets = signal_tree(process.pid, sig, known)
+            known |= targets
+            state["signals"].append({"signal": signal.Signals(sig).name,
+                                     "utc": utc_now(), "targets": sorted(targets)})
+            gone, known = wait_tree(process, process.pid, known, grace)
+            atomic_json(evidence / "state.json", state)
+            if gone:
+                break
+    try:
+        rc = process.wait(timeout=2)
+    except subprocess.TimeoutExpired:
+        rc = None
+    residual = sorted(alive(known | descendants(process.pid)))
+    state.update({
+        "end_utc": utc_now(), "duration_seconds": round(time.monotonic() - started_mono, 3),
+        "executor_exit_code": rc, "residual_pids": residual,
+        "residual_count": len(residual),
+        "status": "PASS" if not residual and not state["timed_out"] and rc == 0
+                  else "WATCHDOG_CLEANUP_PASS" if not residual and state["timed_out"]
+                  else "FAIL",
+    })
+    atomic_json(evidence / "result.json", state)
+    atomic_json(evidence / "state.json", state)
+    out.close(); err.close()
+    return 0 if not residual and (rc == 0 or state["timed_out"]) else 1
+
+
+def detach(args):
+    pid = os.fork()
+    if pid:
+        print(json.dumps({"daemon_pid": pid, "evidence": str(Path(args.evidence).resolve())}))
+        return 0
+    os.setsid()
+    signal.signal(signal.SIGHUP, signal.SIG_IGN)
+    null = os.open("/dev/null", os.O_RDWR)
+    for fd in (0, 1, 2):
+        os.dup2(null, fd)
+    os.close(null)
+    rc = supervise(args)
+    os._exit(rc)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("mode", choices=("run", "start"))
+    parser.add_argument("--label", required=True)
+    parser.add_argument("--evidence", required=True)
+    parser.add_argument("--timeout", required=True, type=float)
+    parser.add_argument("--int-grace", type=float, default=2.0)
+    parser.add_argument("--term-grace", type=float, default=2.0)
+    parser.add_argument("--kill-grace", type=float, default=2.0)
+    parser.add_argument("command", nargs=argparse.REMAINDER)
+    args = parser.parse_args()
+    if args.command and args.command[0] == "--":
+        args.command = args.command[1:]
+    if not args.command:
+        parser.error("command required after --")
+    ctypes.CDLL(None).prctl(36, 1, 0, 0, 0)  # PR_SET_CHILD_SUBREAPER
+    return detach(args) if args.mode == "start" else supervise(args)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

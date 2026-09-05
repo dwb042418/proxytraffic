@@ -1,0 +1,22 @@
+REALISTIC_V3_R1_FINAL500_DOMAIN_POOL_READY
+old_domain=ivi.ru
+old_rank=479
+old_bucket=top_1_1000
+old_reason=CROSS_MODE_DOMAIN_ACTIONABILITY_INSTABILITY
+new_domain=deloitte.com
+new_rank=912
+same_bucket=true
+actionability=PASS
+cross_mode_sanity=8/8 PASS
+replacement_candidates_tested=10
+replacement_candidates_rejected=9
+TOTAL=500
+A=350
+B=100
+C=50
+duplicate=0
+missing=0
+formal_domain_pool_v3_r1_sha256=c3439f6db36f9ee94470c35a1b82e288da65c2f0cb7b2d347de334d73bb3b171
+domain_replacement_ledger_v3_r1_sha256=e068f038b39e95bab64e9f698996f6d1b83ba4e463df8a25660dfd781a422a0b
+historical_pool_sha256=ded7fd1277a32295fb1e5fef3b6df0967f10a578cb2d204b04409b55b6878071
+historical_ledger_sha256=59dd595f8c409756a2cfb6445c004291e75f11c2e3d8d6bef6c84cce6dadbf85

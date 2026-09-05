@@ -1,0 +1,27 @@
+ACTIONABILITY_AUDIT_CURRENT500_VALIDITY
+
+status=INVALID_INFRASTRUCTURE_FAILURE
+eligible_for_domain_replacement_decisions=NO
+eligible_for_split_or_plan_generation=NO
+
+gate_definition_sha256=baac5e249f81a743098d8e12c43f6c8ba4aca1745e12e03d9a2d69452258fd1e
+raw_trial_count=1500
+domain_count=500
+replays_per_domain=3
+playwright_version=1.62.0
+chromium_version=151.0.7922.34
+supervisor_timeout_count=0
+nonzero_residual_count=0
+
+observed_aggregate_stable=162
+observed_aggregate_unstable=338
+observed_counts_are_not_domain_eligibility_results=true
+
+reason=shared Trojan proxy path lost end-to-end connectivity during the audit while its local xray and redsocks service processes remained active
+evidence=large execution-order-correlated transition to 0/3 navigation success, followed by an independent cloudflare.com connectivity timeout through the still-active Trojan route
+control=after clearing the Trojan route, realistic-user direct connectivity to cloudflare.com immediately returned HTTP 301
+
+required_disposition=preserve evidence; do not perform deterministic replacement; do not generate v3 split or plans; do not run validation gates
+automatic_retry=PROHIBITED
+partial_result_reuse=PROHIBITED
+formal_sample_count=0

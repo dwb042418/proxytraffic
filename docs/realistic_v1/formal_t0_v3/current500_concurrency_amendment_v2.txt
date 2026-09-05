@@ -1,0 +1,42 @@
+FORMAL_T0_V3_CURRENT500_CONCURRENCY_AMENDMENT_V2
+
+status=FROZEN
+approval=HUMAN_APPROVED_INFRASTRUCTURE_CONCURRENCY_AMENDMENT
+scope=FORMAL_T0_V3_CURRENT500_ACTIONABILITY_AUDIT_CONCURRENCY_ONLY
+selected_workers=2
+workers2_additional_verification=WAIVED_BY_HUMAN_REVIEW
+
+REASON
+workers=2 previously demonstrated:
+0 conn_max hits,
+peak 87/128 connections,
+33/33 canary PASS,
+0 infrastructure health loss,
+0 residual.
+
+The previously failing navigation-rate criterion
+was subsequently removed from infrastructure
+qualification because candidate-domain navigation
+outcomes belong to domain eligibility rather than
+infrastructure health.
+
+HISTORICAL_RECORDS_PRESERVED
+current500_concurrency_amendment_v1=UNCHANGED_HISTORICAL_RECORD
+current500_infrastructure_qualification_amendment_v2=UNCHANGED_HISTORICAL_RECORD
+
+UNCHANGED_BY_THIS_AMENDMENT
+actionability_gate=UNCHANGED
+domain_pool=UNCHANGED
+probe_delays=UNCHANGED
+timeouts=UNCHANGED
+browser_semantics=UNCHANGED
+health_controls=UNCHANGED
+health_quorum=UNCHANGED
+redsocks_conn_max=UNCHANGED
+proxy_configuration=UNCHANGED
+
+CONCURRENCY_FREEZE
+workers_during_current500=2
+workers_2_to_1=PROHIBITED
+workers_2_to_4=PROHIBITED
+dynamic_concurrency_change=PROHIBITED
