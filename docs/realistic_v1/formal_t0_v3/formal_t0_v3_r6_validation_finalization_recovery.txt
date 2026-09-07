@@ -1,0 +1,83 @@
+R6_REMOTE_FINALIZATION_RECOVERY_PASS
+REALISTIC_V3_R6_VALIDATION_PASS
+
+RECOVERY_SCOPE=REMOTE_METADATA_ONLY
+R6_SAMPLE_VALIDATION=PASS
+R6_REMOTE_SAMPLE_ARCHIVE=PASS
+R6_FINAL_METADATA_ARCHIVE=PASS
+
+Initial sample validation completed successfully.
+Final metadata archive initially interrupted by transient SSH Broken pipe.
+Archive-only recovery subsequently completed. No sample was recollected.
+No methodology / classifier / retry / domain / plan semantics changed.
+
+ORIGINAL_RUN_EXIT=1
+ORIGINAL_FAILURE=FINAL_METADATA_RSYNC_SSH_BROKEN_PIPE
+ORIGINAL_RSYNC_EXIT=255
+SAMPLE_RECOLLECTION_COUNT=0
+BROWSER_RETRY_ATTEMPTS_ADDED_DURING_RECOVERY=0
+
+Pre-upload read-only checks:
+LOCAL_FINAL_SAMPLES=24
+REMOTE_FINAL_SAMPLES=24
+SAMPLE_IDENTITY_PLAN_CAPTURE=24/24 PASS
+LOCAL_SAMPLE_SHA_PASS=24/24
+REMOTE_SAMPLE_SHA_PASS=24/24
+REMOTE_ARTIFACT_SHA_PASS=1040/1040
+
+LOCAL_FINAL_METADATA_FILES=14
+REMOTE_FINAL_METADATA_PRESENT_BEFORE=13
+PENDING_METADATA_FILES_BEFORE=REALISTIC_V3_R6_24_SAMPLE_SMOKE_FAIL, smoke_result.json
+The FAIL marker was absent remotely; smoke_result.json differed.
+All pre-failure finalization files were present remotely; the interrupted connection prevented the original runner from completing final acknowledgement/SHA/count checks.
+The failure handler subsequently changed local smoke_result.json and added FAIL evidence.
+Original FINAL_METADATA_SHA256SUMS.txt remains unchanged as a historical pre-failure snapshot.
+A separate recovery registry verifies the current 14 metadata files including preserved failure history.
+No dedicated archive-only resume entry exists in the smoke adapter/core.
+Transferred only the two explicit pending metadata paths using rsync --checksum --partial with a partial directory and backup directory. No --delete; no sample/PCAP upload.
+The original remote summary was preserved locally and in a separate remote backup directory.
+
+FINAL_METADATA_UPLOAD=PASS
+FINAL_METADATA_SHA_PASS=14/14
+LOCAL_FINAL_FILE_COUNT=1046
+REMOTE_FINAL_FILE_COUNT=1046
+FINAL_FILE_COUNT_CONSISTENCY=PASS
+EXACT_FILE_PATH_SET_CONSISTENCY=PASS
+24 sample directories and 24 NON_FORMAL_SMOKE_SAMPLE_PASS semantics confirmed.
+Archive schema: 1040 immutable artifact entries + 5 finalization files + 1 preserved historical FAIL marker.
+Recovery evidence and registry are outside the validation archive root.
+RECOVERY_METADATA_REGISTRY_SHA256=5b7b27733a09acb2369b8d0d484e5f9d767416df9fd5f575685ae67ce4f9fd9c
+
+Single quartet: 4/4 PASS, 5 attempts, 1 retry; hotjar.com/event0 MAIN_NAVIGATION_TIMEOUT; attempt2 PASS.
+Smoke: 24/24 final samples PASS, 27 attempts, 3 retries.
+nike.com/event3 MAIN_NAVIGATION_TIMEOUT x2; stackadapt.com/event1 CONNECTION_CLOSED x1.
+ATTEMPT2_USAGE=2
+ATTEMPT3_USAGE=1
+RETRY_RATE=12.5% (3/24)
+R6_RECURRENT_RETRY_HOTSPOT=NONE
+R6_HIGH_TRANSIENT_RATE_REVIEW_REQUIRED=NO
+SSH recovery is excluded from browser retry statistics.
+HEALTH_FAILURES=0; MODE_PURITY_FAILURES=0; CAPTURE_FAILURES=0; CONN_MAX_HITS=0
+BYPASS=0; OOM=0; UNEXPECTED_WORKLOAD_EXIT=0; RESIDUAL=0
+
+Retirement/replacement unchanged: duckdns.org -> netlify.app rank267->949; crpt.ru -> nationalgeographic.com rank322->953.
+Each qualified 3/3 actionability, 8/8 cross-mode, 12/12 contextual; rejects=0; other498 unchanged.
+Frozen SHA and 300/300 plan SHA/0444 checks PASS.
+formal_domain_pool_v3_r6.tsv=ecd91851f93099bcb823d0049455c8d53401cf4cac17ed46a5005a5737c09b16
+domain_replacement_ledger_v3_r6.tsv=fa1296908b7f0d96b10516db0683bbcbabf72f587fd7b37fa968102cececa4f9
+formal_domain_split_v3_r6.tsv=215c1bc8619a266f378604885aa6e2f4f21c971c0facced65bdfc9228baa0008
+formal_t0_v3_plan_manifest_r6.tsv=32ba8634dbcee246083482855c1d917863895e8e478307cb2e58e2f11d0e3f68
+FORMAL_T0_V3_PLAN_SHA256SUMS_R6.txt=35a84d792b133bb1bda8ef2de74f8b1c252e1bb2df4e08278eaf68c7e78d8f07
+formal_t0_v3_schedule_r6.tsv=96b6763e9dc733058d5ee22aabc47379e790545b21b804b4968b8857717f7e98
+FailureClassifierV3=c86b4ea1ce4cf74c486025a57e7aef325a39f0ea8f0c3eafa080488100893e98
+RetryPolicyV4=48fb9290e9192d9068882693384ee24f37cc14c7bc40c9fdfe6e0d4b9f31d32a
+
+ORIGINAL_FAIL_EVIDENCE_PRESERVED=YES
+Original runner log, exit255 evidence, local validation artifacts and remote sample artifacts unchanged.
+Prior failure summary remains as historical execution evidence; this separate recovery report supplies final status.
+RECOVERY_EVIDENCE_ROOT=/home/etip/datasets/diagnostics/r6_remote_finalization_recovery_20260907
+LOCAL_VALIDATION_ROOT=/home/etip/datasets/staging/realistic_v1/r6_non_formal_smoke_v3/realistic_v3_24_sample_smoke_retry_v4_20260907T092757Z
+REMOTE_VALIDATION_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/r6_non_formal_smoke_v3/realistic_v3_24_sample_smoke_retry_v4_20260907T092757Z
+
+STOP_WAIT_MANUAL_REVIEW
+No preregistration, commit, push or Formal production.

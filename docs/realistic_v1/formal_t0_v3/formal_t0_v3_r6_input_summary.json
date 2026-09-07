@@ -1,0 +1,91 @@
+{
+  "status": "R6_INPUTS_READY_NOT_PREREGISTERED",
+  "retired": [
+    "duckdns.org",
+    "crpt.ru"
+  ],
+  "mapping": [
+    {
+      "old_domain": "duckdns.org",
+      "old_rank": 267,
+      "bucket": "top_1_1000",
+      "candidate_rank": 949,
+      "candidate_domain": "netlify.app",
+      "candidate_order": 1,
+      "qualification_status": "QUALIFIED",
+      "actionability": "3/3 PASS",
+      "cross_mode": "8/8 PASS",
+      "contextual": "12/12 PASS",
+      "contextual_pair_group": "seed001_heavy",
+      "target_event_index": 4,
+      "source_plan_sha": "3bba638e9b7b942de8bb23a19b3c1960e1ba526cfd81211a563067f896c835fb",
+      "retirement_rule": "RULE_A",
+      "candidate_retry_count": 0,
+      "evidence_root": "/home/etip/datasets/diagnostics/contextual_batch_replacement_20260907/candidates/949_netlify.app"
+    },
+    {
+      "old_domain": "crpt.ru",
+      "old_rank": 322,
+      "bucket": "top_1_1000",
+      "candidate_rank": 953,
+      "candidate_domain": "nationalgeographic.com",
+      "candidate_order": 2,
+      "qualification_status": "QUALIFIED",
+      "actionability": "3/3 PASS",
+      "cross_mode": "8/8 PASS",
+      "contextual": "12/12 PASS",
+      "contextual_pair_group": "seed001_medium",
+      "target_event_index": 1,
+      "source_plan_sha": "bedaf19d80433aa636971be6f9250fd8751d3c6c1f774acb87e6c6c7956c19d9",
+      "retirement_rule": "RULE_B",
+      "candidate_retry_count": 0,
+      "evidence_root": "/home/etip/datasets/diagnostics/contextual_batch_replacement_20260907/candidates/953_nationalgeographic.com"
+    }
+  ],
+  "candidate_rejects": 0,
+  "unchanged_domain_rows": 498,
+  "total": 500,
+  "A": 350,
+  "B": 100,
+  "C": 50,
+  "duplicate": 0,
+  "missing": 0,
+  "membership_counts": {
+    "original_stable": 459,
+    "replacement_stable": 41
+  },
+  "generator_sha256": "7738dd3c3ae9d2585bb00c571b2484c1884ddcd2b8b58961151c23dc58824afb",
+  "sha256": {
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_pool_v3_r6.tsv": "ecd91851f93099bcb823d0049455c8d53401cf4cac17ed46a5005a5737c09b16",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/domain_replacement_ledger_v3_r6.tsv": "fa1296908b7f0d96b10516db0683bbcbabf72f587fd7b37fa968102cececa4f9",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_split_v3_r6.tsv": "215c1bc8619a266f378604885aa6e2f4f21c971c0facced65bdfc9228baa0008",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_plan_manifest_r6.tsv": "32ba8634dbcee246083482855c1d917863895e8e478307cb2e58e2f11d0e3f68",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/FORMAL_T0_V3_PLAN_SHA256SUMS_R6.txt": "35a84d792b133bb1bda8ef2de74f8b1c252e1bb2df4e08278eaf68c7e78d8f07",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_schedule_r6.tsv": "96b6763e9dc733058d5ee22aabc47379e790545b21b804b4968b8857717f7e98"
+  },
+  "reused_tests": {
+    "lifecycle_soak": "40/40 PASS",
+    "classifier_policy": "10/10 PASS",
+    "production_retry_resume": "27/27 PASS"
+  },
+  "unchanged_code_sha256": {
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/formal_failure_classifier_v3.py": "c86b4ea1ce4cf74c486025a57e7aef325a39f0ea8f0c3eafa080488100893e98",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_single_quartet_v3_validation_retry_v4.py": "7fca6b92c56caa251703aa356dc22ff97e94bcade76ec19c5f92dbb194848a2b",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_formal_t0_v3_r5_production.py": "df025534ea16ed114f36f1506c2fe26d3678a9f41c538e788ff91fca19db0c19",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_24_sample_smoke_v3_retry_v4.py": "ac71c6bbd795308ec6317258b164b154c88b3394063b5ed6ae138af655b49e07",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_single_quartet_v3_r5_validation.py": "27b24a9bd8862a3a1d4c9bab393dc3fe04ecffba254effee888fb2356e695b62",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_24_sample_smoke_v3_r5.py": "d038021e5e6da42ba0bf663a6323959c3b84692de50645623d00028e2d1a20f3",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/test_formal_failure_classifier_v3.py": "b6cbe955bd7d0b01db70297d939b44ff5e5e6b6a816e60d80ab658b623516936",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/test_formal_t0_v3_r5_production.py": "ac52adb9d0deb1de9a68109543631c43b1edd38507e252d56dccb87623aeefb7",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_transient_retry_policy_v4.txt": "48fb9290e9192d9068882693384ee24f37cc14c7bc40c9fdfe6e0d4b9f31d32a",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_r5_production_root_amendment_v1.txt": "0e1b05065ad6ff1290e8b640a60520116a0497db88d2399d9966aa655b9f30fd",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/build_formal_t0_v3_split_plans.py": "7738dd3c3ae9d2585bb00c571b2484c1884ddcd2b8b58961151c23dc58824afb",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/realistic_browser_v3.py": "8e034da6979c463391f78ff95c4f98f76d675d44f72377980ab00e4636cc74a1",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_single_quartet_v3_validation.py": "9fa8c0f67228a09282d541071f502ef112eb7b3cd1588ee7ae581a9de3085294",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/audit_actionability_trial_v3.py": "3dd7f6d9d5de55f61b1a94e6c3367961620a3ead47eaf787ddbaf77dd06feab8",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/qualify_ivi_replacement_r1.py": "62f9e2b0e7e2ddba8d70facb9c41190dfef1822481db07e0f06a5332effd8e0e",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/qualify_mobolize_replacement_r2.py": "60161669b63eab52db8dca25fa5aa221094c2f3b02d5005a848bc4165ab7bbd7"
+  },
+  "preregistration": false,
+  "formal_samples": 0
+}

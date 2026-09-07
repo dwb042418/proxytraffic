@@ -1,0 +1,116 @@
+FORMAL_T0_V3_R6_PREREGISTRATION_SUMMARY
+status=PREREGISTRATION_BEFORE_PRODUCTION
+human_review=R6_REMOTE_FINALIZATION_RECOVERY_PASS_AND_REALISTIC_V3_R6_VALIDATION_PASS_APPROVED
+scope=PREREGISTRATION_ONLY
+formal_sample_started=false
+production_start=REQUIRES_SEPARATE_HUMAN_AUTHORIZATION
+required_final_authorization=START FORMAL T0 V3 R6 PRODUCTION
+
+Final500_SHA256=ecd91851f93099bcb823d0049455c8d53401cf4cac17ed46a5005a5737c09b16
+Split_SHA256=215c1bc8619a266f378604885aa6e2f4f21c971c0facced65bdfc9228baa0008
+Plan_registry_SHA256=35a84d792b133bb1bda8ef2de74f8b1c252e1bb2df4e08278eaf68c7e78d8f07
+Plan_manifest_SHA256=32ba8634dbcee246083482855c1d917863895e8e478307cb2e58e2f11d0e3f68
+Schedule_SHA256=96b6763e9dc733058d5ee22aabc47379e790545b21b804b4968b8857717f7e98
+Failure_Classifier_v3_SHA256=c86b4ea1ce4cf74c486025a57e7aef325a39f0ea8f0c3eafa080488100893e98
+Retry_Policy_v4_SHA256=48fb9290e9192d9068882693384ee24f37cc14c7bc40c9fdfe6e0d4b9f31d32a
+Health_definition_SHA256=b26988debe3b4fd147a986f31902a8e628209b3825d0f2798a847e0203a09ffb
+Production_orchestrator_SHA256=25c86652f1b4a69eff03ca5145ee1c89c4dad6f4be0dd016341f1969ecd539b6
+Production_root_amendment_SHA256=d4dd8f24cef69bbc3ac1a4f10420e3adbecb4f6ef881bbebf870c2e678c9c701
+Domain_contextual_retirement_rule_v2_SHA256=107ffbe4aafaf6a37d52c7aa194bdde61536a1b6db8aff1e9b08d8071fee334b
+Methodology_amendment_SHA256=917c3d207c8522abe7215b3fa9b9ab9cf9e4b6273e50cb4b93058a6c0e6fb318
+Finalization_recovery_report_SHA256=6ad51cb0ddae6bdf5f7c5a12466a2c25c821c8f0c5285777deb1f6e3eafe35da
+
+LOCAL_PRODUCTION_ROOT=/home/etip/datasets/staging/realistic_v1/t0_v3_r6
+REMOTE_PRODUCTION_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/t0_v3_r6
+local_sample_count=0
+remote_sample_count=0
+R6_VALID_SAMPLES=0
+R6_NEXT_SEQUENCE_ID=1
+domains=500
+Train=300
+Validation=50
+Test=150
+plans=300
+pair_groups=300
+schedule_rows=1200
+direct=300
+vless=300
+shadowsocks=300
+trojan=300
+plan_SHA=300/300 PASS
+plan_permissions_0444=300/300 PASS
+pair_group_exact_same_immutable_plan=PASS
+schedule_integrity=PASS
+integrity_issues=0
+
+Failure_Classifier=v3
+Retry_Policy=v4
+MAX_ATTEMPTS_PER_SAMPLE=3
+driver_initialization_failure_without_workload=PLAYWRIGHT_DRIVER_CONNECTION_CLOSED; EXECUTOR_INITIALIZATION; MODE_PURITY_NOT_EVALUABLE
+actual_mode_purity_violation=FAIL_CLOSED
+retry_ledger=formal_t0_v3_r6_retry_ledger.tsv
+ledger_updates=atomic replace and fsync; initialized only at separately authorized production start
+FREE_SPACE_THRESHOLD_BYTES=21474836480
+eviction=only independently remote-SHA-verified SAMPLE_COMPLETE samples; atomic eviction ledger
+redsocks_soft_NOFILE=2048
+redsocks_hard_NOFILE=524288
+redsocks_actual_conn_max=256 enforced per proxy sample via actual PID and startup journal
+health_capture_semantics=UNCHANGED; ACTIVE_HEALTH_PROBE_DURING_CAPTURE=0
+model_input=observed.pcap; original/egress audit-only
+
+R1_R2_R3_R4_STATUS=HISTORICAL_DEVELOPMENT_OR_ABORTED_PILOT
+R1_R2_R3_R4_R5_FINAL_DATASET_ELIGIBLE=NO
+R1_R2_R3_R4_R5_RESUME_SOURCE=PROHIBITED
+R4_VALID_SAMPLES=20
+R4_FINAL_DATASET_ELIGIBLE=NO
+R5_STATUS=VALIDATION_FAILED_PRE_PREREGISTRATION
+R5_FORMAL_SAMPLES=0
+R6_STATUS=VALIDATION_PASS
+R6_FORMAL_SAMPLES=0
+historical_local_remote_provenance=RETAIN_UNMODIFIED
+
+duckdns.org=RETIRED; netlify.app rank267->949
+crpt.ru=RETIRED; nationalgeographic.com rank322->953
+each_replacement_qualification=actionability3/3; cross-mode8/8; contextual12/12 PASS
+candidate_rejects=0
+other_domain_rows_unchanged=498
+
+single_quartet=4/4 PASS; attempts5; retries1
+single_quartet_retry=hotjar.com/event0 MAIN_NAVIGATION_TIMEOUT; attempt2 PASS
+smoke_sample_collection=24/24 PASS
+remote_sample_SHA=24/24 PASS
+artifact_SHA=1040/1040 PASS
+final_metadata_SHA=14/14 PASS
+local_remote_archive_file_count=1046/1046
+path_set_identical=YES
+TOTAL_ATTEMPTS=27
+TOTAL_RETRIES=3
+RETRY_RATE=12.5%
+ATTEMPT2_USAGE=2
+ATTEMPT3_USAGE=1
+retry_attribution=nike.com/event3 MAIN_NAVIGATION_TIMEOUT x2; stackadapt.com/event1 CONNECTION_CLOSED x1
+R6_RECURRENT_RETRY_HOTSPOT=NONE
+R6_HIGH_TRANSIENT_RATE_REVIEW_REQUIRED=NO
+health_failures=0; mode_purity_failures=0; capture_failures=0; conn_max_hits=0; bypass=0; OOM=0; unexpected_workload_exit=0; residual=0
+
+ORIGINAL_RUN_EXIT=1
+ORIGINAL_FAILURE=FINAL_METADATA_RSYNC_SSH_BROKEN_PIPE
+ORIGINAL_RSYNC_EXIT=255
+SAMPLE_RECOLLECTION_COUNT=0
+BROWSER_RETRY_ATTEMPTS_ADDED_DURING_RECOVERY=0
+RECOVERY_SCOPE=REMOTE_METADATA_ONLY
+ORIGINAL_FAIL_EVIDENCE=PRESERVED
+
+production_synthetic_retry_resume=28/28 PASS
+production_actual_dry_run=PASS
+production_actual_dry_run_exit=0
+FREE_DISK_BYTES=21729587200
+FREE_DISK_SHORTFALL_BYTES=0
+commit_status=preregistration commit containing this document; actual full HEAD recorded after commit
+push_status=REQUIRES_PUSH_AND_ACTUAL_ORIGIN_MAIN_EQUALITY_CHECK
+FROZEN_GIT_HEAD=actual containing preregistration commit, frozen only after successful push and equality verification
+NEXT_ACTION=authorized commit/push/final freeze checks; no Formal production
+EVIDENCE_ROOT=/home/etip/datasets/diagnostics/r6_preregistration_20260907
+initial_precommit_dry_run=FAIL_CLOSED_STORAGE; historical log preserved
+cache_cleanup=regenerable npm/APT caches only; no dataset/evidence/log deletion
+postpush_dry_run=REQUIRED_AT_NEW_COMMIT

@@ -1,0 +1,28 @@
+FORMAL_T0_V3_R6_PRODUCTION_ORCHESTRATOR_VALIDATION
+production_synthetic_retry_resume=28/28 PASS
+includes=attempt1/2/3; no attempt4; driver-init transient; context-destroyed; nonretryable HTTP429/purity/connmax; failed artifact preservation; atomic ledger; local/remote-only valid completion; incomplete review; dry-run no lifecycle; low-disk fail-closed
+original27_tests=rerun against R6 adaptation; one additional explicit low-disk test
+R5 execution logic unchanged after R6 path/label normalization; only root governance verifier content adapted.
+archive_pending/archive-only_resume/rolling_eviction/storage_checkpoint/atomic_hard_stop=retained existing implementation
+classifier_v3_policy_v4_regression=10/10 PASS reused; frozen bytes unchanged
+lifecycle_soak=40/40 PASS reused; browser/driver lifecycle code unchanged
+initial_actual_preregistration_dry_run=FAIL_CLOSED
+initial_reason=PrecheckFail: free disk below 20 GiB
+formal_sample_started=false
+local_formal_sample_count=0
+remote_formal_sample_count=0
+NEXT_SEQUENCE_ID=1
+No proxy/browser/tcpdump/workload started by dry-run.
+initial_actual_free_bytes=20646043648
+required_free_bytes=21474836480
+shortfall_bytes=828792832
+production_orchestrator_SHA256=25c86652f1b4a69eff03ca5145ee1c89c4dad6f4be0dd016341f1969ecd539b6
+production_test_SHA256=2a08ddc6386049c9f60e7b9fa4b773e6fba1e00d85060bed88a4cdc27ae1d1ad
+EVIDENCE_ROOT=/home/etip/datasets/diagnostics/r6_preregistration_20260907
+
+actual_preregistration_dry_run_after_cache_cleanup=PASS
+formal_sample_started=false
+NEXT_SEQUENCE_ID=1
+actual_free_bytes=21729587200
+remote_free_bytes=3237299617792
+final_dry_run_evidence=/home/etip/datasets/diagnostics/r6_preregistration_20260907/preregistration_dry_run_after_cleanup.log

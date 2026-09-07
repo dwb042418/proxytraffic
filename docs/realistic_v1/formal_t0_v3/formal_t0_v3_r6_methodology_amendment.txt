@@ -1,0 +1,76 @@
+FORMAL_T0_V3_R6_METHODOLOGY_AMENDMENT
+R6 revision scope: domain eligibility revision; classifier v3 and retry policy v4 unchanged.
+Preregistration is authorized; Formal production requires a separate final human START authorization.
+
+Historical governance
+R1/R2/R3/R4 are historical development / aborted pilots and are excluded from the R6 final dataset and resume source.
+R3 valid samples=30; aborted early production pilot.
+R4_STATUS=ABORTED_EARLY_PRODUCTION_PILOT
+R4_VALID_SAMPLES=20
+R4_FINAL_DATASET_ELIGIBLE=NO
+R5_STATUS=VALIDATION_FAILED_PRE_PREREGISTRATION
+R5_FORMAL_SAMPLES=0
+R6_STATUS=VALIDATION_PASS
+R6_FORMAL_SAMPLES=0
+Preserve all local/remote historical provenance and failed attempt evidence.
+
+R4 sample0021 forensic
+VLESS attempt1 failed during Playwright initialization: Connection closed while reading from the driver.
+Workload had not started, no browser workload traffic existed, and all three PCAPs were empty.
+Frozen classifier v2 assigned MODE_PURITY_FAIL from downstream empty traffic/quality instead of the primary startup failure.
+Failure Classifier v3 gives executor/bootstrap failure precedence and uses PLAYWRIGHT_DRIVER_CONNECTION_CLOSED, EXECUTOR_INITIALIZATION, MODE_PURITY=NOT_EVALUABLE when workload never began.
+Real wrong-mode traffic, public443 bypass and other observable purity violations remain fail-closed.
+Lifecycle soak40/40 and classifier/policy regression10/10 previously passed; corresponding frozen bytes unchanged.
+Retry Policy v4 allows this narrowly bounded transient only with all defined healthy infrastructure, clean capture/cleanup and no OOM/kernel-kill/resource-exhaustion gates.
+MAX_ATTEMPTS_PER_SAMPLE=3; fresh whole-sample lifecycle; attempt3 failure hard-stops; no attempt4 or in-place call/event/action retries.
+
+Domain Contextual Retirement Rule V2
+Created during pre-preregistration validation, before any R6 Formal collection; applies across modes.
+DuckDNS terminal contextual instability: R4 seed001_heavy event4 Shadowsocks two consecutive navigation timeouts; independent R5 seed001_heavy event4 VLESS three consecutive timeouts, clean infrastructure.
+Standalone12/12 PASS does not override production-equivalent workload-context failure.
+crpt.ru recurrent retry hotspot: R5 seed001_medium event1 VLESS two timeouts before attempt3 PASS, plus Trojan one timeout before attempt2 PASS; three transient failures across two modes, clean infrastructure.
+RULE_A retires duckdns.org. RULE_B retires crpt.ru.
+duckdns.org rank267 -> netlify.app rank949, same top_1_1000 bucket.
+crpt.ru rank322 -> nationalgeographic.com rank953, same top_1_1000 bucket.
+Candidates follow same-bucket ascending-rank selection with current pool, historical retired/unstable/rejected and already-selected domains excluded.
+Both replacements: actionability3/3, cross-mode8/8, production-contextual12/12 PASS; candidate rejects=0; candidate retries=0.
+Contextual gates preserve full original prefixes: seed001_heavy event0..4 and seed001_medium event0..1 respectively.
+Other498 domain rows unchanged. R6 split/plans/schedule were generated using the existing deterministic generator; their approved bytes now remain unchanged.
+
+Validated execution and archive
+R6 single quartet=4/4 PASS; attempts=5; retries=1; hotjar.com/event0 MAIN_NAVIGATION_TIMEOUT then VLESS attempt2 PASS; remote SHA PASS.
+R6 smoke=24/24 final sample collection PASS; two light, two medium, two heavy pair groups; four modes per group.
+TOTAL_ATTEMPTS=27
+TOTAL_RETRIES=3
+ATTEMPT2_USAGE=2
+ATTEMPT3_USAGE=1
+RETRY_RATE=12.5%
+Retry attribution: nike.com/event3 MAIN_NAVIGATION_TIMEOUT x2; stackadapt.com/event1 CONNECTION_CLOSED x1.
+R6_RECURRENT_RETRY_HOTSPOT=NONE
+R6_HIGH_TRANSIENT_RATE_REVIEW_REQUIRED=NO
+remote_sample_SHA=24/24 PASS
+artifact_SHA=1040/1040 PASS
+final_metadata_SHA=14/14 PASS
+local_remote_file_count=1046/1046
+path_set_identical=YES
+health_failures=0; mode_purity_failures=0; capture_failures=0; conn_max_hits=0; bypass=0; OOM=0; unexpected_workload_exit=0; residual=0
+
+Remote finalization recovery provenance
+ORIGINAL_RUN_EXIT=1
+ORIGINAL_FAILURE=FINAL_METADATA_RSYNC_SSH_BROKEN_PIPE
+ORIGINAL_RSYNC_EXIT=255
+SAMPLE_RECOLLECTION_COUNT=0
+BROWSER_RETRY_ATTEMPTS_ADDED_DURING_RECOVERY=0
+RECOVERY_SCOPE=REMOTE_METADATA_ONLY
+Initial sample validation completed successfully; final metadata archive was interrupted by transient SSH Broken pipe; archive-only recovery completed.
+Original FAIL marker, runner log, rsync stderr and exit255 evidence are retained. Recovery is separately documented in formal_t0_v3_r6_validation_finalization_recovery.txt.
+Archive SSH failures are not browser retries. No methodology, classifier, retry, domain or plan semantics changed during recovery.
+
+Frozen operational semantics
+PRE health PASS -> stop active probes -> capture/browser workload -> capture finalize -> POST health PASS.
+ACTIVE_HEALTH_PROBE_DURING_CAPTURE=0
+observed.pcap is model input; original.pcap and egress.pcap are audit/provenance only.
+Browser semantics, event/action order, dwell/timing and 30000ms navigation timeout unchanged.
+Proxy redsocks actual PID limits: soft NOFILE2048, hard524288, startup journal actual conn_max256; otherwise PRECHECK_FAIL before browser/capture.
+FREE_SPACE<20GiB blocks the next pair group. Rolling local eviction only for remote SAMPLE_COMPLETE and independently SHA-verified complete samples, with atomic eviction ledger. Failed attempts and unconfirmed data preserved.
+R6 Formal orchestrator adapts only R6 roots, frozen input SHA, labels/ledger names and root/retirement provenance; retry/resume/archive/storage execution logic remains the validated R5 implementation.
