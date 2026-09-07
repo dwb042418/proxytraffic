@@ -17,7 +17,7 @@ Health_definition_SHA256=b26988debe3b4fd147a986f31902a8e628209b3825d0f2798a847e0
 Production_orchestrator_SHA256=25c86652f1b4a69eff03ca5145ee1c89c4dad6f4be0dd016341f1969ecd539b6
 Production_root_amendment_SHA256=d4dd8f24cef69bbc3ac1a4f10420e3adbecb4f6ef881bbebf870c2e678c9c701
 Domain_contextual_retirement_rule_v2_SHA256=107ffbe4aafaf6a37d52c7aa194bdde61536a1b6db8aff1e9b08d8071fee334b
-Methodology_amendment_SHA256=917c3d207c8522abe7215b3fa9b9ab9cf9e4b6273e50cb4b93058a6c0e6fb318
+Methodology_amendment_SHA256=ab282ee271a83e8c048c1ae6ea0605b18722850faecdfe2d5cffc44e432af62b
 Finalization_recovery_report_SHA256=6ad51cb0ddae6bdf5f7c5a12466a2c25c821c8f0c5285777deb1f6e3eafe35da
 
 LOCAL_PRODUCTION_ROOT=/home/etip/datasets/staging/realistic_v1/t0_v3_r6
@@ -104,7 +104,7 @@ ORIGINAL_FAIL_EVIDENCE=PRESERVED
 production_synthetic_retry_resume=28/28 PASS
 production_actual_dry_run=PASS
 production_actual_dry_run_exit=0
-FREE_DISK_BYTES=21729587200
+FREE_DISK_BYTES=34103484416
 FREE_DISK_SHORTFALL_BYTES=0
 commit_status=preregistration commit containing this document; actual full HEAD recorded after commit
 push_status=REQUIRES_PUSH_AND_ACTUAL_ORIGIN_MAIN_EQUALITY_CHECK
@@ -114,3 +114,34 @@ EVIDENCE_ROOT=/home/etip/datasets/diagnostics/r6_preregistration_20260907
 initial_precommit_dry_run=FAIL_CLOSED_STORAGE; historical log preserved
 cache_cleanup=regenerable npm/APT caches only; no dataset/evidence/log deletion
 postpush_dry_run=REQUIRED_AT_NEW_COMMIT
+
+PREREGISTRATION_STORAGE_PRECHECK_RECOVERY
+initial_dry_run=FAIL
+reason=FREE_DISK_BELOW_20_GIB
+initial_free_bytes=20646043648
+required_free_bytes=21474836480
+shortfall_bytes=828792832
+After regenerable package-cache cleanup, the earlier precommit dry-run passed. Subsequent separately authorized historical local-only eviction provided additional headroom.
+Historical archive audit scope: realistic_v1/t0 and realistic_v1/t0_v2 only.
+t0_verified_samples=88/88; t0_verified_files=1848/1848
+t0_v2_verified_samples=44/44; t0_v2_verified_files=924/924
+TOTAL_verified_historical_samples=132; TOTAL_verified_files=2772
+remote_independent_SHA_path_completeness=PASS
+path_mismatch=0; SHA_mismatch=0; missing=0
+cleanup_action=LOCAL-ONLY EVICTION
+local_data_released_bytes=12378927104
+local_data_released_GiB=11.53
+post_cleanup_free_GiB=approximately31.75
+REMOTE HISTORICAL ARCHIVES RETAINED
+NO R6 VALIDATION DATA DELETED
+NO R6 FORMAL SAMPLE DELETED
+NO FROZEN DATASET INPUT CHANGED
+NO CLASSIFIER/POLICY CHANGE
+NO METHODOLOGY SEMANTICS CHANGE
+cleanup_evidence=/home/etip/datasets/diagnostics/t0_t0v2_archive_eviction_20260907/cleanup_result.json
+eviction_ledger=/home/etip/datasets/diagnostics/t0_t0v2_archive_eviction_20260907/eviction_ledger.jsonl
+Cleanup runtime evidence remains outside Git; this entry records provenance only.
+storage_recovery_finalization_dry_run=PASS
+storage_recovery_dry_run_git_head=bf30f87e15f68b4d3a69359d92728ba906a4daef
+browser_started=false
+tcpdump_started=false

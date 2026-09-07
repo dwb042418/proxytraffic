@@ -74,3 +74,30 @@ Browser semantics, event/action order, dwell/timing and 30000ms navigation timeo
 Proxy redsocks actual PID limits: soft NOFILE2048, hard524288, startup journal actual conn_max256; otherwise PRECHECK_FAIL before browser/capture.
 FREE_SPACE<20GiB blocks the next pair group. Rolling local eviction only for remote SAMPLE_COMPLETE and independently SHA-verified complete samples, with atomic eviction ledger. Failed attempts and unconfirmed data preserved.
 R6 Formal orchestrator adapts only R6 roots, frozen input SHA, labels/ledger names and root/retirement provenance; retry/resume/archive/storage execution logic remains the validated R5 implementation.
+
+PREREGISTRATION_STORAGE_PRECHECK_RECOVERY
+initial_dry_run=FAIL
+reason=FREE_DISK_BELOW_20_GIB
+initial_free_bytes=20646043648
+required_free_bytes=21474836480
+shortfall_bytes=828792832
+After regenerable package-cache cleanup, the earlier precommit dry-run passed. Subsequent separately authorized historical local-only eviction provided additional headroom.
+Historical archive audit scope: realistic_v1/t0 and realistic_v1/t0_v2 only.
+t0_verified_samples=88/88; t0_verified_files=1848/1848
+t0_v2_verified_samples=44/44; t0_v2_verified_files=924/924
+TOTAL_verified_historical_samples=132; TOTAL_verified_files=2772
+remote_independent_SHA_path_completeness=PASS
+path_mismatch=0; SHA_mismatch=0; missing=0
+cleanup_action=LOCAL-ONLY EVICTION
+local_data_released_bytes=12378927104
+local_data_released_GiB=11.53
+post_cleanup_free_GiB=approximately31.75
+REMOTE HISTORICAL ARCHIVES RETAINED
+NO R6 VALIDATION DATA DELETED
+NO R6 FORMAL SAMPLE DELETED
+NO FROZEN DATASET INPUT CHANGED
+NO CLASSIFIER/POLICY CHANGE
+NO METHODOLOGY SEMANTICS CHANGE
+cleanup_evidence=/home/etip/datasets/diagnostics/t0_t0v2_archive_eviction_20260907/cleanup_result.json
+eviction_ledger=/home/etip/datasets/diagnostics/t0_t0v2_archive_eviction_20260907/eviction_ledger.jsonl
+Cleanup runtime evidence remains outside Git; this entry records provenance only.
