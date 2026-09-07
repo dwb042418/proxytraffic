@@ -1,0 +1,116 @@
+FORMAL_T0_V3_R4_METHODOLOGY_AMENDMENT
+status=PREREGISTRATION_BEFORE_R4_PRODUCTION
+human_review=REALISTIC_V3_R4_RETRY_V3_VALIDATION_PASS_APPROVED
+
+HISTORICAL_PRODUCTION
+R2_STATUS=ABORTED_EARLY_PRODUCTION_PILOT
+R3_STATUS=ABORTED_EARLY_PRODUCTION_PILOT
+R3_VALID_SAMPLES=30
+R3_ABORT_SEQUENCE_ID=31
+R3_ABORT_URL=https://meta.com/
+R3_ABORT_MODE=vless
+R3_ABORT_ATTEMPT1=MAIN_NAVIGATION_TIMEOUT
+R3_ABORT_ATTEMPT2=MAIN_NAVIGATION_TIMEOUT
+R2_R3_LOCAL_REMOTE_PROVENANCE=RETAIN_UNMODIFIED
+R2_R3_FINAL_DATASET_ELIGIBLE=NO
+R2_R3_R4_RESUME_SOURCE=PROHIBITED
+
+META_COM_TEMPORAL_INSTABILITY
+classification=TEMPORAL_DOMAIN_ACTIONABILITY_INSTABILITY
+cross_mode_direct=1/3 PASS
+cross_mode_vless=1/3 PASS
+cross_mode_shadowsocks=2/3 PASS
+cross_mode_trojan=0/3 PASS
+main_navigation_timeout=4
+HTTP_STATUS_429=4
+PRE_HEALTH=12/12 PASS
+POST_HEALTH=12/12 PASS
+infrastructure_failures=0
+
+R4_POOL_CONSTRUCTION
+final_temporal_freshness_gate=460 PASS / 14 FAIL
+final_temporal_freshness_gate_trials=948
+final_temporal_freshness_gate_infrastructure_failures=0
+deterministic_temporal_replacements=14
+replacement_rule=same_bucket_rank_ascending
+replacement_actionability_gate=3/3 PASS
+replacement_cross_mode_gate=8/8 PASS
+replacement_candidates_tested=56
+replacement_candidates_rejected=42
+R4_Final500=500
+R4_bucket_A=350
+R4_bucket_B=100
+R4_bucket_C=50
+R4_original_stable=460
+R4_total_replacement_stable=40
+R4_pool_duplicate=0
+R4_pool_missing=0
+source_temporal_gate=/home/etip/datasets/staging/realistic_v1/non_formal_diagnostics/temporal_freshness_gate_v4_20260906T025144Z
+source_replacement_evidence=/home/etip/datasets/staging/realistic_v1/non_formal_replacement_r4/temporal_batch_replacement_20260906T081323Z
+Final500_split_plans_schedule_regeneration_in_this_preregistration=NONE
+
+DUCKDNS_REVIEW
+R4_single_quartet_duckdns.org_shadowsocks_attempt1=MAIN_NAVIGATION_TIMEOUT
+R4_single_quartet_duckdns.org_shadowsocks_attempt2=MAIN_NAVIGATION_TIMEOUT
+subsequent_cross_mode_direct=3/3 PASS
+subsequent_cross_mode_vless=3/3 PASS
+subsequent_cross_mode_shadowsocks=3/3 PASS
+subsequent_cross_mode_trojan=3/3 PASS
+subsequent_cross_mode_total=12/12 PASS
+subsequent_PRE_POST_HEALTH=12/12 PASS
+subsequent_mode_purity=12/12 PASS
+subsequent_conn_max_hits=0
+subsequent_infrastructure_failures=0
+subsequent_residual=0
+human_review=DUCKDNS_INSTABILITY_NOT_REPRODUCED
+classification=LOW_FREQUENCY_TRANSIENT_NAVIGATION_FAILURE
+reason_for_retaining_duckdns.org=Subsequent cross-mode results did not reproduce persistent instability; human review explicitly required retention.
+duckdns.org_replacement=PROHIBITED
+
+RETRY_POLICY_V3
+MAX_ATTEMPTS_PER_SAMPLE=3
+retry_class_source=formal_transient_retry_policy_v3.txt SHA256 verified before use
+attempt1_transient_failure=fresh whole-sample attempt2 after all frozen gates pass
+attempt2_transient_failure=fresh whole-sample attempt3 after all frozen gates pass
+attempt3_failure=HARD_STOP
+attempt4=PROHIBITED
+retry_until_pass=PROHIBITED
+retry_within_browser_lifecycle=PROHIBITED
+individual_event_action_retry=PROHIBITED
+failed_attempt_artifacts=RETAIN
+same_sample_mode_immutable_plan_SHA_URL_event_timing_dwell=REQUIRED
+failure_classifier=v2 UNCHANGED
+missing_workload_or_quality_report_implies_mode_purity_failure=FALSE
+execution_context_destroyed_due_to_navigation=RETRYABLE_TRANSIENT
+ERR_EMPTY_RESPONSE=existing validated retry-v3 recognition retained
+
+VALIDATION
+Retry_Policy_v3_synthetic=11/11 PASS
+R4_single_quartet=4/4 PASS
+R4_single_quartet_attempts=4
+R4_single_quartet_retries=0
+R4_smoke=24/24 PASS
+R4_smoke_pair_groups=6 (2 light, 2 medium, 2 heavy)
+R4_smoke_attempts=24
+R4_smoke_retries=0
+R4_smoke_remote_upload=24/24 PASS
+R4_validation_local_remote_SHA=PASS
+R4_validation_conn_max_hits=0
+R4_validation_health_failures=0
+R4_validation_residual=0
+
+UNCHANGED_SEMANTICS
+browser_workload_navigation_timeout_proxy_capture_health=UNCHANGED
+redsocks_soft_NOFILE=2048
+redsocks_hard_NOFILE=524288
+redsocks_actual_conn_max=256
+proxy_sample_capacity_precheck=actual PID; /proc/PID/limits; current startup journal; conn_max must equal 256
+capacity_mismatch=PRECHECK_FAIL before PRE health and workload
+health_capture_order=PRE_SAMPLE_HEALTH_CHECK PASS; stop active probes; capture and browser workload; capture finalize; POST_SAMPLE_HEALTH_CHECK PASS
+ACTIVE_HEALTH_PROBE_DURING_CAPTURE=0
+
+AUTHORIZATION_BOUNDARY
+preregistration_commit_push=AUTHORIZED
+R4_FORMAL_SAMPLES_STARTED=0
+R4_sequence_id_1_start=REQUIRES_SEPARATE_HUMAN_AUTHORIZATION
+required_final_authorization=START FORMAL T0 V3 R4 PRODUCTION
