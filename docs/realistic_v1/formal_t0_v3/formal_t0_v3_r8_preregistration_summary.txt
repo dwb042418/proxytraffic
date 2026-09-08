@@ -1,0 +1,127 @@
+FORMAL_T0_V3_R8_PREREGISTRATION_SUMMARY
+scope=ORCHESTRATOR_GOVERNANCE_REVISION_ONLY
+status=PREREGISTRATION_BEFORE_FORMAL_COLLECTION
+R7_STATUS=PRESTART_ABORTED_DUE_TO_ORCHESTRATOR_GOVERNANCE_GAP
+R7_VALIDATION=PASS
+R7_FORMAL_SAMPLES=0
+R7_FINAL_DATASET_ELIGIBLE=NO
+R7_SAMPLE_EVER_STARTED=NO
+R7_preregistration_HEAD=85d21aed307de1498f649c1144ad45e3ceb0c440
+R7_gaps=missing Rule V2 production hotspot safe-boundary stop; low-disk eviction blocked by full dry-run
+R8_changes=hotspot monitor; safe-boundary stop; housekeeping eviction preflight; crash-consistent PCAP eviction; storage recovery control flow
+R8_data_and_workload_revision=NONE
+Final500_split_plans_schedule=exact existing R7 bytes and paths
+Classifier_v3_Retry_Policy_v4_browser_capture_health=UNCHANGED
+MAX_ATTEMPTS_PER_SAMPLE=3
+navigation_timeout_ms=30000
+redsocks_actual_conn_max=256
+redsocks_NOFILE=2048/524288
+ACTIVE_HEALTH_PROBE_DURING_CAPTURE=0
+model_input=observed.pcap; original/egress audit-only
+
+Final500_SHA256=9139aaa16f04c837272fa966729118f76d4f3693f2a2a1b60c63dadc14d38756
+Split_SHA256=9f6f0663f24e7a05186d739510efa3685c382ffb8b74b4a7d1b2bf1ff03c92a3
+Plan_registry_SHA256=4c5a1e0c6ad264076bbe2cf2faf431ff1036f9925cab276f99eacf89d02d0907
+Schedule_SHA256=5bc38db6a6a2e831a3620f35be4be363e219d8ad96af47fd1831cf20d970f90e
+Classifier_v3_SHA256=c86b4ea1ce4cf74c486025a57e7aef325a39f0ea8f0c3eafa080488100893e98
+Retry_Policy_v4_SHA256=48fb9290e9192d9068882693384ee24f37cc14c7bc40c9fdfe6e0d4b9f31d32a
+Production_core_source_SHA256=25c86652f1b4a69eff03ca5145ee1c89c4dad6f4be0dd016341f1969ecd539b6
+R8_production_orchestrator_SHA256=c6207899a99bffb6b3768fa1051c16e025779ba58e6306588327db6b57cb8a01
+Hotspot_baseline_SHA256=1456e2ea5a03e1c582ff613e1e32040fb32193a807f740d39325dfa23fab93ab
+Health_definition_SHA256=b26988debe3b4fd147a986f31902a8e628209b3825d0f2798a847e0203a09ffb
+Root_amendment_SHA256=21908fd1592ab0ba52667e4001500a5e80d066ccb98b0a3a11064fb9cd6a2401
+Governance_amendment_SHA256=b4539180c7a1524abc231d3e72739ce6781f6d38ed91c3df78e6850d21821922
+Governance_tests_SHA256=c8250479dcb3ab2249da096b30eca0ba5ffeb82ae39430b93b608d230544bce3
+
+LOCAL_PRODUCTION_ROOT=/home/etip/datasets/staging/realistic_v1/t0_v3_r8
+REMOTE_PRODUCTION_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/t0_v3_r8
+R8_VALID_SAMPLES=0
+R8_NEXT_SEQUENCE_ID=1
+LOCAL_FORMAL_SAMPLE_COUNT=0
+REMOTE_FORMAL_SAMPLE_COUNT=0
+formal_sample_started=false
+browser_started=false
+tcpdump_started=false
+historical_R1_R2_R3_R4_R5_R6_R7_resume_source=PROHIBITED
+validation_or_diagnostic_sample_reuse_as_Formal=PROHIBITED
+R6_VALID_SAMPLES=19; final_dataset_eligible=NO; provenance retained
+
+domains=500; A350/B100/C50
+Train=300; Validation=50; Test=150
+plans=300; pair_groups=300; schedule_rows=1200
+direct=300; vless=300; shadowsocks=300; trojan=300
+plan_SHA=300/300 PASS
+plan_permission=300/300 0444
+schedule_integrity=PASS
+hotspot_baseline=FROZEN; fixed R7 validation retry provenance; no arbitrary discovery
+hotspot_baseline_failure_rows=1
+hotspot_baseline_domain=dzen.ru; event2; R7 quartet Shadowsocks attempt1; execution-context-destroyed; attempt2 PASS
+R7_smoke_baseline_failures=0
+R8_operational_baseline_failures=0
+Rule_V2=UNCHANGED
+monitor_initial_state=CLEAN_ABSENT; no pending review
+pending_review_resume=REVIEW_REQUIRED
+safe_boundary=complete/finalized current sample then block next sample; no external SIGINT
+storage_preflight=full production requires >=20GiB; housekeeping permits below20GiB
+storage_recovery=remote independent audit; atomic PREPARED intent; PCAP-only unlink; retain metadata; full preflight before next pair group
+storage_crash_resume=remote verification plus retained metadata and prepared ledger; no sample recollection
+
+R8_PRODUCTION_GOVERNANCE_TESTS_PASS
+HOTSPOT_TESTS=9/9 PASS
+STORAGE_TESTS=12/12 PASS
+EXISTING_RETRY_RESUME_TESTS=28/28 PASS (rerun against R8 module)
+TOTAL_PRODUCTION_TESTS=49/49 PASS
+CLASSIFIER_REGRESSION=10/10 PASS reused; SHA unchanged
+EXECUTOR_SOAK=40/40 PASS reused; SHA unchanged
+REAL_FILESYSTEM_EVICTION_DRY_RUN=PASS
+ELIGIBLE_COUNT=19
+WOULD_EVICT_COUNT=19
+WOULD_FREE_BYTES=1727705088
+ACTUAL_HISTORICAL_DELETE_COUNT=0
+filesystem_dry_run_source=fixed R6 historical samples1..19; independent local/remote SHA and file completeness
+low_disk_housekeeping=S3/S10 PASS; no artificial disk filling
+
+R8_OPERATIONAL_QUARTET_PASS
+operational_sample_count=4/4 PASS
+operational_attempts=4
+operational_retries=0
+operational_pair_group=seed001_light; frozen schedule first quartet
+operational_plan_SHA=7a93bc0984186b36e39a2fcc690321f77efb71c384d8b7a93ed36eecc199c88b
+operational_code_SHA=c6207899a99bffb6b3768fa1051c16e025779ba58e6306588327db6b57cb8a01
+operational_local_root=/home/etip/datasets/staging/realistic_v1/r8_operational_quartet/20260908T04182951025
+operational_remote_root=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/r8_operational_quartet/20260908T04182951025
+operational_local_SHA=4/4 PASS
+operational_remote_SHA=4/4 PASS
+operational_final_metadata_SHA=PASS; independent remote OPERATIONAL_SHA256SUMS verification
+operational_health_failures=0
+operational_mode_purity_failures=0
+operational_capture_failures=0
+operational_conn_max_hits=0
+operational_bypass=0
+operational_OOM=0
+operational_unexpected_exit=0
+operational_residual=0
+operational_formal_manifest_eligible=false
+
+R7_24_SAMPLE_SMOKE=24/24 PASS reused; unchanged data/workload/classifier/policy/browser/capture/health
+R7_smoke_attempts=24; retries=0
+R7_remote_sample_SHA=24/24 PASS
+R7_artifact_SHA=938/938 PASS
+R7_final_metadata_SHA=13/13 PASS
+R7_local_remote_files=943/943; path sets identical
+R7_RECURRENT_RETRY_HOTSPOT=NONE
+R7_smoke_rerun=NOT_PERFORMED
+
+R8_PREREGISTRATION_DRY_RUN_PASS
+real_dry_run_exit=0
+precommit_dry_run_Git_HEAD=85d21aed307de1498f649c1144ad45e3ceb0c440
+FREE_DISK_BYTES=26798792704
+FREE_DISK_GIB=24.958321
+STORAGE_THRESHOLD_GIB=20
+integrity_issues=0
+runtime_evidence=/home/etip/datasets/diagnostics/r8_governance_20260908
+runtime_evidence_in_Git=NO
+commit_and_push=actual final preregistration HEAD must equal actual origin/main before final freeze
+final_frozen_HEAD=actual commit containing these artifacts; reported after push and final read-only verification
+production_start=REQUIRES_SEPARATE_FINAL_HUMAN_AUTHORIZATION
+required_authorization=START FORMAL T0 V3 R8 PRODUCTION

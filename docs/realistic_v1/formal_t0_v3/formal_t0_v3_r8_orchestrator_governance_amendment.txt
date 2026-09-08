@@ -1,0 +1,94 @@
+FORMAL_T0_V3_R8_ORCHESTRATOR_GOVERNANCE_AMENDMENT
+revision_scope=ORCHESTRATOR_GOVERNANCE_REVISION_ONLY
+formal_samples_at_revision=0
+
+R7_STATUS=PRESTART_ABORTED_DUE_TO_ORCHESTRATOR_GOVERNANCE_GAP
+R7_FORMAL_SAMPLES=0
+R7_FINAL_DATASET_ELIGIBLE=NO
+R7_VALIDATION=PASS
+R7_PREREGISTRATION=COMPLETED_AT_85d21aed307de1498f649c1144ad45e3ceb0c440
+R7_SAMPLE_EVER_STARTED=NO
+R7_WAS_EARLY_PRODUCTION_PILOT=NO
+R7_readiness_gap_1=missing Rule V2 production hotspot monitor and safe-boundary stop
+R7_readiness_gap_2=eviction entry called full dry-run whose low-disk guard blocked the recovery itself
+R7_failure_attribution=production readiness implementation; not domain/classifier/retry/capture/proxy infrastructure
+R6_STATUS=ABORTED_EARLY_PRODUCTION_PILOT
+R6_VALID_SAMPLES=19
+R6_FINAL_DATASET_ELIGIBLE=NO
+historical_local_remote_provenance=RETAIN_UNMODIFIED
+historical_samples_as_R8_resume_source=PROHIBITED
+
+DATASET_INPUTS=EXACT_R7_BYTES; original R7 paths intentionally retained
+Final500_SHA256=9139aaa16f04c837272fa966729118f76d4f3693f2a2a1b60c63dadc14d38756
+Split_SHA256=9f6f0663f24e7a05186d739510efa3685c382ffb8b74b4a7d1b2bf1ff03c92a3
+Plan_registry_SHA256=4c5a1e0c6ad264076bbe2cf2faf431ff1036f9925cab276f99eacf89d02d0907
+Schedule_SHA256=5bc38db6a6a2e831a3620f35be4be363e219d8ad96af47fd1831cf20d970f90e
+Failure_Classifier_v3_SHA256=c86b4ea1ce4cf74c486025a57e7aef325a39f0ea8f0c3eafa080488100893e98
+Retry_Policy_v4_SHA256=48fb9290e9192d9068882693384ee24f37cc14c7bc40c9fdfe6e0d4b9f31d32a
+Unchanged_production_core_source_SHA256=25c86652f1b4a69eff03ca5145ee1c89c4dad6f4be0dd016341f1969ecd539b6
+R8_orchestrator_SHA=actual separate SHA in preregistration registry; not claimed identical to old core
+pool_split_plans_schedule_regeneration=NONE
+domain_replacement=NONE
+classifier_policy_browser_capture_health_changes=NONE
+MAX_ATTEMPTS_PER_SAMPLE=3
+navigation_timeout_ms=30000
+redsocks_actual_conn_max=256
+redsocks_NOFILE=2048/524288
+ACTIVE_HEALTH_PROBE_DURING_CAPTURE=0
+model_input=observed.pcap; original/egress audit-only
+actual_mode_purity_violation=FAIL_CLOSED
+pre_workload_driver_failure=MODE_PURITY_NOT_EVALUABLE per unchanged Classifier v3
+attempt4_or_in_place_navigation_action_retry=PROHIBITED
+
+MONITOR=PRODUCTION_CONTEXTUAL_HOTSPOT_MONITOR_V1
+RULE=DOMAIN_CONTEXTUAL_RETIREMENT_RULE_V2; original file and thresholds unchanged
+Rule_V2_SHA256=107ffbe4aafaf6a37d52c7aa194bdde61536a1b6db8aff1e9b08d8071fee334b
+baseline=formal_t0_v3_r8_hotspot_baseline.tsv; freeze before any R8 Formal sample
+baseline_scope=fixed R7 validation retry evidence; no arbitrary-directory discovery
+baseline_initial_evidence=dzen.ru/event2; R7 quartet Shadowsocks attempt1 EXECUTION_CONTEXT_DESTROYED_DUE_TO_NAVIGATION; attempt2 PASS; clean infrastructure
+R7_smoke_retry_baseline=zero failures from 24/24 PASS
+runtime_monitor_input=current R8 atomic retry ledger and its referenced immutable attempt provenance
+Rule_A=terminal MAX_ATTEMPTS_REACHED plus independent-run historical contextual failure evidence; infrastructure clean
+Rule_B=at least3 transient navigation failures; at least2 independent samples or modes; one sample PASS on attempt3; explicit URL/event; infrastructure clean
+executor_initialization_crash=not counted as contextual navigation hotspot
+monitor_trigger=atomic pending_hotspot_review with domain/rule/evidence/clause results/time/current sequence
+pending_state_file=formal_t0_v3_r8_monitor_state.json
+PENDING_HARD_STOP_AFTER_SAMPLE_BOUNDARY=YES when Rule V2 triggers
+current_sample=continues unchanged Policy v4 retry lifecycle to natural completion or natural hard-stop
+safe_boundary=capture finalized; cleanup residual0; atomic retry ledger; successful sample archive complete
+next_sample=blocked after pending hotspot; R8_SAFE_BOUNDARY_HARD_STOP
+pending_hotspot_resume=REVIEW_REQUIRED; no automatic continuation
+natural_attempt3_failure=original hard-stop reason and failed artifacts retained
+external_SIGINT_for_hotspot=PROHIBITED
+automatic_retire_replace_skip_or_schedule_change=PROHIBITED
+
+FULL_PRODUCTION_PREFLIGHT=Git/SHA/plans/schedule/classifier/policy/health/root/remote/redsocks/resume; free disk >=21474836480 bytes
+HOUSEKEEPING_EVICTION_PREFLIGHT=Git/SHA/root identity/remote connectivity/eviction ledger; no minimum free-space requirement
+housekeeping_workload_start=PROHIBITED
+storage_boundary=complete pair group only; block next pair group below20GiB
+storage_recovery=housekeeping preflight; independently audit completed samples; atomic eviction intent; local-only PCAP deletion; recalculate space; full production preflight
+storage_recovery_insufficient=R8_STORAGE_RECOVERY_INSUFFICIENT; no next pair group
+threshold_reduction=PROHIBITED
+eviction_eligibility=SAMPLE_COMPLETE; local SHA; remote upload; independent remote SHA; remote file completeness
+eviction_scope=successful completed-sample PCAP paths only; all metadata retained
+eviction_protected=failed_artifacts; retry ledger; hard-stop evidence; monitor state; plans; schedule; diagnostics; unfinished/unverified samples
+eviction_ledger=formal_t0_v3_r8_eviction_ledger.json; R8_EVICTION_V1; atomic replace/fsync
+crash_consistency=PREPARED snapshot of all file SHAs and explicit PCAP deletion list before unlink; directory fsync; COMPLETE after retained-file verification
+resume_after_partial_eviction=independent remote verification plus retained metadata/local-file checks; SKIP_VALID_COMPLETE_LOCAL_EVICTED; no resampling
+remote_integrity_or_retained_metadata_mismatch=HARD_STOP
+rolling_recovery_retry=continue prepared deletion transaction idempotently; never remove protected metadata
+
+R8_operational_check=dedicated --operational-quartet in R8 production runner; fixed independent NON_FORMAL roots
+operational_selection=first frozen schedule pair group seed001_light; four modes; exact immutable plan
+operational_purpose=production sample state machine/retry ledger/monitor hooks/archive/safe completion/storage hooks
+operational_metadata=formal_manifest_eligible=false; artifact_class=NON_FORMAL_VALIDATION
+R8_Formal_roots_during_all_tests=empty; no synthetic or validation artifacts
+R7_24_sample_smoke=24/24 PASS remains applicable to unchanged data/workload/classifier/policy/browser/capture/health semantics
+R7_smoke_rerun=NOT_REQUIRED; NOT_PERFORMED
+
+LOCAL_PRODUCTION_ROOT=/home/etip/datasets/staging/realistic_v1/t0_v3_r8
+REMOTE_PRODUCTION_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/t0_v3_r8
+R8_VALID_SAMPLES=0
+R8_NEXT_SEQUENCE_ID=1
+production_start=REQUIRES_SEPARATE_FINAL_HUMAN_AUTHORIZATION
+required_authorization=START FORMAL T0 V3 R8 PRODUCTION
