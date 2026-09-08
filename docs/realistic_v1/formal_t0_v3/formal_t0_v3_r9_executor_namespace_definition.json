@@ -1,0 +1,17 @@
+{
+  "version": "EXECUTOR_NAMESPACE_V1",
+  "cache_root": "/home/etip/.cache/proxytraffic-realistic-v3-executor",
+  "revision": "t0_v3_r9",
+  "formal_class": "FORMAL_PRODUCTION",
+  "validation_class": "NON_FORMAL_VALIDATION",
+  "formal_layout": "formal/{revision}/{sample_id}/attempt_{attempt}",
+  "validation_layout": "non_formal/{revision}/operational_quartet/{run_id}/{sample_id}/attempt_{attempt}",
+  "input_directory": "input",
+  "plan_name": "workload_plan.json",
+  "permission": "0444",
+  "existing_identical": "REUSE_VERIFIED_IMMUTABLE_INPUT",
+  "existing_mismatch": "EXECUTOR_INPUT_INTEGRITY_MISMATCH",
+  "promotion": "verified temporary inode + atomic no-clobber link; fsync",
+  "validation_as_formal_resume": "PROHIBITED",
+  "R8_cache": "RETAIN_UNMODIFIED"
+}

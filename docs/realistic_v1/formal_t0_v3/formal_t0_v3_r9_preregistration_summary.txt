@@ -1,0 +1,138 @@
+FORMAL_T0_V3_R9_PREREGISTRATION_SUMMARY
+scope=EXECUTOR_INPUT_STAGING_CACHE_NAMESPACE_ISOLATION_REVISION_ONLY
+status=PREREGISTRATION_BEFORE_FORMAL_COLLECTION
+R8_STATUS=PRESTART_ABORTED_DUE_TO_EXECUTOR_CACHE_NAMESPACE_COLLISION
+R8_PREREGISTRATION_VALIDATION=HISTORICAL_PASS
+R8_PRODUCTION_START_ATTEMPTED=YES
+R8_FORMAL_SAMPLES=0
+R8_FINAL_DATASET_ELIGIBLE=NO
+R8_ATTEMPTS_STARTED=0
+R8_BROWSER_STARTED=false
+R8_CAPTURE_STARTED=false
+R8_WAS_EARLY_PRODUCTION_PILOT=NO
+R8_PRIMARY_FAILURE=EXECUTOR_INPUT_CACHE_NAMESPACE_COLLISION
+R8_FAILURE_STAGE=EXECUTOR_INPUT_PREPARATION
+R8_COLLISION_PLAN_PERMISSION=0444
+FORMAL_SCP_OVERWRITE_ATTEMPT=DENIED
+immutable_protection=CORRECT
+R8_cache_logs_hard_stop_evidence=RETAINED_UNMODIFIED
+
+R9_data_and_methodology_revision=NONE
+Final500_split_plans_schedule=exact existing R7/R8 bytes and original paths
+Classifier_v3_Retry_Policy_v4_browser_capture_health=UNCHANGED
+MAX_ATTEMPTS_PER_SAMPLE=3
+navigation_timeout_ms=30000
+redsocks_actual_conn_max=256
+redsocks_NOFILE=2048/524288
+ACTIVE_HEALTH_PROBE_DURING_CAPTURE=0
+model_input=observed.pcap; original/egress audit-only
+
+Final500_SHA256=9139aaa16f04c837272fa966729118f76d4f3693f2a2a1b60c63dadc14d38756
+Split_SHA256=9f6f0663f24e7a05186d739510efa3685c382ffb8b74b4a7d1b2bf1ff03c92a3
+Plan_registry_SHA256=4c5a1e0c6ad264076bbe2cf2faf431ff1036f9925cab276f99eacf89d02d0907
+Schedule_SHA256=5bc38db6a6a2e831a3620f35be4be363e219d8ad96af47fd1831cf20d970f90e
+Classifier_v3_SHA256=c86b4ea1ce4cf74c486025a57e7aef325a39f0ea8f0c3eafa080488100893e98
+Retry_Policy_v4_SHA256=48fb9290e9192d9068882693384ee24f37cc14c7bc40c9fdfe6e0d4b9f31d32a
+R9_production_orchestrator_SHA256=978171e10041e0b13ff86a5f91b1a9298ea63efeb67aa6fc783d9034a070caa4
+Executor_staging_helper_SHA256=3d0921c203c6cb54fca0b93962ff808b537e3262ba069d4b6892e13f741e14ed
+Executor_namespace_definition_SHA256=f97cc8e78cefc3027477581aa3c936d647cc7dcfd1014afd11d5f2d9b022cb63
+Hotspot_baseline_SHA256=1456e2ea5a03e1c582ff613e1e32040fb32193a807f740d39325dfa23fab93ab
+Health_definition_SHA256=b26988debe3b4fd147a986f31902a8e628209b3825d0f2798a847e0203a09ffb
+Root_amendment_SHA256=07cf2051e15edae8345130858325dd22e4327965b466789bda329738214dfb60
+Namespace_amendment_SHA256=b32e5f969f2f6b37a71e57cd509ed56abf7fc7293a067c70483e37c32abf9113
+Production_tests_SHA256=17d486925fb4f3b4848053a3be1411bc6a819106d5df11cae4e10c2e7f9a67cf
+
+LOCAL_PRODUCTION_ROOT=/home/etip/datasets/staging/realistic_v1/t0_v3_r9
+REMOTE_PRODUCTION_ROOT=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/t0_v3_r9
+R9_VALID_SAMPLES=0
+R9_NEXT_SEQUENCE_ID=1
+LOCAL_FORMAL_SAMPLE_COUNT=0
+REMOTE_FORMAL_SAMPLE_COUNT=0
+ATTEMPTS_STARTED=0
+formal_sample_started=false
+browser_started=false
+capture_started=false
+historical_or_validation_samples_as_Formal_resume=PROHIBITED
+
+EXECUTOR_CACHE_ROOT=/home/etip/.cache/proxytraffic-realistic-v3-executor
+FORMAL_EXECUTOR_NAMESPACE=formal/t0_v3_r9/<sample_id>/attempt_<n>/input
+NON_FORMAL_EXECUTOR_NAMESPACE=non_formal/t0_v3_r9/operational_quartet/<run_id>/<sample_id>/attempt_<n>/input
+namespace_identity=immutable namespace.json; revision/class/run_id/sample/attempt
+staging=source SHA/0444 verification; unique temporary transfer; remote SHA; temporary inode0444; atomic no-clobber promotion
+existing_identical_SHA0444=REUSE_VERIFIED_IMMUTABLE_INPUT
+existing_mismatch=EXECUTOR_INPUT_INTEGRITY_MISMATCH; pre-browser/capture HARD_STOP
+existing_final_overwrite_chmod_delete=PROHIBITED
+old_temporary_files_as_valid_inputs=PROHIBITED
+crash_resume=restage unpromoted temp; reuse promoted identical0444 input; corrupt final hard-stop
+R8_R7_cache_reuse=PROHIBITED
+R8_governance_retained=Rule V2 monitor; safe boundary stop; pending resume guard; full and housekeeping preflight; remote-verified rolling eviction; storage recovery
+R8_governance_function_AST=UNCHANGED after revision-label normalization
+
+domains=500; Train300/Validation50/Test150
+plans=300; pair_groups=300; schedule_rows=1200
+direct=300; vless=300; shadowsocks=300; trojan=300
+plan_SHA=300/300 PASS
+plan_permission=300/300 0444
+schedule_integrity=PASS
+hotspot_baseline=unchanged frozen R8 baseline; PASS
+hotspot_monitor_state=CLEAN_ABSENT
+storage_threshold_GiB=20
+
+R9_EXECUTOR_NAMESPACE_TESTS_PASS
+R9_PRODUCTION_GOVERNANCE_REGRESSION_PASS
+RETRY_RESUME_TESTS=28/28 PASS
+HOTSPOT_TESTS=9/9 PASS
+STORAGE_TESTS=12/12 PASS
+NAMESPACE_TESTS=15/15 PASS
+CRASH_TESTS=4/4 PASS
+TOTAL_PRODUCTION_TESTS=68/68 PASS
+
+R9_OPERATIONAL_QUARTET_PASS
+operational_samples=4/4 PASS
+operational_attempts=4
+operational_retries=0
+operational_pair_group=seed001_light; first frozen schedule quartet
+operational_plan_SHA=7a93bc0984186b36e39a2fcc690321f77efb71c384d8b7a93ed36eecc199c88b
+operational_code_SHA=978171e10041e0b13ff86a5f91b1a9298ea63efeb67aa6fc783d9034a070caa4
+operational_local_root=/home/etip/datasets/staging/realistic_v1/r9_operational_quartet/20260908T06213880007
+operational_remote_root=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/r9_operational_quartet/20260908T06213880007
+operational_remote_SHA=4/4 PASS
+operational_final_metadata_SHA=PASS; independent remote OPERATIONAL_SHA256SUMS verification
+operational_health_failures=0; purity_failures=0; capture_failures=0; conn_max_hits=0; bypass=0; OOM=0; unexpected_exit=0; residual=0
+operational_formal_manifest_eligible=false
+operational_cache=RETAINED; all4 staged plans0444
+
+R9_FORMAL_EXECUTOR_INPUT_PREP_PASS
+reverse_test=operational cache retained; fresh Formal namespace initially absent; prepare sequence1 attempt1 inputs only
+reverse_test_formal_executor_root=/home/etip/.cache/proxytraffic-realistic-v3-executor/formal/t0_v3_r9/formal_t0_v3_sample0001/attempt_1
+reverse_test_plan_SHA0444=PASS
+reverse_test_browser_executor_SHA0444=PASS
+reverse_test_old_cache_SHA_inode_mtime_permission=UNCHANGED
+reverse_test_overwrite_permission_denied_collision=NONE
+reverse_test_attempts_started=0
+reverse_test_browser_started=false
+reverse_test_capture_started=false
+reverse_test_Formal_roots=EMPTY
+preprepared_input_is_Formal_sample_evidence=NO
+production_start_input_behavior=verify identical immutable cache and reuse; no blind overwrite
+final_HEAD_check=read-only --verify-formal-inputs; no staging writes
+
+R7_24_SAMPLE_SMOKE=24/24 PASS reused for unchanged data/workload/classifier/retry/browser/capture/health
+R7_smoke_attempts=24; retries=0
+R7_remote_sample_SHA=24/24 PASS
+R7_artifact_SHA=938/938 PASS
+R7_final_metadata_SHA=13/13 PASS
+R7_local_remote_files=943/943; path sets identical
+24_sample_smoke_rerun=NOT_PERFORMED
+
+R9_PREREGISTRATION_DRY_RUN_PASS
+real_dry_run_exit=0
+precommit_dry_run_HEAD=5cdc05d50f9963f3ca8be77eea0093a3ac238861
+FREE_DISK_BYTES=26689581056
+FREE_DISK_GIB=24.856609
+integrity_issues=0
+runtime_evidence=/home/etip/datasets/diagnostics/r9_namespace_20260908
+runtime_evidence_in_Git=NO
+final_frozen_HEAD=actual final commit containing these artifacts after push/origin equality/read-only checks
+production_start=REQUIRES_SEPARATE_FINAL_HUMAN_AUTHORIZATION
+required_authorization=START FORMAL T0 V3 R9 PRODUCTION
