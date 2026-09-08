@@ -1,0 +1,34 @@
+FORMAL_T0_V3_R7_PRODUCTION_ORCHESTRATOR_VALIDATION
+status=PASS
+R6_PRODUCTION_CORE_SHA=25c86652f1b4a69eff03ca5145ee1c89c4dad6f4be0dd016341f1969ecd539b6
+R7_PRODUCTION_ORCHESTRATOR_SHA=10b231daf9d408b66149ff90df3c012409a64a1813f5cfaaee715b9d7f5432d9
+adaptation=R7 labels, roots, dataset input locations, and six frozen SHA bindings only
+normalized_source_byte_identical=YES
+production_runtime_semantics_changed=NO
+classifier_policy_regression=10/10 PASS reused; corresponding core SHA unchanged
+executor_lifecycle_soak=40/40 PASS reused; corresponding executor SHA unchanged
+R7_production_retry_resume_synthetic=28/28 PASS; executed against R7-specific production module
+synthetic_scope=NON_FORMAL temporary directories; no synthetic data in Formal roots
+coverage=attempt1/2/3; no attempt4; non-retryable429/purity/connmax; driver initialization; artifact preservation; atomic ledger; complete/remote-only skip; ambiguous state review; dry-run no lifecycle; low disk fail closed
+archive_storage_semantics=unchanged source; archive pending does not consume browser attempts; independently verified eviction with ledger; 20 GiB guard
+production_actual_dry_run=PASS
+production_actual_dry_run_exit=0
+R7_PREREGISTRATION_DRY_RUN_PASS
+Git_BASE_HEAD=0bcf2d260b8fa538b1f1e9cf1ac91c4975c18adf
+Git_ACTUAL_ORIGIN_MAIN=0bcf2d260b8fa538b1f1e9cf1ac91c4975c18adf
+FREE_DISK_BYTES=26901356544
+FREE_SPACE_THRESHOLD_BYTES=21474836480
+schedule_integrity=PASS; plans300/300 SHA; permissions300/300 0444
+local_formal_samples=0
+remote_formal_samples=0
+R7_VALID_SAMPLES=0
+R7_NEXT_SEQUENCE_ID=1
+formal_sample_started=false
+browser_started=false
+tcpdump_started=false
+integrity_issues=0
+runtime_capacity_verification=NOFILE unit definitions PASS; actual PID/journal conn_max256 checks retained for separately authorized samples
+raw_test_log=/home/etip/datasets/diagnostics/r7_preregistration_20260908/production_synthetic.log
+raw_dry_run_log=/home/etip/datasets/diagnostics/r7_preregistration_20260908/dry_run_precommit.log
+adaptation_evidence=/home/etip/datasets/diagnostics/r7_preregistration_20260908/production_adaptation.json
+final_freeze=final actual commit must equal actual origin/main; repeat read-only dry-run at that HEAD

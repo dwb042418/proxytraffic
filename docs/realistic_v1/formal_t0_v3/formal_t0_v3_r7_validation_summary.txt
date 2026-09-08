@@ -1,0 +1,60 @@
+REALISTIC_V3_R7_VALIDATION_PASS
+R6_STATUS=ABORTED_EARLY_PRODUCTION_PILOT
+R6_VALID_SAMPLES=19
+R6_FINAL_DATASET_ELIGIBLE=NO
+R6_RESUME=PROHIBITED
+R6_ADDITIONAL_RECURRENT_HOTSPOT=NONE
+NIKE_CONTEXTUAL_RETIREMENT_RULE_V2_PASS
+retirement_rule=DOMAIN_CONTEXTUAL_RETIREMENT_RULE_V2 (unchanged)
+retired=nike.com
+replacement=nike.com rank655 -> weforum.org rank955; same bucket top_1_1000
+qualification=actionability 3/3 PASS; cross-mode 8/8 PASS; contextual prefix 12/12 PASS
+candidate_rejects=0
+candidate_retry_count=0
+unchanged_domain_rows_byte_identical=499
+SINGLE_QUARTET=4/4 PASS; total_attempts=5; total_retries=1; attempt2_usage=1; attempt3_usage=0
+QUARTET_RETRY=dzen.ru/event2/shadowsocks/EXECUTION_CONTEXT_DESTROYED_DUE_TO_NAVIGATION; attempt2 PASS
+SMOKE=24/24 PASS; total_attempts=24; total_retries=0; attempt2_usage=0; attempt3_usage=0
+SMOKE_RETRY_RATE=0%
+SMOKE_RETRY_CLASS_BREAKDOWN={}
+SMOKE_RETRY_URL_BREAKDOWN={}
+SMOKE_RETRY_EVENT_BREAKDOWN={}
+R7_RECURRENT_RETRY_HOTSPOT=NONE
+R7_HIGH_TRANSIENT_RATE_REVIEW_REQUIRED=NO
+remote_sample_SHA=24/24 PASS
+artifact_SHA=938/938 PASS
+final_metadata_SHA=13/13 PASS
+local_remote_file_count=943/943
+path_set_identical=YES
+health_failures=0; mode_purity_failures=0; capture_failures=0; conn_max_hits=0; bypass=0; OOM=0; unexpected_exit=0; residual=0
+actual_proxy_conn_max=256; NOFILE=2048/524288
+plans=300/300 SHA PASS; 300/300 permissions=0444
+domains=500; A=350; B=100; C=50; duplicate=0; missing=0
+split=Train300/Validation50/Test150; pair_groups=300; schedule_rows=1200; each_mode=300
+core_semantics_changed=NO; classifier_v3/policy_v4/browser/health/capture unchanged
+MAX_ATTEMPTS_PER_SAMPLE=3; navigation_timeout=30000ms; attempt4=PROHIBITED
+tests_reused=classifier-policy10/10; production-retry-resume28/28; lifecycle-soak40/40; corresponding core SHA unchanged
+Failure_Classifier_v3_SHA=c86b4ea1ce4cf74c486025a57e7aef325a39f0ea8f0c3eafa080488100893e98
+Retry_Policy_v4_SHA=48fb9290e9192d9068882693384ee24f37cc14c7bc40c9fdfe6e0d4b9f31d32a
+production_orchestrator_core_SHA=25c86652f1b4a69eff03ca5145ee1c89c4dad6f4be0dd016341f1969ecd539b6
+formal_domain_pool_v3_r7.tsv_SHA=9139aaa16f04c837272fa966729118f76d4f3693f2a2a1b60c63dadc14d38756
+domain_replacement_ledger_v3_r7.tsv_SHA=0b35c05d859dadeabf3888cfcb9965c6f658604b7946eab3a738e3e781f98850
+formal_domain_split_v3_r7.tsv_SHA=9f6f0663f24e7a05186d739510efa3685c382ffb8b74b4a7d1b2bf1ff03c92a3
+formal_t0_v3_plan_manifest_r7.tsv_SHA=84684f25fec5cd7672bc02737b929a32432a26be119e67a53cb77786d27dc830
+FORMAL_T0_V3_PLAN_SHA256SUMS_R7.txt_SHA=4c5a1e0c6ad264076bbe2cf2faf431ff1036f9925cab276f99eacf89d02d0907
+formal_t0_v3_schedule_r7.tsv_SHA=5bc38db6a6a2e831a3620f35be4be363e219d8ad96af47fd1831cf20d970f90e
+SECONDARY_FAILURE=OPERATOR_ABORT_DURING_RETRY
+CAPTURE_FINALIZATION_FAIL_CAUSE=EXTERNAL_SIGINT_AFTER_HOTSPOT_DETECTION
+sample0020_original_evidence=RETAINED; no resampling or promotion
+R6_FORENSIC_TABLE=/home/etip/datasets/diagnostics/r6_final_hotspot_forensic_20260907/all_attempts.tsv
+R6_NATURAL_FAILURE_TABLE=/home/etip/datasets/diagnostics/r6_final_hotspot_forensic_20260907/retryable_browser_failures.tsv
+R6_OPERATOR_ABORT_ANNOTATION=/home/etip/datasets/diagnostics/r6_final_hotspot_forensic_20260907/sample0020_operator_abort_annotation.json
+QUALIFICATION_EVIDENCE=/home/etip/datasets/diagnostics/contextual_nike_replacement_20260907
+QUARTET_EVIDENCE=/home/etip/datasets/staging/realistic_v1/r7_single_quartet_validation/single_quartet_v3_validation_retry_v4_20260907T183628Z
+SMOKE_EVIDENCE=/home/etip/datasets/staging/realistic_v1/r7_non_formal_smoke_v3/realistic_v3_24_sample_smoke_retry_v4_20260907T184754Z
+REMOTE_SMOKE=/home/dataset-assist-0/duwenbiao/Tunnel/proxydata/realistic_v1/r7_non_formal_smoke_v3/realistic_v3_24_sample_smoke_retry_v4_20260907T184754Z
+R7_FORMAL_SAMPLES=0
+R7_PREREGISTRATION=NOT_PERFORMED
+COMMIT=NOT_PERFORMED
+PUSH=NOT_PERFORMED
+NEXT_ACTION=STOP_AND_WAIT_FOR_HUMAN_REVIEW

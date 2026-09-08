@@ -1,0 +1,74 @@
+{
+  "status": "R7_INPUTS_READY_NOT_PREREGISTERED",
+  "retired": [
+    "nike.com"
+  ],
+  "mapping": [
+    {
+      "old_domain": "nike.com",
+      "old_rank": 655,
+      "bucket": "top_1_1000",
+      "candidate_rank": 955,
+      "candidate_domain": "weforum.org",
+      "candidate_order": 1,
+      "qualification_status": "QUALIFIED",
+      "actionability": "3/3 PASS",
+      "cross_mode": "8/8 PASS",
+      "contextual": "12/12 PASS",
+      "contextual_pair_group": "seed002_medium",
+      "target_event_index": 3,
+      "source_plan_sha": "db6f99f26c1756b69376c4bfcf79f578380be15f95b47502d9ef408dc5ff2f05",
+      "retirement_rule": "RULE_B",
+      "candidate_retry_count": 0,
+      "evidence_root": "/home/etip/datasets/diagnostics/contextual_nike_replacement_20260907/candidates/955_weforum.org"
+    }
+  ],
+  "candidate_rejects": 0,
+  "unchanged_domain_rows": 499,
+  "total": 500,
+  "A": 350,
+  "B": 100,
+  "C": 50,
+  "duplicate": 0,
+  "missing": 0,
+  "membership_counts": {
+    "original_stable": 458,
+    "replacement_stable": 42
+  },
+  "generator_sha256": "7738dd3c3ae9d2585bb00c571b2484c1884ddcd2b8b58961151c23dc58824afb",
+  "sha256": {
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_pool_v3_r7.tsv": "9139aaa16f04c837272fa966729118f76d4f3693f2a2a1b60c63dadc14d38756",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/domain_replacement_ledger_v3_r7.tsv": "0b35c05d859dadeabf3888cfcb9965c6f658604b7946eab3a738e3e781f98850",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_split_v3_r7.tsv": "9f6f0663f24e7a05186d739510efa3685c382ffb8b74b4a7d1b2bf1ff03c92a3",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_plan_manifest_r7.tsv": "84684f25fec5cd7672bc02737b929a32432a26be119e67a53cb77786d27dc830",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/FORMAL_T0_V3_PLAN_SHA256SUMS_R7.txt": "4c5a1e0c6ad264076bbe2cf2faf431ff1036f9925cab276f99eacf89d02d0907",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_schedule_r7.tsv": "5bc38db6a6a2e831a3620f35be4be363e219d8ad96af47fd1831cf20d970f90e"
+  },
+  "reused_tests": {
+    "lifecycle_soak": "40/40 PASS",
+    "classifier_policy": "10/10 PASS",
+    "production_retry_resume": "28/28 PASS (unchanged R6 core)"
+  },
+  "unchanged_code_sha256": {
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/formal_failure_classifier_v3.py": "c86b4ea1ce4cf74c486025a57e7aef325a39f0ea8f0c3eafa080488100893e98",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_single_quartet_v3_validation_retry_v4.py": "7fca6b92c56caa251703aa356dc22ff97e94bcade76ec19c5f92dbb194848a2b",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_formal_t0_v3_r5_production.py": "df025534ea16ed114f36f1506c2fe26d3678a9f41c538e788ff91fca19db0c19",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_24_sample_smoke_v3_retry_v4.py": "ac71c6bbd795308ec6317258b164b154c88b3394063b5ed6ae138af655b49e07",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_single_quartet_v3_r5_validation.py": "27b24a9bd8862a3a1d4c9bab393dc3fe04ecffba254effee888fb2356e695b62",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_24_sample_smoke_v3_r5.py": "d038021e5e6da42ba0bf663a6323959c3b84692de50645623d00028e2d1a20f3",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/test_formal_failure_classifier_v3.py": "b6cbe955bd7d0b01db70297d939b44ff5e5e6b6a816e60d80ab658b623516936",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/test_formal_t0_v3_r5_production.py": "ac52adb9d0deb1de9a68109543631c43b1edd38507e252d56dccb87623aeefb7",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_transient_retry_policy_v4.txt": "48fb9290e9192d9068882693384ee24f37cc14c7bc40c9fdfe6e0d4b9f31d32a",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_r5_production_root_amendment_v1.txt": "0e1b05065ad6ff1290e8b640a60520116a0497db88d2399d9966aa655b9f30fd",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/build_formal_t0_v3_split_plans.py": "7738dd3c3ae9d2585bb00c571b2484c1884ddcd2b8b58961151c23dc58824afb",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/realistic_browser_v3.py": "8e034da6979c463391f78ff95c4f98f76d675d44f72377980ab00e4636cc74a1",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_single_quartet_v3_validation.py": "9fa8c0f67228a09282d541071f502ef112eb7b3cd1588ee7ae581a9de3085294",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/audit_actionability_trial_v3.py": "3dd7f6d9d5de55f61b1a94e6c3367961620a3ead47eaf787ddbaf77dd06feab8",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/qualify_ivi_replacement_r1.py": "62f9e2b0e7e2ddba8d70facb9c41190dfef1822481db07e0f06a5332effd8e0e",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/qualify_mobolize_replacement_r2.py": "60161669b63eab52db8dca25fa5aa221094c2f3b02d5005a848bc4165ab7bbd7",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_formal_t0_v3_r6_production.py": "25c86652f1b4a69eff03ca5145ee1c89c4dad6f4be0dd016341f1969ecd539b6",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/trojan_transport_qualification_v3_definition.txt": "b26988debe3b4fd147a986f31902a8e628209b3825d0f2798a847e0203a09ffb"
+  },
+  "preregistration": false,
+  "formal_samples": 0
+}

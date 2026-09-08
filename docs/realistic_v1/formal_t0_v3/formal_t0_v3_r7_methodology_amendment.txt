@@ -1,0 +1,81 @@
+FORMAL_T0_V3_R7_METHODOLOGY_AMENDMENT
+scope=PREREGISTRATION_ONLY; DOMAIN_ELIGIBILITY_REVISION_ONLY
+human_review=REALISTIC_V3_R7_VALIDATION_PASS_APPROVED
+Rule_V2_created=PRE_PREREGISTRATION_VALIDATION; before Formal R6 collection
+Nike_Rule_B=3 transient navigation failures across independent smoke/production executions and 2 modes; one sample required attempt3
+Nike_smoke=seed002_medium; Shadowsocks; event3; MAIN_NAVIGATION_TIMEOUT attempts1/2; attempt3 PASS
+Nike_Formal=seed002_medium; Trojan; event3; MAIN_NAVIGATION_TIMEOUT attempt1
+Nike_context_plan_sha=db6f99f26c1756b69376c4bfcf79f578380be15f95b47502d9ef408dc5ff2f05
+Nike_natural_failures=PRE/POST health PASS; purity PASS; actual conn_max256; conn_max_hits0; capture PASS; no bypass/OOM/infra degradation; residual0
+R6_ADDITIONAL_RECURRENT_HOTSPOT=NONE
+NIKE_CONTEXTUAL_RETIREMENT_RULE_V2_PASS
+candidate_selection=same bucket; ascending rank; exclude current/historically retired/unstable/rejected/already-used replacements
+qualification_lifecycles=independent fresh; no trial retry
+contextual_gate=seed002_medium full event0->event3 prefix; candidate at original Nike position; each mode x3
+prefix_prior_URLs=ilovepdf.com; fastly.net; amazontrust.com
+prefix_semantics=exact order/actions/timing/dwell/browser lifecycle; navigation timeout30000ms
+R7_inputs=existing validated bytes; no preregistration regeneration
+
+R6_STATUS=ABORTED_EARLY_PRODUCTION_PILOT
+R6_VALID_SAMPLES=19
+R6_FINAL_DATASET_ELIGIBLE=NO
+R6_RESUME_SOURCE=PROHIBITED
+R6_samples_and_sample0020_evidence=RETAIN_LOCAL_REMOTE_PROVENANCE
+sample0020_attempt2_SECONDARY_FAILURE=OPERATOR_ABORT_DURING_RETRY
+CAPTURE_FINALIZATION_FAIL_CAUSE=EXTERNAL_SIGINT_AFTER_HOTSPOT_DETECTION
+sample0020_secondary_failure_is_natural_capture_defect=NO
+historical_R1_R2_R3_R4_R5_R6_final_dataset_eligible=NO
+historical_or_validation_sample_reuse=PROHIBITED
+R7_STATUS=VALIDATION_PASS
+R7_FORMAL_SAMPLES=0
+
+duckdns.org=RETIRED -> netlify.app; rank267->949
+crpt.ru=RETIRED -> nationalgeographic.com; rank322->953
+nike.com=RETIRED -> weforum.org; rank655->955; same bucket A/top_1_1000
+retirement_rule=DOMAIN_CONTEXTUAL_RETIREMENT_RULE_V2; unchanged
+weforum_qualification=actionability3/3; cross-mode8/8; contextual12/12 PASS
+candidate_rejects=0
+candidate_trial_retries=0
+other_R6_pool_rows_byte_identical=499
+
+single_quartet=4/4 PASS; attempts5; retries1
+quartet_retry=dzen.ru/event2/Shadowsocks EXECUTION_CONTEXT_DESTROYED_DUE_TO_NAVIGATION; attempt2 PASS
+smoke=24/24 PASS
+TOTAL_ATTEMPTS=24
+TOTAL_RETRIES=0
+ATTEMPT2_USAGE=0
+ATTEMPT3_USAGE=0
+RETRY_RATE=0%
+R7_RECURRENT_RETRY_HOTSPOT=NONE
+R7_HIGH_TRANSIENT_RATE_REVIEW_REQUIRED=NO
+remote_sample_SHA=24/24 PASS
+artifact_SHA=938/938 PASS
+final_metadata_SHA=13/13 PASS
+local_remote_files=943/943
+path_set_identical=YES
+health_failures=0; purity_failures=0; capture_failures=0; conn_max_hits=0; bypass=0; OOM=0; unexpected_exit=0; residual=0
+
+Failure_Classifier=v3; UNCHANGED
+Retry_Policy=v4; UNCHANGED
+MAX_ATTEMPTS_PER_SAMPLE=3
+retry=policy-authorized transient only; fresh whole-sample lifecycle; attempt3 failure HARD_STOP
+attempt4=PROHIBITED
+in_place_browser_or_individual_navigation_event_action_retry=PROHIBITED
+pre_workload_driver_failure=PLAYWRIGHT_DRIVER_CONNECTION_CLOSED / EXECUTOR_INITIALIZATION / MODE_PURITY_NOT_EVALUABLE
+actual_mode_purity_violation=FAIL_CLOSED
+browser=Playwright/Chromium; frozen flags; main navigation timeout30000ms
+health_capture=PRE health PASS; stop active probes; capture start; browser workload; capture finalize; POST health PASS
+ACTIVE_HEALTH_PROBE_DURING_CAPTURE=0
+model_input=observed.pcap; original/egress AUDIT_ONLY
+redsocks=actual PID NOFILE soft2048/hard524288; startup journal actual_conn_max256; mismatch PRECHECK_FAIL before browser/capture
+archive_failure=REMOTE_ARCHIVE_PENDING; archive-only recovery; no browser retry consumed
+resume=SKIP_VALID_COMPLETE with verified remote archive; ambiguous state REVIEW_REQUIRED
+storage_guard=20 GiB; do not start next pair group below threshold
+local_eviction=only completed samples with independent remote SHA and completeness PASS; ledger required; retain failed attempts and hard-stop evidence
+production_runtime_semantics_changed=NO
+
+forensic_evidence=/home/etip/datasets/diagnostics/r6_final_hotspot_forensic_20260907
+qualification_evidence=/home/etip/datasets/diagnostics/contextual_nike_replacement_20260907
+validation_summary=formal_t0_v3_r7_validation_summary.txt
+historical_validation_status_labels=retained as evidence of their creation stage; this amendment records preregistration approval
+required_final_authorization=START FORMAL T0 V3 R7 PRODUCTION

@@ -1,0 +1,2 @@
+old_domain	old_rank	bucket	candidate_rank	candidate_domain	candidate_order	qualification_status	actionability	cross_mode	contextual	contextual_pair_group	target_event_index	source_plan_sha	retirement_rule	candidate_retry_count	evidence_root
+nike.com	655	top_1_1000	955	weforum.org	1	QUALIFIED	3/3 PASS	8/8 PASS	12/12 PASS	seed002_medium	3	db6f99f26c1756b69376c4bfcf79f578380be15f95b47502d9ef408dc5ff2f05	RULE_B	0	/home/etip/datasets/diagnostics/contextual_nike_replacement_20260907/candidates/955_weforum.org
