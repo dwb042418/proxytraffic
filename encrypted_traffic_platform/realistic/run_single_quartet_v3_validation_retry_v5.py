@@ -203,6 +203,12 @@ def executor_initialization_health(started, stderr_text, sample_dir):
     return evidence
 
 
+def archive_control_packet_count(sample_dir):
+    """Archive SSH is control traffic, never an authorized browser workload."""
+    return base.tshark_count(sample_dir / 'observed.pcap',
+                            'ip.addr==61.172.170.106 && tcp.port==30493')
+
+
 def run_attempt(
     mode: str,
     attempt: int,
@@ -454,8 +460,10 @@ def run_attempt(
 
         purity_issues = list(mode_purity_report["issues"])
         mode_purity = str(mode_purity_report["status"])
+        archive_control_packets = archive_control_packet_count(sample_dir)
         capture_status = "PASS" if (
-            active_probe_process_count == 0
+            archive_control_packets == 0
+            and active_probe_process_count == 0
             and health_port_packets == 0
             and conntrack_exhausted == 0
             and local_tcpdump_residual == 0
@@ -512,6 +520,7 @@ def run_attempt(
             "unexpected_process_exit": unexpected_exit,
             "active_health_probe_during_capture": active_probe_process_count,
             "controlled_canary_port_packets_during_capture": health_port_packets,
+            "archive_control_packets_during_capture": archive_control_packets,
             "conntrack_exhausted_observations": conntrack_exhausted,
         }
         base.write_json(sample_dir / "capture_finalization.json", capture_finalization)

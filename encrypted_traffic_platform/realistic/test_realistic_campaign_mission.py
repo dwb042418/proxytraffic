@@ -77,6 +77,29 @@ class MissionTests(unittest.TestCase):
         with patch.object(f,'run_command',return_value=SimpleNamespace(returncode=255,stdout='',stderr='Broken pipe')):
             with self.assertRaises(f.RemoteArchivePending):f.remote_complete_valid(self.row,c.HEAD)
 
+    def test_exact_v4_archive_control_contamination(self):
+        component=f.configure_execution_components()
+        artifact=Path('/home/etip/datasets/staging/realistic_v1/non_formal_production_readiness_r10_v4/samples/formal_t0_v3_sample0001/attempts/attempt_1')
+        count=component.archive_control_packet_count(artifact)
+        self.assertEqual(count,43)
+        result=json.loads((artifact/'validation_attempt_result.json').read_text())
+        workload=json.loads((artifact/'workload/workload_report.json').read_text())
+        purity=json.loads((artifact/'mode_purity_report_v3.json').read_text())
+        classified=component.resolve_attempt_failure(executor_local_timeout=False,supervisor={'timed_out':False,'residual_count':0},
+            browser_residual=0,conn_max_hits=0,oom_count=0,unexpected_exit=0,infrastructure_lost=0,
+            mode_purity=purity,capture_status='FAIL' if count else result['capture']['status'],
+            workload=workload,executor_rc=0,plan_sha_matches=True,expected_event_count=workload['event_count'],
+            phase_rows=component.classifier.read_phase_rows(artifact/'executor_phase.jsonl'))
+        self.assertEqual(classified['failure_class'],'CAPTURE_FINALIZATION_FAIL')
+
+    def test_exact_component_exception_saves_standard_result(self):
+        component=f.configure_execution_components()
+        with patch.object(component.base,'cleanup_mode'),patch.object(component.base,'run',return_value=SimpleNamespace(stdout='0')):
+            result=f.synthetic_component_failure(component,self.row,1,self.root,KeyboardInterrupt())
+        path=Path(result['artifact_dir'])/'validation_attempt_result.json'
+        self.assertEqual(json.loads(path.read_text()),result)
+        self.assertIn('KeyboardInterrupt',result['terminal_implementation_exception'])
+
     def test_96_boundary_exits_before97(self):
         calls=[]
         def collect(row,*args):

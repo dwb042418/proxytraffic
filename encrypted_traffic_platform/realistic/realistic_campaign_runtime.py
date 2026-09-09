@@ -995,6 +995,7 @@ def synthetic_component_failure(
         "attempt_finished_utc": utc_now(),
     }
     atomic_write_json(attempt_dir / "formal_component_failure_result.json", result)
+    atomic_write_json(attempt_dir / "validation_attempt_result.json", result)
     return result
 
 
