@@ -43,11 +43,12 @@ UPLOAD_HOST = "proxydata-server"
 REMOTE_GIT_PUSH_DEFERRED = True
 USER_HOST = "realistic-user"
 
-POOL = DOC / "formal_domain_pool_v3_r7.tsv"
-SPLIT = DOC / "formal_domain_split_v3_r7.tsv"
-MANIFEST = DOC / "formal_t0_v3_plan_manifest_r7.tsv"
-REGISTRY = DOC / "FORMAL_T0_V3_PLAN_SHA256SUMS_R7.txt"
-SCHEDULE = DOC / "formal_t0_v3_schedule_r7.tsv"
+POOL = CONFIG.source_assets['POOL']
+SPLIT = CONFIG.source_assets['SPLIT']
+MANIFEST = CONFIG.source_assets['MANIFEST']
+REGISTRY = CONFIG.source_assets['REGISTRY']
+SCHEDULE = CONFIG.source_assets['SCHEDULE']
+RETIREMENT_LEDGER = CONFIG.source_assets['RETIREMENT_LEDGER']
 RETRY_POLICY = DOC / "formal_transient_retry_policy_v5.txt"
 RETRY_POLICY_FREEZE = DOC / "formal_transient_retry_policy_v5.sha256"
 HEALTH_DEFINITION = DOC / "trojan_transport_qualification_v3_definition.txt"
@@ -291,6 +292,7 @@ def audit_schedule_and_plans() -> tuple[list[dict[str, str]], dict[Path, str], d
     schedule = read_tsv(SCHEDULE)
     issues: list[str] = []
     pool_domains = [row["domain"] for row in pool]
+    pool_by_id = {row['domain_id']:row for row in pool}
     split_domains = [row["domain"] for row in split]
     if len(pool) != 500 or len(set(pool_domains)) != 500:
         issues.append("domain_pool")
@@ -335,6 +337,12 @@ def audit_schedule_and_plans() -> tuple[list[dict[str, str]], dict[Path, str], d
         path = Path(row["plan_path"])
         if registry.get(path) != row["plan_sha256"]:
             issues.append(f"registry_schedule:{row['sequence_id']}")
+    for row in manifest:
+        plan = load_json(Path(row['plan_path']))
+        if (plan['domain_ids'] != [e['domain_id'] for e in plan['events']]
+                or plan['url_sequence'] != [e['url'] for e in plan['events']]
+                or any(e['domain_id'] not in pool_by_id or e['url'] != 'https://'+pool_by_id[e['domain_id']]['domain']+'/' for e in plan['events'])):
+            issues.append('plan_domain_binding:'+row['plan_id'])
     if issues:
         raise PrecheckFail("schedule integrity issues: " + ",".join(issues[:20]))
     schedule.sort(key=lambda row: int(row["sequence_id"]))
@@ -1642,6 +1650,8 @@ def evaluate_rule_v2(evidence: list[dict[str, object]]) -> list[dict[str, object
 
 def update_hotspot_monitor(row: dict[str, str], frozen_git_head: str) -> None:
     triggers = evaluate_rule_v2(hotspot_evidence(frozen_git_head))
+    if triggers:
+        triggers = unresolved_hotspots(triggers)
     if not triggers:
         return
     old = load_json(monitor_path()) if monitor_path().exists() else {}
@@ -1654,6 +1664,17 @@ def update_hotspot_monitor(row: dict[str, str], frozen_git_head: str) -> None:
         "next_sample_blocked": True, "PENDING_HARD_STOP_AFTER_SAMPLE_BOUNDARY": "YES",
     })
     print("R10_PRODUCTION_RECURRENT_RETRY_HOTSPOT_REVIEW_REQUIRED", flush=True)
+
+
+def unresolved_hotspots(triggers):
+    """Retain historical evidence; resolve only explicitly retired, absent domains."""
+    active = {r['domain'] for r in read_tsv(POOL)}
+    if all(t['domain'] in active for t in triggers):
+        return triggers
+    if FROZEN_SHA256.get(RETIREMENT_LEDGER) != sha256(RETIREMENT_LEDGER):
+        raise HardStop('retirement ledger missing from freeze or changed')
+    retired = {r['old_domain'] for r in read_tsv(RETIREMENT_LEDGER) if r['qualification_status']=='QUALIFIED'}
+    return [t for t in triggers if t['domain'] in active or t['domain'] not in retired]
 
 
 def mark_monitor_boundary(row: dict[str, str], result: dict[str, object], *, natural_hard_stop: bool = False) -> None:

@@ -1,0 +1,50 @@
+{
+  "actions_and_timing_preserved": true,
+  "candidate_rejected": 2,
+  "changed_plan_groups": [
+    "seed061_heavy",
+    "seed062_light",
+    "seed067_medium"
+  ],
+  "domain_ids_preserved": true,
+  "domain_split_preserved": true,
+  "event_order_preserved": true,
+  "formal_dataset_eligible": false,
+  "original_rng_seeds_preserved": true,
+  "parent_generator_git_head": "0bcf2d260b8fa538b1f1e9cf1ac91c4975c18adf",
+  "parent_plan_revision": "t0_v3_r7",
+  "plan_derivation": "URL_ONLY_REPLACEMENT_IN_PARENT_PLANS_WITHOUT_RNG_REGENERATION",
+  "plans": 300,
+  "preparation_git_head": "fcefe1bdcfce83bc2ec34bc2ba5d6f5c840b474c",
+  "qualification_provenance": {
+    "candidate_order.json": "d19c371f2a045964f7547a642dca1c425cd5eb94d1a1e13bfe07f8682f9ffbad",
+    "exclusion_provenance.json": "894691d541b14e984262a69e7f3e9679c2ad9adb8d982ccf5d6ac65c557eb508",
+    "protocol.json": "9b4d6dd09c5bea7846b282cacaf50adc399111466f228b7242e71da21111044b",
+    "qualification_result.json": "2f1adf668f269b614d26671ff3c6a5648b3ffe19aa53aa75d723c0622f61c6b9",
+    "replacement_ledger.jsonl": "211a4e441eea46f454b0ed8e12b41bc987dd3e248d1b879d6613f7c5e578cea9"
+  },
+  "qualification_root": "/home/etip/datasets/diagnostics/contextual_us_replacement_20260910",
+  "replacement": {
+    "bucket": "rank_1001_100000",
+    "domain": "divar.ir",
+    "rank": 1242
+  },
+  "replacement_builder": "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/build_contextual_us_replacement_inputs.py",
+  "retired": [
+    "us.com"
+  ],
+  "retirement_rule": "RULE_A",
+  "schedule_samples": 1200,
+  "sha256": {
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/FORMAL_T0_V3_PLAN_SHA256SUMS_R8.txt": "54dc67c6f254ef3420b6225bb47260ffb3b8afb32650024a8f39eb7ec7744f0c",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/domain_replacement_ledger_v3_r8.tsv": "1b0ed4ef638495bd90b8cbadfcfcac2381dc29c81059283cb7ec5b6433abe161",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_pool_v3_r8.tsv": "dd96587452dac35d16373596eb73b28d6ad1ab0fdee9cba051b7a4c0497bec37",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_split_v3_r8.tsv": "65097bf70fd0ec4670070fa625584fb0b824cea0421b7282384bdc3255f80b09",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_plan_manifest_r8.tsv": "1c8348b3e72a6ae991ce941dcad1919a73e661edfde3fc3a30157b5c1068bd9d",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_schedule_r8.tsv": "51f97cb1aaf360b455e5cef3e2705d95ecd9bfec79cf0e258dfa58164b582372"
+  },
+  "source_plan_revision": "t0_v3_r8",
+  "status": "R8_QUALIFIED_INPUTS_READY",
+  "unchanged_domain_rows": 499,
+  "unchanged_plan_bytes": 297
+}

@@ -194,6 +194,9 @@ def formal_qualification_check():
     # Every shared implementation and methodology file must match the qualified
     # Stress freeze; only campaign config/manifest and preregistration differ.
     stress_doc = Path('/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission')/report['campaign_id']
+    stress_config = f.load_json(stress_doc/'campaign_config.json')
+    if CONFIG.source_plan_revision != stress_config.get('source_plan_revision','t0_v3_r7'):
+        raise f.PrecheckFail('Formal source plan revision differs from qualified Stress')
     stress_files = f.load_json(stress_doc/'campaign_freeze.json')['files']
     for path,digest in stress_files.items():
         if Path(path).is_relative_to(stress_doc): continue

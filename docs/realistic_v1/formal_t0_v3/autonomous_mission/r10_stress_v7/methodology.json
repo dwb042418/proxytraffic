@@ -1,0 +1,48 @@
+{
+  "browser": "realistic_browser_v3_r10.py",
+  "campaign_id": "r10_stress_v7",
+  "changed_plan_groups": [
+    "seed061_heavy",
+    "seed062_light",
+    "seed067_medium"
+  ],
+  "failed_evidence_retained": true,
+  "final_dataset_eligible": false,
+  "formal_requires_full_stress_192": true,
+  "gov_br": "KEEP_LOW_FREQUENCY_SERVER_SIDE_TRANSIENT_DIAGNOSTIC_12_OF_12_PASS",
+  "governance": "USER_AUTHORIZED_AUTONOMOUS_MISSION",
+  "historical_hotspot_evidence": "FROZEN_PRIOR_CAMPAIGN_EXPORTS_WITH_IDENTITY_DEDUPLICATION",
+  "kind": "STRESS",
+  "local_free_space_threshold_gib": 20,
+  "max_attempts": 3,
+  "plan_derivation": "URL_ONLY_REPLACEMENT_FROM_R7_WITHOUT_RNG_REGENERATION",
+  "production_state_changes": [
+    "EXPLICIT_SOURCE_ASSET_REVISION_BINDING",
+    "RESOLVE_HISTORICAL_HOTSPOTS_ONLY_AFTER_FROZEN_RETIREMENT_AND_POOL_REMOVAL",
+    "PLAN_URL_TO_POOL_SLOT_BINDING_CHECK"
+  ],
+  "regression": "10/10 PASS",
+  "regression_evidence": "/home/etip/datasets/diagnostics/contextual_us_replacement_20260910/replacement_regression.log",
+  "remote_git_push_deferred": true,
+  "replacement": {
+    "actionability": "3/3 PASS",
+    "candidate_order": 3,
+    "candidate_rejections": 2,
+    "contextual": "12/12 PASS",
+    "cross_mode": "8/8 PASS",
+    "domain": "divar.ir",
+    "old_domain": "us.com",
+    "rank": 1242,
+    "rank_bucket": "rank_1001_100000"
+  },
+  "retry_policy": "FORMAL_T0_V3_TRANSIENT_RETRY_POLICY_V5",
+  "revision_mixing_prohibited": true,
+  "revision_reason": "RULE_A_US_COM_CONTEXTUAL_RETIREMENT",
+  "sample_count": 192,
+  "source_plan_revision": "t0_v3_r8",
+  "stress_qualification": "",
+  "stress_resume_boundary": 96,
+  "stress_selection": "EXACT_V3_SOURCE_SELECTION_UNCHANGED",
+  "unchanged_plan_bytes": 297,
+  "whole_sample_fresh_lifecycle_retry": true
+}

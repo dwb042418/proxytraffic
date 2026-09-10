@@ -23,6 +23,22 @@ class CampaignConfig:
     executor_revision: str
     total_samples: int
     stress_qualification: str = ''
+    source_plan_revision: str = 't0_v3_r7'
+
+    @property
+    def source_assets(self):
+        if not re.fullmatch(r't0_v3_r[1-9]\d*', self.source_plan_revision):
+            raise RootIdentityError('invalid source plan revision')
+        revision = self.source_plan_revision.removeprefix('t0_v3_')
+        doc = Path('/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3')
+        return {key:doc/name for key,name in {
+            'POOL':f'formal_domain_pool_v3_{revision}.tsv',
+            'SPLIT':f'formal_domain_split_v3_{revision}.tsv',
+            'MANIFEST':f'formal_t0_v3_plan_manifest_{revision}.tsv',
+            'REGISTRY':f'FORMAL_T0_V3_PLAN_SHA256SUMS_{revision.upper()}.txt',
+            'SCHEDULE':f'formal_t0_v3_schedule_{revision}.tsv',
+            'RETIREMENT_LEDGER':f'domain_replacement_ledger_v3_{revision}.tsv',
+        }.items()}
 
     @property
     def local_root(self): return LOCAL_BASE/self.storage_name
@@ -70,6 +86,7 @@ class CampaignConfig:
     def checkpoint_path(self, n): return self.local_root/f'checkpoint_{n:04d}.json'
 
     def assert_invariant(self):
+        self.source_assets
         raw = json.loads(self.config_record.read_text())
         if self != CampaignConfig(self.config_record, **raw):
             raise RootIdentityError('CAMPAIGN_ROOT_IDENTITY_INVARIANT_FAILURE: config changed')
