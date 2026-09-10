@@ -1532,8 +1532,19 @@ def verify_hotspot_baseline() -> list[dict[str, str]]:
         raise PrecheckFail("Rule V2 SHA mismatch")
     with HOTSPOT_BASELINE.open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle, delimiter="\t"))
+    history = CONFIG.documentation_root / 'historical_hotspot_evidence.json'
+    allowed_classes = {"R7_VALIDATION", "R10_VALIDATION", "R10_PRODUCTION"}
+    if history in FROZEN_SHA256:
+        if sha256(history) != FROZEN_SHA256[history]:
+            raise PrecheckFail('historical hotspot evidence SHA mismatch')
+        from realistic_hotspot_history import merge_evidence
+        snapshot = load_json(history)
+        rows = merge_evidence(rows, snapshot['evidence'])
+        allowed_classes.update(source['dataset_track'] for source in snapshot['sources'])
+    elif history.exists():
+        raise PrecheckFail('historical hotspot evidence not frozen')
     for row in rows:
-        if row["infra_clean"] != "true" or row["run_class"] not in {"R7_VALIDATION", "R10_VALIDATION"}:
+        if row["infra_clean"] != "true" or row["run_class"] not in allowed_classes:
             raise PrecheckFail("unqualified hotspot baseline evidence")
     return rows
 

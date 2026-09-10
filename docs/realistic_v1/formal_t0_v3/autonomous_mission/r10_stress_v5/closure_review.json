@@ -1,0 +1,68 @@
+{
+  "FINAL_DATASET_ELIGIBLE": false,
+  "REMOTE_GIT_PUSH_DEFERRED": true,
+  "actual_attempts": 117,
+  "browser_and_plan_unchanged": true,
+  "complete_pair_groups": 28,
+  "diagnostic": {
+    "all_event_and_scroll_sequences_verified": true,
+    "full_plan_unchanged": true,
+    "infra_failures": 0,
+    "mode_counts": {
+      "direct": 3,
+      "shadowsocks": 3,
+      "trojan": 3,
+      "vless": 3
+    },
+    "passes": 12,
+    "retries": 0,
+    "root": "/home/etip/datasets/diagnostics/cdnvideo_context_20260910",
+    "target_scroll_max_seconds": 0.012059,
+    "trials": 12
+  },
+  "domain_decision": "KEEP_CDNVIDEO_RU; recurrent contextual instability not established",
+  "failure_context": {
+    "deadline_seconds": 5,
+    "elapsed_seconds": 5.006922,
+    "event": 3,
+    "mode": "trojan",
+    "plan_id": "formal_t0_v3_seed091_medium",
+    "sample": 113,
+    "scroll_index": 2,
+    "url": "https://cdnvideo.ru/"
+  },
+  "failure_counts": {
+    "ACTION_TIMEOUT": 1,
+    "EXECUTION_CONTEXT_DESTROYED_DUE_TO_NAVIGATION": 1,
+    "MAIN_NAVIGATION_TIMEOUT": 2,
+    "TCP_NAVIGATION_FAILURE": 1
+  },
+  "maximum_attempt": 2,
+  "mode_counts": {
+    "direct": 28,
+    "shadowsocks": 28,
+    "trojan": 28,
+    "vless": 28
+  },
+  "monitor_finding": "Previous campaign failures were omitted from subsequent campaign hotspot inputs; add frozen inherited evidence snapshots and terminal exports without changing Rule V2 thresholds.",
+  "next_revision": "r10_stress_v6",
+  "next_revision_starts_at": 0,
+  "regression": "10 targeted history and existing production state-machine tests PASS",
+  "remote_verified_completed": 112,
+  "retries": 4,
+  "retry_policy": "V5_UNCHANGED_ACTION_TIMEOUT_NON_RETRYABLE",
+  "revision": "r10_stress_v5",
+  "revision_hard_stop": {
+    "MISSION_HARD_STOP": false,
+    "campaign_id": "r10_stress_v5",
+    "category": "SAMPLE_POLICY_HARD_STOP",
+    "exception": "SamplePolicyHardStop",
+    "reason": "non-retryable attempt1: formal_t0_v3_sample0113: ACTION_TIMEOUT",
+    "status": "REVISION_HARD_STOP",
+    "time": "2026-09-10T07:08:18.985474Z"
+  },
+  "root_cause": "UNDETERMINED_NON_REPRODUCED_PAGE_EVALUATION_DELAY; no confirmed browser implementation defect",
+  "source_selection": "EXACT_V3_SELECTION_UNCHANGED",
+  "status": "CLOSED_HISTORICAL_NON_FORMAL",
+  "valid_samples": 112
+}

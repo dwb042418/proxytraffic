@@ -172,10 +172,17 @@ def final_report():
         'HOTSPOT':'NONE','EVICTED_SAMPLES':len(evictions),'REMOTE_GIT_PUSH_DEFERRED':'YES',
         'PASS_MARKER':'PRODUCTION_READINESS_STRESS_PASS' if CONFIG.kind=='STRESS' else 'REALISTIC_FORMAL_FINAL_COLLECTION_PASS'}
     f.atomic_write_json(CONFIG.report_path,report)
+    export_hotspot_evidence()
     archive_controls()
     f.atomic_write_text(CONFIG.local_root/report['PASS_MARKER'],report['PASS_MARKER']+'\n')
     print(json.dumps(report,sort_keys=True),flush=True)
     print(report['PASS_MARKER'],flush=True)
+
+
+def export_hotspot_evidence():
+    f.atomic_write_json(CONFIG.local_root/'hotspot_evidence_export.json', {
+        'campaign_id':CONFIG.campaign_id, 'git_head':HEAD,
+        'evidence':f.hotspot_evidence(HEAD)})
 
 
 def formal_qualification_check():
@@ -247,6 +254,12 @@ def main(argv=None):
                 'campaign_id':CONFIG.campaign_id,'time':f.utc_now(),'MISSION_HARD_STOP':False}
             target = CONFIG.hard_stop_record if campaign_state_consumed(CONFIG) else CONFIG.prestart_implementation_stop
             if not target.exists(): f.atomic_write_json(target,record)
+            if campaign_state_consumed(CONFIG):
+                try:
+                    export_hotspot_evidence()
+                except Exception as export_error:
+                    f.atomic_write_json(CONFIG.local_root/'hotspot_export_error.json',
+                        {'error':str(export_error),'requires_internal_review':True})
             print(json.dumps(record,sort_keys=True),flush=True)
         raise
 

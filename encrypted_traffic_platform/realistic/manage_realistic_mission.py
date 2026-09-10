@@ -86,7 +86,7 @@ def main():
         revision=11
         while (MISSION/f't0_v3_r{revision}').exists():revision+=1
         formal=prepare(f't0_v3_r{revision}','FORMAL',qualification=str(qualification))
-        files=[formal/'campaign_config.json',formal/'campaign_manifest.tsv',formal/'methodology.json']
+        files=[formal/'campaign_config.json',formal/'campaign_manifest.tsv',formal/'methodology.json',formal/'historical_hotspot_evidence.json']
         subprocess.run(['git','-C',str(REPO),'add',*[str(p) for p in files]],check=True)
         subprocess.run(['git','-C',str(REPO),'commit','-m',f'Preregister final Formal r{revision} after complete Stress qualification'],check=True)
         freeze(formal)
