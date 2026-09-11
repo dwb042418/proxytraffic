@@ -1,0 +1,55 @@
+{
+  "additional_local_capacity_information_requested": true,
+  "collection_pass": false,
+  "conflicting_requirements": [
+    "LOCAL_FREE_SPACE_MUST_BE_AT_LEAST_20_GIB_BEFORE_NEW_WORK",
+    "FAILED_HARD_STOP_FORENSIC_EVIDENCE_MUST_REMAIN_LOCAL",
+    "ONLY_REMOTE_VERIFIED_COMPLETED_SAMPLE_LARGE_ARTIFACTS_ELIGIBLE_FOR_LOCAL_EVICTION"
+  ],
+  "eligible_completed_pcap_exhausted": true,
+  "final_formal_started": false,
+  "local_free_bytes": 21494439936,
+  "local_threshold_bytes": 21474836480,
+  "physical_disk_gib": 80,
+  "qualification": {
+    "actionability_pass": 3,
+    "additional_local_capacity_information_requested": true,
+    "candidate": "jd.com",
+    "completed_trial_replay_prohibited": true,
+    "contextual_pass": 7,
+    "cross_mode_pass": 8,
+    "failed_trials": 0,
+    "free_disk_gib": 20.018287658691406,
+    "minimum_free_disk_gib": 20,
+    "next_mode": "shadowsocks",
+    "next_stage": "contextual_prefix",
+    "next_trial": 2,
+    "rank": 960,
+    "retained_evidence": true,
+    "status": "QUALIFICATION_STORAGE_CHECKPOINT",
+    "time": "2026-09-11T10:19:55.617733+00:00",
+    "unresolved_trial_starts": 0
+  },
+  "qualified_replacement_not_yet_declared": true,
+  "remaining_completed_pcap": [
+    {
+      "eligible": false,
+      "pcap_bytes": 101795342,
+      "reason": "HARD_STOP_CAPTURE_CONTAMINATION_EVIDENCE",
+      "root": "/home/etip/datasets/staging/realistic_v1/non_formal_production_readiness_r10_v4"
+    },
+    {
+      "eligible": false,
+      "pcap_bytes": 13586459,
+      "reason": "QUARANTINE_FORENSIC_EVIDENCE",
+      "root": "/home/etip/datasets/staging/realistic_v1/quarantine"
+    }
+  ],
+  "remote_git_push_deferred": true,
+  "revision_hard_stop": "r10_stress_v9_RULE_B_UK_COM",
+  "status": "STORAGE_CAPACITY_REVIEW",
+  "storage_checkpoint_is_not_mission_hard_stop": true,
+  "stress_v10_not_yet_created": true,
+  "time": "2026-09-11T10:20:52.345037+00:00",
+  "volume_group_unallocated_bytes": 0
+}
