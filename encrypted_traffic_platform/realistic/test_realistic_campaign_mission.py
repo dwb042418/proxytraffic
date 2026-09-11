@@ -121,4 +121,89 @@ class MissionTests(unittest.TestCase):
         self.assertIn('process_id',json.loads(c.CONFIG.restart_record.read_text()))
 
 
+class BoundaryResumeTests(unittest.TestCase):
+    setUp = MissionTests.setUp
+
+    def boundary_state(self, n):
+        evidence=Path('/home/etip/datasets/staging/realistic_v1/non_formal_production_readiness_r10_v8')
+        c.CONFIG.telemetry_root.mkdir(exist_ok=True)
+        baseline=json.loads((evidence/'resource_telemetry/boundary_0000.json').read_text())
+        for i in range(n):
+            c.f.atomic_write_json(c.CONFIG.telemetry_root/f'boundary_{i:04d}.json',{**baseline,'sequence_id':i})
+        for milestone in (24,64,128):
+            if milestone<n:
+                c.f.atomic_write_json(c.CONFIG.checkpoint_path(milestone),{'status':'PASS','VALID_SAMPLES':milestone})
+        if n>24:c.CONFIG.smoke_marker.write_text('24/24 PASS\n')
+        row=c.IDENTITY.lookup(n)
+        result=json.loads((evidence/'samples/formal_t0_v3_sample0080/sample_metadata.json').read_text())['final_result']
+        result.update(plan_sha256=row['plan_sha256'],redsocks_actual_conn_max='NOT_APPLICABLE' if row['mode_order']=='direct' else 256)
+        sample=c.CONFIG.local_sample_root/row['schedule_id'];sample.mkdir(parents=True,exist_ok=True)
+        c.f.atomic_write_json(sample/'sample_metadata.json',{'final_result':result})
+        return {'valid_samples':n,'complete_pair_groups':n//4,'next_sequence_id':n+1,
+                'next_action':'RUN_ATTEMPT1','mode_counts':{m:n//4 for m in f.MODES},
+                'decisions':[{'sequence_id':i,'decision':'SKIP_VALID_COMPLETE_REMOTE_ONLY'} for i in range(1,n+1)]}
+
+    def test_exact_v8_storage_disconnect_recovers_boundary80_without_resampling(self):
+        state=self.boundary_state(80);collected=[]
+        before={p:p.read_bytes() for p in c.CONFIG.telemetry_root.iterdir()}
+        old={**state,'valid_samples':79,'next_sequence_id':80,'complete_pair_groups':19}
+        old['mode_counts']=dict(state['mode_counts']);old['mode_counts'][c.IDENTITY.lookup(80)['mode_order']]-=1
+        for name in ('dry_run','require_no_pending_hotspot','verify_orchestrator_at_head','verify_no_out_of_order_artifacts','mark_monitor_boundary'):
+            self.stack.enter_context(patch.object(f,name))
+        self.stack.enter_context(patch.object(f,'scan_resume_state',return_value=old))
+        self.stack.enter_context(patch.object(f,'free_disk_bytes',side_effect=lambda:19*1024**3 if collected else 30*1024**3))
+        self.stack.enter_context(patch.object(f,'run_formal_sample',side_effect=lambda row,*a:collected.append(int(row['sequence_id']))))
+        self.stack.enter_context(patch.object(f,'storage_recover',side_effect=f.RemoteArchivePending('SSH unavailable during remote completeness verification')))
+        self.stack.enter_context(patch.object(f,'BOUNDARY_HOOK',c.boundary))
+        with self.assertRaises(f.RemoteArchivePending):f.execute_production(c.HEAD,resume=True)
+        self.assertEqual(collected,[80])
+        self.assertFalse((c.CONFIG.telemetry_root/'boundary_0080.json').exists())
+        def telemetry(n):f.atomic_write_json(c.CONFIG.telemetry_root/f'boundary_{n:04d}.json',{'sequence_id':n})
+        with patch.object(c,'telemetry',side_effect=telemetry) as collect:
+            def continue_production(*args,**kwargs):
+                self.assertTrue((c.CONFIG.telemetry_root/'boundary_0080.json').exists())
+                self.assertEqual(collected,[80])
+                return 0
+            with patch.object(c,'configure'),patch.object(c,'prestart_remote_commands',return_value=contextlib.nullcontext()),patch.object(c,'remote_path_preflight'),patch.object(f,'dry_run',return_value={'resume_state':state}),patch.object(f,'free_disk_bytes',return_value=30*1024**3),patch.object(f,'execute_production',side_effect=continue_production),patch.object(c,'final_report'):
+                self.assertEqual(c.main(['--config',str(c.CONFIG.config_record),'--resume']),0)
+            self.assertIsNone(c.recover_completed_boundary(state))
+            collect.assert_called_once_with(80)
+        self.assertEqual(collected,[80])
+        self.assertTrue(all(p.read_bytes()==data for p,data in before.items()))
+        self.assertEqual(json.loads((self.root/'boundary_recovery_0080.json').read_text())['status'],'COMPLETE')
+
+    def test_pending_smoke_checkpoint_and_real_restart_boundaries(self):
+        for n in (24,64,96):
+            with self.subTest(sequence=n),tempfile.TemporaryDirectory() as temp,patch.object(c.cfg,'LOCAL_BASE',Path(temp)):
+                c.CONFIG.local_root.mkdir();state=self.boundary_state(n)
+                # Telemetry was already written before the interrupted remote check.
+                path=c.CONFIG.telemetry_root/f'boundary_{n:04d}.json';path.write_text(json.dumps({'sequence_id':n}))
+                original=path.read_bytes()
+                progress={'VALID_SAMPLES':n,'COMPLETE_PAIR_GROUPS':n//4,'NEXT_SEQUENCE_ID':n+1,
+                          'REMOTE_SHA_PASS':n,'mode_counts':{m:n//4 for m in f.MODES},'residual':0}
+                def checkpoint(sequence):f.atomic_write_json(c.CONFIG.checkpoint_path(sequence),{'status':'PASS',**progress})
+                with patch.object(c,'telemetry') as telemetry,patch.object(c,'checkpoint',side_effect=checkpoint),patch.object(f,'progress_from_schedule',return_value=progress):
+                    code=c.recover_completed_boundary(state)
+                    telemetry.assert_not_called()
+                self.assertEqual(path.read_bytes(),original)
+                if n==96:
+                    self.assertEqual(code,76)
+                    self.assertTrue(c.CONFIG.restart_record.exists())
+                    self.assertFalse(c.CONFIG.resume_marker.exists())
+                else:
+                    self.assertIsNone(code);self.assertTrue(c.CONFIG.checkpoint_path(n).exists())
+                    if n==24:self.assertTrue(c.CONFIG.smoke_marker.exists())
+
+    def test_reject_historical_gap_or_later_consumed_attempt(self):
+        state=self.boundary_state(80)
+        earlier=c.CONFIG.telemetry_root/'boundary_0079.json';saved=earlier.read_bytes();earlier.unlink()
+        with patch.object(c,'telemetry') as telemetry:
+            with self.assertRaises(f.HardStop):c.recover_completed_boundary(state)
+            telemetry.assert_not_called()
+        earlier.write_bytes(saved)
+        with patch.object(c,'ledger_audit',return_value=[{}]),patch.object(c.IDENTITY,'validate_ledger',return_value=c.IDENTITY.lookup(81)),patch.object(c,'telemetry') as telemetry:
+            with self.assertRaises(f.HardStop):c.recover_completed_boundary(state)
+            telemetry.assert_not_called()
+
+
 if __name__=='__main__':unittest.main(verbosity=2)

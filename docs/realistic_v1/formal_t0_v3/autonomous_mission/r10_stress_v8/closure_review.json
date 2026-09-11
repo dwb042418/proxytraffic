@@ -1,0 +1,22 @@
+{
+  "MISSION_HARD_STOP": false,
+  "browser_failures": 0,
+  "campaign_id": "r10_stress_v8",
+  "category": "IMPLEMENTATION_FAILURE",
+  "complete_pair_groups": 20,
+  "final_dataset_eligible": false,
+  "git_head": "882d3efc1edf1e14b8c014f8d7fe523340e1b284",
+  "missing_telemetry_sequence": 80,
+  "next_action": "EXACT_BOUNDARY_RESUME_REGRESSION_GENERIC_FIX_LOCAL_COMMIT_FRESH_STRESS_V9",
+  "next_sequence_id": 81,
+  "reason": "REMOTE_ARCHIVE_PENDING_DURING_STORAGE_SKIPS_UNFINISHED_BOUNDARY_ON_RESUME",
+  "remote_complete": 80,
+  "root_cause": "boundary hook runs after fallible storage recovery; resume skips already-complete sample without finishing boundary telemetry/milestones",
+  "sample81_attempts": 0,
+  "sample_id": 80,
+  "status": "REVISION_HARD_STOP",
+  "time": "2026-09-11T09:15:38.477509+00:00",
+  "total_attempts": 80,
+  "total_retries": 0,
+  "valid_samples": 80
+}

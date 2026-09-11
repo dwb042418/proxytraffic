@@ -86,17 +86,96 @@ def checkpoint(n):
 
 def boundary(row, progress, head):
     n = int(row['sequence_id'])
-    telemetry(n)
+    telemetry_path = CONFIG.telemetry_root/f'boundary_{n:04d}.json'
+    if telemetry_path.exists():
+        if f.load_json(telemetry_path)['sequence_id'] != n:
+            raise f.HardStop('boundary telemetry identity mismatch')
+    else:
+        telemetry(n)
     if n % 4 == 0:
         print(f'{CONFIG.kind}={n}/{CONFIG.total_samples} PAIRS={n//4}/{CONFIG.total_samples//4} RETRIES={progress["RETRY_COUNT"]} REMOTE={progress["REMOTE_SHA_PASS"]}/{n} DISK_GIB={f.free_disk_bytes()/1024**3:.2f} HEALTH/PURITY/CAPTURE=CLEAN HOTSPOT=NONE',flush=True)
     if CONFIG.kind == 'STRESS':
-        if n == 24:
+        if n == 24 and not (CONFIG.smoke_marker.exists() and CONFIG.checkpoint_path(24).exists()):
             checkpoint(24)
             f.atomic_write_text(CONFIG.smoke_marker,'24/24 PASS\n')
             print('SMOKE_COMPATIBILITY_SEGMENT_PASS',flush=True)
-        if n in (64,128):
+        if n in (64,128) and not CONFIG.checkpoint_path(n).exists():
             checkpoint(n)
             print(f'STRESS_CHECKPOINT_{n}_PASS',flush=True)
+
+
+def recover_completed_boundary(state):
+    """Finish only the latest verified boundary, before any later workload runs."""
+    n = int(state['valid_samples'])
+    if not n:
+        return
+    existing = set()
+    for path in CONFIG.telemetry_root.glob('boundary_*.json'):
+        sequence = int(path.stem.removeprefix('boundary_'))
+        if f.load_json(path)['sequence_id'] != sequence or sequence > n:
+            raise f.HardStop('resume boundary telemetry identity mismatch')
+        existing.add(sequence)
+    missing = set(range(n+1))-existing
+    if missing-{n}:
+        raise f.HardStop('cannot reconstruct historical boundary telemetry')
+    pending_milestone = False
+    if CONFIG.kind == 'STRESS':
+        for milestone in (24,64,128):
+            if n < milestone:
+                continue
+            path = CONFIG.checkpoint_path(milestone)
+            complete = path.exists()
+            if complete:
+                record = f.load_json(path)
+                if record.get('status') != 'PASS' or record.get('VALID_SAMPLES') != milestone:
+                    raise f.HardStop('resume checkpoint identity mismatch')
+            if milestone == 24:
+                complete = complete and CONFIG.smoke_marker.exists()
+            if not complete and n > milestone:
+                raise f.HardStop('cannot reconstruct historical Stress milestone')
+            pending_milestone |= not complete
+        if n > 96 and not CONFIG.resume_marker.exists():
+            raise f.HardStop('required real restart boundary was skipped')
+    needs_restart = (CONFIG.kind == 'STRESS' and n == 96
+                     and not CONFIG.resume_marker.exists() and not CONFIG.restart_record.exists())
+    if not (missing or pending_milestone or needs_restart):
+        return
+    if (state['next_sequence_id'] != n+1
+            or state['next_action'] not in ('RUN_ATTEMPT1','ALL_COMPLETE')
+            or len(state['decisions']) < n
+            or any(not d['decision'].startswith('SKIP_VALID_COMPLETE') for d in state['decisions'][:n])):
+        raise f.HardStop('unfinished boundary is not the latest complete sample')
+    ledger = ledger_audit()
+    if any(int(IDENTITY.validate_ledger(entry)['sequence_id']) > n for entry in ledger):
+        raise f.HardStop('cannot reconstruct boundary after later attempt consumption')
+    row = IDENTITY.lookup(n)
+    meta = f.load_json(CONFIG.local_sample_root/row['schedule_id']/'sample_metadata.json')
+    f.assert_final_attempt(meta['final_result'],row)
+    if missing or pending_milestone:
+        recovery = {'status':'PENDING','sequence_id':n,'next_sequence_id':n+1,
+                    'process_id':os.getpid(),'git_head':HEAD,'started_utc':f.utc_now(),
+                    'missing_telemetry':bool(missing),'pending_milestone':pending_milestone,
+                    'browser_attempts_consumed':0}
+        path = CONFIG.local_root/f'boundary_recovery_{n:04d}.json'
+        if path.exists():
+            previous = f.load_json(path)
+            recovery['previous_attempts'] = previous.get('previous_attempts',[])+[
+                {key:value for key,value in previous.items() if key != 'previous_attempts'}]
+        f.atomic_write_json(path,recovery)
+        boundary(row,{'RETRY_COUNT':sum(int(e['attempt'])>1 for e in ledger),'REMOTE_SHA_PASS':n},HEAD)
+        f.atomic_write_json(path,{**recovery,'status':'COMPLETE','finished_utc':f.utc_now()})
+        print(f'RESUMED_BOUNDARY_COMPLETE sequence={n} NO_RESAMPLING',flush=True)
+    if needs_restart:
+        progress = f.progress_from_schedule(IDENTITY.rows,HEAD)
+        if (progress['VALID_SAMPLES'] != 96 or progress['COMPLETE_PAIR_GROUPS'] != 24
+                or progress['REMOTE_SHA_PASS'] != 96 or progress['NEXT_SEQUENCE_ID'] != 97
+                or progress['residual'] != 0):
+            raise f.HardStop('recovered real restart boundary is not safe')
+        progress.update(process_id=os.getpid(),campaign_id=CONFIG.campaign_id,
+                        reason='FINISH_INTERRUPTED_96_SAMPLE_BOUNDARY')
+        f.atomic_write_json(CONFIG.restart_record,progress)
+        print('SAFE_BOUNDARY_PROCESS_RESTART',flush=True)
+        return 76
 
 
 def archive_controls():
@@ -228,6 +307,8 @@ def main(argv=None):
             if args.preflight:
                 print(json.dumps(report,sort_keys=True),flush=True)
                 return 0
+            if args.resume and recover_completed_boundary(report['resume_state']) == 76:
+                return 76
             if args.resume and CONFIG.kind == 'STRESS' and CONFIG.restart_record.exists() and not CONFIG.resume_marker.exists():
                 restart = f.load_json(CONFIG.restart_record)
                 state = report['resume_state']
