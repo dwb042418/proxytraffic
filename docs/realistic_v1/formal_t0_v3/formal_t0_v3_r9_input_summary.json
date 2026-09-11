@@ -1,0 +1,50 @@
+{
+  "actions_and_timing_preserved": true,
+  "candidate_rejected": 0,
+  "changed_plan_groups": [
+    "seed002_heavy",
+    "seed030_heavy"
+  ],
+  "domain_ids_preserved": true,
+  "domain_split_preserved": true,
+  "event_order_preserved": true,
+  "formal_dataset_eligible": false,
+  "original_rng_seeds_preserved": true,
+  "parent_generator_git_head": "0bcf2d260b8fa538b1f1e9cf1ac91c4975c18adf",
+  "parent_plan_revision": "t0_v3_r8",
+  "plan_derivation": "URL_ONLY_REPLACEMENT_IN_PARENT_PLANS_WITHOUT_RNG_REGENERATION",
+  "plans": 300,
+  "preparation_git_head": "2a093268cb47b9bc99ca5a5562608122889193c0",
+  "qualification_provenance": {
+    "candidate_order.json": "0d43ab88132dc08b7f9344110e6a5cfcb4ff2b6867914419381511769a8d7c2f",
+    "exclusion_provenance.json": "bee1f88de739e4bbb69a316a7481341248f28720e14f8408b859c47713e40554",
+    "protocol.json": "870745fdf73a10f760d156c93c3cdcb7a145afcb8cd3f2ad883d5bfd4e359fb7",
+    "qualification_result.json": "4fdfaca07636b276b9995abbd0d1c5811734116b3b8722ab8bb35206f0d431bb",
+    "replacement_ledger.jsonl": "57b9e2857477e16c0a62669d6a807a8f2ba4e1625d0cfb7d5684527775810889"
+  },
+  "qualification_root": "/home/etip/datasets/diagnostics/contextual_singular_replacement_20260911",
+  "replacement": {
+    "bucket": "top_1_1000",
+    "domain": "otto.de",
+    "rank": 959
+  },
+  "replacement_builder": "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/build_contextual_domain_replacement_inputs.py",
+  "replacement_builder_sha256": "b5cf616f277743e0e9f356df26738209c3919d5168e2dbc383bab76d40209bea",
+  "retired": [
+    "singular.net"
+  ],
+  "retirement_rule": "RULE_A",
+  "schedule_samples": 1200,
+  "sha256": {
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/FORMAL_T0_V3_PLAN_SHA256SUMS_R9.txt": "e7335a501ea4bb9d901ac5c6e878f31f6d6b50a1cdcd28d0fc185fcc85350800",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/domain_replacement_ledger_v3_r9.tsv": "4322be6e1cbbcc17304e34476eaec28d89e4a1c1dcdc0c2b147f07613cf94c2d",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_pool_v3_r9.tsv": "d0f312fe3170f3e88c0acd56eff89d26b11268f176091f369c63440906c65fce",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_split_v3_r9.tsv": "06894bfe3c5303f02e5fa68c855ed489508c7210ed4d3cd33bda093dc5c06e4c",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_plan_manifest_r9.tsv": "3a84721761c928ffa64cd0dc867adac2d4d5b53e7bdd2bdc77cde48a1b40f32c",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_schedule_r9.tsv": "47a06f88d0d0a2ceda25276a417c8c8e4ef5775a274ebd47fd4157f2871a7008"
+  },
+  "source_plan_revision": "t0_v3_r9",
+  "status": "R9_QUALIFIED_INPUTS_READY",
+  "unchanged_domain_rows": 499,
+  "unchanged_plan_bytes": 298
+}

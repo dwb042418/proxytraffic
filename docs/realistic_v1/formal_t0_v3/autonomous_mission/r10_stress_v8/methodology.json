@@ -1,0 +1,51 @@
+{
+  "browser": "realistic_browser_v3_r10.py",
+  "campaign_id": "r10_stress_v8",
+  "changed_plan_groups": [
+    "seed002_heavy",
+    "seed030_heavy"
+  ],
+  "failed_evidence_retained": true,
+  "final_dataset_eligible": false,
+  "formal_requires_full_stress_192": true,
+  "gov_br": "KEEP_LOW_FREQUENCY_SERVER_SIDE_TRANSIENT_DIAGNOSTIC_12_OF_12_PASS",
+  "governance": "USER_AUTHORIZED_AUTONOMOUS_MISSION",
+  "historical_hotspot_evidence": "FROZEN_PRIOR_CAMPAIGN_EXPORTS_WITH_IDENTITY_DEDUPLICATION",
+  "input_summary": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_r9_input_summary.json",
+  "kind": "STRESS",
+  "local_free_space_threshold_gib": 20,
+  "max_attempts": 3,
+  "parent_stress_revision": "r10_stress_v7",
+  "plan_derivation": "URL_ONLY_REPLACEMENT_IN_PARENT_PLANS_WITHOUT_RNG_REGENERATION",
+  "qualification_counts": {
+    "actionability": 3,
+    "contextual": 12,
+    "cross_mode": 8,
+    "failed_trials": 0,
+    "retries": 0
+  },
+  "regression": {
+    "evidence": "/home/etip/datasets/diagnostics/singular_context_20260911/replacement_regression.log",
+    "exact_domain_slot_context_preservation": "PASS",
+    "production_execution_code": "UNCHANGED_FROM_2a09326_QUALIFIED_REGRESSION_BASELINE"
+  },
+  "remote_git_push_deferred": true,
+  "replacement": {
+    "bucket": "top_1_1000",
+    "domain": "otto.de",
+    "rank": 959
+  },
+  "retired_domain": "singular.net",
+  "retirement_review": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/r10_stress_v7/closure_review.json",
+  "retry_policy": "FORMAL_T0_V3_TRANSIENT_RETRY_POLICY_V5",
+  "revision_mixing_prohibited": true,
+  "revision_reason": "RULE_A_SINGULAR_RETIREMENT",
+  "revision_reset_scope": "ACCEPTANCE_RETRY_RETIREMENT_CAPTURE_PURITY_RESUME_PRODUCTION_DECISIONS_ONLY",
+  "sample_count": 192,
+  "source_plan_revision": "t0_v3_r9",
+  "stress_qualification": "",
+  "stress_resume_boundary": 96,
+  "stress_selection": "EXACT_V3_SOURCE_SELECTION_UNCHANGED",
+  "unchanged_plan_bytes": 298,
+  "whole_sample_fresh_lifecycle_retry": true
+}

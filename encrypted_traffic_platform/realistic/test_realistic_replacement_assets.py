@@ -19,6 +19,20 @@ class ReplacementAssetsTests(unittest.TestCase):
         if campaign.f is None:
             campaign.configure(prepare.MISSION/'r10_stress_v4/campaign_config.json')
 
+    def test_singular_slot_parameterized_replacement_preserves_original_context(self):
+        from build_contextual_domain_replacement_inputs import replace_plan as replace_slot
+        original=json.loads(Path('/home/etip/datasets/plans/realistic_v1/t0_v3_r8/seed002_heavy_workload_plan.json').read_text())
+        changed=replace_slot(original,'qualified.example','singular.net','domain0293')
+        self.assertEqual(changed['events'][4]['url'],'https://qualified.example/')
+        restored=copy.deepcopy(changed)
+        restored['events'][4]['url']='https://singular.net/'
+        restored['url_sequence'][4]='https://singular.net/'
+        self.assertEqual(restored,original)
+        untouched=json.loads(Path('/home/etip/datasets/plans/realistic_v1/t0_v3_r8/seed001_light_workload_plan.json').read_text())
+        self.assertEqual(replace_slot(untouched,'qualified.example','singular.net','domain0293'),untouched)
+        with self.assertRaisesRegex(ValueError,'retired slot identity mismatch'):
+            replace_slot(original,'qualified.example','wrong.example','domain0293')
+
     def test_exact_us_context_url_only_and_stress_source_identity(self):
         from realistic_campaign_identity import CampaignIdentity
         old = json.loads(Path('/home/etip/datasets/plans/realistic_v1/t0_v3_r7/seed067_medium_workload_plan.json').read_text())
