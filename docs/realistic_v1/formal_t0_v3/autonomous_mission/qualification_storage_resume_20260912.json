@@ -1,0 +1,30 @@
+{
+  "acceptance_unchanged": true,
+  "boundary_tests": 2,
+  "browser_actions_timing_unchanged": true,
+  "cleanup": [
+    "ARCHIVED_SYSTEM_JOURNAL_VACUUM_TO_512M",
+    "REGENERABLE_APT_CACHE",
+    "SNAP_DOWNLOAD_CACHE"
+  ],
+  "cleanup_authorization": "USER_20260912_DELETE_DISPOSABLE_ITEMS_AND_CONTINUE",
+  "code_after_sha256": "2168eee7fa7437be68710c45f37a8bef3ceb1c7a4d2ae13e36d550ff67840217",
+  "code_before_sha256": "8634137d11b306221aa299ce76d93fee4f9b771ee2f8190628ed002916ee63d3",
+  "completed_trials_replayed": 0,
+  "completed_trials_retained": 18,
+  "domain_queue_unchanged": true,
+  "exact_regression": "PASS",
+  "experimental_evidence_deleted": false,
+  "free_disk_gib": 21.263492584228516,
+  "next_trial": "contextual_prefix/shadowsocks/trial_2",
+  "prior_execution_code": "/home/etip/datasets/diagnostics/contextual_uk_replacement_20260911/storage_resume_amendment_20260912/qualify_contextual_domain_replacement.py",
+  "prior_protocol": "/home/etip/datasets/diagnostics/contextual_uk_replacement_20260911/storage_resume_amendment_20260912/protocol_before.json",
+  "production_execution_unchanged": true,
+  "production_tests": "10/10 PASS",
+  "qualification_only": true,
+  "regression_root": "/home/etip/datasets/diagnostics/contextual_uk_replacement_20260911/storage_resume_amendment_20260912",
+  "remote_git_push_deferred": true,
+  "request": "/home/etip/datasets/diagnostics/contextual_uk_replacement_20260911/request.json",
+  "status": "QUALIFICATION_STORAGE_RESUME_READY",
+  "time": "2026-09-12T01:40:13.399438+00:00"
+}

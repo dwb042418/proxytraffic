@@ -42,7 +42,7 @@ def configure(request_path):
     assert request['retirement_rule'] in ('RULE_A','RULE_B','RECURRENT_ENDPOINT_INSTABILITY')
 
 
-def candidate_order():
+def candidate_order(persist=True):
     if sha(history.SOURCE) != history.SOURCE_SHA or sha(history.SYNTAX) != history.SYNTAX_SHA:
         raise RuntimeError('frozen source/syntax mismatch')
     pool = history.read_tsv(POOL)
@@ -70,8 +70,12 @@ def candidate_order():
             if audit['eligible'].lower() != 'true': exclude(domain, 'SYNTAX_INELIGIBLE')
             if domain not in reasons:
                 candidates.append(dict(rank=rank, domain=domain, bucket=slot['rank_bucket']))
-    write(ROOT/'candidate_order.json', candidates)
-    write(ROOT/'exclusion_provenance.json', reasons)
+    if persist:
+        write(ROOT/'candidate_order.json', candidates)
+        write(ROOT/'exclusion_provenance.json', reasons)
+    elif (json.loads((ROOT/'candidate_order.json').read_text()) != candidates
+          or json.loads((ROOT/'exclusion_provenance.json').read_text()) != reasons):
+        raise RuntimeError('qualification resume frozen candidate queue changed')
     return slot, candidates
 
 
@@ -94,13 +98,47 @@ def prepare_inputs(inputs, remote):
               *[remote+'/input/'+p.name for p in paths]],30,True)
 
 
-def captured_gate(candidate, root, original, contextual):
+def read_jsonl(path):
+    return [json.loads(line) for line in path.read_text().splitlines()] if path.exists() else []
+
+
+def resume_records(candidate, root, stage, plan):
+    records = [r for r in read_jsonl(ROOT/'captured_trials.jsonl')
+               if r['candidate_domain']==candidate['domain'] and r['stage']==stage]
+    starts = [r for r in read_jsonl(ROOT/'trial_starts.jsonl')
+              if r['candidate']==candidate and r['stage']==stage]
+    keys = [(r['mode'],r['trial']) for r in records]
+    expected = [(m,n) for m in MODES for n in range(1,4 if stage=='contextual_prefix' else 3)]
+    if keys != expected[:len(keys)] or keys != [(r['mode'],r['trial']) for r in starts]:
+        raise RuntimeError('qualification resume requires a settled ordered trial prefix')
+    for record in records:
+        artifact = root/stage/record['mode']/f'trial_{record["trial"]}'/'attempt_1'
+        if (Path(record['artifact_dir']) != artifact or not record['trial_pass']
+                or record['retry'] or record['infrastructure_issues']
+                or not record['all_prefix_events_pass']
+                or json.loads((artifact/'candidate_trial_result.json').read_text()) != record
+                or json.loads((artifact/'workload/workload_plan.json').read_text()) != plan):
+            raise RuntimeError('qualification resume evidence mismatch or failed trial')
+        result = json.loads((artifact/'validation_attempt_result.json').read_text())
+        if result['status'] != 'PASS' or any(record.get(k) != v for k,v in result.items()):
+            raise RuntimeError('qualification resume attempt result mismatch')
+    return records
+
+
+def captured_gate(candidate, root, original, contextual, resume=False):
     stage = 'contextual_prefix' if contextual else 'cross_mode'
     plan = qualification.diagnostic_plan(original, candidate, TARGET, contextual)
-    inputs = root/stage/'input'; inputs.mkdir(parents=True)
-    path = inputs/'workload_plan.json'; write(path,plan)
-    shutil.copyfile(EXECUTOR, inputs/'realistic_browser_v3.py')
-    for p in inputs.iterdir(): p.chmod(0o444)
+    inputs = root/stage/'input'
+    path = inputs/'workload_plan.json'
+    prior = resume_records(candidate,root,stage,plan) if resume else []
+    if resume and inputs.exists():
+        if json.loads(path.read_text()) != plan or sha(inputs/'realistic_browser_v3.py') != sha(EXECUTOR):
+            raise RuntimeError('qualification resume frozen inputs mismatch')
+    else:
+        inputs.mkdir(parents=True)
+        write(path,plan)
+        shutil.copyfile(EXECUTOR, inputs/'realistic_browser_v3.py')
+        for p in inputs.iterdir(): p.chmod(0o444)
     selection = dict(pair_group_id=plan['pair_group_id'],plan_id=plan['plan_id'],plan_path=str(path),
                      plan_sha256=sha(path),seed=plan['seed_id'],split=plan['split'],intensity=plan['intensity'])
     per_mode = 3 if contextual else 2
@@ -108,9 +146,14 @@ def captured_gate(candidate, root, original, contextual):
     for mode in MODES:
         for number in range(1, per_mode+1):
             verify_code()
+            if len(trials) < len(prior):
+                trials.append(prior[len(trials)])
+                continue
             if shutil.disk_usage(ROOT).free < 20*1024**3:
                 raise RuntimeError('QUALIFICATION_STORAGE_CHECKPOINT_BEFORE_TRIAL')
             trialroot = root/stage/mode/f'trial_{number}'
+            if trialroot.exists():
+                raise RuntimeError('qualification refuses unresolved trial directory: '+str(trialroot))
             remote = f'/home/etip/.cache/{ROOT.name}/{candidate["rank"]}/{stage}/{mode}/trial_{number}'
             prepare_inputs(inputs,remote)
             append(ROOT/'trial_starts.jsonl',dict(stage=stage,mode=mode,trial=number,candidate=candidate,time=base.utc_now()))
@@ -145,29 +188,54 @@ def captured_gate(candidate, root, original, contextual):
     return {'status':'PASS','trials':trials,'pass_count':len(trials)}
 
 
-def main():
+def main(resume=False):
     ROOT.mkdir(parents=True,exist_ok=True)
-    if (ROOT/'started.json').exists(): raise RuntimeError('qualification already started; no implicit retry')
+    if (ROOT/'started.json').exists() != resume:
+        raise RuntimeError('qualification requires explicit resume for an existing run')
+    if (ROOT/'qualification_result.json').exists():
+        raise RuntimeError('qualification already finalized')
     verify_code()
-    slot, queue = candidate_order()
+    if resume:
+        slot, queue = candidate_order(persist=False)
+    else:
+        slot, queue = candidate_order()
     original = json.loads(SOURCE_PLAN.read_text())
     assert original['events'][TARGET]['url']=='https://'+OLD_DOMAIN+'/'
     base.EXECUTOR = EXECUTOR
-    write(ROOT/'started.json',dict(time=base.utc_now(),classification=CLASS,formal_dataset_eligible=False))
-    (ROOT/'NON_FORMAL_FINAL_DATASET_INELIGIBLE').write_text(CLASS+'\n')
+    if not resume:
+        write(ROOT/'started.json',dict(time=base.utc_now(),classification=CLASS,formal_dataset_eligible=False))
+        (ROOT/'NON_FORMAL_FINAL_DATASET_INELIGIBLE').write_text(CLASS+'\n')
+    completed = read_jsonl(ROOT/'replacement_ledger.jsonl')
     for order, candidate in enumerate(queue,1):
         verify_code()
         root = ROOT/'candidates'/f'{candidate["rank"]}_{candidate["domain"]}'
-        root.mkdir(parents=True,exist_ok=False)
-        remote = f'/tmp/{ROOT.name}-actionability-{candidate["rank"]}'
-        base.run(['ssh',base.USER_HOST,'mkdir',remote],30,True)
-        base.run(['ssh',base.USER_HOST,'mkdir',remote+'/input'],30,True)
-        base.run(['scp','-q',str(qualification.action.ACTION_SCRIPT),base.USER_HOST+':'+remote+'/input/'],120,True)
-        print(f'CANDIDATE_START order={order} old={OLD_DOMAIN} rank={candidate["rank"]} domain={candidate["domain"]}',flush=True)
-        action = qualification.actionability(candidate,root,remote)
+        if order <= len(completed):
+            previous = completed[order-1]
+            if (previous['candidate'] != candidate or previous['candidate_order'] != order
+                    or previous['status'] != 'CANDIDATE_REJECTED'
+                    or json.loads((root/'candidate_result.json').read_text()) != previous):
+                raise RuntimeError('qualification completed candidate prefix mismatch')
+            continue
+        continuing = resume and root.exists()
+        if continuing:
+            if (root/'candidate_result.json').exists():
+                raise RuntimeError('qualification candidate finalization requires internal review')
+            trials = [json.loads((root/'actionability'/f'trial_{n}'/'qualification_record.json').read_text()) for n in range(1,4)]
+            if not all(t['trial_pass'] and t['retry'] is False and qualification.action.infrastructure_pass(t) for t in trials):
+                raise RuntimeError('qualification resume requires completed clean actionability')
+            action = {'status':'PASS','trials':trials}
+            print(f'CANDIDATE_RESUME order={order} domain={candidate["domain"]} NO_COMPLETED_TRIAL_REPLAY',flush=True)
+        else:
+            root.mkdir(parents=True,exist_ok=False)
+            remote = f'/tmp/{ROOT.name}-actionability-{candidate["rank"]}'
+            base.run(['ssh',base.USER_HOST,'mkdir',remote],30,True)
+            base.run(['ssh',base.USER_HOST,'mkdir',remote+'/input'],30,True)
+            base.run(['scp','-q',str(qualification.action.ACTION_SCRIPT),base.USER_HOST+':'+remote+'/input/'],120,True)
+            print(f'CANDIDATE_START order={order} old={OLD_DOMAIN} rank={candidate["rank"]} domain={candidate["domain"]}',flush=True)
+            action = qualification.actionability(candidate,root,remote)
         cross = {'status':'NOT_RUN','trials':[]}; context = {'status':'NOT_RUN','trials':[]}
-        if action['status']=='PASS': cross=captured_gate(candidate,root,original,False)
-        if cross['status']=='PASS': context=captured_gate(candidate,root,original,True)
+        if action['status']=='PASS': cross=captured_gate(candidate,root,original,False,resume=continuing)
+        if cross['status']=='PASS': context=captured_gate(candidate,root,original,True,resume=continuing)
         success = context['status']=='PASS'
         record = dict(old_domain=OLD_DOMAIN,old_rank=int(slot['rank']),old_bucket=slot['rank_bucket'],
                       candidate=candidate,candidate_order=order,source_plan_sha=sha(SOURCE_PLAN),
@@ -185,8 +253,9 @@ def main():
 
 if __name__ == '__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--request',required=True,type=Path)
-    configure(parser.parse_args().request)
-    try: main()
+    parser.add_argument('--resume',action='store_true')
+    args=parser.parse_args();configure(args.request)
+    try: main(resume=args.resume)
     except BaseException as exc:
         write(ROOT/('qualification_interruption_'+base.stamp_now()+'.json'),dict(error=f'{type(exc).__name__}: {exc}',time=base.utc_now()))
         raise
