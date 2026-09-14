@@ -33,8 +33,8 @@ def ensure_roots(config):
     return value,local,result
 
 
-def campaign(config):
-    resume=False;external_since=None
+def campaign(config, *, resume=False):
+    external_since=None
     while True:
         try:
             value,local,setup=ensure_roots(config)
@@ -64,9 +64,8 @@ def campaign(config):
             continue
         if code in (75,78):
             external_since=external_since or time.monotonic()
-            if time.monotonic()-external_since>=1800:
-                status({'state':'MISSION_HARD_STOP_REMOTE_UNAVAILABLE','config':str(config),'bounded_recheck_seconds':1800})
-                return 78
+            status({'state':'REMOTE_AVAILABILITY_RECHECK','config':str(config),
+                    'unavailable_seconds':time.monotonic()-external_since,'MISSION_HARD_STOP':False})
             time.sleep(30 if code==75 else 60)
             continue
         status({'state':'REVISION_HARD_STOP_INTERNAL_AUTONOMOUS_REVIEW_REQUIRED','config':str(config),'exit_code':code})
@@ -75,8 +74,9 @@ def campaign(config):
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--config',required=True,type=Path)
+    parser.add_argument('--resume',action='store_true')
     args=parser.parse_args();config=args.config.resolve()
-    code=campaign(config)
+    code=campaign(config,resume=args.resume)
     if code:return code
     info=json.loads(config.read_text())
     if info['kind']=='STRESS':

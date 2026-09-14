@@ -25,7 +25,7 @@ class MissionTests(unittest.TestCase):
         source = Path('/home/etip/datasets/staging/realistic_v1/non_formal_production_readiness_r10_v3/failed_artifacts/formal_t0_v3_sample0005/attempt_1_20260909T07014736386_HTTP_STATUS_500/validation_attempt_result.json')
         self.result = json.loads(source.read_text())
 
-    def sample(self, fail_until=1, archive_pending=False):
+    def sample(self, fail_until=1, archive_pending=False, start_attempt=1):
         component = f.configure_execution_components();calls=[]
         def execute(mode,attempt,selection,attempts_root,remote,**kwargs):
             calls.append((attempt,remote,selection['plan_sha256']))
@@ -44,11 +44,11 @@ class MissionTests(unittest.TestCase):
             self.stack.enter_context(patch.object(f,name))
         archive=self.stack.enter_context(patch.object(f,'archive_sample',side_effect=f.RemoteArchivePending('Broken pipe') if archive_pending else None))
         if fail_until>=3:
-            with self.assertRaises(SamplePolicyHardStop):f.run_formal_sample(self.row,c.HEAD,{Path(self.row['plan_path']):self.row['plan_sha256']},1)
+            with self.assertRaises(SamplePolicyHardStop):f.run_formal_sample(self.row,c.HEAD,{Path(self.row['plan_path']):self.row['plan_sha256']},start_attempt)
         elif archive_pending:
-            with self.assertRaises(f.RemoteArchivePending):f.run_formal_sample(self.row,c.HEAD,{Path(self.row['plan_path']):self.row['plan_sha256']},1)
+            with self.assertRaises(f.RemoteArchivePending):f.run_formal_sample(self.row,c.HEAD,{Path(self.row['plan_path']):self.row['plan_sha256']},start_attempt)
         else:
-            f.run_formal_sample(self.row,c.HEAD,{Path(self.row['plan_path']):self.row['plan_sha256']},1)
+            f.run_formal_sample(self.row,c.HEAD,{Path(self.row['plan_path']):self.row['plan_sha256']},start_attempt)
         return calls, f.read_ledger(c.CONFIG.retry_ledger), archive
 
     def test_exact_500_whole_sample_retry_preserves_failure(self):
@@ -204,6 +204,72 @@ class BoundaryResumeTests(unittest.TestCase):
         with patch.object(c,'ledger_audit',return_value=[{}]),patch.object(c.IDENTITY,'validate_ledger',return_value=c.IDENTITY.lookup(81)),patch.object(c,'telemetry') as telemetry:
             with self.assertRaises(f.HardStop):c.recover_completed_boundary(state)
             telemetry.assert_not_called()
+
+
+class HostRestartRecoveryTests(MissionTests):
+    def prepare_interruption(self):
+        from external_host_restart_recovery import FAILURE_CLASS, FINAL_RESULT, CLAUSE, GATES
+        path = c.CONFIG.failed_artifact_root/self.row['schedule_id']/'attempt_1_host_restart'
+        path.mkdir(parents=True)
+        (path/'original_raw.pcap').write_bytes(b'RETAIN_INTERRUPTED_EVIDENCE')
+        result = copy.deepcopy(self.result)
+        result.update(status=FINAL_RESULT, failure_class=FAILURE_CLASS, failure_event_index='',
+                      failure_url='', artifact_dir=str(path), attempt=1,
+                      plan_sha256=self.row['plan_sha256'], workload_started=True)
+        f.atomic_write_json(path/'validation_attempt_result.json', result)
+        f.formalize_attempt(path, self.row, result, 1, 'start', 'reboot', c.HEAD)
+        entry = f.ledger_row_for_attempt(self.row,result,1,True,CLAUSE,'start','reboot',c.HEAD,FINAL_RESULT)
+        f.append_ledger_atomic(c.CONFIG.retry_ledger,[entry])
+        proof = dict(clause=CLAUSE,campaign_id=c.CONFIG.campaign_id,sample_id=self.row['schedule_id'],
+                     attempt=1,plan_sha256=self.row['plan_sha256'],frozen_git_head=c.HEAD,
+                     failure_class=FAILURE_CLASS,final_result=FINAL_RESULT,attempt_consumed=True,
+                     max_attempts=3,gates={k:True for k in GATES},remote_evidence_path='/verified/test-only',
+                     evidence_manifest_sha256='0'*64)
+        f.atomic_write_json(path/'external_host_restart_recovery.json',proof)
+        return path, entry, proof
+
+    def test_consumed_restart_resumes_attempt2_then_normal_retry3(self):
+        from external_host_restart_recovery import attempt_counts
+        path,entry,_ = self.prepare_interruption()
+        self.assertEqual(f.resume_decision(self.row,self.root,False,[entry],c.HEAD),'RUN_ATTEMPT2')
+        calls,ledger,_ = self.sample(fail_until=2,start_attempt=2)
+        self.assertEqual([x[0] for x in calls],[2,3])
+        self.assertEqual(attempt_counts(ledger),dict(TOTAL_ATTEMPTS=3,RETRY_COUNT=1,
+                         OPERATIONAL_INTERRUPTION_COUNT=1,OPERATIONAL_RECOVERY_COUNT=1))
+        self.assertEqual((path/'original_raw.pcap').read_bytes(),b'RETAIN_INTERRUPTED_EVIDENCE')
+        self.assertFalse(any(e.get('failure_class')=='EXTERNAL_HOST_RESTART_INTERRUPTED_ATTEMPT'
+                             for e in f.hotspot_evidence(c.HEAD)))
+        c.ledger_audit()
+
+    def test_interrupted_attempt_budget_never_allows_attempt4(self):
+        self.prepare_interruption()
+        calls,ledger,archive=self.sample(fail_until=3,start_attempt=2)
+        self.assertEqual([x[0] for x in calls],[2,3])
+        self.assertEqual([int(e['attempt']) for e in ledger],[1,2,3])
+        archive.assert_not_called()
+
+    def test_verified_receipt_reuse_and_missing_remote_artifact(self):
+        self.sample(fail_until=0)
+        sample=c.CONFIG.local_sample_root/self.row['schedule_id']
+        (sample/'SAMPLE_COMPLETE').write_text('complete')
+        f.atomic_write_json(sample/'remote_sha_verification.json',dict(remote_sha_pass=True,remote_completeness_pass=True))
+        (sample/'FINAL_METADATA_SHA256SUMS.txt').write_text('retained control fixture')
+        f._REMOTE_RECEIPT_CACHE.clear()
+        with patch.object(f,'run_command',return_value=SimpleNamespace(returncode=0)) as remote:
+            self.assertTrue(f.remote_complete_valid(self.row,c.HEAD))
+            self.assertTrue(f.remote_complete_valid(self.row,c.HEAD))
+            remote.assert_called_once()
+            self.assertNotIn('sha256sum -c',str(remote.call_args))
+        f._REMOTE_RECEIPT_CACHE.clear()
+        with patch.object(f,'run_command',return_value=SimpleNamespace(returncode=1)):
+            self.assertFalse(f.remote_complete_valid(self.row,c.HEAD))
+
+    def test_incomplete_restart_gates_reject_resume(self):
+        path,entry,proof=self.prepare_interruption()
+        proof['gates']['four_mode_health_pass']=False
+        f.atomic_write_json(path/'external_host_restart_recovery.json',proof)
+        with self.assertRaises(ValueError):
+            f.resume_decision(self.row,self.root,False,[entry],c.HEAD)
 
 
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -10,6 +10,7 @@ with respect to both Formal roots.  Actual collection requires an explicit
 from __future__ import annotations
 from realistic_campaign_config import CONFIG
 from stress_terminal_taxonomy import HardStop, sample_terminal_exception
+from external_host_restart_recovery import attempt_counts, is_interruption, validate_interruption
 
 import argparse
 import csv
@@ -231,14 +232,16 @@ def verify_git(frozen_git_head: str, *, verify_origin: bool) -> dict[str, str]:
     if len(frozen_git_head) != 40 or any(ch not in "0123456789abcdef" for ch in frozen_git_head):
         raise PrecheckFail("frozen Git HEAD must be a lowercase 40-character SHA-1")
     local = run_command(["git", "-C", str(REPO), "rev-parse", "HEAD"], check=True).stdout.strip()
-    if local != frozen_git_head:
-        raise PrecheckFail(f"Git HEAD mismatch local={local} expected={frozen_git_head}")
+    freeze = json.loads(CONFIG.code_freeze.read_text())
+    expected_execution_head = freeze.get("operational_execution_git_head", frozen_git_head)
+    if freeze["git_head"] != frozen_git_head or local != expected_execution_head:
+        raise PrecheckFail(f"Git HEAD mismatch local={local} expected={expected_execution_head}")
     tracked = run_command(
         ["git", "-C", str(REPO), "status", "--porcelain=v1", "--untracked-files=no"], check=True,
     ).stdout.strip()
     if tracked:
         raise PrecheckFail(f"tracked worktree is not clean: {tracked}")
-    result = {"local_head": local, "REMOTE_GIT_PUSH_DEFERRED": REMOTE_GIT_PUSH_DEFERRED}
+    result = {"local_head": local, "sampling_identity_head": frozen_git_head, "REMOTE_GIT_PUSH_DEFERRED": REMOTE_GIT_PUSH_DEFERRED}
     if verify_origin and not REMOTE_GIT_PUSH_DEFERRED:
         remote = run_command(
             ["git", "-C", str(REPO), "ls-remote", "origin", "refs/heads/main"],
@@ -546,9 +549,44 @@ def remote_sample_path(sample_id: str) -> str:
     return str(CONFIG.remote_sample_root / sample_id)
 
 
+_REMOTE_RECEIPT_CACHE = set()
+
+
 def remote_complete_valid(row: dict[str, str], frozen_git_head: str) -> bool:
     remote = remote_sample_path(row["schedule_id"])
     quoted = shlex.quote(remote)
+    local = CONFIG.local_sample_root / row['schedule_id']
+    controls = ('SAMPLE_COMPLETE', 'sample_metadata.json', 'remote_sha_verification.json',
+                'SHA256SUMS.txt', 'FINAL_METADATA_SHA256SUMS.txt')
+    if all((local/name).is_file() for name in controls):
+        receipt = load_json(local/'remote_sha_verification.json')
+        if (receipt.get('remote_sha_pass') is True and receipt.get('remote_completeness_pass') is True
+                and validate_metadata(load_json(local/'sample_metadata.json'), row, frozen_git_head)):
+            expected = {name: sha256(local/name) for name in controls}
+            key = (remote, tuple(expected.items()))
+            if key in _REMOTE_RECEIPT_CACHE:
+                return True
+            # Reuse the immutable SHA receipt. Check that the same remote controls
+            # and all referenced artifacts remain present; do not rehash old PCAPs.
+            code = '''import hashlib,json,pathlib,sys
+p=pathlib.Path(sys.argv[1]); expected=json.loads(sys.argv[2])
+ok=all((p/n).is_file() and hashlib.sha256((p/n).read_bytes()).hexdigest()==d for n,d in expected.items())
+if ok:
+ for manifest in ('SHA256SUMS.txt','FINAL_METADATA_SHA256SUMS.txt'):
+  for line in (p/manifest).read_text().splitlines():
+   if not line.strip():continue
+   name=line.split(maxsplit=1)[1].lstrip('* '); f=(p/name).resolve()
+   if not f.is_relative_to(p.resolve()) or not f.is_file() or (f.suffix=='.pcap' and f.stat().st_size<=24):ok=False
+sys.exit(0 if ok else 1)
+'''
+            check = run_command(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=10',UPLOAD_HOST,
+                'python3 -c '+shlex.quote(code)+' '+quoted+' '+shlex.quote(json.dumps(expected))],timeout=60)
+            if check.returncode == 255:
+                raise RemoteArchivePending('SSH unavailable during immutable receipt verification')
+            if check.returncode == 0:
+                _REMOTE_RECEIPT_CACHE.add(key)
+                return True
+            return False
     check = run_command([
         "ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", UPLOAD_HOST,
         f"cd {quoted} && test -f SAMPLE_COMPLETE && test -f sample_metadata.json "
@@ -604,6 +642,8 @@ def resume_decision(
     if sample_ledger:
         last = max(sample_ledger, key=lambda item: int(item["attempt"]))
         attempt = int(last["attempt"])
+        if is_interruption(last):
+            validate_interruption(last, row, frozen_git_head, CONFIG)
         if last.get("final_status") == "PASS":
             return "REVIEW_REQUIRED_REMOTE_COMPLETE_NOT_VALIDATED"
         if attempt >= MAX_ATTEMPTS_PER_SAMPLE and last.get("final_status") != "PASS":
@@ -1059,6 +1099,8 @@ def build_sample_metadata(
         "final_attempt": final_attempt,
         "attempt_count": len(attempt_history),
         "attempt_history": attempt_history,
+        "operational_recovery_accounting": attempt_counts(attempt_history),
+        "execution_git_head": load_json(CONFIG.code_freeze).get("operational_execution_git_head", frozen_git_head),
         "final_result": result,
         "local_finalized_utc": utc_now(),
     }
@@ -1357,8 +1399,8 @@ def progress_from_schedule(
 ) -> dict[str, object]:
     state = scan_resume_state(schedule, LOCAL_PRODUCTION_ROOT, frozen_git_head)
     ledger = read_ledger(CONFIG.retry_ledger)
-    attempts = len(ledger)
-    retries = sum(int(row["attempt"]) > 1 for row in ledger)
+    counts = attempt_counts(ledger)
+    retries = counts["RETRY_COUNT"]
     return {
         "dataset_track": DATASET_TRACK,
         "artifact_class": ARTIFACT_CLASS,
@@ -1366,8 +1408,7 @@ def progress_from_schedule(
         "COMPLETE_PAIR_GROUPS": state["complete_pair_groups"],
         "NEXT_SEQUENCE_ID": state["next_sequence_id"],
         "mode_counts": state["mode_counts"],
-        "TOTAL_ATTEMPTS": attempts,
-        "RETRY_COUNT": retries,
+        **counts,
         "RETRY_RATE": retries / max(1, int(state["valid_samples"])),
         "REMOTE_SHA_PASS": state["valid_samples"],
         "health_failures": sum(row["failure_class"] == "INFRASTRUCTURE_HEALTH_LOST" for row in ledger),
@@ -1391,8 +1432,8 @@ def write_progress_incremental(
     mode_counts: Counter[str],
 ) -> dict[str, object]:
     ledger = read_ledger(CONFIG.retry_ledger)
-    attempts = len(ledger)
-    retries = sum(int(row["attempt"]) > 1 for row in ledger)
+    counts = attempt_counts(ledger)
+    retries = counts["RETRY_COUNT"]
     progress = {
         "dataset_track": DATASET_TRACK,
         "artifact_class": ARTIFACT_CLASS,
@@ -1400,8 +1441,7 @@ def write_progress_incremental(
         "COMPLETE_PAIR_GROUPS": complete_pair_groups,
         "NEXT_SEQUENCE_ID": next_sequence_id,
         "mode_counts": {mode: mode_counts.get(mode, 0) for mode in MODES},
-        "TOTAL_ATTEMPTS": attempts,
-        "RETRY_COUNT": retries,
+        **counts,
         "RETRY_RATE": retries / max(1, valid_samples),
         "REMOTE_SHA_PASS": valid_samples,
         "health_failures": sum(row["failure_class"] == "INFRASTRUCTURE_HEALTH_LOST" for row in ledger),

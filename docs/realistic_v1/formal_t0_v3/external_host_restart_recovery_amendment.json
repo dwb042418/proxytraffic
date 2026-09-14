@@ -1,0 +1,40 @@
+{
+  "clause": "EXTERNAL_HOST_RESTART_INTERRUPTED_ATTEMPT_RECOVERY",
+  "authorization": "EXPLICIT_USER_AUTHORIZATION_2026-09-14",
+  "reason": "EXTERNAL_HOST_RESTART",
+  "scope": "operational recovery only; Stress v12 and subsequent Formal",
+  "scientific_sampling_semantics_changed": false,
+  "attempt_budget_changed": false,
+  "completed_samples_invalidated": false,
+  "max_attempts": 3,
+  "resume_campaign": "r10_stress_v12",
+  "resume_boundary": 129,
+  "resumed_sample": 130,
+  "interrupted_attempt": 1,
+  "resumed_attempt": 2,
+  "failure_class": "EXTERNAL_HOST_RESTART_INTERRUPTED_ATTEMPT",
+  "final_result": "INTERRUPTED_NOT_SAMPLE_FAILURE",
+  "attempt_consumed": true,
+  "strict_gates": [
+    "objective host reboot/process loss evidence",
+    "external system lifecycle cause, not browser/workload/domain error",
+    "all existing evidence preserved and remote archived",
+    "completed samples remote integrity PASS",
+    "restart four-mode fixed health PASS",
+    "conn_max=256",
+    "no bypass/purity/integrity issue; residual=0",
+    "browser/plan/domain/capture/timeout/classifier unchanged"
+  ],
+  "excluded_statistics": [
+    "Rule V2 domain hotspot",
+    "browser transient rate",
+    "HTTP failure rate",
+    "ACTION_TIMEOUT rate"
+  ],
+  "included_statistics": [
+    "total attempts",
+    "operational interruption count"
+  ],
+  "ordinary_retry_policy": "FORMAL_T0_V3_TRANSIENT_RETRY_POLICY_V5_UNCHANGED",
+  "original_campaign_freeze_preserved": "/home/etip/datasets/diagnostics/v12_host_restart_20260914/original_campaign_freeze.json"
+}

@@ -10,6 +10,7 @@ import shlex
 import subprocess
 
 import realistic_campaign_config as cfg
+from external_host_restart_recovery import FINAL_RESULT, attempt_counts, is_interruption, validate_interruption
 from realistic_campaign_telemetry import TELEMETRY_CODE
 from stress_preflight_taxonomy_v3 import (PrestartInfrastructureBlocker, prestart_remote_commands,
     remote_path_preflight, campaign_state_consumed)
@@ -66,6 +67,10 @@ def ledger_audit():
         result = f.load_json(artifact/'validation_attempt_result.json')
         if result['plan_sha256'] != row['plan_sha256'] or result['status'] != entry['final_status']:
             raise f.HardStop('ledger result identity invariant')
+        if is_interruption(entry) or entry['final_status'] == FINAL_RESULT:
+            validate_interruption(entry, row, HEAD, CONFIG)
+        elif entry['final_status'] not in ('PASS', 'FAIL'):
+            raise f.HardStop('unclassified ledger status')
         if entry['final_status'] == 'FAIL' and not artifact.is_relative_to(CONFIG.failed_artifact_root):
             raise f.HardStop('failed artifact outside retained failed root')
     if any(ns != list(range(1,len(ns)+1)) for ns in by_sample.values()):
@@ -162,7 +167,7 @@ def recover_completed_boundary(state):
             recovery['previous_attempts'] = previous.get('previous_attempts',[])+[
                 {key:value for key,value in previous.items() if key != 'previous_attempts'}]
         f.atomic_write_json(path,recovery)
-        boundary(row,{'RETRY_COUNT':sum(int(e['attempt'])>1 for e in ledger),'REMOTE_SHA_PASS':n},HEAD)
+        boundary(row,{'RETRY_COUNT':attempt_counts(ledger)['RETRY_COUNT'],'REMOTE_SHA_PASS':n},HEAD)
         f.atomic_write_json(path,{**recovery,'status':'COMPLETE','finished_utc':f.utc_now()})
         print(f'RESUMED_BOUNDARY_COMPLETE sequence={n} NO_RESAMPLING',flush=True)
     if needs_restart:
@@ -234,13 +239,14 @@ def final_report():
     evictions = f.read_evictions()
     if any(e['status'] != 'COMPLETE' for e in evictions.values()):
         raise f.HardStop('unfinished eviction transaction')
-    retries = sum(int(e['attempt']) > 1 for e in ledger)
+    counts = attempt_counts(ledger)
+    retries = counts['RETRY_COUNT']
     if retries / CONFIG.total_samples > .2:
         raise f.HardStop('HIGH_TRANSIENT_RATE_INTERNAL_REVIEW_REQUIRED')
     if CONFIG.kind == 'STRESS' and not (CONFIG.smoke_marker.exists() and CONFIG.resume_marker.exists()):
         raise f.HardStop('required smoke/resume milestone missing')
     report = {**progress,'campaign_id':CONFIG.campaign_id,'kind':CONFIG.kind,
-        'TOTAL_ATTEMPTS':len(ledger),'TOTAL_RETRIES':retries,'FINAL_RETRY_RATE':retries/CONFIG.total_samples,
+        **counts,'TOTAL_RETRIES':retries,'FINAL_RETRY_RATE':retries/CONFIG.total_samples,
         'REMOTE_COMPLETE':f'{CONFIG.total_samples}/{CONFIG.total_samples}',
         'REMOTE_INTEGRITY':'PASS','FINAL_METADATA':'PASS','INTEGRITY_ISSUES':0,
         'FINAL_DATASET_ELIGIBLE':CONFIG.kind=='FORMAL','git_head':HEAD,

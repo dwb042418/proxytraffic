@@ -21,7 +21,7 @@ COMMON_CODE = (
     'formal_failure_classifier_v3.py','formal_failure_classifier_v2.py','realistic_browser_v3_r10.py',
     'stress_terminal_taxonomy.py','stress_preflight_taxonomy_v3.py','executor_input_staging_v1.py',
     'audit_realistic_sample.py','run_formal_t0_v3_r6_production.py',
-    'realistic_hotspot_history.py',
+    'realistic_hotspot_history.py','external_host_restart_recovery.py',
     'prepare_realistic_campaign.py','manage_realistic_mission.py',
 )
 
@@ -98,6 +98,7 @@ def freeze(root):
         if (DOC/name).exists(): paths.add(DOC/name)
     paths |= {root/'campaign_config.json',root/'campaign_manifest.tsv',root/'methodology.json',root/'historical_hotspot_evidence.json',
         DOC/'formal_transient_retry_policy_v5.txt',DOC/'formal_transient_retry_policy_v5.sha256',DOC/'autonomous_hotspot_baseline.tsv',
+        DOC/'external_host_restart_recovery_amendment.json',
         REPO/'encrypted_traffic_platform/scripts/realistic/realistic-executor-supervisor',
         Path('/etc/systemd/system/redsocks-realistic@.service.d/10-nofile.conf')}
     head = subprocess.check_output(['git','-C',str(REPO),'rev-parse','HEAD'],text=True).strip()
