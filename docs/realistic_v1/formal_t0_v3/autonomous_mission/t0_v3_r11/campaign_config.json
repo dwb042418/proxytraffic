@@ -1,0 +1,10 @@
+{
+  "campaign_id": "t0_v3_r11",
+  "dataset_track": "REALISTIC_FORMAL_T0_V3_R11",
+  "executor_revision": "t0_v3_r11",
+  "kind": "FORMAL",
+  "source_plan_revision": "t0_v3_r10",
+  "storage_name": "t0_v3_r11",
+  "stress_qualification": "/home/etip/datasets/staging/realistic_v1/non_formal_production_readiness_r10_v12",
+  "total_samples": 1200
+}
