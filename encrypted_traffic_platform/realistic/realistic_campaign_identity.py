@@ -3,6 +3,7 @@ import csv,hashlib
 from realistic_campaign_config import CONFIG
 from pathlib import Path
 from urllib.parse import urlsplit
+from external_host_restart_recovery import hotspot_final_result
 
 FIELDS=('campaign_sequence_id','source_schedule_sequence_id','source_pair_group_id',
         'source_plan_id','source_plan_sha','campaign_manifest_sha')
@@ -83,8 +84,8 @@ def install(f,mapping):
             for key,value in mapping.identity(row).items():
                 if str(proof.get(key))!=str(value):fail('attempt provenance '+key+' mismatch')
             if not f.clean_navigation_failure(result):continue
-            same=[x for x in ledger if x['sample_id']==entry['sample_id']];last=max(same,key=lambda x:int(x['attempt']))
-            final=(f"SAMPLE_PASS_ATTEMPT{last['attempt']}" if last['final_status']=='PASS' else 'MAX_ATTEMPTS_REACHED' if int(last['attempt'])==3 else 'IN_PROGRESS')
+            same=[x for x in ledger if x['sample_id']==entry['sample_id']]
+            final=hotspot_final_result(same)
             evidence.append({**mapping.identity(row),'domain':urlsplit(entry['url']).hostname,
                 'plan_id':row['source_plan_id'],'plan_sha':row['source_plan_sha'],'event_index':entry['event_index'],
                 'mode':entry['mode'],'failure_class':entry['failure_class'],'run_class':CONFIG.dataset_track,

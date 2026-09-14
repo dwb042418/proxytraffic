@@ -239,6 +239,8 @@ class HostRestartRecoveryTests(MissionTests):
         self.assertEqual((path/'original_raw.pcap').read_bytes(),b'RETAIN_INTERRUPTED_EVIDENCE')
         self.assertFalse(any(e.get('failure_class')=='EXTERNAL_HOST_RESTART_INTERRUPTED_ATTEMPT'
                              for e in f.hotspot_evidence(c.HEAD)))
+        current = [e for e in f.hotspot_evidence(c.HEAD) if e['run_id'] == str(self.root)]
+        self.assertEqual([e['final_result'] for e in current], ['SAMPLE_PASS_ATTEMPT2'])
         c.ledger_audit()
 
     def test_interrupted_attempt_budget_never_allows_attempt4(self):
@@ -246,6 +248,8 @@ class HostRestartRecoveryTests(MissionTests):
         calls,ledger,archive=self.sample(fail_until=3,start_attempt=2)
         self.assertEqual([x[0] for x in calls],[2,3])
         self.assertEqual([int(e['attempt']) for e in ledger],[1,2,3])
+        current = [e for e in f.hotspot_evidence(c.HEAD) if e['run_id'] == str(self.root)]
+        self.assertTrue(all(e['final_result'] == 'OPERATIONAL_ATTEMPT_BUDGET_EXHAUSTED' for e in current))
         archive.assert_not_called()
 
     def test_verified_receipt_reuse_and_missing_remote_artifact(self):
@@ -260,6 +264,9 @@ class HostRestartRecoveryTests(MissionTests):
             self.assertTrue(f.remote_complete_valid(self.row,c.HEAD))
             remote.assert_called_once()
             self.assertNotIn('sha256sum -c',str(remote.call_args))
+        with patch.object(f,'local_complete_valid',return_value=False), patch.object(f,'remote_complete_valid',return_value=True), patch.object(f,'remote_exists_for_row') as exists:
+            f.scan_resume_state([self.row], self.root, c.HEAD)
+            exists.assert_not_called()
         f._REMOTE_RECEIPT_CACHE.clear()
         with patch.object(f,'run_command',return_value=SimpleNamespace(returncode=1)):
             self.assertFalse(f.remote_complete_valid(self.row,c.HEAD))

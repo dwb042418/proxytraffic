@@ -26,6 +26,17 @@ def attempt_counts(ledger):
             'OPERATIONAL_RECOVERY_COUNT': recoveries}
 
 
+def hotspot_final_result(entries):
+    last = max(entries, key=lambda e: int(e['attempt']))
+    ordinary = sum(not is_interruption(e) for e in entries)
+    interrupted = any(is_interruption(e) for e in entries)
+    if last['final_status'] == 'PASS':
+        return f'SAMPLE_PASS_ATTEMPT{ordinary}'
+    if int(last['attempt']) == 3:
+        return 'OPERATIONAL_ATTEMPT_BUDGET_EXHAUSTED' if interrupted else 'MAX_ATTEMPTS_REACHED'
+    return 'IN_PROGRESS'
+
+
 def validate_interruption(entry, row, head, config):
     """Require an explicit evidence-backed settlement, never infer one from exit."""
     artifact = Path(entry['artifact_path'])

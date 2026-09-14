@@ -684,7 +684,8 @@ def scan_resume_state(
     for row in schedule:
         sample_root = CONFIG.local_sample_root / row["schedule_id"]
         local_valid = local_complete_valid(sample_root, row, frozen_git_head) if sample_root.exists() else False
-        remote_candidate = local_valid or remote_exists_for_row(row) if remote_probe is None else True
+        retained_receipt = (sample_root / "SAMPLE_COMPLETE").is_file() and (sample_root / "remote_sha_verification.json").is_file()
+        remote_candidate = local_valid or retained_receipt or remote_exists_for_row(row) if remote_probe is None else True
         remote_valid = probe(row, frozen_git_head) if remote_candidate else False
         decision = resume_decision(row, local_root, remote_valid, ledger, frozen_git_head)
         decisions.append({"sequence_id": int(row["sequence_id"]), "sample_id": row["schedule_id"], "decision": decision})
