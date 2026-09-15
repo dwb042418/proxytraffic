@@ -1,0 +1,32 @@
+{
+  "browser": "realistic_browser_v3_r10.py",
+  "campaign_id": "r10_stress_v14",
+  "domain_replacement": {
+    "completed_pilot_samples_excluded_from_final": 48,
+    "http403_retry_policy_unchanged": true,
+    "qualification_root": "/home/etip/datasets/diagnostics/contextual_apnews_replacement_20260915",
+    "qualified": "tailscale.com",
+    "retired": "apnews.com",
+    "rule": "SAME_BUCKET_RANK_ASCENDING",
+    "source_formal_pilot": "t0_v3_r11"
+  },
+  "failed_evidence_retained": true,
+  "final_dataset_eligible": false,
+  "formal_requires_full_stress_192": true,
+  "gov_br": "KEEP_LOW_FREQUENCY_SERVER_SIDE_TRANSIENT_DIAGNOSTIC_12_OF_12_PASS",
+  "governance": "USER_AUTHORIZED_AUTONOMOUS_MISSION",
+  "historical_hotspot_evidence": "FROZEN_PRIOR_CAMPAIGN_EXPORTS_WITH_IDENTITY_DEDUPLICATION",
+  "kind": "STRESS",
+  "local_free_space_threshold_gib": 20,
+  "max_attempts": 3,
+  "remote_git_push_deferred": true,
+  "retry_policy": "FORMAL_T0_V3_TRANSIENT_RETRY_POLICY_V5",
+  "revision_mixing_prohibited": true,
+  "sample_count": 192,
+  "source_plan_changes": "URL_ONLY_REPLACEMENT; ORIGINAL_EVENT_ORDER_ACTIONS_TIMING_AND_RNG_PRESERVED",
+  "source_plan_revision": "t0_v3_r11",
+  "stress_qualification": "",
+  "stress_resume_boundary": 96,
+  "stress_selection": "EXACT_V3_SOURCE_SELECTION_UNCHANGED",
+  "whole_sample_fresh_lifecycle_retry": true
+}

@@ -1,0 +1,10 @@
+{
+  "campaign_id": "r10_stress_v14",
+  "dataset_track": "R10_PRODUCTION_READINESS_STRESS_V14",
+  "executor_revision": "t0_v3_r11",
+  "kind": "STRESS",
+  "source_plan_revision": "t0_v3_r11",
+  "storage_name": "non_formal_production_readiness_r10_v14",
+  "stress_qualification": "",
+  "total_samples": 192
+}

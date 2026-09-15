@@ -1,0 +1,51 @@
+{
+  "actions_and_timing_preserved": true,
+  "candidate_rejected": 0,
+  "changed_plan_groups": [
+    "seed005_light",
+    "seed023_medium",
+    "seed043_heavy"
+  ],
+  "domain_ids_preserved": true,
+  "domain_split_preserved": true,
+  "event_order_preserved": true,
+  "formal_dataset_eligible": false,
+  "original_rng_seeds_preserved": true,
+  "parent_generator_git_head": "0bcf2d260b8fa538b1f1e9cf1ac91c4975c18adf",
+  "parent_plan_revision": "t0_v3_r10",
+  "plan_derivation": "URL_ONLY_REPLACEMENT_IN_PARENT_PLANS_WITHOUT_RNG_REGENERATION",
+  "plans": 300,
+  "preparation_git_head": "5ecc49632d07f5de55040bf271768c223dedc7b4",
+  "qualification_provenance": {
+    "candidate_order.json": "60aef21ca9b7c5f13699eb5ae76c8bc7e84baae47ec45644e7084969a216d2a1",
+    "exclusion_provenance.json": "d1e0040009fa36fbabef929d0e2826f27f5b52a9475d0a84963c29b3a1b81b25",
+    "protocol.json": "089ab64ab138ff59b3983a2c843fff8c72c1348d5a8dcafe1e7ff4543a041844",
+    "qualification_result.json": "2723dd9968fd5028ea8451ff02ddd590dceb4ccc8b59ec71db3c4b033aa7323a",
+    "replacement_ledger.jsonl": "724dd6c3afbfee3eb918cd200a337fccadbf364b1e6a0bd136a82fb9782c05b5"
+  },
+  "qualification_root": "/home/etip/datasets/diagnostics/contextual_apnews_replacement_20260915",
+  "replacement": {
+    "bucket": "top_1_1000",
+    "domain": "tailscale.com",
+    "rank": 962
+  },
+  "replacement_builder": "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/build_contextual_domain_replacement_inputs.py",
+  "replacement_builder_sha256": "b5cf616f277743e0e9f356df26738209c3919d5168e2dbc383bab76d40209bea",
+  "retired": [
+    "apnews.com"
+  ],
+  "retirement_rule": "RECURRENT_ENDPOINT_INSTABILITY",
+  "schedule_samples": 1200,
+  "sha256": {
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/FORMAL_T0_V3_PLAN_SHA256SUMS_R11.txt": "2782332fef3fba67ef66a9d486563e019a6762ed5c70430ddf5ae13230351ba3",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/domain_replacement_ledger_v3_r11.tsv": "76900d941d35770252e87100a5930a7b7c342e9c30b0aa5f0bfd2d544d2af760",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_pool_v3_r11.tsv": "2d70b15a341e9b21d058b7b93ea9959934d0e93922677296bb60b4366ac95138",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_split_v3_r11.tsv": "aa360523ebc831d04f8c18888da687e9dbdd0b6eb7c705f3c7882636006bdaac",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_plan_manifest_r11.tsv": "ad060b131726df6c4aa400fd7eae1f08f75606360aa404dedf63d28a39578773",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_schedule_r11.tsv": "c2d212bc7333e380125b833cd90c8bbf6bc06ab53fd011085bba7e6cc8d3f53c"
+  },
+  "source_plan_revision": "t0_v3_r11",
+  "status": "R11_QUALIFIED_INPUTS_READY",
+  "unchanged_domain_rows": 499,
+  "unchanged_plan_bytes": 297
+}
