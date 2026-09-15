@@ -1,0 +1,58 @@
+{
+  "assets": {
+    "MANIFEST": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_apnews_1/plan_manifest.tsv",
+    "POOL": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_apnews_1/pool.tsv",
+    "REGISTRY": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_apnews_1/PLAN_SHA256SUMS.txt",
+    "RETIREMENT_LEDGER": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_apnews_1/replacement_ledger.tsv",
+    "SCHEDULE": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_apnews_1/schedule.tsv",
+    "SPLIT": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_apnews_1/split.tsv"
+  },
+  "authorization": "USER_20260915_BOUNDED_DELTA_AND_CARRY_FORWARD",
+  "base_stress_qualification": "r10_stress_v12_192_PASS",
+  "bookkeeping_change": "Bind unchanged carried prefix to original frozen identity and remaining rows to amended input identity; distinct executor namespace",
+  "boundary48_verification": "/home/etip/datasets/diagnostics/apnews_delta_readiness_20260915/boundary48_verification.json",
+  "campaign_id": "t0_v3_r11",
+  "campaign_manifest": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_apnews_1/campaign_manifest.tsv",
+  "carry_forward_conditions": {
+    "amended_schedule": "/home/etip/datasets/diagnostics/apnews_delta_readiness_20260915/amended_inputs/schedule.tsv",
+    "apnews_absence_checked_in": "Scheduled full workload plans for samples1-48",
+    "apnews_absent_samples1_48": true,
+    "carry_forward_authorized_by_validation": true,
+    "checked_implementation_files": 21,
+    "existing_remote_receipts": 48,
+    "header_and_rows1_48_byte_identical": true,
+    "old_schedule": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_schedule_r10.tsv",
+    "path_policy": "Preserve original path for every byte-identical plan; new paths only for three URL-replacement plans",
+    "remote_integrity": "48/48 PASS",
+    "rows1_48_exactly_identical": true,
+    "scientific_implementation_files_unchanged": true,
+    "status": "PASS"
+  },
+  "carry_forward_samples": [
+    1,
+    48
+  ],
+  "delta_protocol": "/home/etip/datasets/diagnostics/apnews_delta_readiness_20260915/protocol.json",
+  "delta_remote_archive_receipt": "/home/etip/datasets/diagnostics/apnews_delta_readiness_20260915/remote_archive_receipt.json",
+  "delta_result": "/home/etip/datasets/diagnostics/apnews_delta_readiness_20260915/delta_result.json",
+  "excluded_failed_artifacts": [
+    "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/failed_artifacts/formal_t0_v3_sample0049/attempt_1_20260915T06005639145_HTTP_STATUS_403"
+  ],
+  "excluded_plan_sha256": "5c5c00dada166e3fe18d98edc9be5ca700c867db16562c4fcd5e49bb4d2eae3b",
+  "executor_namespace_revision": "t0_v3_r11_protocol_apnews_1",
+  "final_dataset_samples": 1200,
+  "final_pair_groups": 300,
+  "max_attempts_per_protocol_sample": 3,
+  "new_full_stress_required": false,
+  "original_campaign_manifest": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/campaign_manifest.tsv",
+  "original_failed_attempt_count": 1,
+  "original_freeze": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/apnews_original/original_freeze.json",
+  "original_retry_ledger": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/apnews_original/original_retry_ledger.tsv",
+  "original_sample49": "PROVENANCE_ONLY_EXCLUDED_FROM_FINAL_DATASET",
+  "protocol_epoch": "APNEWS_REPLACEMENT_1",
+  "qualification_result": "/home/etip/datasets/diagnostics/contextual_apnews_replacement_20260915/qualification_result.json",
+  "replacement_sample49": "NEW_PROTOCOL_SAMPLE_FRESH_ATTEMPT1",
+  "scientific_browser_runner_capture_retry_acceptance_code_changed": false,
+  "status": "FORMAL_PROTOCOL_AMENDED_CONTINUATION",
+  "supersedes": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/closure_review.json"
+}
