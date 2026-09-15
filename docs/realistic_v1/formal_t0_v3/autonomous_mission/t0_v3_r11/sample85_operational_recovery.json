@@ -1,0 +1,20 @@
+{
+  "exception": "SAMPLE85_TRANSIENT_INFRASTRUCTURE_RECOVERY_EXCEPTION",
+  "campaign_id": "t0_v3_r11",
+  "scope": "sample85_only",
+  "reason": "isolated_post_sample_infrastructure_health_loss",
+  "attempt1_consumed": true,
+  "attempt2_authorized": true,
+  "global_retry_policy_changed": false,
+  "samples1_84_invalidated": false,
+  "scientific_sampling_semantics_changed": false,
+  "failure_class": "INFRASTRUCTURE_HEALTH_LOST",
+  "sample_accepted": false,
+  "max_attempts": 3,
+  "resume_boundary": 84,
+  "resumed_sample": 85,
+  "resumed_attempt": 2,
+  "recurrent_infrastructure_attempt2": "SAFE_STOP_NO_ATTEMPT3",
+  "recovery_gate": "/home/etip/datasets/diagnostics/formal_r11_sample85_recovery/recovery_gate.json",
+  "original_retry_ledger": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/sample85_operational_recovery/original_retry_ledger.tsv"
+}

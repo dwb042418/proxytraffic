@@ -122,6 +122,8 @@ def configure(config_path):
         return write_json(path,value)
     f.atomic_write_json = write_with_protocol
     campaign.PROTOCOL_AMENDMENT = amendment
+    from sample85_operational_recovery import install
+    install(campaign)
     return campaign.IDENTITY.rows
 
 
