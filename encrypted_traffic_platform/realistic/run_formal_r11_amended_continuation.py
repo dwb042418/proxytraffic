@@ -117,11 +117,13 @@ def configure(config_path):
         if Path(path) in (campaign.CONFIG.report_path, campaign.CONFIG.progress_state):
             value = {**value,'PROTOCOL_STATUS':amendment['status'],
                 'PROTOCOL_AMENDMENT_SHA256':f.sha256(record_path),
-                'CARRY_FORWARD_SAMPLES':'1-48','EXCLUDED_ORIGINAL_PROTOCOL_ATTEMPTS':1,
-                'ALL_PROTOCOL_ATTEMPTS':value['TOTAL_ATTEMPTS']+1}
+                'CARRY_FORWARD_SAMPLES':('1-92' if hasattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT') else '1-48'),'EXCLUDED_ORIGINAL_PROTOCOL_ATTEMPTS':1,
+                'ALL_PROTOCOL_ATTEMPTS':value['TOTAL_ATTEMPTS']+1+getattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT',{}).get('excluded_attempt_count',0)}
         return write_json(path,value)
     f.atomic_write_json = write_with_protocol
     campaign.PROTOCOL_AMENDMENT = amendment
+    import netcraze_protocol_continuation
+    netcraze_protocol_continuation.install(campaign)
     from sample85_operational_recovery import install
     install(campaign)
     return campaign.IDENTITY.rows
@@ -150,6 +152,8 @@ def qualification():
     if proof['valid_samples']!=48 or proof['remote_complete']!=48 or proof['integrity']!='PASS':
         raise f.PrecheckFail('carried boundary verification missing')
     f.verify_frozen_sha()
+    import netcraze_protocol_continuation
+    netcraze_protocol_continuation.qualification(campaign)
 
 
 def main(argv=None):

@@ -1,0 +1,1 @@
+Formal r11 protocol epoch NETCRAZE_REPLACEMENT_2 retains complete pair groups 1–23 (samples1–92). Original93–94 and failed95 remain historical provenance. New93–96 use one matched replacement plan; retry, capture and acceptance implementation remain unchanged. See ../netcraze_protocol_amendment.json.

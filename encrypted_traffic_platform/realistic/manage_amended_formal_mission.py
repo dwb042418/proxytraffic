@@ -14,6 +14,7 @@ def main():
     assert info['campaign_id']=='t0_v3_r11' and info['kind']=='FORMAL'
     amendment=json.loads((config.parent/'protocol_amendment.json').read_text())
     assert amendment['status']=='FORMAL_PROTOCOL_AMENDED_CONTINUATION'
+    carry_forward='1-92' if (config.parent/'netcraze_protocol_amendment.json').exists() else '1-48'
     external_since=None
     while True:
         try:_,local,setup=manager.ensure_roots(config)
@@ -28,7 +29,7 @@ def main():
             with log.open('a') as output:
                 process=subprocess.Popen(command,cwd=manager.REPO,stdout=output,stderr=subprocess.STDOUT)
                 manager.status(dict(state='RUNNING',campaign_id=info['campaign_id'],child_pid=process.pid,
-                    config=str(config),log=str(log),resume=True,protocol_status=amendment['status'],carry_forward_samples='1-48'))
+                    config=str(config),log=str(log),resume=True,protocol_status=amendment['status'],carry_forward_samples=carry_forward))
                 code=process.wait()
         if code==0:
             manager.status(dict(state='COLLECTION_COMPLETE_FINAL_GIT_PUSH_PENDING',config=str(config),campaign_id=info['campaign_id'],protocol_status=amendment['status']))

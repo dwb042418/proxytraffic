@@ -1,0 +1,51 @@
+{
+  "actions_and_timing_preserved": true,
+  "candidate_rejected": 1,
+  "changed_plan_groups": [
+    "seed008_heavy",
+    "seed013_medium",
+    "seed014_heavy"
+  ],
+  "domain_ids_preserved": true,
+  "domain_split_preserved": true,
+  "event_order_preserved": true,
+  "formal_dataset_eligible": false,
+  "original_rng_seeds_preserved": true,
+  "parent_generator_git_head": "0bcf2d260b8fa538b1f1e9cf1ac91c4975c18adf",
+  "parent_plan_revision": "t0_v3_r11",
+  "plan_derivation": "URL_ONLY_REPLACEMENT_IN_PARENT_PLANS_WITHOUT_RNG_REGENERATION",
+  "plans": 300,
+  "preparation_git_head": "03ca8f7ec383b53b48f0ac5d3b8eb4310ff9db7f",
+  "qualification_provenance": {
+    "candidate_order.json": "8f6e4c4657823178b98335e8feb3fa551b15028da6337adbf25a12e77d334286",
+    "exclusion_provenance.json": "22d616e734897004c6ae53a0ab22ae9ebd06e81f7cbfbeadef9705c3f0253384",
+    "protocol.json": "405a46adb5b5dc0780e6d48c88a18f6c871b36a97d9f899e813827a32f7675dd",
+    "qualification_result.json": "02c7fac3c602e5f4e6bbb202446abd86ecef9ba67b1f546c9e5d14f0f0104543",
+    "replacement_ledger.jsonl": "bbd9cae04f5ad049d47f73e23f16313440afb7eeb40bcd0e3dca64406475de40"
+  },
+  "qualification_root": "/home/etip/datasets/diagnostics/contextual_netcraze_replacement_20260916",
+  "replacement": {
+    "bucket": "rank_1001_100000",
+    "domain": "hln.be",
+    "rank": 1246
+  },
+  "replacement_builder": "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/build_contextual_domain_replacement_inputs.py",
+  "replacement_builder_sha256": "b5cf616f277743e0e9f356df26738209c3919d5168e2dbc383bab76d40209bea",
+  "retired": [
+    "netcraze.io"
+  ],
+  "retirement_rule": "RULE_A",
+  "schedule_samples": 1200,
+  "sha256": {
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/FORMAL_T0_V3_PLAN_SHA256SUMS_R12.txt": "905eb1c2062988fdd37f1d42352997845e2c372b922d4d2dd693f42b520593cb",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/domain_replacement_ledger_v3_r12.tsv": "440b4353d490e8ddd624ed2403282071020a2efb63ff88ea20c6542d363b0568",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_pool_v3_r12.tsv": "0b3995cea229098dbb1e3a26dcf88f0d61fe8efef38aa6a1db7d34f2f7ed99e8",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_domain_split_v3_r12.tsv": "6c0b194a08da8109712d617331b1b3c447c6c1b524adeddeb9158978726c7eef",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_plan_manifest_r12.tsv": "3a5f2d87b837c297abb932e599946fef146530b8a195e29bfe6310837684751a",
+    "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/formal_t0_v3_schedule_r12.tsv": "4f30cd3755cf2b2cd8fd03d3e8550f6c16eb04b254d0dbba387ec9afedba59c0"
+  },
+  "source_plan_revision": "t0_v3_r12",
+  "status": "R12_QUALIFIED_INPUTS_READY",
+  "unchanged_domain_rows": 499,
+  "unchanged_plan_bytes": 297
+}

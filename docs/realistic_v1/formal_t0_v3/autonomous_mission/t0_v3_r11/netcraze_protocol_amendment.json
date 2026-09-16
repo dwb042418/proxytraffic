@@ -1,0 +1,60 @@
+{
+  "assets": {
+    "MANIFEST": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_netcraze_2/plan_manifest.tsv",
+    "POOL": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_netcraze_2/pool.tsv",
+    "REGISTRY": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_netcraze_2/PLAN_SHA256SUMS.txt",
+    "RETIREMENT_LEDGER": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_netcraze_2/replacement_ledger.tsv",
+    "SCHEDULE": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_netcraze_2/schedule.tsv",
+    "SPLIT": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_netcraze_2/split.tsv"
+  },
+  "authorization": "USER_COMPLETE_PAIR_GROUP_CARRY_FORWARD_20260916",
+  "base_stress_qualification": "r10_stress_v12_192_PASS",
+  "boundary92_verification": "/home/etip/datasets/diagnostics/netcraze_delta_readiness_20260916/boundary92_verification.json",
+  "campaign_id": "t0_v3_r11",
+  "campaign_manifest": "/home/etip/Tunnel/proxytraffic/docs/realistic_v1/formal_t0_v3/autonomous_mission/t0_v3_r11/protocol_amendment_netcraze_2/campaign_manifest.tsv",
+  "carry_forward_complete_pair_groups": 23,
+  "carry_forward_conditions": {
+    "carry_forward_complete_pair_boundary": 92,
+    "carry_forward_complete_pair_groups": 23,
+    "changed_plan_groups": [
+      "seed008_heavy",
+      "seed013_medium",
+      "seed014_heavy"
+    ],
+    "header_and_rows1_92_byte_identical": true,
+    "netcraze_absent_samples1_92": true,
+    "old_completed_samples93_94": "HISTORICAL_PROVENANCE_ONLY_AFTER_ACTIVATION",
+    "only_url_and_url_sequence_changed": true,
+    "replacement_domain": "hln.be",
+    "runner_browser_capture_retry_acceptance_unchanged": true,
+    "status": "PASS",
+    "unchanged_plan_bytes": 297
+  },
+  "carry_forward_samples": [
+    1,
+    92
+  ],
+  "delta_protocol": "/home/etip/datasets/diagnostics/netcraze_delta_readiness_20260916/protocol.json",
+  "delta_result": "/home/etip/datasets/diagnostics/netcraze_delta_readiness_20260916/delta_result.json",
+  "evidence_relocations": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/netcraze_original/relocations.json",
+  "excluded_attempt_count": 6,
+  "executor_namespace_revision": "t0_v3_r11_protocol_netcraze_2",
+  "final_dataset_samples": 1200,
+  "final_pair_groups": 300,
+  "global_retry_policy_changed": false,
+  "max_attempts_per_protocol_sample": 3,
+  "new_full_stress_required": false,
+  "new_samples93_96": "FRESH_MATCHED_PAIR_GROUP_UNDER_REPLACEMENT_PLAN",
+  "old_sample95_attempts": "PRESERVED_CONSUMED_HISTORICAL_ATTEMPTS_NOT_RETRIED",
+  "old_samples93_94": "HISTORICAL_PROVENANCE_ONLY",
+  "original_freeze": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/netcraze_original/original_freeze.json",
+  "original_retry_ledger": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/netcraze_original/original_retry_ledger.tsv",
+  "protocol_epoch": "NETCRAZE_REPLACEMENT_2",
+  "qualification_result": "/home/etip/datasets/diagnostics/contextual_netcraze_replacement_20260916/qualification_result.json",
+  "replacement_domain": "hln.be",
+  "retired_domain": "netcraze.io",
+  "retirement_review": "/home/etip/datasets/diagnostics/netcraze_context_20260916/retirement_review.json",
+  "retirement_rule": "RULE_A",
+  "scientific_browser_capture_acceptance_proxy_timeout_implementation_changed": false,
+  "status": "FORMAL_PROTOCOL_AMENDED_CONTINUATION"
+}
