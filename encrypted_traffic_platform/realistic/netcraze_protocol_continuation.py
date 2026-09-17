@@ -75,10 +75,10 @@ def install(campaign):
     write=f.atomic_write_json
     def write_json(target,value):
         if Path(target) in (config.progress_state,config.report_path):
-            value={**value,'CARRY_FORWARD_SAMPLES':'1-92','CARRY_FORWARD_COMPLETE_PAIR_GROUPS':23,
+            value={**value,'CARRY_FORWARD_SAMPLES':('1-128' if hasattr(campaign,'CAPACITY_AMENDMENT') else '1-92'),'CARRY_FORWARD_COMPLETE_PAIR_GROUPS':(32 if hasattr(campaign,'CAPACITY_AMENDMENT') else 23),
                 'NETCRAZE_PROTOCOL_AMENDMENT_SHA256':f.sha256(path),
                 'EXCLUDED_NETCRAZE_PROTOCOL_ATTEMPTS':proof['excluded_attempt_count'],
-                'EXCLUDED_HISTORICAL_COMPLETE_SAMPLES':[93,94]}
+                'EXCLUDED_HISTORICAL_COMPLETE_SAMPLES':([93,94,129] if hasattr(campaign,'CAPACITY_AMENDMENT') else [93,94])}
         return write(target,value)
     f.atomic_write_json=write_json
     campaign.NETCRAZE_PROTOCOL_AMENDMENT=proof

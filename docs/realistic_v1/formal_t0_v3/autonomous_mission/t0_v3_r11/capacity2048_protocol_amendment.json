@@ -1,0 +1,62 @@
+{
+  "authorization": "USER_CAPACITY_CONFIGURATION_AMENDMENT_20260917",
+  "base_stress": "r10_stress_v12_192_PASS",
+  "boundary_verification": "/home/etip/datasets/diagnostics/capacity2048_continuation_preparation_20260917/boundary128_verification.json",
+  "campaign_id": "t0_v3_r11",
+  "capture_semantics_changed": false,
+  "carry_forward_boundary": 128,
+  "domain_pool_changed": false,
+  "evidence_relocations": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/capacity256_original/relocations.json",
+  "excluded_attempt_count": 2,
+  "executor_namespace_revision": "t0_v3_r11_protocol_capacity2048_3",
+  "full_stress_rerun": false,
+  "max_attempts_per_protocol_sample": 3,
+  "new_conn_max": 2048,
+  "new_nofile_soft": 32768,
+  "nofile_hard": 524288,
+  "old_conn_max": 256,
+  "old_nofile_soft": 2048,
+  "old_sample129": "HISTORICAL_PROVENANCE_ONLY",
+  "old_sample130_attempt1": "CONSUMED_PRESERVED_HISTORICAL_CAPACITY_FAILURE",
+  "old_sample130_remote_receipt": "/home/etip/datasets/diagnostics/sample130_capacity_review_20260917/original_failed_archive.json",
+  "original_freeze": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/capacity256_original/original_freeze.json",
+  "original_retry_ledger": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/protocol_history/capacity256_original/original_retry_ledger.tsv",
+  "protocol_epoch": "CAPACITY2048_3",
+  "proxy_topology_changed": false,
+  "reason": "REAL_WORKLOAD_CAPACITY_SATURATION",
+  "recollected_pair_group": [
+    129,
+    130,
+    131,
+    132
+  ],
+  "retry_policy_changed": false,
+  "sample_acceptance_changed": false,
+  "status": "FORMAL_PROTOCOL_AMENDED_CONTINUATION",
+  "system_files": {
+    "/etc/proxytraffic/redsocks-realistic/shadowsocks.conf": {
+      "new_sha256": "8dc74f0ba7783ed231053acf6c99cde0e497999f786b8c70928d045a4f04937b",
+      "old_sha256": "2d7a4d05c8623076c6c4b931c43d977576e1731cb82f7bd3a19b8eceaf79efcf"
+    },
+    "/etc/proxytraffic/redsocks-realistic/trojan.conf": {
+      "new_sha256": "353a0582bf7d24a121a2cd9a793d0502fbf567a8515b3ca1810b3c43d1eeae18",
+      "old_sha256": "5c46694892aee4039559f43d0b7c5e3a3b3e25ed61c114176aff32c09e871017"
+    },
+    "/etc/proxytraffic/redsocks-realistic/vless.conf": {
+      "new_sha256": "62c0e7a7323dbcea07d74d3b7a17b190d60a85878cd8dcdf8fa4cfd75110b1f8",
+      "old_sha256": "845ca9078f251728ff927c91df803773319d7fbffe6c57fa23618328243b893f"
+    },
+    "/etc/systemd/system/redsocks-realistic@.service.d/10-nofile.conf": {
+      "new_sha256": "c66cd78b79562298c7801f59a8e4033239f50a3909c8894fbdd3dd2429573ad3",
+      "old_sha256": "84d309f8f6fc709d431009c2f1a9eb2af946b9b66276a82fc60e14ad794c1fcf"
+    },
+    "/etc/systemd/system/redsocks-realistic@trojan.service.d/limits.conf": {
+      "new_sha256": "c66cd78b79562298c7801f59a8e4033239f50a3909c8894fbdd3dd2429573ad3",
+      "old_sha256": "84d309f8f6fc709d431009c2f1a9eb2af946b9b66276a82fc60e14ad794c1fcf"
+    }
+  },
+  "timeout_changed": false,
+  "validation_remote_receipt": "/home/etip/datasets/diagnostics/capacity2048_amendment_20260917/remote_archive_receipt.json",
+  "validation_result": "/home/etip/datasets/diagnostics/capacity2048_amendment_20260917/validation_result.json",
+  "workload_changed": false
+}

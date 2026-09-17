@@ -117,8 +117,8 @@ def configure(config_path):
         if Path(path) in (campaign.CONFIG.report_path, campaign.CONFIG.progress_state):
             value = {**value,'PROTOCOL_STATUS':amendment['status'],
                 'PROTOCOL_AMENDMENT_SHA256':f.sha256(record_path),
-                'CARRY_FORWARD_SAMPLES':('1-92' if hasattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT') else '1-48'),'EXCLUDED_ORIGINAL_PROTOCOL_ATTEMPTS':1,
-                'ALL_PROTOCOL_ATTEMPTS':value['TOTAL_ATTEMPTS']+1+getattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT',{}).get('excluded_attempt_count',0)}
+                'CARRY_FORWARD_SAMPLES':('1-128' if hasattr(campaign,'CAPACITY_AMENDMENT') else ('1-92' if hasattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT') else '1-48')),'EXCLUDED_ORIGINAL_PROTOCOL_ATTEMPTS':1,
+                'ALL_PROTOCOL_ATTEMPTS':value['TOTAL_ATTEMPTS']+1+getattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT',{}).get('excluded_attempt_count',0)+getattr(campaign,'CAPACITY_AMENDMENT',{}).get('excluded_attempt_count',0)}
         return write_json(path,value)
     f.atomic_write_json = write_with_protocol
     campaign.PROTOCOL_AMENDMENT = amendment
@@ -126,11 +126,14 @@ def configure(config_path):
     netcraze_protocol_continuation.install(campaign)
     from sample85_operational_recovery import install
     install(campaign)
+    import capacity2048_protocol_continuation
+    capacity2048_protocol_continuation.install(campaign)
     return campaign.IDENTITY.rows
 
 
-def qualification():
-    ORIGINAL_QUALIFICATION()
+def legacy_qualification():
+    import capacity2048_protocol_continuation
+    capacity2048_protocol_continuation.qualified_stress(campaign,ORIGINAL_QUALIFICATION)
     f=campaign.f;amendment=campaign.PROTOCOL_AMENDMENT
     delta=f.load_json(Path(amendment['delta_result']))
     if (delta['status']!='DELTA_READINESS_VALIDATION_PASS' or delta['completed']!=20
@@ -154,6 +157,11 @@ def qualification():
     f.verify_frozen_sha()
     import netcraze_protocol_continuation
     netcraze_protocol_continuation.qualification(campaign)
+
+
+def qualification():
+    import capacity2048_protocol_continuation
+    return capacity2048_protocol_continuation.qualified(campaign,legacy_qualification)
 
 
 def main(argv=None):
