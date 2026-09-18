@@ -117,8 +117,8 @@ def configure(config_path):
         if Path(path) in (campaign.CONFIG.report_path, campaign.CONFIG.progress_state):
             value = {**value,'PROTOCOL_STATUS':amendment['status'],
                 'PROTOCOL_AMENDMENT_SHA256':f.sha256(record_path),
-                'CARRY_FORWARD_SAMPLES':('1-128' if hasattr(campaign,'CAPACITY_AMENDMENT') else ('1-92' if hasattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT') else '1-48')),'EXCLUDED_ORIGINAL_PROTOCOL_ATTEMPTS':1,
-                'ALL_PROTOCOL_ATTEMPTS':value['TOTAL_ATTEMPTS']+1+getattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT',{}).get('excluded_attempt_count',0)+getattr(campaign,'CAPACITY_AMENDMENT',{}).get('excluded_attempt_count',0)}
+                'CARRY_FORWARD_SAMPLES':('1-360' if hasattr(campaign,'CONTEXT361_PROTOCOL_AMENDMENT') else ('1-128' if hasattr(campaign,'CAPACITY_AMENDMENT') else ('1-92' if hasattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT') else '1-48'))),'EXCLUDED_ORIGINAL_PROTOCOL_ATTEMPTS':1,
+                'ALL_PROTOCOL_ATTEMPTS':value['TOTAL_ATTEMPTS']+1+getattr(campaign,'NETCRAZE_PROTOCOL_AMENDMENT',{}).get('excluded_attempt_count',0)+getattr(campaign,'CAPACITY_AMENDMENT',{}).get('excluded_attempt_count',0)+getattr(campaign,'CONTEXT361_PROTOCOL_AMENDMENT',{}).get('excluded_attempt_count',0)}
         return write_json(path,value)
     f.atomic_write_json = write_with_protocol
     campaign.PROTOCOL_AMENDMENT = amendment
@@ -128,6 +128,8 @@ def configure(config_path):
     install(campaign)
     import capacity2048_protocol_continuation
     capacity2048_protocol_continuation.install(campaign)
+    import context361_protocol_continuation
+    context361_protocol_continuation.install(campaign)
     return campaign.IDENTITY.rows
 
 
@@ -161,7 +163,8 @@ def legacy_qualification():
 
 def qualification():
     import capacity2048_protocol_continuation
-    return capacity2048_protocol_continuation.qualified(campaign,legacy_qualification)
+    import context361_protocol_continuation
+    return context361_protocol_continuation.qualified(campaign,lambda: capacity2048_protocol_continuation.qualified(campaign,legacy_qualification))
 
 
 def main(argv=None):

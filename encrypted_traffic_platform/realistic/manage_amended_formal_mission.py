@@ -14,7 +14,7 @@ def main():
     assert info['campaign_id']=='t0_v3_r11' and info['kind']=='FORMAL'
     amendment=json.loads((config.parent/'protocol_amendment.json').read_text())
     assert amendment['status']=='FORMAL_PROTOCOL_AMENDED_CONTINUATION'
-    carry_forward='1-128' if (config.parent/'capacity2048_protocol_amendment.json').exists() else '1-92' if (config.parent/'netcraze_protocol_amendment.json').exists() else '1-48'
+    carry_forward='1-360' if (config.parent/'context361_protocol_amendment.json').exists() else '1-128' if (config.parent/'capacity2048_protocol_amendment.json').exists() else '1-92' if (config.parent/'netcraze_protocol_amendment.json').exists() else '1-48'
     external_since=None
     while True:
         try:_,local,setup=manager.ensure_roots(config)
