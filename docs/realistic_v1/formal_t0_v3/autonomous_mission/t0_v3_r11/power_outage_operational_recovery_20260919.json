@@ -1,0 +1,30 @@
+{
+  "attempt_budget_changed": false,
+  "authorization": "USER_POWER_OUTAGE_RECOVERY_MISSION_20260919",
+  "campaign_id": "t0_v3_r11",
+  "change": "Install sample85 recovery after capacity2048 and context361; its complete ledger audit still runs before configure returns.",
+  "clause": "AMENDMENT_IDENTITY_INITIALIZATION_ORDER_OPERATIONAL_RECOVERY",
+  "completed_samples_invalidated": false,
+  "created_utc": "2026-09-19T04:26:32.536252+00:00",
+  "external_power_interruption_clause": "Existing EXTERNAL_HOST_RESTART_INTERRUPTED_ATTEMPT_RECOVERY covers actual external power interruptions; it does not apply to the terminal sample366 navigation failures.",
+  "implementation": "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_formal_r11_amended_continuation.py",
+  "max_attempts": 3,
+  "new_sha256": "5dda6e0bbc3105c2f92f03ba7be981638b434cd0ed1ab6a3489642b16397a8ba",
+  "old_sha256": "aabb45b1e8df636e6378cbdcdf893906e76e9a801863a5fa2c0f70b0753d72ae",
+  "original_freeze": "/home/etip/datasets/diagnostics/power_outage_recovery_20260919/original_campaign_freeze.json",
+  "preexisting_hard_stop_cleared": false,
+  "protocol_epoch_changed": false,
+  "reason": "Restart after context361 samples exist fails because sample85 installation audits all ledger rows before the context361 plan identity is installed.",
+  "sampling_git_head": "5ecc49632d07f5de55040bf271768c223dedc7b4",
+  "scientific_semantics_changed": false,
+  "status": "ACTIVE_OPERATIONAL_ONLY",
+  "validation": {
+    "accepted_samples_retained": 365,
+    "actual_ledger_attempts": 374,
+    "attempt3_hard_stop_retained": true,
+    "red": "/home/etip/datasets/diagnostics/power_outage_recovery_20260919/initialization_red.log",
+    "regression": "/home/etip/datasets/diagnostics/power_outage_recovery_20260919/check_resume_initialization.py",
+    "related_mission_tests_passed": 21,
+    "tampered_context361_identity_rejected": true
+  }
+}

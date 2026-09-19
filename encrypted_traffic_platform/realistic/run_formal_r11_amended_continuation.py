@@ -124,12 +124,14 @@ def configure(config_path):
     campaign.PROTOCOL_AMENDMENT = amendment
     import netcraze_protocol_continuation
     netcraze_protocol_continuation.install(campaign)
-    from sample85_operational_recovery import install
-    install(campaign)
     import capacity2048_protocol_continuation
     capacity2048_protocol_continuation.install(campaign)
     import context361_protocol_continuation
     context361_protocol_continuation.install(campaign)
+    # This installation audits the entire ledger. Restore every approved plan
+    # identity first, including samples collected after the context361 amendment.
+    from sample85_operational_recovery import install
+    install(campaign)
     return campaign.IDENTITY.rows
 
 
