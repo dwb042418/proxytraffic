@@ -1,0 +1,21 @@
+{
+  "rule": "PAIR_GROUP_REACQUISITION_AFTER_EXHAUSTED_NONREPRODUCIBLE_FAILURE",
+  "campaign_id": "t0_v3_r11",
+  "authorization": "Explicit user instruction, 2026-09-19",
+  "MAX_ATTEMPTS_PER_SAMPLE": 3,
+  "MAX_PAIR_GROUP_REACQUISITIONS_AFTER_EXHAUSTED_DIAGNOSTIC_PASS": 1,
+  "trigger_conditions": [
+    "Original sample attempts 1, 2, and 3 failed and remain permanently exhausted.",
+    "Every original Formal failure artifact is retained and remotely verified.",
+    "No causal infrastructure degradation, mode impurity, capture corruption, capacity hit, bypass, OOM, residual, or implementation defect.",
+    "Independent exact-context diagnostic: 12 valid fresh lifecycles, Direct/VLESS/Shadowsocks/Trojan three each, all PASS, no diagnostic retry.",
+    "No domain retirement, contextual replacement, or implementation repair condition."
+  ],
+  "carry_forward": "Audit and preserve all complete, unaffected matched groups before the affected quartet. Close the entire incomplete original acquisition as INCOMPLETE_PAIR_GROUP_HISTORICAL_PROVENANCE.",
+  "identity": "Retain logical final sequences; use distinct immutable sample IDs and acquisition namespace. Never overwrite original artifacts or ledgers.",
+  "retention_and_statistics": "Retain original PASS and all FAIL artifacts, diagnostic evidence, trigger rationale, and relocation records. Excluded attempts remain in acquisition/reliability statistics, never in final model data.",
+  "second_exhaustion": "PAIR_GROUP_REACQUISITION_BUDGET_EXHAUSTED: retain evidence; root-cause/methodology review, never reacquisition 2 or attempt 4.",
+  "qualification": "The four reacquired samples must PASS and be remotely verified before PAIR_GROUP_REACQUISITION_DELTA_PASS and continuation beyond that group. No full 192 Stress rerun.",
+  "unchanged": ["browser", "workload", "plan", "domain pool", "proxy", "capacity", "ordinary retry classes", "capture", "timeout", "sample acceptance"],
+  "initial_application": {"pair_group": 92, "logical_sequences": [365, 366, 367, 368], "carry_forward_boundary": 364}
+}

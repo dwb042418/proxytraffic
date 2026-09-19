@@ -128,6 +128,8 @@ def configure(config_path):
     capacity2048_protocol_continuation.install(campaign)
     import context361_protocol_continuation
     context361_protocol_continuation.install(campaign)
+    import pair_group_reacquisition
+    pair_group_reacquisition.install(campaign)
     # This installation audits the entire ledger. Restore every approved plan
     # identity first, including samples collected after the context361 amendment.
     from sample85_operational_recovery import install
