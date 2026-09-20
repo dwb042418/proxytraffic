@@ -1,6 +1,6 @@
 import copy
 import unittest
-from pair_group_reacquisition import eligible, reacquisition_rows, ReacquisitionRefused
+from pair_group_reacquisition import eligible, reacquisition_rows, ReacquisitionRefused, bind_acquisition_ledger
 
 
 class BoundedReacquisitionTest(unittest.TestCase):
@@ -54,6 +54,11 @@ class BoundedReacquisitionTest(unittest.TestCase):
             self.assertNotEqual(old['schedule_id'],new['schedule_id'])
             self.assertEqual({k:v for k,v in old.items() if k!='schedule_id'},
                              {k:v for k,v in new.items() if k!='schedule_id'})
+
+    def test_later_domain_amendment_retains_its_active_ledger(self):
+        self.assertFalse(bind_acquisition_ledger({'carry_forward':{'valid_samples':364}},368))
+        self.assertTrue(bind_acquisition_ledger({'carry_forward':{'valid_samples':368}},368))
+        self.assertTrue(bind_acquisition_ledger({'carry_forward':{'valid_samples':400}},368))
 
 
 if __name__=='__main__': unittest.main()

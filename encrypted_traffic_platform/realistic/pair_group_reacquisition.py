@@ -69,6 +69,11 @@ def state_path(config):
     return config.local_root/'pair_group_reacquisition_state.json'
 
 
+def bind_acquisition_ledger(record, domain_boundary):
+    """A later domain amendment owns its ledger until another group reacquires."""
+    return record['carry_forward']['valid_samples'] >= domain_boundary
+
+
 def install(c):
     f, cfg = c.f, c.CONFIG
     amendment_path = cfg.documentation_root/'pair_group_reacquisition_amendment.json'
@@ -113,9 +118,12 @@ def install(c):
     f.CAMPAIGN_SCHEDULE = c.IDENTITY.rows
     ledger_path = Path(records[-1]['active_ledger'])
     require(ledger_path.is_relative_to(cfg.local_root/'acquisitions'), 'active ledger namespace')
-    object.__setattr__(cfg, 'retry_ledger', ledger_path)
-    object.__setattr__(cfg, 'storage_ledger', Path(records[-1]['active_eviction_ledger']))
+    domain_boundary = getattr(c, 'CONTEXT369_PROTOCOL_AMENDMENT', {}).get('carry_forward_boundary', 0)
+    if bind_acquisition_ledger(records[-1], domain_boundary):
+        object.__setattr__(cfg, 'retry_ledger', ledger_path)
+        object.__setattr__(cfg, 'storage_ledger', Path(records[-1]['active_eviction_ledger']))
     c.PAIR_GROUP_REACQUISITIONS = records
+    f.PRESERVED_BOUNDARY = max(getattr(f, 'PRESERVED_BOUNDARY', 0), records[-1]['carry_forward']['valid_samples'])
     by_id = {r['schedule_id']:record for record in records for r in record['new_rows']}
     counts = f.attempt_counts
     closed = [e for record in records for e in record['closed_entries']]

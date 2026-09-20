@@ -14,6 +14,18 @@ from realistic_campaign_config import CampaignConfig, RootIdentityError
 
 
 class ReplacementAssetsTests(unittest.TestCase):
+    def test_completed_domain_context_keeps_its_original_source_binding(self):
+        from context369_protocol_continuation import carry_completed_mapping
+        old=SimpleNamespace(rows=[{'sequence_id':'1','source_schedule_sequence_id':'1','plan_sha256':'old'}],
+                            source={'1':{'plan_sha256':'old'}})
+        new=SimpleNamespace(rows=[{'sequence_id':'1','source_schedule_sequence_id':'1','plan_sha256':'replacement'},
+                                  {'sequence_id':'2','source_schedule_sequence_id':'2','plan_sha256':'future'}],
+                            source={'1':{'plan_sha256':'replacement'},'2':{'plan_sha256':'future'}})
+        carry_completed_mapping(new,old,1)
+        self.assertEqual(new.rows[0],old.rows[0])
+        self.assertEqual(new.source['1'],old.source['1'])
+        self.assertEqual(new.source['2']['plan_sha256'],'future')
+
     @classmethod
     def setUpClass(cls):
         if campaign.f is None:
