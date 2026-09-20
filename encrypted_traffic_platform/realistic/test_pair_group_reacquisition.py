@@ -1,6 +1,6 @@
 import copy
 import unittest
-from pair_group_reacquisition import eligible, reacquisition_rows, ReacquisitionRefused, bind_acquisition_ledger
+from pair_group_reacquisition import eligible, reacquisition_rows, ReacquisitionRefused, bind_acquisition_ledger, add_closed_attempt_counts
 
 
 class BoundedReacquisitionTest(unittest.TestCase):
@@ -59,6 +59,15 @@ class BoundedReacquisitionTest(unittest.TestCase):
         self.assertFalse(bind_acquisition_ledger({'carry_forward':{'valid_samples':364}},368))
         self.assertTrue(bind_acquisition_ledger({'carry_forward':{'valid_samples':368}},368))
         self.assertTrue(bind_acquisition_ledger({'carry_forward':{'valid_samples':400}},368))
+
+    def test_closed_pair_attempts_do_not_recount_domain_history(self):
+        # Current aggregate already includes the three retired rt.ru attempts.
+        current = {'TOTAL_ATTEMPTS':377, 'RETRY_COUNT':8}
+        closed = [dict(sample_id='old365', attempt='1')]
+        closed += [dict(sample_id='old366', attempt=str(n)) for n in (1,2,3)]
+        result = add_closed_attempt_counts(current, closed)
+        self.assertEqual(result['TOTAL_ATTEMPTS'],381)
+        self.assertEqual(result['RETRY_COUNT'],10)  # sample85 recovery adjustment is installed last.
 
 
 if __name__=='__main__': unittest.main()

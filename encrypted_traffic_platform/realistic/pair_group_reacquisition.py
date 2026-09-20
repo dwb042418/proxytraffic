@@ -69,6 +69,15 @@ def state_path(config):
     return config.local_root/'pair_group_reacquisition_state.json'
 
 
+def add_closed_attempt_counts(current, closed):
+    # Count this retained ledger alone; installed aggregate adapters may already
+    # include other closed protocol epochs in every call.
+    from external_host_restart_recovery import attempt_counts
+    historical = attempt_counts(closed)
+    return {**current, 'TOTAL_ATTEMPTS':current['TOTAL_ATTEMPTS']+historical['TOTAL_ATTEMPTS'],
+            'RETRY_COUNT':current['RETRY_COUNT']+historical['RETRY_COUNT']}
+
+
 def bind_acquisition_ledger(record, domain_boundary):
     """A later domain amendment owns its ledger until another group reacquires."""
     return record['carry_forward']['valid_samples'] >= domain_boundary
@@ -128,10 +137,8 @@ def install(c):
     counts = f.attempt_counts
     closed = [e for record in records for e in record['closed_entries']]
     def attempt_counts(ledger):
-        current = counts(ledger)
-        historical = counts(closed)
-        return {**current, 'TOTAL_ATTEMPTS':current['TOTAL_ATTEMPTS']+historical['TOTAL_ATTEMPTS'],
-                'RETRY_COUNT':current['RETRY_COUNT']+historical['RETRY_COUNT'],
+        current = add_closed_attempt_counts(counts(ledger), closed)
+        return {**current,
                 'FINAL_DATASET_ACQUISITION_ATTEMPTS':len(ledger),
                 'HISTORICAL_ACQUISITION_ATTEMPTS':len(closed),
                 'HISTORICAL_ACQUISITION_FAILURES':sum(e['final_status']=='FAIL' for e in closed),
