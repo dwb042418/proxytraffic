@@ -137,6 +137,8 @@ def configure(config_path):
     # identity first, including samples collected after the context361 amendment.
     from sample85_operational_recovery import install
     install(campaign)
+    import sample369_operational_recovery
+    sample369_operational_recovery.install(campaign)
     return campaign.IDENTITY.rows
 
 
