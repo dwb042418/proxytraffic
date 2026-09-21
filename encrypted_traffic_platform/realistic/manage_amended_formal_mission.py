@@ -24,10 +24,11 @@ def main():
             reference=json.loads(state_path.read_text())['acquisitions'][-1]
             activated=json.loads(Path(reference['path']).read_text())
             carry_forward='1-'+str(activated['carry_forward']['valid_samples'])
-        domain_amendment=config.parent/'context369_protocol_amendment.json'
-        if domain_amendment.exists():
-            domain_boundary=json.loads(domain_amendment.read_text())['carry_forward_boundary']
-            carry_forward='1-'+str(max(int(carry_forward.split('-')[1]),domain_boundary))
+        for name in ('context369_protocol_amendment.json','context389_protocol_amendment.json'):
+            domain_amendment=config.parent/name
+            if domain_amendment.exists():
+                domain_boundary=json.loads(domain_amendment.read_text())['carry_forward_boundary']
+                carry_forward='1-'+str(max(int(carry_forward.split('-')[1]),domain_boundary))
         pending=(local/'pending_pair_group_reacquisition.json').exists()
         stop=json.loads((local/'revision_hard_stop.json').read_text()) if (local/'revision_hard_stop.json').exists() else {}
         if pending or (stop.get('category')=='SAMPLE_POLICY_HARD_STOP'

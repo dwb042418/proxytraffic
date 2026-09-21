@@ -1,0 +1,30 @@
+{
+  "activation_requires": "12_VALID_CHESS_DIAGNOSTICS_AND_FULL_QUALIFICATION_AND_16_DELTA_PASS_AND_REMOTE_INTEGRITY",
+  "authorization": "USER_AUTONOMOUS_CHESS_DETERMINISTIC_REPLACEMENT_AND_OPERATIONAL_AMENDMENT_20260921",
+  "carry_forward_boundary": 388,
+  "created_utc": "2026-09-21T04:14:34.238646+00:00",
+  "files": {
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/context389_protocol_continuation.py": "fab4989ecae956508931a63fa493dd4d17a91d7736a878995a2484fc08aa952b",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/manage_amended_formal_mission.py": "3e15eaba393810d830dca7942822f50e883a885a59b1e107da24e7e1b23a3b5c",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/pair_group_reacquisition.py": "7962d2cab9b133c1878e30cc04988e70d815168511492ae24326044cb1319849",
+    "/home/etip/Tunnel/proxytraffic/encrypted_traffic_platform/realistic/run_formal_r11_amended_continuation.py": "2acb173ffdad7d7bdbb147dfca17a627add8aa212fc99b42a3d21079ac99d63d"
+  },
+  "future_affected_group": [
+    441,
+    442,
+    443,
+    444
+  ],
+  "previous_freeze": "/home/etip/datasets/diagnostics/chess_recovery_20260921/before_context389_adapter_freeze.json",
+  "reacquisition_group": [
+    389,
+    390,
+    391,
+    392
+  ],
+  "retry_policy_changed": false,
+  "scientific_runtime_changed": false,
+  "status": "OPERATIONAL_CONTINUATION_ADAPTER_REGISTERED_NOT_ACTIVATED",
+  "validation": "16 targeted identity/reacquisition/recovery tests PASS",
+  "workload_generator_changed": false
+}

@@ -127,7 +127,8 @@ def install(c):
     f.CAMPAIGN_SCHEDULE = c.IDENTITY.rows
     ledger_path = Path(records[-1]['active_ledger'])
     require(ledger_path.is_relative_to(cfg.local_root/'acquisitions'), 'active ledger namespace')
-    domain_boundary = getattr(c, 'CONTEXT369_PROTOCOL_AMENDMENT', {}).get('carry_forward_boundary', 0)
+    domain_boundary = getattr(c, 'CONTEXT389_PROTOCOL_AMENDMENT',
+        getattr(c, 'CONTEXT369_PROTOCOL_AMENDMENT', {})).get('carry_forward_boundary', 0)
     if bind_acquisition_ledger(records[-1], domain_boundary):
         object.__setattr__(cfg, 'retry_ledger', ledger_path)
         object.__setattr__(cfg, 'storage_ledger', Path(records[-1]['active_eviction_ledger']))

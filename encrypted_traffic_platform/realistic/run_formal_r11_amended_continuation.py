@@ -131,6 +131,8 @@ def configure(config_path):
     context361_protocol_continuation.install(campaign)
     import context369_protocol_continuation
     context369_protocol_continuation.install(campaign)
+    import context389_protocol_continuation
+    context389_protocol_continuation.install(campaign)
     import pair_group_reacquisition
     pair_group_reacquisition.install(campaign)
     # This installation audits the entire ledger. Restore every approved plan
@@ -174,7 +176,8 @@ def qualification():
     import capacity2048_protocol_continuation
     import context361_protocol_continuation
     import context369_protocol_continuation
-    return context369_protocol_continuation.qualified(campaign,lambda: context361_protocol_continuation.qualified(campaign,lambda: capacity2048_protocol_continuation.qualified(campaign,legacy_qualification)))
+    import context389_protocol_continuation
+    return context389_protocol_continuation.qualified(campaign,lambda: context369_protocol_continuation.qualified(campaign,lambda: context361_protocol_continuation.qualified(campaign,lambda: capacity2048_protocol_continuation.qualified(campaign,legacy_qualification))))
 
 
 def main(argv=None):
