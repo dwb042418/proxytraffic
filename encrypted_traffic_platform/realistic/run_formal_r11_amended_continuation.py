@@ -141,6 +141,8 @@ def configure(config_path):
     install(campaign)
     import sample369_operational_recovery
     sample369_operational_recovery.install(campaign)
+    import preworkload_abort_recovery
+    preworkload_abort_recovery.install(campaign)
     return campaign.IDENTITY.rows
 
 
