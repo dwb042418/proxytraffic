@@ -103,8 +103,11 @@ def install(c):
         require(f.sha256(path) == reference['sha256'], 'activation record changed')
         record = f.load_json(path)
         group = record['group']
-        require(group not in groups and record['rule'] == RULE and record['reacquisition_number'] == 1,
+        from infrastructure_pair_group_recovery import RULE as INFRA_RULE, verify_record, fresh_rows
+        require(group not in groups and record['rule'] in (RULE, INFRA_RULE) and record['reacquisition_number'] == 1,
                 'duplicate or unbounded reacquisition')
+        if record['rule'] == INFRA_RULE:
+            verify_record(c, record)
         groups.add(group)
         require(f.sha256(Path(record['original_ledger'])) == record['original_ledger_sha256'],
                 'historical ledger changed')
@@ -118,7 +121,7 @@ def install(c):
             require(f.sha256(Path(proof['path'])) == proof['sha256'], 'diagnostic evidence changed')
         old = [c.IDENTITY.lookup(n) for n in range((group-1)*4+1, group*4+1)]
         require(old == record['original_rows'], 'scientific plan or configuration identity changed')
-        fresh = reacquisition_rows(old, group)
+        fresh = fresh_rows(old, group) if record['rule'] == INFRA_RULE else reacquisition_rows(old, group)
         require(fresh == record['new_rows'], 'acquisition namespace differs')
         c.IDENTITY.rows[(group-1)*4:group*4] = fresh
         records.append(record)
@@ -151,7 +154,7 @@ def install(c):
         if row['schedule_id'] in by_id:
             record = by_id[row['schedule_id']]
             result.update(acquisition_instance=record['acquisition_instance'],
-                pair_group_reacquisition_rule=RULE, historical_acquisition_record=record['record_path'])
+                pair_group_reacquisition_rule=record['rule'], historical_acquisition_record=record['record_path'])
         return result
     def valid(metadata, row, head):
         if row['schedule_id'] in by_id and metadata.get('acquisition_instance') != by_id[row['schedule_id']]['acquisition_instance']:
@@ -196,7 +199,7 @@ def install(c):
     write = f.atomic_write_json
     def write_json(path,value):
         if Path(path) in (cfg.progress_state,cfg.report_path):
-            value = {**value, 'PAIR_GROUP_REACQUISITION_RULE':RULE,
+            value = {**value, 'PAIR_GROUP_REACQUISITION_RULE':records[-1]['rule'],
                 'PAIR_GROUP_REACQUISITION_CARRY_FORWARD_BOUNDARY':records[-1]['carry_forward']['valid_samples'],
                 'HISTORICAL_ACQUISITIONS':[r['record_path'] for r in records],
                 'ACTIVE_RETRY_LEDGER':str(cfg.retry_ledger),
@@ -225,5 +228,8 @@ def delta_pass(c, record):
         acquisition_instance=record['acquisition_instance'],samples=[int(r['sequence_id']) for r in rows],
         remote_complete=4,remote_integrity='PASS',completed_utc=f.utc_now()))
     c.archive_controls()
+    from infrastructure_pair_group_recovery import RULE as INFRA_RULE
+    if record['rule'] == INFRA_RULE:
+        print(f"PAIR_GROUP_{record['group']:04d}_INFRA_RECOVERY_PASS",flush=True)
     print(f"PAIR_GROUP_{record['group']:04d}_REACQUISITION_PASS",flush=True)
     print('PAIR_GROUP_REACQUISITION_DELTA_PASS',flush=True)

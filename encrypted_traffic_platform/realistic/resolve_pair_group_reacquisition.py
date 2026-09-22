@@ -195,7 +195,7 @@ for n in controls:
     f.atomic_write_json(cfg.local_root/'campaign_disposition.json',{**disposition,
         'carry_forward_samples':f"1-{record['carry_forward']['valid_samples']}",
         'next_sequence':record['group']*4-3,'active_acquisition_instance':record['acquisition_instance'],
-        'active_retry_ledger':record['active_ledger'],'pair_group_reacquisition_rule':RULE,
+        'active_retry_ledger':record['active_ledger'],'pair_group_reacquisition_rule':record['rule'],
         'historical_acquisition_record':record['record_path']})
     c.archive_controls()
     pending=cfg.local_root/'pending_pair_group_reacquisition.json'
