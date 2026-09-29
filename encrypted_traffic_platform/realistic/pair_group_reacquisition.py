@@ -73,7 +73,11 @@ def add_closed_attempt_counts(current, closed):
     # Count this retained ledger alone; installed aggregate adapters may already
     # include other closed protocol epochs in every call.
     from external_host_restart_recovery import attempt_counts
-    historical = attempt_counts(closed)
+    # PRE-health aborts retain a ledger row and evidence, but no browser,
+    # capture, or workload started, so they are not scientific attempts.
+    scientific = [entry for entry in closed
+                  if entry.get('browser_attempt_consumed', 'true') != 'false']
+    historical = attempt_counts(scientific)
     return {**current, 'TOTAL_ATTEMPTS':current['TOTAL_ATTEMPTS']+historical['TOTAL_ATTEMPTS'],
             'RETRY_COUNT':current['RETRY_COUNT']+historical['RETRY_COUNT']}
 

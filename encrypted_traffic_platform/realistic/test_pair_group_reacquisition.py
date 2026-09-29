@@ -69,5 +69,16 @@ class BoundedReacquisitionTest(unittest.TestCase):
         self.assertEqual(result['TOTAL_ATTEMPTS'],381)
         self.assertEqual(result['RETRY_COUNT'],10)  # sample85 recovery adjustment is installed last.
 
+    def test_preworkload_abort_is_not_counted_as_scientific_attempt(self):
+        current = {'TOTAL_ATTEMPTS': 544, 'RETRY_COUNT': 18}
+        closed = [
+            dict(sample_id='sample513', attempt='1', browser_attempt_consumed='true'),
+            dict(sample_id='sample514', attempt='1', browser_attempt_consumed='true'),
+            dict(sample_id='sample515', attempt='1', browser_attempt_consumed='false'),
+        ]
+        result = add_closed_attempt_counts(current, closed)
+        self.assertEqual(result['TOTAL_ATTEMPTS'], 546)
+        self.assertEqual(result['RETRY_COUNT'], 18)
+
 
 if __name__=='__main__': unittest.main()
