@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "direct": 300,
+    "shadowsocks": 300,
+    "trojan": 300,
+    "vless": 300
+  },
+  "expected_per_mode": 300,
+  "status": "PASS"
+}

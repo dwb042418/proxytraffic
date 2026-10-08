@@ -1,0 +1,17 @@
+{
+  "audited_samples": 1200,
+  "audited_utc": "2026-10-08T02:59:00Z",
+  "campaign_REMOTE_COMPLETE": "1200/1200",
+  "campaign_REMOTE_INTEGRITY": "PASS",
+  "campaign_REMOTE_SHA_PASS": 1200,
+  "control_sha_pass": 1200,
+  "expected_samples": 1200,
+  "issue_count": 0,
+  "issues": [],
+  "local_remote_receipts_pass": 1200,
+  "method": "Read-only independent revalidation of five immutable remote controls per final sample, full FINAL_METADATA_SHA256SUMS verification, remote identity/eligibility receipts, exact final-directory membership, and existence/nontrivial-size checks for every SHA256SUMS-referenced artifact; immutable acquisition-time PCAP SHA receipts reused without bulk PCAP rehash.",
+  "referenced_artifacts_present": 1200,
+  "remote_metadata_pass": 1200,
+  "remote_sample_directories": 1200,
+  "status": "PASS"
+}

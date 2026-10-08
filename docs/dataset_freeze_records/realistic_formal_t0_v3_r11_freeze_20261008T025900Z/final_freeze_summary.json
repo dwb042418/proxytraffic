@@ -1,0 +1,56 @@
+{
+  "HISTORICAL_INFRASTRUCTURE_ROOT_CAUSE": "UNRESOLVED_NONREPRODUCED_INFRASTRUCTURE_EVENT",
+  "PASS_MARKER": "REALISTIC_FORMAL_FINAL_COLLECTION_PASS",
+  "audit_status": "PASS",
+  "campaign_id": "t0_v3_r11",
+  "complete_pair_groups": 300,
+  "dataset_track": "REALISTIC_FORMAL_T0_V3_R11",
+  "duplicate_pair_mode_memberships": 0,
+  "duplicate_sample_memberships": 0,
+  "duplicate_sequence_memberships": 0,
+  "eligible_samples": 1200,
+  "exact_modes_per_pair_group": 4,
+  "exclusion_audit": {
+    "diagnostic_artifacts_in_eligible_manifest": 0,
+    "historical_failed_attempts_in_eligible_manifest": 0,
+    "provenance_only_artifacts_in_eligible_manifest": 0,
+    "status": "PASS",
+    "superseded_acquisitions_in_eligible_manifest": 0
+  },
+  "failure_provenance_records": 122,
+  "feature_extraction_status": "NOT_STARTED",
+  "freeze_utc": "2026-10-08T02:59:00Z",
+  "immutability": "SHA256_REGISTRY_PLUS_LOCAL_GIT_COMMIT_AND_ANNOTATED_TAG",
+  "infrastructure_evidence_records": 33,
+  "integrity_issues": 0,
+  "mode_counts": {
+    "direct": 300,
+    "shadowsocks": 300,
+    "trojan": 300,
+    "vless": 300
+  },
+  "model_training_status": "NOT_STARTED",
+  "reacquisition_registry_records": 11,
+  "remote_audit_status": "PASS",
+  "remote_complete": "1200/1200",
+  "remote_independent_integrity": "PASS",
+  "retries": 87,
+  "sample1176": {
+    "eligible_acquisition_instance": "pair_group_0294_isolated_recovery1",
+    "eligible_quartet_sequences": [
+      1173,
+      1174,
+      1175,
+      1176
+    ],
+    "eligible_sample_id": "formal_t0_v3_sample1176_pair_group_0294_isolated_recovery1",
+    "historical_sample_disposition": "PROVENANCE_ONLY",
+    "historical_sample_id": "formal_t0_v3_sample1176"
+  },
+  "source_active_retry_ledger": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/acquisitions/pair_group_0294_isolated_recovery1/active_retry_ledger.tsv",
+  "source_active_retry_ledger_sha256": "fc3f0cc942a75602d133c8dff3b9acb45de0c7ee68a7412cfef72934a4304964",
+  "source_campaign_result": "/home/etip/datasets/staging/realistic_v1/t0_v3_r11/campaign_result.json",
+  "source_campaign_result_sha256": "b6d87119d6077b10ab95b9fda043df75d9647dc39bda1a38ed998eb1c38bf7e6",
+  "total_attempts": 1344,
+  "valid_samples": 1200
+}

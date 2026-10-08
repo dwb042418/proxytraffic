@@ -1,0 +1,11 @@
+{
+  "FINAL_DATASET_ACQUISITION_ATTEMPTS": 1257,
+  "HISTORICAL_ACQUISITION_ATTEMPTS": 80,
+  "RETRY_COUNT": 87,
+  "TOTAL_ATTEMPTS": 1344,
+  "TOTAL_RETRIES": 87,
+  "active_final_dataset_failed_attempt_rows": 56,
+  "active_final_dataset_ledger_rows": 1257,
+  "active_final_dataset_pass_rows": 1200,
+  "status": "PASS"
+}
